@@ -1,0 +1,37 @@
+apply from: "https://gradle.avaldigitallabs.com/resources/java-serenity-project.gradle"
+
+ext {
+
+    libs = [
+            slf4jApi: "org.slf4j:slf4j-api:${slf4jVersion}",
+            logback : "ch.qos.logback:logback-classic:${logbackVersion}",
+
+            test    : [
+                    serenity: [
+                            core               : "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+                            junit              : "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
+                            screenplay         : "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+                            screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+                            cucumber           : "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
+                            rest               : "net.serenity-bdd:serenity-rest-assured:${serenityRestAssured}"
+                    ],
+                    junit   : "junit:junit:${junitVersion}",
+                    assertj : "org.assertj:assertj-core:${assertJVersion}",
+                    hamcrest: "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+            ]
+    ]
+}
+
+dependencies {
+    compile libs.logback
+
+    testCompile libs.test.serenity.core,
+            libs.test.serenity.screenplay,
+            libs.test.serenity.junit,
+            libs.test.serenity.screenplayWebdriver,
+            libs.test.serenity.cucumber,
+            libs.test.serenity.rest,
+            libs.test.junit,
+            libs.test.assertj,
+            libs.test.hamcrest
+}
