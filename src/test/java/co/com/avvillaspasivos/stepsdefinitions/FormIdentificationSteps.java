@@ -1,0 +1,104 @@
+package co.com.avvillaspasivos.stepsdefinitions;
+
+import co.com.avvillaspasivos.tasks.AsercionesUi;
+import co.com.avvillaspasivos.tasks.FormIdentificacion;
+import co.com.avvillaspasivos.tasks.NavegarA;
+import cucumber.api.java.es.Cuando;
+import cucumber.api.java.es.Dado;
+import cucumber.api.java.es.Entonces;
+import net.serenitybdd.screenplay.actors.OnStage;
+
+public class FormIdentificationSteps {
+  @Dado(
+      "que el {string} es cliente actualizado del banco, está interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
+  public void
+      queElEsClienteActualizadoDelBancoEstáInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(
+          String actor) {
+    OnStage.theActorCalled(actor)
+        .attemptsTo(
+            NavegarA.homePage(),
+            NavegarA.comenzarSolicitud(),
+            FormIdentificacion.validarCargaInicial());
+  }
+
+  @Cuando("ingresa los datos correctamente")
+  public void ingresaLosDatosCorrectamente() {
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.diligenciar());
+  }
+
+  @Cuando("ingresa los datos incompletos")
+  public void ingresaLosDatosIncompletos() {
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.noDiligenciar());
+  }
+
+  @Entonces("se activará el botón de continuar")
+  public void seActivaráElBotónDeContinuar() {
+    OnStage.theActorInTheSpotlight()
+        .attemptsTo(AsercionesUi.botonContinuarFormIdentificacionEnabled());
+  }
+
+  @Entonces("no se activará el botón de continuar y muestra mensaje de error")
+  public void noSeActivaráElBotónDeContinuarYMuestraMensajeDeError() {
+    OnStage.theActorInTheSpotlight()
+        .attemptsTo(
+            AsercionesUi.botonContinuarFormIdentificacionDisabled(),
+            AsercionesUi.cantidadMsjObligatoriosFormIdentificacion());
+  }
+
+  @Dado("que el {string} esta en la pantalla del formulario de identificacion de usuario")
+  public void queElEstaEnLaPantallaDelFormularioDeIdentificacionDeUsuario(String actor) {
+    OnStage.theActorCalled(actor)
+        .attemptsTo(
+            NavegarA.homePage(),
+            NavegarA.comenzarSolicitud(),
+            FormIdentificacion.validarCargaInicial());
+  }
+
+  @Cuando("ingresa celular con cuarto numero igual a 1 o 0")
+  public void ingresaCelularConCuartoNumeroIgualAO() {
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.digitarCelularErrado());
+  }
+
+  @Entonces("genera mensaje {string}")
+  public void generaMensaje(String mensaje) {
+    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
+  }
+
+  @Dado("que los campos donde dígito mi información son tipo texto")
+  public void queLosCamposDondeDígitoMiInformaciónSonTipoTexto() {
+    OnStage.theActorCalled("Usuario")
+        .attemptsTo(
+            NavegarA.homePage(),
+            NavegarA.comenzarSolicitud(),
+            FormIdentificacion.validarCargaInicial());
+  }
+
+  @Cuando("ingrese mas de 20 caracteres")
+  public void ingreseMasDeCaracteres() {
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.ingresarTextoFueraDelLimite());
+  }
+
+  @Entonces("no me permite ingresar mas datos")
+  public void noMePermiteIngresarMasDatos() {
+    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadLimiteTexto());
+  }
+
+  @Dado("que el {string} esta digitando información en el campo confirmación de telefono")
+  public void queElEstaDigitandoInformaciónEnElCampoConfirmaciónDeTelefono(String actor) {
+    OnStage.theActorCalled(actor)
+        .attemptsTo(
+            NavegarA.homePage(),
+            NavegarA.comenzarSolicitud(),
+            FormIdentificacion.validarCargaInicial());
+  }
+
+  @Cuando("intente pegar la información \\(control V)")
+  public void intentePegarLaInformaciónControlV() {
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.copiarPegarTelefono());
+  }
+
+  @Entonces("no me permitirá pegar los datos")
+  public void noMePermitiráPegarLosDatos() {
+    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadTextoConfirmacionCel());
+  }
+}
