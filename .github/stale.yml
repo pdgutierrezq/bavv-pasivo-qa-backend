@@ -25,3 +25,6 @@ closeComment: >
   This issue/PR has been automatically closed due to inactivity.
   Thank you for your contributions.
   Developed with all :heart: in the world by ADL DevOps team.
+
+# Comment to post when closing a stale issue. Set to `false` to disable
+closeComment: true
