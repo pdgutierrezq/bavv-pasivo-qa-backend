@@ -1,37 +1,82 @@
-apply from: "https://gradle.avaldigitallabs.com/resources/java-serenity-project.gradle"
+apply from: "gradle/resources/java-serenity-project.gradle"
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+
+}
 
 ext {
 
     libs = [
-            slf4jApi: "org.slf4j:slf4j-api:${slf4jVersion}",
-            logback : "ch.qos.logback:logback-classic:${logbackVersion}",
-
-            test    : [
-                    serenity: [
-                            core               : "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
-                            junit              : "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
-                            screenplay         : "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
-                            screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
-                            cucumber           : "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
-                            rest               : "net.serenity-bdd:serenity-rest-assured:${serenityRestAssured}"
+            test: [
+                    serenity     : [
+                            core               : "net.serenity-bdd:serenity-core:${serenityVersion}",
+                            junit              : "net.serenity-bdd:serenity-junit:${serenityVersion}",
+                            ensure             : "net.serenity-bdd:serenity-ensure:${serenityEnsureVersion}",
+                            screenplay         : "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
+                            screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
+                            cucumber4          : "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
+                            restAssured        : "net.serenity-bdd:serenity-rest-assured:${serenityVersion}",
+                            rest               : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
                     ],
-                    junit   : "junit:junit:${junitVersion}",
-                    assertj : "org.assertj:assertj-core:${assertJVersion}",
-                    hamcrest: "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+                    cucumber     : [
+                            core : "io.cucumber:cucumber-java:${cucumberVersion}",
+                            junit: "io.cucumber:cucumber-junit:${cucumberVersion}"
+                    ],
+                    junit        : "junit:junit:${junitVersion}",
+                    assertj      : "org.assertj:assertj-core:${assertJVersion}",
+                    hamcrest     : "org.hamcrest:hamcrest-all:${hamcrestVersion}",
+                    lombok       : "org.projectlombok:lombok:${lombokVersion}",
+                    aeonbits     : "org.aeonbits.owner:owner-java8:${aeonBitsVersion}",
+                    jsonvalidator: "io.rest-assured:json-schema-validator:${jsonvalidatorrestassured}",
+                    gherkin      : "io.cucumber:jgherkin:${jsonvalidatorrestassured}",
+                    faker        : "com.github.javafaker:javafaker:${fakerVersion}"
+
             ]
     ]
 }
-
 dependencies {
-    compile libs.logback
+    compile files('libs/ojdbc8.jar')
 
-    testCompile libs.test.serenity.core,
+    annotationProcessor libs.test.lombok
+
+    implementation libs.test.serenity.core,
             libs.test.serenity.screenplay,
             libs.test.serenity.junit,
-            libs.test.serenity.screenplayWebdriver,
-            libs.test.serenity.cucumber,
+            libs.test.serenity.ensure,
+            libs.test.serenity.cucumber4,
             libs.test.serenity.rest,
             libs.test.junit,
-            libs.test.assertj,
-            libs.test.hamcrest
+            libs.test.cucumber.core,
+            libs.test.cucumber.junit,
+            libs.test.lombok,
+            libs.test.aeonbits,
+            libs.test.jsonvalidator
+
+
+}
+
+processTestResources {
+    ext.buildProfile = System.getenv('environment')
+    if (ext.buildProfile == null) buildProfile = 'stg'
+    println "Info: RUNNING ON ENVIRONMENT $buildProfile "
+    from("$rootDir/profiles/$buildProfile") {
+        include '*.properties'
+    }
+    from("$rootDir/src/test/java") {
+        include '**/*.feature'
+    }
+}
+test {
+
+    testLogging {
+        events "failed", "passed", "skipped"
+        exceptionFormat = 'full'
+    }
+    systemProperty "environment", System.getProperty("environment")
+    test.outputs.upToDateWhen { false }
+    gradle.startParameter.continueOnFailure = true
+
+
 }

@@ -14,7 +14,7 @@ update_configs:
     update_schedule: "weekly"
 
     # Branch to create pull requests against.
-    target_branch: "master"
+    target_branch: "develop"
 
     # Preferences for the format of Dependabot's commit messages and pull request titles.
     # Check our Gitmoji site: https://gitmoji.avaldigitallabs.com/

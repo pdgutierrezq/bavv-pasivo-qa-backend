@@ -1,0 +1,36 @@
+/**************************************************************************
+ ************* ADL DevOps Gradle Script ***********************************
+ * ------------------------------------------------------------------------
+ * ############ Serenity Configuration #########################################
+ *
+ *  This file have the serenity configuration plugin
+ *
+ * DOC :
+ * ---------------------------------------------------
+ *  https://github.com/serenity-bdd/serenity-core
+ *
+ * HOW TO RUN :
+ * ---------------------------------------------------
+ *   $ gradle test
+ *
+ * AUTHORS :
+ * ---------------------------------------------------
+ *   "Juan Sebastian Sanchez <juann.sanchez@avaldigitallabs.com>"
+ **************************************************************************/
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.1.0"
+    }
+}
+
+apply plugin: net.serenitybdd.plugins.gradle.SerenityPlugin
+
+
+defaultTasks 'clean', 'test', 'aggregate'
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
