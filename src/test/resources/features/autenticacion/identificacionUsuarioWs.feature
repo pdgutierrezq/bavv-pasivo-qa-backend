@@ -10,10 +10,10 @@ Característica: Consumir servicio de identificación de usuario de la nube negr
 
   @Sprint-3
 #    @example
-  Esquema del escenario: Consumir servicio de identificación de usuario
-    Dado que tengo el "<tipo>", "<número>" de documento y demás datos de autenticación de un usuario
-    Cuando consumo el servicio rest de identificación
-    Entonces el servicio se encarga de enviar OTP al usuario o me informa que no pasó alguna validación
+  Esquema del escenario: Consumir servicio de identificacion de usuario
+    Dado que tengo el "<tipo>", "<numero>" de documento y demas datos de autenticacion de un usuario
+    Cuando consumo el servicio rest de identificacion
+    Entonces el servicio se encarga de enviar OTP al usuario o me informa que no paso alguna validacion
     Ejemplos:
-      | tipo | número     |
+      | tipo | numero     |
       | CC   | 1095798406 |

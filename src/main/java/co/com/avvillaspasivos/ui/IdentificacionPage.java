@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.ui;
 
 import net.serenitybdd.screenplay.targets.Target;
@@ -5,9 +13,10 @@ import org.openqa.selenium.By;
 
 public class IdentificacionPage {
 
-    private IdentificacionPage() {
-        throw new IllegalStateException("Utility class");
-    }
+  private IdentificacionPage() {
+    throw new IllegalStateException("Utility class");
+  }
+
   public static final Target DNI_INPUT =
       Target.the("Campo de texto DNI").located(By.id("DNINumber"));
   public static final Target CELULAR_INPUT =

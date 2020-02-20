@@ -9,12 +9,8 @@ Característica: Validaciones Adicionales Formulario de Identificación del usua
 
   @Sprint-4
   Escenario: Limitar ingreso superior a 20 caracteres a campos de texto
-    Dado que los campos donde dígito mi información son tipo texto
+    Dado que los campos donde digito mi informacion son tipo texto
     Cuando ingrese mas de 20 caracteres
     Entonces no me permite ingresar mas datos
 
-  @TestLive
-  Escenario: validar copiar pegar en campos de telefono
-    Dado que el "cliente" esta digitando información en el campo confirmación de telefono
-    Cuando intente pegar la información (control V)
-    Entonces no me permitirá pegar los datos
+

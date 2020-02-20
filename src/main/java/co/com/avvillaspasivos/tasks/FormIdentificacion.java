@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.IdentificacionPage;
@@ -12,9 +20,10 @@ import static co.com.avvillaspasivos.util.Constantes.TEXTO_SUPERIOR_LIMITE_TAMAN
 
 public class FormIdentificacion {
 
-    private FormIdentificacion() {
-        throw new IllegalStateException("Utility class");
-    }
+  private FormIdentificacion() {
+    throw new IllegalStateException("Utility class");
+  }
+
   public static Performable diligenciar() {
     return Task.where(
         "{0} diligencia formulario",

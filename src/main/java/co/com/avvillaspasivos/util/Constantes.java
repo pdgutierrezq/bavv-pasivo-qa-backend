@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.util;
 
 public class Constantes {
@@ -13,6 +21,6 @@ public class Constantes {
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@SONAR";
+  public static final String EXECUTION_TAGS = "@sonar";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }
