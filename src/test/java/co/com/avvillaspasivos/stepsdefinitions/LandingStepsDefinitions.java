@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.tasks.AsercionesUi;
@@ -13,41 +21,41 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class LandingStepsDefinitions {
-  @Before
-  public void setTheStage() {
-    OnStage.setTheStage(new OnlineCast());
-  }
+    @Before
+    public void setTheStage() {
+        OnStage.setTheStage(new OnlineCast());
+    }
 
-  @Dado(
-      "que el {string} ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas")
-  public void
-      queElIngresoAlLandingYVioLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas(
-          String featureActor) {
-    OnStage.theActorCalled(featureActor).attemptsTo(NavegarA.homePage());
-  }
+    @Dado(
+        "que el {string} ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas")
+    public void
+    queElIngresoAlLandingYVioLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas(
+        String featureActor) {
+        OnStage.theActorCalled(featureActor).attemptsTo(NavegarA.homePage());
+    }
 
-  @Dado(
-      "que el usuario ingreso al landing y vió landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas")
-  public void
-      queElUsuarioIngresoAlLandingYVióLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas() {}
+    @Dado(
+        "que el usuario ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas")
+    public void
+    queElUsuarioIngresoAlLandingYVioLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas() {}
 
-  @Cuando("de click en comenzar")
-  public void deClickEnComenzar() {
-    OnStage.theActorInTheSpotlight().attemptsTo(NavegarA.comenzarSolicitud());
-  }
+    @Cuando("de click en comenzar")
+    public void deClickEnComenzar() {
+        OnStage.theActorInTheSpotlight().attemptsTo(NavegarA.comenzarSolicitud());
+    }
 
-  @Cuando("de click en ver mas")
-  public void deClickEnVerMas() {
-    OnStage.theActorInTheSpotlight().attemptsTo(BeneficiosLanding.verMas());
-  }
+    @Cuando("de click en ver mas")
+    public void deClickEnVerMas() {
+        OnStage.theActorInTheSpotlight().attemptsTo(BeneficiosLanding.verMas());
+    }
 
-  @Entonces("se desplegará un cuadro con información de beneficios.")
-  public void seDesplegaráUnCuadroConInformaciónDeBeneficios() {
-    OnStage.theActorInTheSpotlight().attemptsTo(VerMas.validate(Constantes.TEXT_MODAL_VER_MAS));
-  }
+    @Entonces("se desplegara un cuadro con informacion de beneficios.")
+    public void seDesplegaraUnCuadroConInformacionDeBeneficios() {
+        OnStage.theActorInTheSpotlight().attemptsTo(VerMas.validate(Constantes.TEXT_MODAL_VER_MAS));
+    }
 
-  @Entonces("se desplegará un cuadro para su identificación")
-  public void seDesplegaráUnCuadroParaSuIdentificación() {
-    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarBotonContinuarLanding());
-  }
+    @Entonces("se desplegara un cuadro para su identificacion")
+    public void seDesplegaraUnCuadroParaSuIdentificacion() {
+        OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarBotonContinuarLanding());
+    }
 }

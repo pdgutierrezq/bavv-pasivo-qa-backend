@@ -11,14 +11,14 @@ Característica: Descripcion Producto Landing
   Escenario: Comenzar proceso desde landing
     Dado que el "usuario" ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas
     Cuando de click en comenzar
-    Entonces se desplegará un cuadro para su identificación
+    Entonces se desplegara un cuadro para su identificacion
 
 
   @Sprint-2
   Escenario: Ver mas landing
     Dado que el "usuario" ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas
     Cuando de click en ver mas
-    Entonces se desplegará un cuadro con información de beneficios.
+    Entonces se desplegara un cuadro con informacion de beneficios.
 
 
 

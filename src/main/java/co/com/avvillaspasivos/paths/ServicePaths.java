@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.paths;
 
 import co.com.avvillaspasivos.data.Environment;
@@ -5,9 +13,9 @@ import co.com.avvillaspasivos.data.EnvironmentProperties;
 import org.aeonbits.owner.ConfigFactory;
 
 public class ServicePaths {
-    private ServicePaths() {
-        throw new IllegalStateException("Utility class");
-    }
+  private ServicePaths() {
+    throw new IllegalStateException("Utility class");
+  }
 
   private static Environment environment;
 
@@ -24,6 +32,7 @@ public class ServicePaths {
   public static String pathIdentificationProject() {
     return environment.identificationProject();
   }
+
   public static String passOracle() {
     return environment.psworacle();
   }

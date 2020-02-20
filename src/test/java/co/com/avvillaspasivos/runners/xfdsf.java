@@ -6,16 +6,6 @@
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
  */
-package co.com.avvillaspasivos.model;
+package co.com.avvillaspasivos.runners;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
-@Builder
-public class BodyCustCond {
-  private String documentType;
-  private String documentNumber;
-}
+public class xfdsf {}

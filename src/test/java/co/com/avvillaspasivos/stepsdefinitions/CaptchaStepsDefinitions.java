@@ -1,3 +1,11 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.DataProvider;
@@ -28,72 +36,72 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 import static org.hamcrest.Matchers.isOneOf;
 
 public class CaptchaStepsDefinitions {
-  @Before
-  public void setTheStage() {
-    OnStage.setTheStage(new OnlineCast());
-  }
+    @Before
+    public void setTheStage() {
+        OnStage.setTheStage(new OnlineCast());
+    }
 
-  private Actor actor;
+    private Actor actor;
 
-  @Dado("que un {string} quiere acceder a la apertura de cuenta")
-  public void queUnQuiereAccederALaAperturaDeCuenta(String featureActor) {
-    actor = Actor.named(featureActor).whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
-  }
+    @Dado("que un {string} quiere acceder a la apertura de cuenta")
+    public void queUnQuiereAccederALaAperturaDeCuenta(String featureActor) {
+        actor = Actor.named(featureActor).whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
+    }
 
-  @Cuando("consumo el servicio de recaptcha")
-  public void consumoElServicioDeRecaptcha() {
-    //        actor.attemptsTo(
-    //            CallGet.path(ServicePaths.pathCaptcha())
-    //        );
-  }
+    @Cuando("consumo el servicio de recaptcha")
+    public void consumoElServicioDeRecaptcha() {
+        //        actor.attemptsTo(
+        //            CallGet.path(ServicePaths.pathCaptcha())
+        //        );
+    }
 
-  @Entonces("el servicio valida y me entrega la informacion para saber que soy un usuario real")
-  public void elServicioValidaYMeEntregaLaInformacionParaSaberQueSoyUnUsuarioReal() {
-    ValidationCommon.validateSchema("");
-    Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200));
-    Ensure.that(
-        "contains user type",
-        response -> response.body("usuario", isOneOf(DataProvider.getUsersIdentification())));
-  }
+    @Entonces("el servicio valida y me entrega la informacion para saber que soy un usuario real")
+    public void elServicioValidaYMeEntregaLaInformacionParaSaberQueSoyUnUsuarioReal() {
+        ValidationCommon.validateSchema("");
+        Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200));
+        Ensure.that(
+            "contains user type",
+            response -> response.body("usuario", isOneOf(DataProvider.getUsersIdentification())));
+    }
 
-  @Entonces("se espera la respuesta del captcha")
-  public void seEsperaLaRespuestaDelCaptcha() {
-    System.out.println("www");
-  }
+    @Entonces("se espera la respuesta del captcha")
+    public void seEsperaLaRespuestaDelCaptcha() {
+        System.out.println("www");
+    }
 
-  @Dado("que el formulario de identificación cliente esta diligenciado correctamente")
-  public void queElFormularioDeIdentificaciónClienteEstaDiligenciadoCorrectamente() {
-    OnStage.theActorCalled("Usuario")
-        .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial(),
-            FormIdentificacion.diligenciar());
-  }
+    @Dado("que el formulario de identificacion cliente esta diligenciado correctamente")
+    public void queElFormularioDeIdentificacionClienteEstaDiligenciadoCorrectamente() {
+        OnStage.theActorCalled("Usuario")
+            .attemptsTo(
+                NavegarA.homePage(),
+                NavegarA.comenzarSolicitud(),
+                FormIdentificacion.validarCargaInicial(),
+                FormIdentificacion.diligenciar());
+    }
 
-  @Cuando("el boton se active y el cliente de click en continuar")
-  public void elBotonSeActiveYElClienteDeClickEnContinuar() {
-    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
-  }
+    @Cuando("el boton se active y el cliente de click en continuar")
+    public void elBotonSeActiveYElClienteDeClickEnContinuar() {
+        OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
+    }
 
-  @Entonces("se validara el recapcha fallido")
-  public void seValidaraElRecapchaFallido() {
-    System.out.println("recaptcha fallido");
-  }
+    @Entonces("se validara el recapcha fallido")
+    public void seValidaraElRecapchaFallido() {
+        System.out.println("recaptcha fallido");
+    }
 
-  @Cuando("se simule comportamiento de robot y el cliente de click en continuar")
-  public void seSimuleComportamientoDeRobotYElClienteDeClickEnContinuar() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.simularRobot());
-    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
-  }
+    @Cuando("se simule comportamiento de robot y el cliente de click en continuar")
+    public void seSimuleComportamientoDeRobotYElClienteDeClickEnContinuar() {
+        OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.simularRobot());
+        OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
+    }
 
-  @Entonces("se muestra la pantalla PEP confirmando que paso la validacion captcha")
-  public void seMuestraLaPantallaPEPConfirmandoQuePasoLaValidacionCaptcha() {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
-            WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()),
-            WaitUntil.the(PepPage.TEXT_PEP, isVisible()),
-            thatTheCurrentPage().currentUrl().contains(Constantes.PATH_PEP));
-  }
+    @Entonces("se muestra la pantalla PEP confirmando que paso la validacion captcha")
+    public void seMuestraLaPantallaPEPConfirmandoQuePasoLaValidacionCaptcha() {
+        OnStage.theActorInTheSpotlight()
+            .attemptsTo(
+                WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
+                WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()),
+                WaitUntil.the(PepPage.TEXT_PEP, isVisible()),
+                thatTheCurrentPage().currentUrl().contains(Constantes.PATH_PEP));
+    }
 }

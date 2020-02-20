@@ -8,21 +8,21 @@ Característica: Detalle Habeas Data
 
   @Sprint-3
   Escenario: Visualizar informacion adicional de habeas data
-    Dado que el "cliente" quiere saber que es la autorización de habeas data
+    Dado que el "cliente" quiere saber que es la autorizacion de habeas data
     Cuando de click en ver mas habeas data
-    Entonces se le desplegará un Pop-Up con la información de lo que es la autorización del habeas data.
+    Entonces se le desplegara un Pop-Up con la informacion de lo que es la autorizacion del habeas data.
 
   @Sprint-3
   Escenario: Validar funcionalidad boton entendido ver mas habeas data
-    Dado que el "cliente" esta en el POPUP de lo que es la autorización de habeas data
+    Dado que el "cliente" esta en el POPUP de lo que es la autorizacion de habeas data
     Cuando Cuando de click en entendido
-    Entonces Regresará a la pantalla de identificación cliente
+    Entonces Regresara a la pantalla de identificacion cliente
 
 
   @Sprint-3
   Escenario: Validar funcionalidad boton cerrar ver mas habeas data
-    Dado que el "cliente" esta en el POPUP de lo que es la autorización de habeas data
+    Dado que el "cliente" esta en el POPUP de lo que es la autorizacion de habeas data
     Cuando Cuando de click en cerrar
-    Entonces Regresará a la pantalla de identificación cliente
+    Entonces Regresara a la pantalla de identificacion cliente
 
 
