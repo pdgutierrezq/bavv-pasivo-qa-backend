@@ -21,6 +21,6 @@ public class Constantes {
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@sonar";
+  public static final String EXECUTION_TAGS = "not @example";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }
