@@ -8,7 +8,6 @@
  */
 package co.com.avvillaspasivos.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,18 +17,15 @@ import lombok.Setter;
 @Builder
 public class BodyGenerarOtp {
 
-  @JsonProperty("DocumentType")
-  public String documentType;
+  private String documentType;
 
-  @JsonProperty("DocumentNumber")
-  public String documentNumber;
+  private String documentNumber;
 
-  @JsonProperty("LastName")
-  public String lastName;
+  private String lastName;
 
-  @JsonProperty("FirstName")
-  public String firstName;
+  private String firstName;
 
-  @JsonProperty("Phone")
-  public String phone;
+  private String phone;
+
+  private String otp;
 }

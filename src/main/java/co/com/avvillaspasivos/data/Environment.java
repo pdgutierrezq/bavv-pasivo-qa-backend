@@ -19,6 +19,8 @@ public interface Environment extends Config {
 
   String customerConditions();
 
+  String userIdentity();
+
   String identificationProject();
 
   String psworacle();
