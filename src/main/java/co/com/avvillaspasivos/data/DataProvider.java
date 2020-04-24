@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.data;
 
+import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -34,7 +35,7 @@ public class DataProvider {
   }
 
   public static BodyGenerarOtp getBodyIdentification(String tipoUsuario) {
-      JsonObject jsonObjectUser=filterUsersIdentificationList(tipoUsuario,getUsersIdentification());
+      JsonObject jsonObjectUser= filterUsersList(tipoUsuario, getUsers());
 
       return BodyGenerarOtp.builder()
           .documentType(jsonObjectUser.get("tipoDoc").getAsString())
@@ -45,8 +46,21 @@ public class DataProvider {
           .build();
 
   }
+  public static ActorData getActorData(String tipoUsuario) {
+      JsonObject jsonObjectUser= filterUsersList(tipoUsuario, getUsers());
 
-  public static List<JsonObject> getUsersIdentification() {
+      return ActorData.builder()
+          .documentType(jsonObjectUser.get("tipoDoc").getAsString())
+          .documentNumber(jsonObjectUser.get("numDoc").getAsString())
+          .firstName(jsonObjectUser.get("firstName").getAsString())
+          .lastName(jsonObjectUser.get("lastName").getAsString())
+          .phone(jsonObjectUser.get("phone").getAsString())
+          .salary(jsonObjectUser.get("salary").getAsString())
+          .build();
+
+  }
+
+  public static List<JsonObject> getUsers() {
     JsonParser parser = new JsonParser();
     List<JsonObject> users = new ArrayList<>();
     JsonObject jsonObject = parser.parse(getJsonUsers()).getAsJsonObject();
@@ -55,7 +69,7 @@ public class DataProvider {
 
     return users;
   }
-  public static JsonObject filterUsersIdentificationList(String userType,List<JsonObject> list) {
+  public static JsonObject filterUsersList(String userType, List<JsonObject> list) {
       return list.stream()
         .filter(e->e.get("tipoUser").getAsString().equals(userType))
         .findFirst().orElse(new JsonObject());

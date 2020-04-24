@@ -5,7 +5,9 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
+ *
  */
+
 package co.com.avvillaspasivos.runners;
 
 import co.com.avvillaspasivos.util.Constantes;
@@ -16,8 +18,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "classpath:features/landing/detalleHabeasData.feature",
+    features = "classpath:features",
     glue = Constantes.RUTA_STEPS_DEFINITIONS,
     tags = Constantes.EXECUTION_TAGS,
     snippets = SnippetType.CAMELCASE)
-public class DetalleHabeasDataTestRunner {}
+public class TestRunnerConstruccion {
+}

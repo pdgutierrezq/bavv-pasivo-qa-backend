@@ -26,15 +26,4 @@ Característica: condiciones cliente
 #    Ejemplos:
 #      | tipo usuario | tipo cuenta | aceptacion seguro |
 #      | actualizado  | simple      | no                |
-#  @example
-#  Escenario: test obtener otp
-#    Dado que se genera otp
-#    Cuando se consulta massivian
-#    Entonces se obtiene otp
 
-
-#  @example
-#  Escenario: test obtener otp
-#    Dado que se conecta a oracle
-#    Cuando se consulta massivian
-#    Entonces se obtiene otp

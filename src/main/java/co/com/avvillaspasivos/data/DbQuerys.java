@@ -48,20 +48,20 @@ public class DbQuerys {
   }
 
   @SneakyThrows
-  public String getXmlOtp() {
+  public String getXmlOtp(String phone) {
     String sqlQuery =
         "SELECT * FROM ORA12IIB10.MESSAGE_LOG "
-            + "WHERE 1=1 "
-            + "AND MESSAGE_DATE BETWEEN TO_DATE('10/02/2020 13:00:00', 'DD/MM/YYYY HH24:MI:SS') "
-            + "AND TO_DATE('10/02/2020 15:00:00','DD/MM/YYYY HH24:MI:SS') "
+            + "WHERE  MESSAGE_DATE BETWEEN TO_DATE(TO_CHAR(CURRENT_DATE, 'DD/MM/YYYY')||' 00:00:00','DD/MM/YYYY HH24:MI:SS')\n"
+            + "AND TO_DATE(TO_CHAR(CURRENT_DATE, 'DD/MM/YYYY')||' 23:00:00','DD/MM/YYYY HH24:MI:SS')\n"
             + "AND OPERATION_NAME LIKE '%FRq_SendNotifications%' "
             + "AND SERVICE_NAME LIKE '%MBNotifications%' "
             + "AND BANKID LIKE '%00010524%' "
-            + "AND REF3 LIKE '573112452187' "
+            + "AND REF3 LIKE '57'||? "
+            +"AND ROWNUM=1"
             + "ORDER BY MESSAGE_DATE DESC";
 
     try {
-      execQueryGeneric(sqlQuery);
+      execQueryGeneric(phone,sqlQuery);
       while (rs.next()) {
         xmlResponse = rs.getString(10);
       }
@@ -71,28 +71,4 @@ public class DbQuerys {
     return xmlResponse;
   }
 
-  @SneakyThrows
-  public String getXmlOtpP(String numCel) {
-
-    String sqlQuery =
-        "SELECT * FROM ORA12IIB10.MESSAGE_LOG "
-            + "WHERE 1=1 "
-            + "AND MESSAGE_DATE BETWEEN TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS') "
-            + "AND TO_DATE(?,'DD/MM/YYYY HH24:MI:SS') "
-            + "AND OPERATION_NAME LIKE '%FRq_SendNotifications%' "
-            + "AND SERVICE_NAME LIKE '%MBNotifications%' "
-            + "AND BANKID LIKE '%00010524%' "
-            + "AND REF3 LIKE '57?' "
-            + "ORDER BY MESSAGE_DATE DESC";
-
-    try {
-      execQueryGeneric(sqlQuery);
-      while (rs.next()) {
-        xmlResponse = rs.getString(10);
-      }
-    } finally {
-      DbConnect.closeConnection(connection);
-    }
-    return xmlResponse;
-  }
 }

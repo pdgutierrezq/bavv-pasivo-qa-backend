@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.data.GlobalData;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -27,14 +28,15 @@ public class FormIdentificacion {
   public static Performable diligenciar() {
     return Task.where(
         "{0} diligencia formulario",
-        Enter.theValue("79338822").into(IdentificacionPage.DNI_INPUT),
-        Enter.theValue("3195214574").into(IdentificacionPage.CELULAR_INPUT).thenHit(Keys.TAB),
-        Enter.theValue("3195214574").into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
-        Enter.theValue("EDUARDO").into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
-        Enter.theValue("CASTRO").into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
-        Enter.theValue("1600000").into(IdentificacionPage.INGRESOS_INPUT),
+        Enter.theValue(GlobalData.actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
+        Enter.theValue(GlobalData.actorData.getPhone()).into(IdentificacionPage.CELULAR_INPUT).thenHit(Keys.TAB),
+        Enter.theValue(GlobalData.actorData.getPhone()).into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
+        Enter.theValue(GlobalData.actorData.getFirstName()).into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
+        Enter.theValue(GlobalData.actorData.getLastName()).into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
+        Enter.theValue(GlobalData.actorData.getSalary()).into(IdentificacionPage.INGRESOS_INPUT),
         Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX));
   }
+
 
   public static Performable digitarCelularErrado() {
     return Task.where(

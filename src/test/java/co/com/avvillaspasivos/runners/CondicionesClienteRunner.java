@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "classpath:features/autenticacion/condicionesClienteWs.feature",
+    features = "classpath:features",
     glue = Constantes.RUTA_STEPS_DEFINITIONS,
     tags = Constantes.EXECUTION_TAGS,
     snippets = SnippetType.CAMELCASE)
