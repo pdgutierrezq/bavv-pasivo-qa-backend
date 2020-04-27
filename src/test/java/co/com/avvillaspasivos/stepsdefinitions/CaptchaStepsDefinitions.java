@@ -15,7 +15,7 @@ import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.NavegarA;
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
-import co.com.avvillaspasivos.ui.PepPage;
+import co.com.avvillaspasivos.ui.OfertaProductosPage;
 import co.com.avvillaspasivos.util.Constantes;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
@@ -61,7 +61,7 @@ public class CaptchaStepsDefinitions {
         Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200));
         Ensure.that(
             "contains user type",
-            response -> response.body("usuario", isOneOf(DataProvider.getUsersIdentification())));
+            response -> response.body("usuario", isOneOf(DataProvider.getUsers())));
     }
 
     @Entonces("se espera la respuesta del captcha")
@@ -101,7 +101,7 @@ public class CaptchaStepsDefinitions {
             .attemptsTo(
                 WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
                 WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()),
-                WaitUntil.the(PepPage.TEXT_PEP, isVisible()),
-                thatTheCurrentPage().currentUrl().contains(Constantes.PATH_PEP));
+                WaitUntil.the(OfertaProductosPage.RADIO_PRO, isVisible()),
+                thatTheCurrentPage().currentUrl().contains(Constantes.PATH_OFRECIMIENTO));
     }
 }

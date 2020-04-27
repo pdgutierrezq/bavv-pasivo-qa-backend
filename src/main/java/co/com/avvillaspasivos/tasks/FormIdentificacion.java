@@ -8,6 +8,8 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.data.GlobalData;
+import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -20,21 +22,23 @@ import static co.com.avvillaspasivos.util.Constantes.TEXTO_SUPERIOR_LIMITE_TAMAN
 
 public class FormIdentificacion {
 
-  private FormIdentificacion() {
+    private FormIdentificacion() {
     throw new IllegalStateException("Utility class");
   }
 
   public static Performable diligenciar() {
-    return Task.where(
+      ActorData actorData = GlobalData.getInstance().getActorData();
+      return Task.where(
         "{0} diligencia formulario",
-        Enter.theValue("79338822").into(IdentificacionPage.DNI_INPUT),
-        Enter.theValue("3195214574").into(IdentificacionPage.CELULAR_INPUT).thenHit(Keys.TAB),
-        Enter.theValue("3195214574").into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
-        Enter.theValue("EDUARDO").into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
-        Enter.theValue("CASTRO").into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
-        Enter.theValue("1600000").into(IdentificacionPage.INGRESOS_INPUT),
+        Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
+        Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_INPUT).thenHit(Keys.TAB),
+        Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
+        Enter.theValue(actorData.getFirstName()).into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
+        Enter.theValue(actorData.getLastName()).into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
+        Enter.theValue(actorData.getSalary()).into(IdentificacionPage.INGRESOS_INPUT),
         Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX));
   }
+
 
   public static Performable digitarCelularErrado() {
     return Task.where(

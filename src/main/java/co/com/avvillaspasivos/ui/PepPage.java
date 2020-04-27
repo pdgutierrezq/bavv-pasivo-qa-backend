@@ -18,4 +18,8 @@ public class PepPage {
 
   public static final Target TEXT_PEP =
       Target.the("Texto pregunta PEP").located(By.xpath("//*[@class='pep-question']"));
+  public static final Target  RADIO_NO_PEP =
+      Target.the("Radio button no PEP").located(By.xpath("//mat-radio-button[@ng-reflect-value='false']"));
+    public static final Target  BOTON_CONTINUAR =
+        Target.the("Boton continuar PEP").located(By.xpath("//button[contains(text(),' Continuar')]"));
 }

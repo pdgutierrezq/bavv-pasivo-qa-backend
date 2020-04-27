@@ -9,12 +9,12 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
+import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class Esperas {
 
@@ -26,7 +26,13 @@ public class Esperas {
     return Task.where(
         "{0} espera elemento de carga",
         WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
-        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()));
+        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()).forNoMoreThan(Constantes.MAX_WAIT).seconds());
+  }
+  public static Performable loader(int time) {
+    return Task.where(
+        "{0} espera elemento de carga",
+        WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
+        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()).forNoMoreThan(time).seconds());
   }
 
   public static Performable captchaReady() {

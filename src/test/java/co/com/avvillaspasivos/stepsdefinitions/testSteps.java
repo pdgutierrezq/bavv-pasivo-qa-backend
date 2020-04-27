@@ -8,9 +8,9 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.data.DbQuerys;
 import co.com.avvillaspasivos.facts.CondicionesCliente;
 import co.com.avvillaspasivos.model.BodyCustCond;
+import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.steps.ValidationCommon;
 import co.com.avvillaspasivos.tasks.*;
@@ -20,6 +20,7 @@ import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
+import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -70,7 +71,7 @@ public class testSteps {
 
   @Cuando("esta en pantalla de ofecimiento de cuenta y selecciona cuenta {string}")
   public void estaEnPantallaDeOfecimientoDeCuentaYSeleccionaCuenta(String tipoCuenta) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionCuenta.simple());
+    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionCuentaSimple.simple());
   }
 
   @Y("{string} acepta el ofrecimiento de seguro")
@@ -86,75 +87,32 @@ public class testSteps {
 
   @Dado("que se genera otp")
   public void queSeGeneraOtp() {
-    //        OnStage.theActorCalled("actor")
-    //            .whoCan(
-    //                CallAnApi.at("https://pa5xaz2b8d.execute-api.us-east-2.amazonaws.com/")
-    //            );
-    //
-    //        BodyGenerarOtp bodyGenerarOtp=BodyGenerarOtp.builder()
-    //            .documentType("CC")
-    //            .documentNumber("1096183483")
-    //            .lastName("mariana")
-    //            .firstName("parra")
-    //            .phone("3173458317")
-    //            .build();
-    //
-    //        OnStage.theActorInTheSpotlight()
-    //            .attemptsTo(
-    //                CallPost.pathBody("DEV/",bodyGenerarOtp)
-    //            );
-    //
-    //        System.out.println("************************************");
-    //        System.out.println("************************************");
-    //        System.out.println(SerenityRest.lastResponse().asString());
+            OnStage.theActorCalled("actor")
+                .whoCan(
+                    CallAnApi.at("https://pa5xaz2b8d.execute-api.us-east-2.amazonaws.com/")
+                );
+
+            BodyGenerarOtp bodyGenerarOtp=BodyGenerarOtp.builder()
+                .documentType("CC")
+                .documentNumber("1096183483")
+                .lastName("mariana")
+                .firstName("parra")
+                .phone("3173458317")
+                .build();
+
+            OnStage.theActorInTheSpotlight()
+                .attemptsTo(
+                    CallPost.pathBody("DEV/",bodyGenerarOtp)
+                );
+
+            System.out.println("************************************");
+            System.out.println("************************************");
+            System.out.println(SerenityRest.lastResponse().asString());
   }
 
   @Cuando("se consulta massivian")
   public void seConsultaMassivian() {
-    //        String bodyMasivian = "{\n" +
-    //            "\"UserName\": \"saenze@bancoavvillas.com.co\",\n" +
-    //            "\"Password\": \"ATHavvillas-2017\",\n" +
-    //            "\"RememberMe\": false,\n" +
-    //            "\"commit\": \"Ingresar\"\t\n" +
-    //            "}";
-    //
-    //        SerenityRest.useRelaxedHTTPSValidation();
-    //
-    //        BodyMasivian bodyMasivian=BodyMasivian.builder()
-    //           .userName("saenze@bancoavvillas.com.co")
-    //            .password("ATHavvillas-2017")
-    //            .rememberMe(false)
-    //            .commit("Ingresar")
-    //            .build();
 
-    //
-    //        String queryParam =
-    // "%2FSimpleSearch%2FSearchEmailAndCelular%3Fvalor%3D573173458317%26type%3D2%26inicio%3D2020%252F2%252F6%26fin%3D2020%252F2%252F6%26celType%3DMT%26_%3D1580930637721";
-    //        given()
-    //            .body(bodyMasivian)
-    ////            .queryParam(queryParam, "ReturnUrl")
-    //
-    // .when().post("http://athqa.estratec.com.co/Account/Login?ReturnUrl=%2FSimpleSearch%2FSearchEmailAndCelular%3Fvalor%3D573173458317%26type%3D2%26inicio%3D2020%252F2%252F6%26fin%3D2020%252F2%252F6%26celType%3DMT%26_%3D1580930637721");
-    ////            .when().post("http://athqa.estratec.com.co/Account/Login");
-    //
-    //
-    //       //        OnStage.theActorCalled("actor")
-    ////            .whoCan(
-    ////                CallAnApi.at("http://athqa.estratec.com.co/Account/Login?ReturnUrl=")
-    ////            );
-    ////        OnStage.theActorInTheSpotlight()
-    ////            .whoCan(
-    ////                CallAnApi.as(OnStage.theActorInTheSpotlight())
-    ////            );
-    //
-    ////        OnStage.theActorInTheSpotlight()
-    ////            .attemptsTo(
-    ////                CallPost.pathBody(ServicePaths.pathMasivian(),bodyMasivian)
-    ////            );
-    //
-    //        System.out.println("************************************");
-    //        System.out.println("************************************");
-    //        System.out.println(SerenityRest.lastResponse().asString());
   }
 
   @Entonces("se obtiene otp")
@@ -163,9 +121,5 @@ public class testSteps {
   @Dado("que se conecta a oracle")
   public void queSeConectaAOracle() {
 
-    DbQuerys dbQuerys = new DbQuerys();
-
-    String rta = dbQuerys.getXmlOtp();
-    System.out.println(rta);
   }
 }

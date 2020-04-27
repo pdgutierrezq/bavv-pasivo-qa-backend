@@ -27,7 +27,7 @@ public class NavegarA {
 
   public static Performable comenzarSolicitud() {
     return Task.where(
-        "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.COMENZAR_SOL_BUTTON));
+        "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
   }
 
   public static Performable verMasHabeasData() {

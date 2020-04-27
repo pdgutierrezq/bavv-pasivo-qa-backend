@@ -5,20 +5,22 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
+ *
  */
+
 package co.com.avvillaspasivos.ui;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class CommonWebElementsPage {
-
-  private CommonWebElementsPage() {
+public class AutenticacionPage {
+    private AutenticacionPage() {
     throw new IllegalStateException("Utility class");
-  }
+}
 
-  public static final Target LOADER =
-      Target.the("Elemento de carga").located(By.className("blobs"));
-  public static final Target HEADER=
-      Target.the("Cabecera").located(By.xpath("//*[@class='header container']"));
+    public static final Target LIST_OTP_INPUT =
+        Target.the("Campos de texto de codigo OTP").located(By.xpath("(//*[contains(@class,'mat-input-element')])[1]"));
+
+    public static final Target CONTINUAR_BUTTON =
+        Target.the("Boton continuar OTP").located(By.xpath("//button[contains(text(),'Continuar')]"));
 }
