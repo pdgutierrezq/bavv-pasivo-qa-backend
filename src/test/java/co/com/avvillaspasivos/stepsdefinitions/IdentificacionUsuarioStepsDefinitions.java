@@ -18,12 +18,9 @@ import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
-import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-
-import static net.serenitybdd.rest.RestRequests.given;
 
 public class IdentificacionUsuarioStepsDefinitions {
   private BodyGenerarOtp bodyGenerarOtp = BodyGenerarOtp.builder().build();
@@ -60,34 +57,7 @@ public class IdentificacionUsuarioStepsDefinitions {
 
   @Y("el usuario obtiene la otp recibida")
   public void elUsuarioObtieneLaOtpRecibida() {
-//    OnStage.theActorCalled("tipoUsuario")
-//        .whoCan(CallAnApi.at(ServicePaths.getEndPointBaseMasivian()));
-//    BodyMasivian bodyMasivian =
-//        BodyMasivian.builder()
-//            .userName("saenze@bancoavvillas.com.co")
-//            .password("ATHavvillas-2017")
-//            .rememberMe(false)
-//            .commit("Ingresar")
-//            .build();
-      String bodyMasivian="{\n" +
-          "\"UserName\": \"saenze@bancoavvillas.com.co\",\n" +
-          "\"Password\": \"ATHavvillas-2017\",\n" +
-          "\"RememberMe\": false,\n" +
-          "\"commit\": \"Ingresar\"\t\n" +
-          "}";
 
-    given()
-        .queryParam("ReturnUrl", ServicePaths.pathMasivian("3123297493", "2020", "03", "30"))
-        .header("Content-Type","application/json")
-        .body(bodyMasivian)
-        .when()
-        .post(ServicePaths.getEndPointBaseMasivian());
-
-    //        OnStage.theActorInTheSpotlight()
-    //
-    // .attemptsTo(CallPost.pathBody(ServicePaths.pathMasivian("3123297493","2020","03","30"),
-    // bodyMasivian));
-    System.out.println(SerenityRest.lastResponse());
   }
 
   @Cuando("consumo el servicio rest de identificacion para validar otp")
