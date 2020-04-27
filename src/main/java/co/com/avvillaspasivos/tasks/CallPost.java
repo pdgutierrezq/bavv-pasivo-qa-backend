@@ -40,13 +40,5 @@ public class CallPost implements Task {
                     requestSpecification
                         .header("Content-Type","application/json")
                         .body(body)));
-//    actor.attemptsTo(
-//        Post.to(path)
-//            .with(
-//                requestSpecification ->
-//                    requestSpecification
-//                        .header("transaction-id", "73284911625")
-//                        .header("Content-Type", "application/json")
-//                        .body(body)));
   }
 }

@@ -27,8 +27,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 public class e2eStepsDefinitions {
   @Cuando("el {string} diligencia el formulario de identificacion de usuario")
   public void elDiligenciaElFormularioDeIdentificacionDeUsuario(String actor) {
-
-    GlobalData.actorData = DataProvider.getActorData(actor);
+    GlobalData.getInstance().setActorData(DataProvider.getActorData(actor));
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
@@ -53,7 +52,7 @@ public class e2eStepsDefinitions {
   @Y("se autentica mediante otp")
   public void seAutenticaMedianteOtp() {
     OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader());
-    String otp = GlobalData.getOtp();
+    String otp = GlobalData.getInstance().getOtp();
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             Enter.theValue(otp).into(AutenticacionPage.LIST_OTP_INPUT),

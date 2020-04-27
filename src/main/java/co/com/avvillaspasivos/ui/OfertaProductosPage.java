@@ -22,8 +22,6 @@ public class OfertaProductosPage {
   public static final Target RADIO_PRO =
       Target.the("Radio Button cuenta pro")
           .located(By.xpath("//*[@ng-reflect-value='CUENTA_PRO']"));
-//  Target.the("Radio Button cuenta pro")
-//          .located(By.id("mat-radio-3"));
   public static final Target BOTON_CONTINUAR_PRODUCTOS =
       Target.the("Boton continuar oferta de productos")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));

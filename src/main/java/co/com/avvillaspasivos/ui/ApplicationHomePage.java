@@ -23,7 +23,4 @@ public class ApplicationHomePage extends PageObject {
   public static final Target BOTON_ABRIR_MI_CUENTA =
       Target.the("Boton Abrir mi cuenta")
           .located(By.xpath("//button[contains(text(),' COMENZAR SOLICITUD ')]"));
-//  public static final Target BOTON_ABRIR_MI_CUENTA =
-//      Target.the("Boton Abrir mi cuenta")
-//          .located(By.xpath("//button[contains(text(),'ABRIR MI CUENTA')]"));
 }

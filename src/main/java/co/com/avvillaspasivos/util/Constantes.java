@@ -26,6 +26,6 @@ public class Constantes {
   public static final String TAG_OTP = "s1:CustIdNum";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@construccionX";
+  public static final String EXECUTION_TAGS = "@construccion";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }
