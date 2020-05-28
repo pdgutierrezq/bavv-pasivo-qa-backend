@@ -37,6 +37,12 @@ public class ServicePaths {
   public static String passOracle() {
     return environment.psworacle();
   }
+  public static String jsonDatapath() {
+    return environment.jsonData();
+  }
+  public static String ipOracle() {
+    return environment.iporacle();
+  }
 
   public static String pathCustomerConditions() {
     return pathIdentificationProject().concat(environment.customerConditions());

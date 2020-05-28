@@ -18,9 +18,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "classpath:features",
+    features = "classpath:features/e2e/clienteActualizado.feature",
     glue = Constantes.RUTA_STEPS_DEFINITIONS,
-    tags = Constantes.EXECUTION_TAGS,
     snippets = SnippetType.CAMELCASE)
 public class TestRunnerConstruccion {
 }

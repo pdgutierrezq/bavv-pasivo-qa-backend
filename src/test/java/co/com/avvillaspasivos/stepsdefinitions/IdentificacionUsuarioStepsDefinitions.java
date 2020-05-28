@@ -18,6 +18,7 @@ import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
+import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
@@ -40,6 +41,7 @@ public class IdentificacionUsuarioStepsDefinitions {
   public void consumoElServicioRestDeIdentificacion() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(CallPost.pathBody(ServicePaths.pathUserIdentity(), bodyGenerarOtp));
+    System.out.println(SerenityRest.lastResponse().asString());
   }
 
   @Entonces(

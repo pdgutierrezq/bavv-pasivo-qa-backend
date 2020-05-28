@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -19,14 +20,14 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 public class CallPost implements Task {
 
   private final String path;
-  private final Object body;
+  private final BodyGenerarOtp body;
 
-  public CallPost(String path, Object body) {
+  public CallPost(String path, BodyGenerarOtp body) {
     this.path = path;
     this.body = body;
   }
 
-  public static Performable pathBody(String path, Object body) {
+  public static Performable pathBody(String path, BodyGenerarOtp body) {
     return instrumented(CallPost.class, path, body);
   }
 
@@ -39,6 +40,10 @@ public class CallPost implements Task {
                 requestSpecification ->
                     requestSpecification
                         .header("Content-Type","application/json")
+                        .header("transaction-id","5510241587652313827")
+                        .header("x-adl-channel","bavv-pasivo-prueba")
+                        .header("x-adl-document-type","CC")
+                        .header("x-adl-document-number",body.getDocumentNumber())
                         .body(body)));
   }
 }

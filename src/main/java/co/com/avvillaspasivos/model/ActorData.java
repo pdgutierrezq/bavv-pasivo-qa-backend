@@ -10,6 +10,7 @@
 
 package co.com.avvillaspasivos.model;
 
+import com.google.gson.JsonObject;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +25,9 @@ public class ActorData {
     private String firstName;
     private String lastName;
     private String salary;
+    private String client;
+    private String updated;
+    private String channels;
+    private String cat;
+    private JsonObject jsonObjectDataFlow;
 }

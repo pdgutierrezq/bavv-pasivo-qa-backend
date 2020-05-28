@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.stepsdefinitions;
 import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.steps.ValidationCommon;
+import co.com.avvillaspasivos.tasks.CallGet;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.NavegarA;
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
@@ -50,9 +51,7 @@ public class CaptchaStepsDefinitions {
 
     @Cuando("consumo el servicio de recaptcha")
     public void consumoElServicioDeRecaptcha() {
-        //        actor.attemptsTo(
-        //            CallGet.path(ServicePaths.pathCaptcha())
-        //        );
+
     }
 
     @Entonces("el servicio valida y me entrega la informacion para saber que soy un usuario real")

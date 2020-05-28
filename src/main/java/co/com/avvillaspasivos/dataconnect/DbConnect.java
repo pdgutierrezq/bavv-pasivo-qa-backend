@@ -21,7 +21,7 @@ public class DbConnect {
     throw new IllegalStateException("Utility class");
   }
 
-  private static final String HOST = "10.130.4.182";
+  private static final String HOST = ServicePaths.ipOracle();
   private static final String PORT = "1528";
   private static final String SERVICE = "wsrrqa";
   private static final String USER = "CONSULTA";

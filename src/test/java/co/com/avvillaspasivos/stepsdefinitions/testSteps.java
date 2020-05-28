@@ -9,7 +9,6 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.facts.CondicionesCliente;
-import co.com.avvillaspasivos.model.BodyCustCond;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.steps.ValidationCommon;
@@ -43,8 +42,8 @@ public class testSteps {
 
   @Cuando("consumo el servicio rest de condiciones cliente")
   public void consumoElServicioRestDeCondicionesCliente() {
-    BodyCustCond bodyCustCond =
-        BodyCustCond.builder().documentType("CC").documentNumber("8765789").build();
+      BodyGenerarOtp bodyCustCond =
+          BodyGenerarOtp.builder().documentType("CC").documentNumber("8765789").build();
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(CallPost.pathBody(ServicePaths.pathCustomerConditions(), bodyCustCond));
@@ -76,14 +75,12 @@ public class testSteps {
 
   @Y("{string} acepta el ofrecimiento de seguro")
   public void aceptaElOfrecimientoDeSeguro(String aceptacionSeguro) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionSeguros.acepta());
+    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionSeguros.selecciona(aceptacionSeguro));
   }
 
   @Entonces("el usuario ingresa la otp")
   public void elUsuarioIngresaLaOtp() {
-    //
-    // net.serenitybdd.screenplay.ensure.Ensure.that(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS).isNotDisplayed();
-  }
+    }
 
   @Dado("que se genera otp")
   public void queSeGeneraOtp() {

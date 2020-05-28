@@ -17,7 +17,6 @@ public class AutenticacionPage {
     private AutenticacionPage() {
     throw new IllegalStateException("Utility class");
 }
-
     public static final Target LIST_OTP_INPUT =
         Target.the("Campos de texto de codigo OTP").located(By.xpath("(//*[contains(@class,'mat-input-element')])[1]"));
 
