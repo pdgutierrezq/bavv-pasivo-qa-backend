@@ -20,7 +20,8 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static co.com.avvillaspasivos.util.Constantes.DATA_USERS_PROP;
+import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Report.LOGGER;
 
 public class DataProvider {
 
@@ -42,36 +43,56 @@ public class DataProvider {
     JsonObject jsonObjectUser = filterUsersList(tipoUsuario, getUsers());
 
     return BodyGenerarOtp.builder()
-        .documentType(jsonObjectUser.get("tipoDoc").getAsString())
-        .documentNumber(jsonObjectUser.get("numDoc").getAsString())
-        .firstName(jsonObjectUser.get("firstName").getAsString())
-        .lastName(jsonObjectUser.get("lastName").getAsString())
-        .phone(jsonObjectUser.get("phone").getAsString())
+        .documentType(jsonObjectUser.get(DATA_TIPODOC_PROP).getAsString())
+        .documentNumber(jsonObjectUser.get(DATA_NUMDOC_PROP).getAsString())
+        .firstName(jsonObjectUser.get(DATA_FIRST_NAME_PROP).getAsString())
+        .lastName(jsonObjectUser.get(DATA_LAST_NAME_PROP).getAsString())
+        .phone(jsonObjectUser.get(DATA_PHONE_PROP).getAsString())
         .build();
   }
 
-  public static ActorData getActorData(Boolean client,Boolean updated,Boolean channels,Boolean cat)  {
-      JsonObject joMain = null;
-      try {
-          joMain = JsonFile.readJsonFile();
-      } catch (FileNotFoundException e) {
-          e.printStackTrace();
-      }
-      JsonObject jsonObjectUser=JsonFile.getUser(joMain, client, updated, channels, cat);
-      JsonFile.setProperty(joMain,jsonObjectUser,"block",true);
+  public static ActorData getActorData(
+      Boolean client, Boolean updated, Boolean channels, Boolean cat, Boolean listRest) {
+    JsonObject joMain = null;
+    try {
+      joMain = JsonFile.readJsonFile();
+    } catch (FileNotFoundException e) {
+        LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
+    }
+    JsonObject jsonObjectUser = JsonFile.getUser(joMain, client, updated, channels, cat, listRest);
+    JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
 
+    return buildActorData(jsonObjectUser, joMain);
+  }
+
+  public static ActorData getActorData(Boolean client, Boolean updated, Boolean listRest) {
+    JsonObject joMain = null;
+    try {
+      joMain = JsonFile.readJsonFile();
+    } catch (FileNotFoundException e) {
+        LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
+    }
+    JsonObject jsonObjectUser = JsonFile.getUser(joMain, client, updated, listRest);
+    JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
+
+    return buildActorData(jsonObjectUser, joMain);
+  }
+
+  private static ActorData buildActorData(JsonObject jsonObjectUser, JsonObject joMain) {
     return ActorData.builder()
-        .documentType(jsonObjectUser.get("tipoDoc").getAsString())
-        .documentNumber(jsonObjectUser.get("numDoc").getAsString())
-        .firstName(jsonObjectUser.get("firstName").getAsString())
-        .lastName(jsonObjectUser.get("lastName").getAsString())
-        .phone(jsonObjectUser.get("phone").getAsString())
-        .salary(jsonObjectUser.get("salary").getAsString())
-        .client(jsonObjectUser.get("client").getAsString())
-        .updated(jsonObjectUser.get("updated").getAsString())
-        .channels(jsonObjectUser.get("hasChannels").getAsString())
-        .cat(jsonObjectUser.get("cat").getAsString())
+        .documentType(jsonObjectUser.get(DATA_TIPODOC_PROP).getAsString())
+        .documentNumber(jsonObjectUser.get(DATA_NUMDOC_PROP).getAsString())
+        .firstName(jsonObjectUser.get(DATA_FIRST_NAME_PROP).getAsString())
+        .lastName(jsonObjectUser.get(DATA_LAST_NAME_PROP).getAsString())
+        .phone(jsonObjectUser.get(DATA_PHONE_PROP).getAsString())
+        .salary(jsonObjectUser.get(DATA_SALARY_PROP).getAsString())
+        .client(jsonObjectUser.get(DATA_CLIENT_PROP).getAsBoolean())
+        .updated(jsonObjectUser.get(DATA_UPDATED_PROP).getAsBoolean())
+        .channels(jsonObjectUser.get(DATA_CHANNELS_PROP).getAsBoolean())
+        .cat(jsonObjectUser.get(DATA_CAT_PROP).getAsBoolean())
+        .restrictiveList(jsonObjectUser.get(DATA_REST_LIST_PROP).getAsBoolean())
         .jsonObjectDataFlow(joMain)
+        .jsonObjectUser(jsonObjectUser)
         .build();
   }
 

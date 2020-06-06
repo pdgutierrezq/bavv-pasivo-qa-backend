@@ -45,7 +45,7 @@ public class ServicePaths {
   }
 
   public static String pathCustomerConditions() {
-    return pathIdentificationProject().concat(environment.customerConditions());
+    return environment.customerConditions();
   }
   public static String pathUserIdentity() {
     return pathIdentificationProject().concat(environment.userIdentity());

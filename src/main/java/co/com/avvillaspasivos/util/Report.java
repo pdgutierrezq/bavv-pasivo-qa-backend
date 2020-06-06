@@ -5,14 +5,16 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
-
 package co.com.avvillaspasivos.util;
 
-public enum VariablesDeSession {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    SEGURO,
-    DATA_ACTOR
+public class Report {
+  private Report() {
+    throw new IllegalStateException("Utility class");
+  }
 
+  public static final Logger LOGGER = LoggerFactory.getLogger(Report.class);
 }

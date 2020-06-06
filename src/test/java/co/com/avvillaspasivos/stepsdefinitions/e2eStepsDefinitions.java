@@ -34,13 +34,15 @@ public class e2eStepsDefinitions {
   public void
       elUsuarioConCondicionesClienteActualizadoCanalesYCuentaCatDiligenciaElFormularioDeIdentificacionDeUsuario(
           String client, String updated, String channels, String cat) {
-    GlobalData.getInstance()
-        .setActorData(
-            DataProvider.getActorData(
-                Boolean.valueOf(client),
-                Boolean.valueOf(updated),
-                Boolean.valueOf(channels),
-                Boolean.valueOf(cat)));
+
+        GlobalData.getInstance()
+            .setActorData(
+                DataProvider.getActorData(
+                    Boolean.valueOf(client),
+                    Boolean.valueOf(updated),
+                    Boolean.valueOf(channels),
+                    Boolean.valueOf(cat),
+                    false));
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
@@ -91,12 +93,12 @@ public class e2eStepsDefinitions {
             Click.on(DeclarantePage.BOTON_CONTINUAR),
             Esperas.loader(Constantes.MAX_WAIT_GET_PDF));
 
-      ActorData actorData = GlobalData.getInstance().getActorData();
-      String numDoc = actorData.getDocumentNumber();
-      JsonObject joMain = actorData.getJsonObjectDataFlow();
-      JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
+    ActorData actorData = GlobalData.getInstance().getActorData();
+    String numDoc = actorData.getDocumentNumber();
+    JsonObject joMain = actorData.getJsonObjectDataFlow();
+    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
 
-      JsonFile.setProperty(joMain, jsonObjectUser, "updated", true);
+    JsonFile.setProperty(joMain, jsonObjectUser, "updated", true);
   }
 
   @Y("realiza la firma electronica de documentos")
@@ -145,9 +147,9 @@ public class e2eStepsDefinitions {
         .attemptsTo(
             Click.on(ActividadEconomicaPage.RADIO_HOGAR),
             Click.on(ActividadEconomicaPage.BOTON_CONTINUAR)
-//            ,
-//            Esperas.loader()
-        );
+            //            ,
+            //            Esperas.loader()
+            );
   }
 
   @Y("diligenciar datos de contacto")

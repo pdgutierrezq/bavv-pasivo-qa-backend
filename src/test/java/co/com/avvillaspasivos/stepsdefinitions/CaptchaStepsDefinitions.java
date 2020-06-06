@@ -10,7 +10,6 @@ package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.paths.ServicePaths;
-import co.com.avvillaspasivos.steps.ValidationCommon;
 import co.com.avvillaspasivos.tasks.CallGet;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.NavegarA;
@@ -56,7 +55,6 @@ public class CaptchaStepsDefinitions {
 
     @Entonces("el servicio valida y me entrega la informacion para saber que soy un usuario real")
     public void elServicioValidaYMeEntregaLaInformacionParaSaberQueSoyUnUsuarioReal() {
-        ValidationCommon.validateSchema("");
         Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200));
         Ensure.that(
             "contains user type",

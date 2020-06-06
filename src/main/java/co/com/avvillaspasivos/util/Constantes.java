@@ -31,11 +31,17 @@ public class Constantes {
   public static final String DATA_UPDATED_PROP = "updated";
   public static final String DATA_CHANNELS_PROP = "hasChannels";
   public static final String DATA_CAT_PROP = "cat";
+  public static final String DATA_REST_LIST_PROP = "restrictiveList";
   public static final String DATA_BLOCK_PROP = "block";
   public static final String DATA_USERS_PROP = "users";
   public static final String DATA_NUMDOC_PROP = "numDoc";
+  public static final String DATA_TIPODOC_PROP = "tipoDoc";
+  public static final String DATA_FIRST_NAME_PROP = "firstName";
+  public static final String DATA_LAST_NAME_PROP = "lastName";
+  public static final String DATA_PHONE_PROP = "phone";
+  public static final String DATA_SALARY_PROP = "salary";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@e2e";
+  public static final String EXECUTION_TAGS = "@dev1233";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }

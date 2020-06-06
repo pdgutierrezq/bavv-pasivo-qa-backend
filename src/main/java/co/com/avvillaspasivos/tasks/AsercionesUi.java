@@ -12,6 +12,7 @@ import co.com.avvillaspasivos.ui.IdentificacionPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
@@ -33,25 +34,27 @@ public class AsercionesUi {
   public static Performable botonContinuarFormIdentificacionEnabled() {
     return Task.where(
         "{0} valida boton continuar landing habilitado",
+        Scroll.to(IdentificacionPage.CONTINUAR_BUTTON),
         Ensure.that(IdentificacionPage.CONTINUAR_BUTTON).isEnabled());
   }
 
   public static Performable botonContinuarFormIdentificacionDisabled() {
     return Task.where(
         "{0} valida boton continuar landing deshabilitado",
+        Scroll.to(IdentificacionPage.CONTINUAR_BUTTON),
         Ensure.that(IdentificacionPage.CONTINUAR_BUTTON).isDisabled());
   }
 
   public static Performable cantidadMsjObligatoriosFormIdentificacion() {
     return Task.where(
         "{0} valida mensajes de error en formulario identificacion",
-        Ensure.that(IdentificacionPage.MSJ_CAMPOS_OBLIG).values().hasSize(4));
+        Ensure.that(IdentificacionPage.MSJ_CAMPOS_OBLIG).values().hasSize(5));
   }
 
   public static Performable validarMensajeCelularErrado(String mensaje) {
     return Task.where(
         "{0} valida mensajes de error por celular errado",
-        Ensure.that(IdentificacionPage.MSJ_CAMPOS_OBLIG).text().contains(mensaje));
+        Ensure.that(IdentificacionPage.ALERT_ERROR).text().contains(mensaje));
   }
 
   public static Performable validatePopUpHabeasData() {

@@ -8,34 +8,49 @@
  */
 package co.com.avvillaspasivos.data;
 
+import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.paths.ServicePaths;
+import co.com.avvillaspasivos.util.VariablesDeSession;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.serenitybdd.screenplay.actors.OnStage;
 
 import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Report.LOGGER;
 
 public class JsonFile {
+  private JsonFile() {
+    throw new IllegalStateException("Utility class");
+  }
 
-  public static JsonObject readJsonFile() throws FileNotFoundException {
+  static JsonObject readJsonFile() throws FileNotFoundException {
     Reader reader = new FileReader(ServicePaths.jsonDatapath());
     return JsonParser.parseReader(reader).getAsJsonObject();
   }
 
-  public static void writeJsonFile(JsonObject joMain) throws IOException {
-    FileWriter file = new FileWriter(ServicePaths.jsonDatapath());
-    file.write(joMain.toString());
-    file.flush();
-    file.close();
+  private static void writeJsonFile(JsonObject joMain) {
+
+    try (FileWriter file = new FileWriter(ServicePaths.jsonDatapath()); ) {
+      file.write(joMain.toString());
+      file.flush();
+    } catch (IOException e) {
+      LOGGER.error("Fail writing json data file->".concat(e.getMessage()));
+    }
   }
 
-  public static JsonObject getUser(
-      JsonObject joMain, Boolean client, Boolean updated, Boolean channels, Boolean cat) {
+  static JsonObject getUser(
+      JsonObject joMain,
+      Boolean client,
+      Boolean updated,
+      Boolean channels,
+      Boolean cat,
+      Boolean listRest) {
     List<JsonObject> jsonObjectList = getUsersList(joMain);
 
     return jsonObjectList.stream()
@@ -43,9 +58,23 @@ public class JsonFile {
         .filter(i -> updated == i.get(DATA_UPDATED_PROP).getAsBoolean())
         .filter(i -> channels == i.get(DATA_CHANNELS_PROP).getAsBoolean())
         .filter(i -> cat == i.get(DATA_CAT_PROP).getAsBoolean())
+        .filter(i -> listRest == i.get(DATA_REST_LIST_PROP).getAsBoolean())
         .filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean())
         .findAny()
-        .get();
+        .orElse(null);
+  }
+
+  static JsonObject getUser(JsonObject joMain, Boolean client, Boolean updated, Boolean listRest) {
+    List<JsonObject> jsonObjectList = getUsersList(joMain);
+
+    return jsonObjectList.stream()
+        .filter(i -> i.has(DATA_REST_LIST_PROP))
+        .filter(i -> client == i.get(DATA_CLIENT_PROP).getAsBoolean())
+        .filter(i -> updated == i.get(DATA_UPDATED_PROP).getAsBoolean())
+        .filter(i -> listRest == i.get(DATA_REST_LIST_PROP).getAsBoolean())
+        .filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean())
+        .findAny()
+        .orElse(null);
   }
 
   public static JsonObject getUserById(JsonObject joMain, String numDoc) {
@@ -54,7 +83,7 @@ public class JsonFile {
     return jsonObjectList.stream()
         .filter(i -> i.get(DATA_NUMDOC_PROP).getAsString().equalsIgnoreCase(numDoc))
         .findAny()
-        .get();
+        .orElse(null);
   }
 
   public static void setValue(JsonObject joToSet, String property, Boolean value) {
@@ -72,10 +101,13 @@ public class JsonFile {
       JsonObject joMain, JsonObject jsonObjectUser, String property, boolean value) {
 
     jsonObjectUser.addProperty(property, value);
-    try {
-      writeJsonFile(joMain);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    writeJsonFile(joMain);
+  }
+
+  public static void setProperty(String property, boolean value) {
+    ActorData actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    actorData.getJsonObjectUser().addProperty(property, value);
+    writeJsonFile(actorData.getJsonObjectDataFlow());
   }
 }

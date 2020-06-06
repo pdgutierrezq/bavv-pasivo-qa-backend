@@ -17,17 +17,27 @@ import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class FormIdentificationSteps {
+
+
   @Dado(
-      "que el {string} es cliente actualizado del banco, esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
+      "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
   public void
-      queElEsClienteActualizadoDelBancoEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(
-          String actor) {
-    OnStage.theActorCalled(actor)
+      queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
+
+    OnStage.theActorInTheSpotlight()
         .attemptsTo(
             NavegarA.homePage(),
             NavegarA.comenzarSolicitud(),
             FormIdentificacion.validarCargaInicial());
   }
+    @Dado("que el {string} esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
+    public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(String actor) {
+        OnStage.theActorCalled(actor)
+            .attemptsTo(
+                NavegarA.homePage(),
+                NavegarA.comenzarSolicitud(),
+                FormIdentificacion.validarCargaInicial());
+     }
 
   @Cuando("ingresa los datos correctamente")
   public void ingresaLosDatosCorrectamente() {
@@ -109,4 +119,6 @@ public class FormIdentificationSteps {
   public void noMePermitiraPegarLosDatos() {
     OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadTextoConfirmacionCel());
   }
+
+
 }

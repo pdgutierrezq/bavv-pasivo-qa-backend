@@ -28,23 +28,6 @@ public class SeleccionSeguros implements Task {
     return instrumented(SeleccionSeguros.class, afirmacion);
   }
 
-  //  private SeleccionSeguros() {
-  //    throw new IllegalStateException("Utility class");
-  //  }
-
-  //  public static Performable acepta() {
-  //    return Task.where(
-  //        "{0} acepta seguro",
-  //        Click.on(OfertaSeguroPage.RADIO_ACEPTA_SEGURO),
-  //        Click.on(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS));
-  //  }
-  //  public static Performable noAcepta() {
-  //    return Task.where(
-  //        "{0} acepta seguro",
-  //        Click.on(OfertaSeguroPage.RADIO_RECHAZA_SEGURO),
-  //        Click.on(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS));
-  //  }
-
   @Step("{0} selecciona #afirmacion seguro")
   public <T extends Actor> void performAs(T actor) {
     if ("acepta".equalsIgnoreCase(afirmacion)) {
