@@ -17,7 +17,7 @@ Característica: condiciones cliente
     Ejemplos:
       | cliente | actualizado | listRest |
       | true    | true        | true     |
-      | true    | true        | false    |
+#      | true    | true        | false    |
       | true    | false       | false    |
       | true    | false       | true     |
       | false   | false       | false    |
