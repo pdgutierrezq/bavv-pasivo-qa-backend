@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.util.VariablesDeSession;
 import com.google.common.collect.Streams;
@@ -19,7 +20,9 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static co.com.avvillaspasivos.util.Report.LOGGER;
@@ -44,38 +47,35 @@ public class JsonFile {
     }
   }
 
-  static JsonObject getUser(
-      JsonObject joMain,
-      Boolean client,
-      Boolean updated,
-      Boolean channels,
-      Boolean cat,
-      Boolean listRest) {
+  static JsonObject getUser(JsonObject joMain, ClientConditions conditions) {
+
     List<JsonObject> jsonObjectList = getUsersList(joMain);
 
-    return jsonObjectList.stream()
-        .filter(i -> client == i.get(DATA_CLIENT_PROP).getAsBoolean())
-        .filter(i -> updated == i.get(DATA_UPDATED_PROP).getAsBoolean())
-        .filter(i -> channels == i.get(DATA_CHANNELS_PROP).getAsBoolean())
-        .filter(i -> cat == i.get(DATA_CAT_PROP).getAsBoolean())
-        .filter(i -> listRest == i.get(DATA_REST_LIST_PROP).getAsBoolean())
-        .filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean())
-        .findAny()
-        .orElse(null);
+    Stream<JsonObject> x = jsonObjectList.stream();
+
+    if (Objects.nonNull(conditions.getClient())) {
+      x = x.filter(i -> conditions.getClient() == i.get(DATA_CLIENT_PROP).getAsBoolean());
+    }
+    if (Objects.nonNull(conditions.getUpdated())) {
+      x = x.filter(i -> conditions.getUpdated() == i.get(DATA_UPDATED_PROP).getAsBoolean());
+    }
+    if (Objects.nonNull(conditions.getChannels())) {
+      x = x.filter(i -> conditions.getChannels() == i.get(DATA_CHANNELS_PROP).getAsBoolean());
+    }
+    if (Objects.nonNull(conditions.getCat())) {
+      x = x.filter(i -> conditions.getCat() == i.get(DATA_CAT_PROP).getAsBoolean());
+    }
+    if (Objects.nonNull(conditions.getRestrictiveList())) {
+      x =
+          x.filter(
+              i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
+    }
+
+    x = x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
+
+    return x.findAny().orElse(null);
   }
 
-  static JsonObject getUser(JsonObject joMain, Boolean client, Boolean updated, Boolean listRest) {
-    List<JsonObject> jsonObjectList = getUsersList(joMain);
-
-    return jsonObjectList.stream()
-        .filter(i -> i.has(DATA_REST_LIST_PROP))
-        .filter(i -> client == i.get(DATA_CLIENT_PROP).getAsBoolean())
-        .filter(i -> updated == i.get(DATA_UPDATED_PROP).getAsBoolean())
-        .filter(i -> listRest == i.get(DATA_REST_LIST_PROP).getAsBoolean())
-        .filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean())
-        .findAny()
-        .orElse(null);
-  }
 
   public static JsonObject getUserById(JsonObject joMain, String numDoc) {
     List<JsonObject> jsonObjectList = getUsersList(joMain);

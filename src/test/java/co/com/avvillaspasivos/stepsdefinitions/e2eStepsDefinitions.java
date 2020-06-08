@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.stepsdefinitions;
 import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.data.GlobalData;
 import co.com.avvillaspasivos.data.JsonFile;
+import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.tasks.Esperas;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
@@ -19,8 +20,8 @@ import co.com.avvillaspasivos.tasks.SeleccionSeguros;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.VariablesDeSession;
-import com.google.gson.JsonObject;
 import cucumber.api.java.es.Cuando;
+import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
@@ -29,20 +30,62 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import org.openqa.selenium.Keys;
 
 public class e2eStepsDefinitions {
+    private ActorData actorData;
+
+  @Dado(
+      "el usuario con condiciones cliente {string} actualizado {string} canales {string} y cuenta cat {string}")
+  public void elUsuarioConCondicionesClienteActualizadoCanalesYCuentaCat(
+      String client, String updated, String channels, String cat) {
+      actorData =
+          DataProvider.getActorData(
+              Boolean.valueOf(client),
+              Boolean.valueOf(updated),
+              Boolean.valueOf(channels),
+              Boolean.valueOf(cat),
+              false);
+
+      OnStage.theActorCalled(
+          "usuario tipo cliente "
+              + client
+              + " actualizado "
+              + updated
+              + " canales "
+              + channels
+              + " cat "
+              + cat
+              + " y listas restrictivas "
+              + false)
+          .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+
+      OnStage.theActorInTheSpotlight().has(Usuario.informacion());
+  }
+
+
+
   @Cuando(
       "el usuario con condiciones cliente {string} actualizado {string} canales {string} y cuenta cat {string}, diligencia el formulario de identificacion de usuario")
   public void
       elUsuarioConCondicionesClienteActualizadoCanalesYCuentaCatDiligenciaElFormularioDeIdentificacionDeUsuario(
           String client, String updated, String channels, String cat) {
 
-        GlobalData.getInstance()
-            .setActorData(
-                DataProvider.getActorData(
-                    Boolean.valueOf(client),
-                    Boolean.valueOf(updated),
-                    Boolean.valueOf(channels),
-                    Boolean.valueOf(cat),
-                    false));
+    GlobalData.getInstance()
+        .setActorData(
+            DataProvider.getActorData(
+                Boolean.valueOf(client),
+                Boolean.valueOf(updated),
+                Boolean.valueOf(channels),
+                Boolean.valueOf(cat),
+                false));
+
+    OnStage.theActorInTheSpotlight()
+        .attemptsTo(
+            FormIdentificacion.diligenciar(),
+            Click.on(IdentificacionPage.CONTINUAR_BUTTON),
+            Esperas.loader());
+  }
+
+  @Cuando("el usuario diligencia el formulario de identificacion de usuario")
+  public void elUsuarioDiligenciaElFormularioDeIdentificacionDeUsuario() {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
@@ -93,12 +136,15 @@ public class e2eStepsDefinitions {
             Click.on(DeclarantePage.BOTON_CONTINUAR),
             Esperas.loader(Constantes.MAX_WAIT_GET_PDF));
 
-    ActorData actorData = GlobalData.getInstance().getActorData();
-    String numDoc = actorData.getDocumentNumber();
-    JsonObject joMain = actorData.getJsonObjectDataFlow();
-    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
+//    ActorData actorData = GlobalData.getInstance().getActorData();
+//    String numDoc = actorData.getDocumentNumber();
+//    JsonObject joMain = actorData.getJsonObjectDataFlow();
+//    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
+//
+//    JsonFile.setProperty(joMain, jsonObjectUser, "updated", true);
 
-    JsonFile.setProperty(joMain, jsonObjectUser, "updated", true);
+      JsonFile.setProperty("block", true);
+
   }
 
   @Y("realiza la firma electronica de documentos")
@@ -113,14 +159,15 @@ public class e2eStepsDefinitions {
 
   @Entonces("se muestra el resumen de la creacion de la cuenta")
   public void seMuestraElResumenDeLaCreacionDeLaCuenta() {
+      JsonFile.setProperty("block", false);
 
-    ActorData actorData = GlobalData.getInstance().getActorData();
-    String numDoc = actorData.getDocumentNumber();
-    JsonObject joMain = actorData.getJsonObjectDataFlow();
-    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
-
-    JsonFile.setProperty(joMain, jsonObjectUser, "block", false);
-    JsonFile.setProperty(joMain, jsonObjectUser, "cat", true);
+//    ActorData actorData = GlobalData.getInstance().getActorData();
+//    String numDoc = actorData.getDocumentNumber();
+//    JsonObject joMain = actorData.getJsonObjectDataFlow();
+//    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
+//
+//    JsonFile.setProperty(joMain, jsonObjectUser, "block", false);
+//    JsonFile.setProperty(joMain, jsonObjectUser, "cat", true);
 
     OnStage.theActorInTheSpotlight().attemptsTo(Click.on(ResumenPage.BOTON_ENTENDIDO));
 

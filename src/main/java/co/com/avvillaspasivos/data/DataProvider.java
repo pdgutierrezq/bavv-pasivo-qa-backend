@@ -10,6 +10,7 @@ package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.ClientConditions;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -53,13 +54,24 @@ public class DataProvider {
 
   public static ActorData getActorData(
       Boolean client, Boolean updated, Boolean channels, Boolean cat, Boolean listRest) {
+
     JsonObject joMain = null;
     try {
       joMain = JsonFile.readJsonFile();
     } catch (FileNotFoundException e) {
         LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
     }
-    JsonObject jsonObjectUser = JsonFile.getUser(joMain, client, updated, channels, cat, listRest);
+
+      ClientConditions clientConditions=ClientConditions.builder()
+          .client(client)
+          .updated(updated)
+          .channels(channels)
+          .cat(cat)
+          .restrictiveList(listRest)
+          .build();
+
+    JsonObject jsonObjectUser = JsonFile.getUser(joMain, clientConditions);
+
     JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
 
     return buildActorData(jsonObjectUser, joMain);
@@ -72,7 +84,15 @@ public class DataProvider {
     } catch (FileNotFoundException e) {
         LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
     }
-    JsonObject jsonObjectUser = JsonFile.getUser(joMain, client, updated, listRest);
+
+      ClientConditions clientConditions=ClientConditions.builder()
+          .client(client)
+          .updated(updated)
+          .restrictiveList(listRest)
+          .build();
+
+
+      JsonObject jsonObjectUser = JsonFile.getUser(joMain, clientConditions);
     JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
 
     return buildActorData(jsonObjectUser, joMain);

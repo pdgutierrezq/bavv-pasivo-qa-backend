@@ -19,17 +19,17 @@ import net.serenitybdd.screenplay.actors.OnStage;
 public class FormIdentificationSteps {
 
 
-  @Dado(
-      "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
-  public void
-      queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
-
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
-  }
+//  @Dado(
+//      "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
+//  public void
+//      queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
+//
+//    OnStage.theActorInTheSpotlight()
+//        .attemptsTo(
+//            NavegarA.homePage(),
+//            NavegarA.comenzarSolicitud(),
+//            FormIdentificacion.validarCargaInicial());
+//  }
     @Dado("que el {string} esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
     public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(String actor) {
         OnStage.theActorCalled(actor)
