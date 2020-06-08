@@ -4,26 +4,26 @@
 
 Característica: condiciones cliente
   YO COMO sistema
-  NECESITO on¡btener informaicon de las condicion es del cliente
+  NECESITO obtener informaicon de las condicion es del cliente
   PARA direccionarlo al flujo correspondiente
 
   @Sprint-3
+    @PBA-14
+    @dev
   Esquema del escenario: Consumir servicio de condiciones cliente
-    Dado que tengo un usuario tipo "<usuario>"
+    Dado que tengo un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
     Cuando consumo el servicio rest de condiciones cliente
     Entonces el obtengo la informacion de las condiciones del cliente
     Ejemplos:
-      | usuario             |
-      | listas restrictivas |
+      | cliente | actualizado | listRest |
+      | true    | true        | true     |
+      | true    | true        | false    |
+      | true    | false       | false    |
+      | true    | false       | true     |
+      | false   | false       | false    |
+      | false   | true        | false    |
+#      | false   | true        | true     |
+#      | false   | false       | true     |
 
-#
-#  @example
-#  Esquema del escenario: test flujo
-#    Dado el usuario "<tipo usuario>" diligencia el formulario  de identificacion
-#    Cuando esta en pantalla de ofecimiento de cuenta y selecciona cuenta "<tipo cuenta>"
-#    Y "<aceptacion seguro>" acepta el ofrecimiento de seguro
-#    Entonces el usuario ingresa la otp
-#    Ejemplos:
-#      | tipo usuario | tipo cuenta | aceptacion seguro |
-#      | actualizado  | simple      | no                |
+
 

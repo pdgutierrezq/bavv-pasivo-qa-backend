@@ -9,10 +9,8 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.facts.CondicionesCliente;
-import co.com.avvillaspasivos.model.BodyCustCond;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
-import co.com.avvillaspasivos.steps.ValidationCommon;
 import co.com.avvillaspasivos.tasks.*;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
 import cucumber.api.java.Before;
@@ -25,8 +23,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-import net.serenitybdd.screenplay.rest.interactions.Ensure;
-import org.seleniumhq.jetty9.http.HttpStatus;
 
 public class testSteps {
 
@@ -41,23 +37,9 @@ public class testSteps {
     OnStage.theActorInTheSpotlight().has(CondicionesCliente.consultar());
   }
 
-  @Cuando("consumo el servicio rest de condiciones cliente")
-  public void consumoElServicioRestDeCondicionesCliente() {
-    BodyCustCond bodyCustCond =
-        BodyCustCond.builder().documentType("CC").documentNumber("8765789").build();
 
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(CallPost.pathBody(ServicePaths.pathCustomerConditions(), bodyCustCond));
-  }
 
-  @Entonces("el obtengo la informacion de las condiciones del cliente")
-  public void elObtengoLaInformacionDeLasCondicionesDelCliente() {
-    ValidationCommon.validateSchema("schemas/example/customer-conditions.json");
 
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200)));
-  }
 
   @Dado("el usuario {string} diligencia el formulario  de identificacion")
   public void elUsuarioDiligenciaElFormularioDeIdentificacion(String actor) {
@@ -76,14 +58,12 @@ public class testSteps {
 
   @Y("{string} acepta el ofrecimiento de seguro")
   public void aceptaElOfrecimientoDeSeguro(String aceptacionSeguro) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionSeguros.acepta());
+    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionSeguros.selecciona(aceptacionSeguro));
   }
 
   @Entonces("el usuario ingresa la otp")
   public void elUsuarioIngresaLaOtp() {
-    //
-    // net.serenitybdd.screenplay.ensure.Ensure.that(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS).isNotDisplayed();
-  }
+    }
 
   @Dado("que se genera otp")
   public void queSeGeneraOtp() {

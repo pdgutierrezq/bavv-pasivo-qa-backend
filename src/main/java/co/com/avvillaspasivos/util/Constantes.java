@@ -17,15 +17,31 @@ public class Constantes {
 
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String PATH_FORM_IDENTIFICACION = "user-identification";
-  public static final String PATH_PEP = "publicy-exposed-person";
   public static final String PATH_OFRECIMIENTO = "account-selection";
   public static final int MAX_WAIT = 60;
   public static final int MAX_WAIT_GET_PDF = 120;
   public static final int DB_WAIT = 3;
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";
   public static final String TAG_OTP = "s1:CustIdNum";
+  public static final String VALUE_OTP = "12345678";
+  public static final String STG_VALUE = "stg";
+  public static final String DEV_VALUE = "dev";
+  //json data
+  public static final String DATA_CLIENT_PROP = "client";
+  public static final String DATA_UPDATED_PROP = "updated";
+  public static final String DATA_CHANNELS_PROP = "hasChannels";
+  public static final String DATA_CAT_PROP = "cat";
+  public static final String DATA_REST_LIST_PROP = "restrictiveList";
+  public static final String DATA_BLOCK_PROP = "block";
+  public static final String DATA_USERS_PROP = "users";
+  public static final String DATA_NUMDOC_PROP = "numDoc";
+  public static final String DATA_TIPODOC_PROP = "tipoDoc";
+  public static final String DATA_FIRST_NAME_PROP = "firstName";
+  public static final String DATA_LAST_NAME_PROP = "lastName";
+  public static final String DATA_PHONE_PROP = "phone";
+  public static final String DATA_SALARY_PROP = "salary";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@construccion";
+  public static final String EXECUTION_TAGS = "@dev";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }

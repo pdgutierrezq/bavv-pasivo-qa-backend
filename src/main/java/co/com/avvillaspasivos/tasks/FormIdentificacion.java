@@ -8,13 +8,14 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.data.GlobalData;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
+import co.com.avvillaspasivos.util.VariablesDeSession;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.openqa.selenium.Keys;
 
@@ -27,7 +28,7 @@ public class FormIdentificacion {
   }
 
   public static Performable diligenciar() {
-      ActorData actorData = GlobalData.getInstance().getActorData();
+      ActorData actorData = OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
       return Task.where(
         "{0} diligencia formulario",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
@@ -53,7 +54,10 @@ public class FormIdentificacion {
         Click.on(IdentificacionPage.CELULAR_INPUT),
         Click.on(IdentificacionPage.PRIMER_NOMBRE_INPUT),
         Click.on(IdentificacionPage.PRIMER_APELLIDO_INPUT),
-        Click.on(IdentificacionPage.DNI_INPUT));
+        Click.on(IdentificacionPage.DNI_INPUT),
+        Click.on(IdentificacionPage.INGRESOS_INPUT),
+        Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX)
+    );
   }
 
   public static Performable simularRobot() {

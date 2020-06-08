@@ -13,7 +13,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"classpath:data.properties"})
 public interface Environment extends Config {
 
-  String usersType();
+  String jsonData();
 
   String users();
 
@@ -24,4 +24,6 @@ public interface Environment extends Config {
   String identificationProject();
 
   String psworacle();
+
+  String iporacle();
 }

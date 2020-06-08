@@ -10,6 +10,7 @@
 
 package co.com.avvillaspasivos.model;
 
+import com.google.gson.JsonObject;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +25,28 @@ public class ActorData {
     private String firstName;
     private String lastName;
     private String salary;
+    private boolean client;
+    private boolean updated;
+    private boolean channels;
+    private boolean cat;
+    private boolean restrictiveList;
+    private JsonObject jsonObjectDataFlow;
+    private JsonObject jsonObjectUser;
+
+    @Override
+    public String toString() {
+        return "ActorData{" +
+            "documentType='" + documentType + '\'' +
+            ", documentNumber='" + documentNumber + '\'' +
+            ", phone='" + phone + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", salary='" + salary + '\'' +
+            ", client=" + client +
+            ", updated=" + updated +
+            ", channels=" + channels +
+            ", cat=" + cat +
+            ", restrictiveList=" + restrictiveList +
+            '}';
+    }
 }

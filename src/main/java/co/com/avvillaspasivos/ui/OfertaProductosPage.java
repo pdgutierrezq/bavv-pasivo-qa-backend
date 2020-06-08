@@ -18,10 +18,10 @@ public class OfertaProductosPage {
 
   public static final Target RADIO_SIMPLE =
       Target.the("Radio Button cuenta simple")
-          .located(By.xpath("//*[@ng-reflect-value='CUENTA_SIMPLE']"));
+          .located(By.xpath(" //mat-radio-button[contains(*,'SIMPLE')]"));
   public static final Target RADIO_PRO =
       Target.the("Radio Button cuenta pro")
-          .located(By.xpath("//*[@ng-reflect-value='CUENTA_PRO']"));
+          .located(By.xpath(" //mat-radio-button[contains(*,'PRO')]"));
   public static final Target BOTON_CONTINUAR_PRODUCTOS =
       Target.the("Boton continuar oferta de productos")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));

@@ -36,7 +36,10 @@ public class IdentificacionPage {
       Target.the("Boton continuar ").located(By.xpath("//button[contains(text(),'Continuar')]"));
   public static final Target MSJ_CAMPOS_OBLIG =
       Target.the("Texto campos obligatorios ")
-          .located(By.xpath("//*[@class='mat-error ng-star-inserted']"));
+          .located(By.xpath("//*[contains(text(),'Este campo es obligatorio')]"));
+  public static final Target ALERT_ERROR =
+      Target.the("Texto campos obligatorios ")
+          .located(By.xpath("//*[@role='alert']"));
   public static final Target VER_MAS_HABEAS_DATA_BUTTON =
       Target.the("Boton ver mas habeas data").located(By.className("btn-see-more"));
   public static final Target VER_MAS_HABEAS_DATA_POPUP =

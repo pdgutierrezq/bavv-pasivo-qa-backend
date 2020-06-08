@@ -21,7 +21,6 @@ Característica: Consumir servicio de identificación de usuario de la nube negr
 
   @Sprint-6
     @PBA-164
-    @testLive
   Esquema del escenario: Consumir servicio de identificacion de usuario para validar otp de forma exitosa
     Dado que tengo datos de autenticacion de un usuario "<tipo>"
     Y el usuario "<tipo>" llama el servicio de identificacion de usuario para generar otp

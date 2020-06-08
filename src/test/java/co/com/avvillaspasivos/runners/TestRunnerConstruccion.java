@@ -23,4 +23,5 @@ import org.junit.runner.RunWith;
     tags = Constantes.EXECUTION_TAGS,
     snippets = SnippetType.CAMELCASE)
 public class TestRunnerConstruccion {
+
 }
