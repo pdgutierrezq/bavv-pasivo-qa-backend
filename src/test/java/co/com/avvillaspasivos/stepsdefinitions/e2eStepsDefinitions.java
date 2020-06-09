@@ -60,30 +60,6 @@ public class e2eStepsDefinitions {
       OnStage.theActorInTheSpotlight().has(Usuario.informacion());
   }
 
-
-
-  @Cuando(
-      "el usuario con condiciones cliente {string} actualizado {string} canales {string} y cuenta cat {string}, diligencia el formulario de identificacion de usuario")
-  public void
-      elUsuarioConCondicionesClienteActualizadoCanalesYCuentaCatDiligenciaElFormularioDeIdentificacionDeUsuario(
-          String client, String updated, String channels, String cat) {
-
-    GlobalData.getInstance()
-        .setActorData(
-            DataProvider.getActorData(
-                Boolean.valueOf(client),
-                Boolean.valueOf(updated),
-                Boolean.valueOf(channels),
-                Boolean.valueOf(cat),
-                false));
-
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            FormIdentificacion.diligenciar(),
-            Click.on(IdentificacionPage.CONTINUAR_BUTTON),
-            Esperas.loader());
-  }
-
   @Cuando("el usuario diligencia el formulario de identificacion de usuario")
   public void elUsuarioDiligenciaElFormularioDeIdentificacionDeUsuario() {
 

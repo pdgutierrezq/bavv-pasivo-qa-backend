@@ -1,6 +1,7 @@
 # language: es
 @Frontend:FormularioIdentificacion
-
+@ok
+@PBA-4
 
 Característica: Formulario de Identificación del usuario
   YO COMO  usuario
@@ -8,7 +9,6 @@ Característica: Formulario de Identificación del usuario
   PARA iniciar el proceso de apertura de cuenta
 
   @Sprint-3
-  @dev
   Escenario: Validacion formulario datos completos y correctos
     Dado que tengo un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
@@ -16,14 +16,12 @@ Característica: Formulario de Identificación del usuario
     Entonces se activara el boton de continuar
 
   @Sprint-3
-  @dev
   Escenario: Validacion formulario datos incompletos
     Dado que el "usuario" esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando ingresa los datos incompletos
     Entonces no se activara el boton de continuar y muestra mensaje de error
 
   @Sprint-3
-  @dev
   Escenario: Validacion formulario numero no coincidente
     Dado que tengo un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
