@@ -6,7 +6,7 @@ Característica: Creacion cuenta de ahorros cliente actualizado
   NECESITO abrir una cuenta de ahorros digital
   PARA tener acceso a una cuenta de ahorros digital
 
-  @e2e
+  @e2eRun
   Escenario: Creacion cuenta de ahorros pro con cliente actualizado con seguro
     Dado el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "true"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
