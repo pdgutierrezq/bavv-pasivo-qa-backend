@@ -1,6 +1,7 @@
 # language: es
 @FBackend:test
-
+@ok
+@PBA-14
 
 Característica: condiciones cliente
   YO COMO sistema
@@ -8,10 +9,9 @@ Característica: condiciones cliente
   PARA direccionarlo al flujo correspondiente
 
   @Sprint-3
-    @PBA-14
-    @dev
   Esquema del escenario: Consumir servicio de condiciones cliente
     Dado que tengo un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
+
     Cuando consumo el servicio rest de condiciones cliente
     Entonces el obtengo la informacion de las condiciones del cliente
     Ejemplos:

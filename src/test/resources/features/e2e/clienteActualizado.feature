@@ -25,8 +25,6 @@ Característica: Creacion cuenta de ahorros cliente actualizado
     Dado el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "true"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando el usuario diligencia el formulario de identificacion de usuario
-#    Dado que el "usuario" es cliente actualizado del banco, esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
-#    Cuando el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "true", diligencia el formulario de identificacion de usuario
     Y selecciona el producto "cuenta pro"
     Y "acepto " el beneficio de excencion de gmf
     Y "no acepta" el seguro
@@ -41,8 +39,6 @@ Característica: Creacion cuenta de ahorros cliente actualizado
     Dado el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "true"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando el usuario diligencia el formulario de identificacion de usuario
-#    Dado que el "usuario" es cliente actualizado del banco, esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
-#    Cuando el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "false", diligencia el formulario de identificacion de usuario
     Y selecciona el producto "cuenta simple"
     Y "acepta" el seguro
     Y se autentica mediante otp
@@ -56,8 +52,6 @@ Característica: Creacion cuenta de ahorros cliente actualizado
     Dado el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "true"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando el usuario diligencia el formulario de identificacion de usuario
-#    Dado que el "usuario" es cliente actualizado del banco, esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
-#    Cuando el usuario con condiciones cliente "true" actualizado "true" canales "true" y cuenta cat "false", diligencia el formulario de identificacion de usuario
     Y selecciona el producto "cuenta simple"
     Y "no acepta" el seguro
     Y se autentica mediante otp

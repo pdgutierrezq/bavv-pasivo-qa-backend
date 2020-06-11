@@ -1,6 +1,7 @@
 # language: es
 @Frontend:DetalleHabeasData
-
+@ok
+@PBA-35
 Característica: Detalle Habeas Data
   YO COMO Cliente
   NECESITO saber el detalle de lo que es habeas data
