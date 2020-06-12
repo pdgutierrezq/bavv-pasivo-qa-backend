@@ -10,8 +10,7 @@ Característica: condiciones cliente
 
   @Sprint-3
   Esquema del escenario: Consumir servicio de condiciones cliente
-    Dado que tengo un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
-
+    Dado que se obtiene un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
     Cuando consumo el servicio rest de condiciones cliente
     Entonces el obtengo la informacion de las condiciones del cliente
     Ejemplos:

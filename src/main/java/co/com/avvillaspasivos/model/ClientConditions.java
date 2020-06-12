@@ -23,4 +23,5 @@ public class ClientConditions {
     private Boolean channels;
     private Boolean cat;
     private Boolean restrictiveList;
+    private Boolean validOtp;
 }

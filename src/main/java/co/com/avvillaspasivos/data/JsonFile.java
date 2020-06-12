@@ -65,6 +65,9 @@ public class JsonFile {
     if (Objects.nonNull(conditions.getCat())) {
       x = x.filter(i -> conditions.getCat() == i.get(DATA_CAT_PROP).getAsBoolean());
     }
+    if (Objects.nonNull(conditions.getValidOtp())) {
+      x = x.filter(i -> conditions.getValidOtp() == i.get(DATA_OTP_PROP).getAsBoolean());
+    }
     if (Objects.nonNull(conditions.getRestrictiveList())) {
       x =
           x.filter(

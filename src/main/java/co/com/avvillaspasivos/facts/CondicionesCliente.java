@@ -16,7 +16,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.facts.Fact;
 
 public class CondicionesCliente implements Fact {
-  String condiciones;
+  private String condiciones;
 
   public static CondicionesCliente consultar() {
     return new CondicionesCliente();

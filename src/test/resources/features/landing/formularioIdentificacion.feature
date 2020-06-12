@@ -10,7 +10,7 @@ Característica: Formulario de Identificación del usuario
 
   @Sprint-3
   Escenario: Validacion formulario datos completos y correctos
-    Dado que tengo un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
+    Dado que se obtiene un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando ingresa los datos correctamente
     Entonces se activara el boton de continuar
@@ -23,7 +23,7 @@ Característica: Formulario de Identificación del usuario
 
   @Sprint-3
   Escenario: Validacion formulario numero no coincidente
-    Dado que tengo un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
+    Dado que se obtiene un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
     Cuando ingresa celular con cuarto numero igual a 1 o 0
     Entonces genera mensaje "El número de celular no es válido"

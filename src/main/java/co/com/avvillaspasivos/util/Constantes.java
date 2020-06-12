@@ -31,6 +31,7 @@ public class Constantes {
   public static final String DATA_UPDATED_PROP = "updated";
   public static final String DATA_CHANNELS_PROP = "hasChannels";
   public static final String DATA_CAT_PROP = "cat";
+  public static final String DATA_OTP_PROP = "validOtp";
   public static final String DATA_REST_LIST_PROP = "restrictiveList";
   public static final String DATA_BLOCK_PROP = "block";
   public static final String DATA_USERS_PROP = "users";

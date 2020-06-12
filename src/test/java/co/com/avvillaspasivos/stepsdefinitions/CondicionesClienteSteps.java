@@ -13,6 +13,7 @@ import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.CallPost;
 import co.com.avvillaspasivos.tasks.Esquema;
@@ -37,13 +38,18 @@ public class CondicionesClienteSteps {
   }
 
   @Dado(
-      "que tengo un usuario tipo cliente {string} actualizado {string} lista restrictiva {string}")
-  public void queTengoUnUsuarioTipoClienteActualizadoListaRestrictiva(
+      "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string}")
+  public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictiva(
       String client, String updated, String listRest) {
 
-    actorData =
-        DataProvider.getActorData(
-            Boolean.valueOf(client), Boolean.valueOf(updated), Boolean.valueOf(listRest));
+    ClientConditions clientConditions =
+        ClientConditions.builder()
+            .client(Boolean.valueOf(client))
+            .updated(Boolean.valueOf(updated))
+            .restrictiveList(Boolean.valueOf(listRest))
+            .build();
+
+    actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled(
             "usuario tipo cliente "
@@ -62,13 +68,16 @@ public class CondicionesClienteSteps {
   public void queTengoUnUsuarioTipoClienteActualizadoCanalesCuentaCatListaRestrictiva(
       String client, String updated, String channels, String cat, String listRest) {
 
-    actorData =
-        DataProvider.getActorData(
-            Boolean.valueOf(client),
-            Boolean.valueOf(updated),
-            Boolean.valueOf(channels),
-            Boolean.valueOf(cat),
-            Boolean.valueOf(listRest));
+    ClientConditions clientConditions =
+        ClientConditions.builder()
+            .client(Boolean.valueOf(client))
+            .updated(Boolean.valueOf(updated))
+            .channels(Boolean.valueOf(channels))
+            .cat(Boolean.valueOf(cat))
+            .restrictiveList(Boolean.valueOf(listRest))
+            .build();
+
+    actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled(
             "usuario tipo cliente "
