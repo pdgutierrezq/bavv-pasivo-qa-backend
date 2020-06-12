@@ -1,6 +1,7 @@
 # language: es
 @Frontend:ValidacionesAdicionalesFormularioIdentificacion
-
+@ok
+@PBA-32
 
 Característica: Validaciones Adicionales Formulario de Identificación del usuario
   YO COMO Usuario identificándome

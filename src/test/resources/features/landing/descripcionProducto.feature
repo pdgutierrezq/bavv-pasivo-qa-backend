@@ -1,5 +1,6 @@
 # language: es
 @Frontend:DescripcionProductoLanding
+  @ok123
 
 Característica: Descripcion Producto Landing
   Yo como usuario

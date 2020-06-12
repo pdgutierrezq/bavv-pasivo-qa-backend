@@ -13,6 +13,7 @@ import co.com.avvillaspasivos.data.GlobalData;
 import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.Esperas;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.SeleccionCuenta;
@@ -36,13 +37,17 @@ public class e2eStepsDefinitions {
       "el usuario con condiciones cliente {string} actualizado {string} canales {string} y cuenta cat {string}")
   public void elUsuarioConCondicionesClienteActualizadoCanalesYCuentaCat(
       String client, String updated, String channels, String cat) {
+
+      ClientConditions clientConditions =
+          ClientConditions.builder()
+              .client(Boolean.valueOf(client))
+              .updated(Boolean.valueOf(updated))
+              .channels(Boolean.valueOf(channels))
+              .cat(Boolean.valueOf(cat))
+              .restrictiveList(false)
+              .build();
       actorData =
-          DataProvider.getActorData(
-              Boolean.valueOf(client),
-              Boolean.valueOf(updated),
-              Boolean.valueOf(channels),
-              Boolean.valueOf(cat),
-              false);
+          DataProvider.getActorData(clientConditions);
 
       OnStage.theActorCalled(
           "usuario tipo cliente "

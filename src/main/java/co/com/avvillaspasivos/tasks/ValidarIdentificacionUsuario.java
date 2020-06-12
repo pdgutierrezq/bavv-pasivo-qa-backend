@@ -12,6 +12,7 @@ import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.thucydides.core.annotations.Step;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 
@@ -29,12 +30,13 @@ public class ValidarIdentificacionUsuario implements Task {
   }
 
   @Override
+  @Step("{0} valida la respuesta")
   public <T extends Actor> void performAs(T actor) {
-    if ("valido otp".equalsIgnoreCase(tipoUsuario)) {
+    if ("true".equalsIgnoreCase(tipoUsuario)) {
       Ensure.that(
           "El servicio responde con estado de exito",
           response -> response.body("statusResponse", Matchers.equalTo(HttpStatus.SC_CREATED)));
-    } else if ("invalido".equalsIgnoreCase(tipoUsuario)) {
+    } else if ("false".equalsIgnoreCase(tipoUsuario)) {
       Ensure.that(
           "El servicio responde con falla que no permite el envio de otp",
           response ->

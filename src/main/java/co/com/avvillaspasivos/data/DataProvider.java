@@ -52,50 +52,23 @@ public class DataProvider {
         .build();
   }
 
-  public static ActorData getActorData(
-      Boolean client, Boolean updated, Boolean channels, Boolean cat, Boolean listRest) {
+  public static ActorData getActorData(ClientConditions clientConditions) {
 
-    JsonObject joMain = null;
-    try {
-      joMain = JsonFile.readJsonFile();
-    } catch (FileNotFoundException e) {
-        LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
-    }
-
-      ClientConditions clientConditions=ClientConditions.builder()
-          .client(client)
-          .updated(updated)
-          .channels(channels)
-          .cat(cat)
-          .restrictiveList(listRest)
-          .build();
-
+    JsonObject joMain = getDataMain();
     JsonObject jsonObjectUser = JsonFile.getUser(joMain, clientConditions);
-
     JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
 
     return buildActorData(jsonObjectUser, joMain);
   }
 
-  public static ActorData getActorData(Boolean client, Boolean updated, Boolean listRest) {
+  private static JsonObject getDataMain() {
     JsonObject joMain = null;
     try {
       joMain = JsonFile.readJsonFile();
     } catch (FileNotFoundException e) {
-        LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
+      LOGGER.error("Fail reading json data file->".concat(e.getMessage()));
     }
-
-      ClientConditions clientConditions=ClientConditions.builder()
-          .client(client)
-          .updated(updated)
-          .restrictiveList(listRest)
-          .build();
-
-
-      JsonObject jsonObjectUser = JsonFile.getUser(joMain, clientConditions);
-    JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
-
-    return buildActorData(jsonObjectUser, joMain);
+    return joMain;
   }
 
   private static ActorData buildActorData(JsonObject jsonObjectUser, JsonObject joMain) {
