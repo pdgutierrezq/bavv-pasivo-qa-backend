@@ -44,6 +44,6 @@ public class Constantes {
   public static final String DATA_SALARY_PROP = "salary";
 
   // configuracion test runners
-  public static final String EXECUTION_TAGS = "@runsonar";
+  public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }
