@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.ui.ErrorPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
@@ -16,6 +17,8 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_PRINCIPAL;
+import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_SECUNDARIO;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class AsercionesUi {
@@ -24,6 +27,13 @@ public class AsercionesUi {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable validarPantallaErrorDeProceso() {
+    return Task.where(
+        "{0} valida la corrección de la pantalla de error de proceso",
+        Ensure.that(ErrorPage.TEXT_MENSAJE_PRINCIPAL).text().contains(TEXTO_ERROR_PROCESO_PRINCIPAL),
+        Ensure.that(ErrorPage.TEXT_MENSAJE_SECUNDARIO).text().contains(TEXTO_ERROR_PROCESO_SECUNDARIO),
+        Ensure.that(ErrorPage.BTN_DONDE_ENCONTRARNOS).isEnabled());
+  }
   public static Performable validarBotonContinuarLanding() {
     return Task.where(
         "{0} valida boton continuar landing",
