@@ -27,7 +27,6 @@ public class Constantes {
   public static final String VALUE_OTP = "12345678";
   public static final String STG_VALUE = "stg";
   public static final String DEV_VALUE = "dev";
-  // json data
   public static final String DATA_CLIENT_PROP = "client";
   public static final String DATA_UPDATED_PROP = "updated";
   public static final String DATA_CHANNELS_PROP = "hasChannels";
@@ -43,7 +42,6 @@ public class Constantes {
   public static final String DATA_PHONE_PROP = "phone";
   public static final String DATA_SALARY_PROP = "salary";
 
-  // configuracion test runners
   public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }

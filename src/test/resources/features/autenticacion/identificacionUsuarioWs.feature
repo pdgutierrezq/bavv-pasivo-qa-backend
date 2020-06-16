@@ -11,7 +11,7 @@ Característica: Consumir servicio de identificación de usuario de la nube negr
     @ok
   Esquema del escenario: Consumir servicio de identificacion de usuario para generar otp
     Dado que se obtiene un usuario tipo valido otp "<tipo>"
-    Cuando consumo el servicio rest de identificacion
+    Cuando se envia la informacion para generar la otp
     Entonces el servicio se encarga de enviar OTP al usuario "<tipo>" o me informa que no paso alguna validacion
     Ejemplos:
       | tipo  |
@@ -23,7 +23,7 @@ Característica: Consumir servicio de identificación de usuario de la nube negr
   Esquema del escenario: Consumir servicio de identificacion de usuario para validar otp de forma exitosa
     Dado que se obtiene un usuario tipo valido otp "<tipo>"
     Y el usuario obtiene la otp recibida
-    Cuando consumo el servicio rest de identificacion para validar otp
+    Cuando se envia la informacion para generar la otp
     Entonces el servicio el servicio entrega informacion de validacion exitosa
     Ejemplos:
       | tipo |

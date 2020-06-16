@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
+import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.tasks.AsercionesUi;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.NavegarA;
@@ -51,13 +52,17 @@ public class FormIdentificationSteps {
 
   @Entonces("se activara el boton de continuar")
   public void seActivaraElBotonDeContinuar() {
-    OnStage.theActorInTheSpotlight()
+      JsonFile.setProperty("block", false);
+
+      OnStage.theActorInTheSpotlight()
         .attemptsTo(AsercionesUi.botonContinuarFormIdentificacionEnabled());
+
   }
 
   @Entonces("no se activara el boton de continuar y muestra mensaje de error")
   public void noSeActivaraElBotonDeContinuarYMuestraMensajeDeError() {
-    OnStage.theActorInTheSpotlight()
+
+      OnStage.theActorInTheSpotlight()
         .attemptsTo(
             AsercionesUi.botonContinuarFormIdentificacionDisabled(),
             AsercionesUi.cantidadMsjObligatoriosFormIdentificacion());
@@ -79,7 +84,9 @@ public class FormIdentificationSteps {
 
   @Entonces("genera mensaje {string}")
   public void generaMensaje(String mensaje) {
-    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
+      JsonFile.setProperty("block", false);
+
+      OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
   }
 
   @Dado("que los campos donde digito mi informacion son tipo texto")

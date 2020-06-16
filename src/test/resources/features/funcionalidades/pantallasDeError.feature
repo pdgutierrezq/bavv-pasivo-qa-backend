@@ -1,5 +1,5 @@
 # language: es
-@Frontend:FuncionalidadesDeLaHerramienta
+@Frontend:PantallasDeError
 @ok
 Característica: Pantallas de error tecnico y de proceso
   Yo como cliente abriendo producto

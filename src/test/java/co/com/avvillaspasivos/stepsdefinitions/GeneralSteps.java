@@ -14,13 +14,18 @@ import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.FormIdentificacion;
 import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.util.ActorActions;
 import co.com.avvillaspasivos.util.VariablesDeSession;
 import cucumber.api.java.es.Dado;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class GeneralSteps {
-  private ActorData actorData;
-
+    @Dado(
+        "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string}")
+    public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictiva(
+        String client, String updated, String listRest) {
+        ActorActions.configure(client,updated,listRest);
+    }
   @Dado(
       "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
   public void
@@ -38,7 +43,7 @@ public class GeneralSteps {
     ClientConditions clientConditions =
         ClientConditions.builder().validOtp(Boolean.valueOf(otp)).build();
 
-    actorData = DataProvider.getActorData(clientConditions);
+      ActorData actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled("usuario tipo " + clientConditions.getValidOtp())
         .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);

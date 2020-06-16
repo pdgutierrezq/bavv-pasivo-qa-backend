@@ -8,8 +8,10 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.ErrorPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
+import co.com.avvillaspasivos.ui.PepPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -30,8 +32,8 @@ public class AsercionesUi {
   public static Performable validarPantallaErrorDeProceso() {
     return Task.where(
         "{0} valida la corrección de la pantalla de error de proceso",
-        Ensure.that(ErrorPage.TEXT_MENSAJE_PRINCIPAL).text().contains(TEXTO_ERROR_PROCESO_PRINCIPAL),
-        Ensure.that(ErrorPage.TEXT_MENSAJE_SECUNDARIO).text().contains(TEXTO_ERROR_PROCESO_SECUNDARIO),
+        Ensure.that(ErrorPage.TEXT_MENSAJE_PRINCIPAL).text().isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_PRINCIPAL),
+        Ensure.that(ErrorPage.TEXT_MENSAJE_SECUNDARIO).text().isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_SECUNDARIO),
         Ensure.that(ErrorPage.BTN_DONDE_ENCONTRARNOS).isEnabled());
   }
   public static Performable validarBotonContinuarLanding() {
@@ -39,6 +41,17 @@ public class AsercionesUi {
         "{0} valida boton continuar landing",
         WaitUntil.the(IdentificacionPage.CONTINUAR_BUTTON, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(Constantes.PATH_FORM_IDENTIFICACION));
+  }
+  public static Performable validarPantallaPep() {
+    return Task.where(
+        "{0} valida la ubicacion en la pantalla pep",
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.pepPagePath())
+    );
+  }
+  public static Performable validarPopUpPep() {
+    return Task.where(
+        "{0} valida la presencia del pop up de pep",
+        Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
   }
 
   public static Performable botonContinuarFormIdentificacionEnabled() {
