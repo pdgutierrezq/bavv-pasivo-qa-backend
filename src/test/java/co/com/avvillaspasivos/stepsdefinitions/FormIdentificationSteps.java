@@ -19,26 +19,16 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 public class FormIdentificationSteps {
 
-
-//  @Dado(
-//      "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
-//  public void
-//      queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
-//
-//    OnStage.theActorInTheSpotlight()
-//        .attemptsTo(
-//            NavegarA.homePage(),
-//            NavegarA.comenzarSolicitud(),
-//            FormIdentificacion.validarCargaInicial());
-//  }
-    @Dado("que el {string} esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
-    public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(String actor) {
-        OnStage.theActorCalled(actor)
-            .attemptsTo(
-                NavegarA.homePage(),
-                NavegarA.comenzarSolicitud(),
-                FormIdentificacion.validarCargaInicial());
-     }
+  @Dado(
+      "que el {string} esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
+  public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(
+      String actor) {
+    OnStage.theActorCalled(actor)
+        .attemptsTo(
+            NavegarA.homePage(),
+            NavegarA.comenzarSolicitud(),
+            FormIdentificacion.validarCargaInicial());
+  }
 
   @Cuando("ingresa los datos correctamente")
   public void ingresaLosDatosCorrectamente() {
@@ -52,17 +42,16 @@ public class FormIdentificationSteps {
 
   @Entonces("se activara el boton de continuar")
   public void seActivaraElBotonDeContinuar() {
-      JsonFile.setProperty("block", false);
+    JsonFile.setProperty("block", false);
 
-      OnStage.theActorInTheSpotlight()
+    OnStage.theActorInTheSpotlight()
         .attemptsTo(AsercionesUi.botonContinuarFormIdentificacionEnabled());
-
   }
 
   @Entonces("no se activara el boton de continuar y muestra mensaje de error")
   public void noSeActivaraElBotonDeContinuarYMuestraMensajeDeError() {
 
-      OnStage.theActorInTheSpotlight()
+    OnStage.theActorInTheSpotlight()
         .attemptsTo(
             AsercionesUi.botonContinuarFormIdentificacionDisabled(),
             AsercionesUi.cantidadMsjObligatoriosFormIdentificacion());
@@ -84,9 +73,9 @@ public class FormIdentificationSteps {
 
   @Entonces("genera mensaje {string}")
   public void generaMensaje(String mensaje) {
-      JsonFile.setProperty("block", false);
+    JsonFile.setProperty("block", false);
 
-      OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
+    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
   }
 
   @Dado("que los campos donde digito mi informacion son tipo texto")
@@ -126,6 +115,4 @@ public class FormIdentificationSteps {
   public void noMePermitiraPegarLosDatos() {
     OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadTextoConfirmacionCel());
   }
-
-
 }

@@ -31,7 +31,7 @@ public class FormIdentificacion {
     ActorData actorData =
         OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
     return Task.where(
-        "{0} diligencia formulario",
+        "{0} diligencia formulario y continua ",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
         Enter.theValue(actorData.getPhone())
             .into(IdentificacionPage.CELULAR_INPUT)
