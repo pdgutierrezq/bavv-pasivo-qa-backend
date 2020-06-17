@@ -43,6 +43,9 @@ public class ServicePaths {
   public static String ipOracle() {
     return environment.iporacle();
   }
+  public static String pepPagePath() {
+    return environment.pepPage();
+  }
 
   public static String pathCustomerConditions() {
     return environment.customerConditions();

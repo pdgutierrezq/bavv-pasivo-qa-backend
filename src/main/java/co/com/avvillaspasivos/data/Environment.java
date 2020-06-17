@@ -26,4 +26,6 @@ public interface Environment extends Config {
   String psworacle();
 
   String iporacle();
+
+  String pepPage();
 }

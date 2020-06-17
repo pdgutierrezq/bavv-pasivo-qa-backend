@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
+import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
@@ -30,32 +31,32 @@ public class IdentificacionUsuarioStepsDefinitions {
     OnStage.setTheStage(new OnlineCast());
   }
 
-  @Cuando("consumo el servicio rest de identificacion")
-  public void consumoElServicioRestDeIdentificacion() {
-    actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
-    OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
+    @Cuando("se envia la informacion para generar la otp")
+    public void seEnviaLaInformacionParaGenerarLaOtp() {
+        actorData =
+            OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+        OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
 
-    BodyGenerarOtp bodyGenerarOtp =
-        BodyGenerarOtp.builder()
-            .documentType(actorData.getDocumentType())
-            .documentNumber(actorData.getDocumentNumber())
-            .firstName(actorData.getFirstName())
-            .lastName(actorData.getLastName())
-            .phone(actorData.getPhone())
-            .build();
+        BodyGenerarOtp bodyGenerarOtp =
+            BodyGenerarOtp.builder()
+                .documentType(actorData.getDocumentType())
+                .documentNumber(actorData.getDocumentNumber())
+                .firstName(actorData.getFirstName())
+                .lastName(actorData.getLastName())
+                .phone(actorData.getPhone())
+                .build();
 
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(CallPost.pathBody(ServicePaths.pathUserIdentity(), bodyGenerarOtp));
-  }
+        OnStage.theActorInTheSpotlight()
+            .attemptsTo(CallPost.pathBody(ServicePaths.pathUserIdentity(), bodyGenerarOtp));
+    }
 
   @Entonces(
       "el servicio se encarga de enviar OTP al usuario {string} o me informa que no paso alguna validacion")
   public void elServicioSeEncargaDeEnviarOTPAlUsuarioOMeInformaQueNoPasoAlgunaValidacion(
       String tipoUsuario) {
-      OnStage.theActorInTheSpotlight().attemptsTo(
-          ValidarIdentificacionUsuario.tipo(tipoUsuario)
-      );
+    JsonFile.setProperty("block", false);
+
+    OnStage.theActorInTheSpotlight().attemptsTo(ValidarIdentificacionUsuario.tipo(tipoUsuario));
   }
 
   @Y("el usuario {string} llama el servicio de identificacion de usuario para generar otp")
@@ -72,4 +73,5 @@ public class IdentificacionUsuarioStepsDefinitions {
 
   @Entonces("el servicio el servicio entrega informacion de validacion exitosa")
   public void elServicioElServicioEntregaInformacionDeValidacionExitosa() {}
+
 }

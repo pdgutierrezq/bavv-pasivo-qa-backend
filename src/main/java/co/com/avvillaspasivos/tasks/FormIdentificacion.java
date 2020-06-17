@@ -23,23 +23,42 @@ import static co.com.avvillaspasivos.util.Constantes.TEXTO_SUPERIOR_LIMITE_TAMAN
 
 public class FormIdentificacion {
 
-    private FormIdentificacion() {
+  private FormIdentificacion() {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable diligenciarContinuar() {
+    ActorData actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    return Task.where(
+        "{0} diligencia formulario y continua ",
+        Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
+        Enter.theValue(actorData.getPhone())
+            .into(IdentificacionPage.CELULAR_INPUT)
+            .thenHit(Keys.TAB),
+        Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
+        Enter.theValue(actorData.getFirstName()).into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
+        Enter.theValue(actorData.getLastName()).into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
+        Enter.theValue(actorData.getSalary()).into(IdentificacionPage.INGRESOS_INPUT),
+        Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX),
+        Click.on(IdentificacionPage.CONTINUAR_BUTTON));
+  }
+
   public static Performable diligenciar() {
-      ActorData actorData = OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
-      return Task.where(
+    ActorData actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    return Task.where(
         "{0} diligencia formulario",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
-        Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_INPUT).thenHit(Keys.TAB),
+        Enter.theValue(actorData.getPhone())
+            .into(IdentificacionPage.CELULAR_INPUT)
+            .thenHit(Keys.TAB),
         Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
         Enter.theValue(actorData.getFirstName()).into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
         Enter.theValue(actorData.getLastName()).into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
         Enter.theValue(actorData.getSalary()).into(IdentificacionPage.INGRESOS_INPUT),
         Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX));
   }
-
 
   public static Performable digitarCelularErrado() {
     return Task.where(
@@ -56,8 +75,7 @@ public class FormIdentificacion {
         Click.on(IdentificacionPage.PRIMER_APELLIDO_INPUT),
         Click.on(IdentificacionPage.DNI_INPUT),
         Click.on(IdentificacionPage.INGRESOS_INPUT),
-        Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX)
-    );
+        Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX));
   }
 
   public static Performable simularRobot() {

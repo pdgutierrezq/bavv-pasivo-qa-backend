@@ -50,8 +50,18 @@ public class JsonFile {
   static JsonObject getUser(JsonObject joMain, ClientConditions conditions) {
 
     List<JsonObject> jsonObjectList = getUsersList(joMain);
+    Stream<JsonObject> streamList = jsonObjectList.stream();
 
-    Stream<JsonObject> x = jsonObjectList.stream();
+    try {
+      streamList = filterStreamUser(streamList, conditions);
+    } catch (Exception e) {
+      LOGGER.error("Fail getting a valid user ->".concat(e.getMessage()));
+    }
+    return streamList.findAny().orElse(null);
+  }
+
+  private static Stream<JsonObject> filterStreamUser(
+      Stream<JsonObject> x, ClientConditions conditions) {
 
     if (Objects.nonNull(conditions.getClient())) {
       x = x.filter(i -> conditions.getClient() == i.get(DATA_CLIENT_PROP).getAsBoolean());
@@ -74,11 +84,8 @@ public class JsonFile {
               i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
     }
 
-    x = x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
-
-    return x.findAny().orElse(null);
+    return x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
   }
-
 
   public static JsonObject getUserById(JsonObject joMain, String numDoc) {
     List<JsonObject> jsonObjectList = getUsersList(joMain);
