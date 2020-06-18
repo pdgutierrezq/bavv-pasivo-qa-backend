@@ -70,8 +70,7 @@ public class e2eStepsDefinitions {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            FormIdentificacion.diligenciar(),
-            Click.on(IdentificacionPage.CONTINUAR_BUTTON),
+            FormIdentificacion.diligenciarContinuar(),
             Esperas.loader());
   }
 
