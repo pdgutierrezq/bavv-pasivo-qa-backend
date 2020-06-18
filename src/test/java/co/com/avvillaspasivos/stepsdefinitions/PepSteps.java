@@ -34,10 +34,9 @@ public class PepSteps {
             Esperas.loader());
   }
 
-  @Entonces("se le muestra la pantalla PEP.")
-  public void seLeMuestraLaPantallaPEP() {
+  @Entonces("se muestra la pantalla PEP.")
+  public void seMuestraLaPantallaPEP() {
       JsonFile.setProperty("block", false);
-
       OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarPantallaPep());
   }
 

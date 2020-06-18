@@ -16,7 +16,7 @@ public class Constantes {
 
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL ="Lo sentimos, no podemos continuar con tu solicitud";
-  public static final String TEXTO_ERROR_PROCESO_SECUNDARIO ="Debes acercarte a una oficina AV Villas para abrir tu cuenta";
+  public static final String TEXTO_ERROR_PROCESO_SECUNDARIO ="Debes acercarte a una oficina AV Villas para abrir tu cuenta.";
   public static final String PATH_FORM_IDENTIFICACION = "user-identification";
   public static final String PATH_OFRECIMIENTO = "account-selection";
   public static final int MAX_WAIT = 60;
