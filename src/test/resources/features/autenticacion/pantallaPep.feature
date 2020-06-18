@@ -12,7 +12,7 @@
     Esquema del escenario: Pantalla para definir si es o no PEP
       Dado que se obtiene un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
       Cuando el cliente superó el recaptcha.
-      Entonces se le muestra la pantalla PEP.
+      Entonces se muestra la pantalla PEP.
       Ejemplos:
         | cliente | actualizado | listRest |
         | true    | false       | false    |
