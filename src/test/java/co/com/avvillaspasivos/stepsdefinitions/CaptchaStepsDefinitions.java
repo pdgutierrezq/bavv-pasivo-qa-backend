@@ -10,9 +10,8 @@ package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.paths.ServicePaths;
-import co.com.avvillaspasivos.tasks.CallGet;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.FormIdentification;
+import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
 import co.com.avvillaspasivos.ui.OfertaProductosPage;
@@ -70,10 +69,10 @@ public class CaptchaStepsDefinitions {
     public void queElFormularioDeIdentificacionClienteEstaDiligenciadoCorrectamente() {
         OnStage.theActorCalled("Usuario")
             .attemptsTo(
-                NavegarA.homePage(),
-                NavegarA.comenzarSolicitud(),
-                FormIdentificacion.validarCargaInicial(),
-                FormIdentificacion.diligenciar());
+                GoTo.homePage(),
+                GoTo.startOnLanding(),
+                FormIdentification.validatePageLoad(),
+                FormIdentification.fill());
     }
 
     @Cuando("el boton se active y el cliente de click en continuar")
@@ -88,7 +87,7 @@ public class CaptchaStepsDefinitions {
 
     @Cuando("se simule comportamiento de robot y el cliente de click en continuar")
     public void seSimuleComportamientoDeRobotYElClienteDeClickEnContinuar() {
-        OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.simularRobot());
+        OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.simularRobot());
         OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
     }
 

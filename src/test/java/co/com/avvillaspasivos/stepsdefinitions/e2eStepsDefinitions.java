@@ -14,8 +14,8 @@ import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
-import co.com.avvillaspasivos.tasks.Esperas;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
+import co.com.avvillaspasivos.tasks.Waits;
+import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.SeleccionCuenta;
 import co.com.avvillaspasivos.tasks.SeleccionSeguros;
 import co.com.avvillaspasivos.ui.*;
@@ -70,8 +70,8 @@ public class e2eStepsDefinitions {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            FormIdentificacion.diligenciarContinuar(),
-            Esperas.loader());
+            FormIdentification.fillAndContinue(),
+            Waits.loader());
   }
 
   @Y("selecciona el producto {string}")
@@ -82,7 +82,7 @@ public class e2eStepsDefinitions {
   @Y("{string} el seguro")
   public void elSeguro(String afirmacion) {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(SeleccionSeguros.selecciona(afirmacion), Esperas.loader());
+        .attemptsTo(SeleccionSeguros.selecciona(afirmacion), Waits.loader());
     //    if ("acepta".equalsIgnoreCase(afirmacion)) {
     //      OnStage.theActorInTheSpotlight().attemptsTo(SeleccionSeguros.acepta(),
     // Esperas.loader());
@@ -100,7 +100,7 @@ public class e2eStepsDefinitions {
         .attemptsTo(
             Enter.theValue(otp).into(AutenticacionPage.LIST_OTP_INPUT),
             Click.on(AutenticacionPage.CONTINUAR_BUTTON),
-            Esperas.loader(120));
+            Waits.loader(120));
   }
 
   @Y("{string} la direccion de envio")
@@ -114,7 +114,7 @@ public class e2eStepsDefinitions {
         .attemptsTo(
             Click.on(DeclarantePage.RADIO_SI),
             Click.on(DeclarantePage.BOTON_CONTINUAR),
-            Esperas.loader(Constantes.MAX_WAIT_GET_PDF));
+            Waits.loader(Constantes.MAX_WAIT_GET_PDF));
 
 //    ActorData actorData = GlobalData.getInstance().getActorData();
 //    String numDoc = actorData.getDocumentNumber();
@@ -134,7 +134,7 @@ public class e2eStepsDefinitions {
         .attemptsTo(
             Click.on(FirmaElectronicaPage.CHECK_AUTORIZACION),
             Click.on(FirmaElectronicaPage.BOTON_CONTINUAR),
-            Esperas.loader());
+            Waits.loader());
   }
 
   @Entonces("se muestra el resumen de la creacion de la cuenta")

@@ -12,11 +12,10 @@ import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.core.configuration.SystemPropertiesConfiguration;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
-import net.thucydides.core.webdriver.Configuration;
 
 public final class EnvironmentProperties {
 
-  private static final Configuration configuration =
+  private static final SystemPropertiesConfiguration configuration =
       new SystemPropertiesConfiguration(SystemEnvironmentVariables.createEnvironmentVariables());
   private static final EnvironmentVariables environmentVariables =
       configuration.getEnvironmentVariables();

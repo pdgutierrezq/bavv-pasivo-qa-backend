@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.ErrorPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
+import co.com.avvillaspasivos.ui.OfertaProductosPage;
 import co.com.avvillaspasivos.ui.PepPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
@@ -29,6 +30,11 @@ public class AsercionesUi {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable validateSelectedRadioSimple() {
+    return Task.where(
+        "{0} valida que el l atarjeta de cuenta simple este seleccionada",
+        Ensure.that(OfertaProductosPage.RADIO_SIMPLE).isEnabled());
+  }
   public static Performable validarPantallaErrorDeProceso() {
     return Task.where(
         "{0} valida la corrección de la pantalla de error de proceso",
@@ -104,4 +110,6 @@ public class AsercionesUi {
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
         Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
+
+
 }

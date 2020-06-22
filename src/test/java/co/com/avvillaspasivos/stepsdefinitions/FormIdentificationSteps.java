@@ -10,8 +10,8 @@ package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.tasks.AsercionesUi;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.FormIdentification;
+import co.com.avvillaspasivos.tasks.GoTo;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -25,19 +25,19 @@ public class FormIdentificationSteps {
       String actor) {
     OnStage.theActorCalled(actor)
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa los datos correctamente")
   public void ingresaLosDatosCorrectamente() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.diligenciar());
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.fill());
   }
 
   @Cuando("ingresa los datos incompletos")
   public void ingresaLosDatosIncompletos() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.noDiligenciar());
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.noDiligenciar());
   }
 
   @Entonces("se activara el boton de continuar")
@@ -61,14 +61,14 @@ public class FormIdentificationSteps {
   public void queElEstaEnLaPantallaDelFormularioDeIdentificacionDeUsuario(String actor) {
     OnStage.theActorCalled(actor)
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa celular con cuarto numero igual a 1 o 0")
   public void ingresaCelularConCuartoNumeroIgualAO() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.digitarCelularErrado());
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.digitarCelularErrado());
   }
 
   @Entonces("genera mensaje {string}")
@@ -82,14 +82,14 @@ public class FormIdentificationSteps {
   public void queLosCamposDondeDigitoMiInformacionSonTipoTexto() {
     OnStage.theActorCalled("Usuario")
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingrese mas de 20 caracteres")
   public void ingreseMasDeCaracteres() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.ingresarTextoFueraDelLimite());
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.ingresarTextoFueraDelLimite());
   }
 
   @Entonces("no me permite ingresar mas datos")
@@ -101,14 +101,14 @@ public class FormIdentificationSteps {
   public void queElEstaDigitandoInformacionEnElCampoConfirmacionDeTelefono(String actor) {
     OnStage.theActorCalled(actor)
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad());
   }
 
   @Cuando("intente pegar la informacion \\(control V)")
   public void intentePegarLaInformacionControlV() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentificacion.copiarPegarTelefono());
+    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.copiarPegarTelefono());
   }
 
   @Entonces("no me permitira pegar los datos")

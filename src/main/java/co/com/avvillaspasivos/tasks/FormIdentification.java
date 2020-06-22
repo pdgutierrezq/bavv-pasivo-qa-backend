@@ -21,13 +21,29 @@ import org.openqa.selenium.Keys;
 
 import static co.com.avvillaspasivos.util.Constantes.TEXTO_SUPERIOR_LIMITE_TAMANIO;
 
-public class FormIdentificacion {
+public class FormIdentification {
 
-  private FormIdentificacion() {
+  private FormIdentification() {
     throw new IllegalStateException("Utility class");
   }
 
-  public static Performable diligenciarContinuar() {
+  public static Performable fillWithSalary(String salary) {
+    ActorData actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    return Task.where(
+        "{0} diligencia formulario con salario definido y continua ",
+        Enter.theValue(actorData.getDocumentNumber()).into(IdentificacionPage.DNI_INPUT),
+        Enter.theValue(actorData.getPhone())
+            .into(IdentificacionPage.CELULAR_INPUT)
+            .thenHit(Keys.TAB),
+        Enter.theValue(actorData.getPhone()).into(IdentificacionPage.CELULAR_CONFIRMACION_INPUT),
+        Enter.theValue(actorData.getFirstName()).into(IdentificacionPage.PRIMER_NOMBRE_INPUT),
+        Enter.theValue(actorData.getLastName()).into(IdentificacionPage.PRIMER_APELLIDO_INPUT),
+        Enter.theValue(salary).into(IdentificacionPage.INGRESOS_INPUT),
+        Click.on(IdentificacionPage.HABEAS_DATA_CHECKBOX),
+        Click.on(IdentificacionPage.CONTINUAR_BUTTON));
+  }
+  public static Performable fillAndContinue() {
     ActorData actorData =
         OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
     return Task.where(
@@ -44,7 +60,7 @@ public class FormIdentificacion {
         Click.on(IdentificacionPage.CONTINUAR_BUTTON));
   }
 
-  public static Performable diligenciar() {
+  public static Performable fill() {
     ActorData actorData =
         OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
     return Task.where(
@@ -102,7 +118,7 @@ public class FormIdentificacion {
         Click.on(IdentificacionPage.CELULAR_CONFIRMACION_INPUT));
   }
 
-  public static Performable validarCargaInicial() {
+  public static Performable validatePageLoad() {
     return Task.where(
         "{0} valida carga de pagina identificacion",
         Ensure.that(IdentificacionPage.CONTINUAR_BUTTON).isDisabled(),

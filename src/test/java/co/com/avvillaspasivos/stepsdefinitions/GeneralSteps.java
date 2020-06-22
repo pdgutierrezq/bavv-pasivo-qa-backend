@@ -12,8 +12,8 @@ import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.FormIdentification;
+import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.util.ActorActions;
 import co.com.avvillaspasivos.util.VariablesDeSession;
 import cucumber.api.java.es.Dado;
@@ -33,9 +33,9 @@ public class GeneralSteps {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad());
   }
 
   @Dado("que se obtiene un usuario tipo valido otp {string}")
