@@ -20,22 +20,28 @@ import cucumber.api.java.es.Dado;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class GeneralSteps {
-    @Dado(
-        "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string}")
-    public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictiva(
-        String client, String updated, String listRest) {
-        ActorActions.configure(client,updated,listRest);
-    }
+
+  @Dado(
+      "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} y cuenta cat {string}")
+  public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictivaYCuentaCat(
+      String client, String updated, String listRest, String cat) {
+    ActorActions.configure(client, updated, listRest,cat);
+  }
+
+  @Dado(
+      "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string}")
+  public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictiva(
+      String client, String updated, String listRest) {
+    ActorActions.configure(client, updated, listRest);
+  }
+
   @Dado(
       "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
   public void
       queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
 
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            GoTo.homePage(),
-            GoTo.startOnLanding(),
-            FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
   }
 
   @Dado("que se obtiene un usuario tipo valido otp {string}")
@@ -43,7 +49,7 @@ public class GeneralSteps {
     ClientConditions clientConditions =
         ClientConditions.builder().validOtp(Boolean.valueOf(otp)).build();
 
-      ActorData actorData = DataProvider.getActorData(clientConditions);
+    ActorData actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled("usuario tipo " + clientConditions.getValidOtp())
         .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);

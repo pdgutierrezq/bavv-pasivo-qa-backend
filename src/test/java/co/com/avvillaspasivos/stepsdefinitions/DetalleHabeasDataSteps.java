@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.AsercionesUi;
+import co.com.avvillaspasivos.tasks.UiAssertions;
 import co.com.avvillaspasivos.tasks.GoTo;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
@@ -30,7 +30,7 @@ public class DetalleHabeasDataSteps {
     @Entonces(
         "se le desplegara un Pop-Up con la informacion de lo que es la autorizacion del habeas data.")
     public void seLeDesplegaraUnPopUpConLaInformacionDeLoQueEsLaAutorizacionDelHabeasData() {
-        OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validatePopUpHabeasData());
+        OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validatePopUpHabeasData());
     }
 
     @Cuando("Cuando de click en entendido")
@@ -41,7 +41,7 @@ public class DetalleHabeasDataSteps {
     @Entonces("Regresara a la pantalla de identificacion cliente")
     public void regresaraALaPantallaDeIdentificacionCliente() {
         OnStage.theActorInTheSpotlight()
-            .attemptsTo(AsercionesUi.validaFormularioIdentificacionHabilitado());
+            .attemptsTo(UiAssertions.validaFormularioIdentificacionHabilitado());
     }
 
     @Dado("que el {string} esta en el POPUP de lo que es la autorizacion de habeas data")

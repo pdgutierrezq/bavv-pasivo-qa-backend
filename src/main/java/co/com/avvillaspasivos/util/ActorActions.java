@@ -41,4 +41,26 @@ public class ActorActions {
 
         OnStage.theActorInTheSpotlight().has(Usuario.informacion());
     }
+    public static void configure(String client, String updated, String listRest, String cat) {
+        ClientConditions clientConditions =
+            ClientConditions.builder()
+                .client(Boolean.valueOf(client))
+                .updated(Boolean.valueOf(updated))
+                .restrictiveList(Boolean.valueOf(listRest))
+                .cat(Boolean.valueOf(cat))
+                .build();
+
+        ActorData actorData = DataProvider.getActorData(clientConditions);
+
+        OnStage.theActorCalled(
+            "usuario tipo cliente "
+                + client
+                + " actualizado "
+                + updated
+                + " y listas restrictivas "
+                + listRest)
+            .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+
+        OnStage.theActorInTheSpotlight().has(Usuario.informacion());
+    }
 }

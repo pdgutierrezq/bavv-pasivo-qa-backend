@@ -17,6 +17,7 @@ import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
@@ -24,40 +25,59 @@ import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_PRINCIP
 import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_SECUNDARIO;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class AsercionesUi {
+public class UiAssertions {
 
-  private AsercionesUi() {
+  private UiAssertions() {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable validateSelectedRadioPro() {
+    return Task.where(
+        "{0} valida que el l atarjeta de cuenta Pro este seleccionada",
+        Ensure.that(
+                OfertaProductosPage.RADIO_CIRCLE_PRO
+                    .resolveFor(OnStage.theActorInTheSpotlight())
+                    .isSelected())
+            .isTrue());
+  }
   public static Performable validateSelectedRadioSimple() {
     return Task.where(
         "{0} valida que el l atarjeta de cuenta simple este seleccionada",
-        Ensure.that(OfertaProductosPage.RADIO_SIMPLE).isEnabled());
+        Ensure.that(
+                OfertaProductosPage.RADIO_CIRCLE_SIMPLE
+                    .resolveFor(OnStage.theActorInTheSpotlight())
+                    .isSelected())
+            .isTrue());
   }
+
   public static Performable validarPantallaErrorDeProceso() {
     return Task.where(
         "{0} valida la corrección de la pantalla de error de proceso",
-        Ensure.that(ErrorPage.TEXT_MENSAJE_PRINCIPAL).text().isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_PRINCIPAL),
-        Ensure.that(ErrorPage.TEXT_MENSAJE_SECUNDARIO).text().isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_SECUNDARIO),
+        Ensure.that(ErrorPage.TEXT_MENSAJE_PRINCIPAL)
+            .text()
+            .isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_PRINCIPAL),
+        Ensure.that(ErrorPage.TEXT_MENSAJE_SECUNDARIO)
+            .text()
+            .isEqualToIgnoringCase(TEXTO_ERROR_PROCESO_SECUNDARIO),
         Ensure.that(ErrorPage.BTN_DONDE_ENCONTRARNOS).isEnabled());
   }
+
   public static Performable validarBotonContinuarLanding() {
     return Task.where(
         "{0} valida boton continuar landing",
         WaitUntil.the(IdentificacionPage.CONTINUAR_BUTTON, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(Constantes.PATH_FORM_IDENTIFICACION));
   }
+
   public static Performable validarPantallaPep() {
     return Task.where(
         "{0} valida la ubicacion en la pantalla pep",
-        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.pepPagePath())
-    );
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.pepPagePath()));
   }
+
   public static Performable validarPopUpPep() {
     return Task.where(
-        "{0} valida la presencia del pop up de pep",
-        Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
+        "{0} valida la presencia del pop up de pep", Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
   }
 
   public static Performable botonContinuarFormIdentificacionEnabled() {
@@ -110,6 +130,4 @@ public class AsercionesUi {
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
         Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
-
-
 }

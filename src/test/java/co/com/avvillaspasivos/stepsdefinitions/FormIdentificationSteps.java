@@ -9,7 +9,7 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.JsonFile;
-import co.com.avvillaspasivos.tasks.AsercionesUi;
+import co.com.avvillaspasivos.tasks.UiAssertions;
 import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.GoTo;
 import cucumber.api.java.es.Cuando;
@@ -45,7 +45,7 @@ public class FormIdentificationSteps {
     JsonFile.setProperty("block", false);
 
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(AsercionesUi.botonContinuarFormIdentificacionEnabled());
+        .attemptsTo(UiAssertions.botonContinuarFormIdentificacionEnabled());
   }
 
   @Entonces("no se activara el boton de continuar y muestra mensaje de error")
@@ -53,8 +53,8 @@ public class FormIdentificationSteps {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            AsercionesUi.botonContinuarFormIdentificacionDisabled(),
-            AsercionesUi.cantidadMsjObligatoriosFormIdentificacion());
+            UiAssertions.botonContinuarFormIdentificacionDisabled(),
+            UiAssertions.cantidadMsjObligatoriosFormIdentificacion());
   }
 
   @Dado("que el {string} esta en la pantalla del formulario de identificacion de usuario")
@@ -75,7 +75,7 @@ public class FormIdentificationSteps {
   public void generaMensaje(String mensaje) {
     JsonFile.setProperty("block", false);
 
-    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarMensajeCelularErrado(mensaje));
+    OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarMensajeCelularErrado(mensaje));
   }
 
   @Dado("que los campos donde digito mi informacion son tipo texto")
@@ -94,7 +94,7 @@ public class FormIdentificationSteps {
 
   @Entonces("no me permite ingresar mas datos")
   public void noMePermiteIngresarMasDatos() {
-    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadLimiteTexto());
+    OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarCantidadLimiteTexto());
   }
 
   @Dado("que el {string} esta digitando informacion en el campo confirmacion de telefono")
@@ -113,6 +113,6 @@ public class FormIdentificationSteps {
 
   @Entonces("no me permitira pegar los datos")
   public void noMePermitiraPegarLosDatos() {
-    OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarCantidadTextoConfirmacionCel());
+    OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarCantidadTextoConfirmacionCel());
   }
 }

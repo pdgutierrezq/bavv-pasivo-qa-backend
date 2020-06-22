@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.AsercionesUi;
+import co.com.avvillaspasivos.tasks.UiAssertions;
 import co.com.avvillaspasivos.tasks.BeneficiosLanding;
 import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.tasks.VerMas;
@@ -56,6 +56,6 @@ public class LandingStepsDefinitions {
 
     @Entonces("se desplegara un cuadro para su identificacion")
     public void seDesplegaraUnCuadroParaSuIdentificacion() {
-        OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarBotonContinuarLanding());
+        OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarBotonContinuarLanding());
     }
 }

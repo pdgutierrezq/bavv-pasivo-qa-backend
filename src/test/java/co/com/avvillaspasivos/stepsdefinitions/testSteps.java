@@ -46,19 +46,19 @@ public class testSteps {
 
     OnStage.theActorCalled(actor)
         .attemptsTo(
-            NavegarA.homePage(), NavegarA.comenzarSolicitud(), FormIdentificacion.diligenciar());
+            GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.fill());
 
     OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
   }
 
   @Cuando("esta en pantalla de ofecimiento de cuenta y selecciona cuenta {string}")
   public void estaEnPantallaDeOfecimientoDeCuentaYSeleccionaCuenta(String tipoCuenta) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionCuentaSimple.simple());
+    OnStage.theActorInTheSpotlight().attemptsTo(Waits.loader(), SeleccionCuentaSimple.simple());
   }
 
   @Y("{string} acepta el ofrecimiento de seguro")
   public void aceptaElOfrecimientoDeSeguro(String aceptacionSeguro) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Esperas.loader(), SeleccionSeguros.selecciona(aceptacionSeguro));
+    OnStage.theActorInTheSpotlight().attemptsTo(Waits.loader(), SeleccionSeguros.selecciona(aceptacionSeguro));
   }
 
   @Entonces("el usuario ingresa la otp")
