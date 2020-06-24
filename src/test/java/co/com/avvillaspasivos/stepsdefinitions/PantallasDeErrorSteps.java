@@ -13,10 +13,10 @@ import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
-import co.com.avvillaspasivos.tasks.AsercionesUi;
-import co.com.avvillaspasivos.tasks.Esperas;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.UiAssertions;
+import co.com.avvillaspasivos.tasks.Waits;
+import co.com.avvillaspasivos.tasks.FormIdentification;
+import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.util.VariablesDeSession;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
@@ -43,17 +43,17 @@ public class PantallasDeErrorSteps {
   public void seValideEnAlgúnPasoQueHayUnaRestricción() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial(),
-            FormIdentificacion.diligenciarContinuar(),
-            Esperas.loader());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad(),
+            FormIdentification.fillAndContinue(),
+            Waits.loader());
   }
 
   @Entonces("se muestra la pantalla de error de proceso")
   public void seMuestraLaPantallaDeErrorDeProceso() {
       JsonFile.setProperty("block", false);
 
-      OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarPantallaErrorDeProceso());
+      OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarPantallaErrorDeProceso());
   }
 }

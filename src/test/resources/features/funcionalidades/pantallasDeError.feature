@@ -1,11 +1,12 @@
 # language: es
 @Frontend:PantallasDeError
+@PBA-61
+@PBA-117
 @ok
 Característica: Pantallas de error tecnico y de proceso
   Yo como cliente abriendo producto
   quiero que se me informe si no puedo abrir el producto
   para finalizar el proceso
-
 
   Escenario:  Pantalla de error de proceso
     Dado que se obtiene un usuario tipo cliente lista restrictiva "true"

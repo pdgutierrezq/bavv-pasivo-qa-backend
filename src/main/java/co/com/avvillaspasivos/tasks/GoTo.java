@@ -15,9 +15,9 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 
-public class NavegarA {
+public class GoTo {
 
-  private NavegarA() {
+  private GoTo() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -25,7 +25,7 @@ public class NavegarA {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
 
-  public static Performable comenzarSolicitud() {
+  public static Performable startOnLanding() {
     return Task.where(
         "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
   }

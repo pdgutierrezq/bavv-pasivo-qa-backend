@@ -16,9 +16,9 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
-public class Esperas {
+public class Waits {
 
-  private Esperas() {
+  private Waits() {
     throw new IllegalStateException("Utility class");
   }
 

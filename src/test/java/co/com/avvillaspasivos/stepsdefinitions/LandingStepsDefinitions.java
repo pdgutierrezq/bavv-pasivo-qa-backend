@@ -8,9 +8,9 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.AsercionesUi;
+import co.com.avvillaspasivos.tasks.UiAssertions;
 import co.com.avvillaspasivos.tasks.BeneficiosLanding;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.tasks.VerMas;
 import co.com.avvillaspasivos.util.Constantes;
 import cucumber.api.java.Before;
@@ -31,7 +31,7 @@ public class LandingStepsDefinitions {
     public void
     queElIngresoAlLandingYVioLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas(
         String featureActor) {
-        OnStage.theActorCalled(featureActor).attemptsTo(NavegarA.homePage());
+        OnStage.theActorCalled(featureActor).attemptsTo(GoTo.homePage());
     }
 
     @Dado(
@@ -41,7 +41,7 @@ public class LandingStepsDefinitions {
 
     @Cuando("de click en comenzar")
     public void deClickEnComenzar() {
-        OnStage.theActorInTheSpotlight().attemptsTo(NavegarA.comenzarSolicitud());
+        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.startOnLanding());
     }
 
     @Cuando("de click en ver mas")
@@ -56,6 +56,6 @@ public class LandingStepsDefinitions {
 
     @Entonces("se desplegara un cuadro para su identificacion")
     public void seDesplegaraUnCuadroParaSuIdentificacion() {
-        OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarBotonContinuarLanding());
+        OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarBotonContinuarLanding());
     }
 }

@@ -1,7 +1,7 @@
   # language: es
   @Frontend:PantallaPep
   @Sprint-5
-  @PBA-162
+  @PBA-66
   @ok
 
   Característica: Creación de pantalla de PEP con Tooltip
@@ -9,6 +9,8 @@
     NECESITO que se me muestre la pantalla PEP
     PARA definir si soy o no PEP
 
+    @Sprint-6
+      @PBA-162
     Esquema del escenario: Pantalla para definir si es o no PEP
       Dado que se obtiene un usuario tipo cliente "<cliente>" actualizado "<actualizado>" lista restrictiva "<listRest>"
       Cuando el cliente superó el recaptcha.

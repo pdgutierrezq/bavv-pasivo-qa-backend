@@ -9,10 +9,10 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.JsonFile;
-import co.com.avvillaspasivos.tasks.AsercionesUi;
-import co.com.avvillaspasivos.tasks.Esperas;
-import co.com.avvillaspasivos.tasks.FormIdentificacion;
-import co.com.avvillaspasivos.tasks.NavegarA;
+import co.com.avvillaspasivos.tasks.UiAssertions;
+import co.com.avvillaspasivos.tasks.Waits;
+import co.com.avvillaspasivos.tasks.FormIdentification;
+import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.ui.PepPage;
 import co.com.avvillaspasivos.util.ActorActions;
 import cucumber.api.java.es.Cuando;
@@ -27,17 +27,17 @@ public class PepSteps {
   public void elClienteSuperóElRecaptcha() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial(),
-            FormIdentificacion.diligenciarContinuar(),
-            Esperas.loader());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad(),
+            FormIdentification.fillAndContinue(),
+            Waits.loader());
   }
 
   @Entonces("se muestra la pantalla PEP.")
   public void seMuestraLaPantallaPEP() {
       JsonFile.setProperty("block", false);
-      OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarPantallaPep());
+      OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarPantallaPep());
   }
 
   @Dado(
@@ -48,11 +48,11 @@ public class PepSteps {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            NavegarA.homePage(),
-            NavegarA.comenzarSolicitud(),
-            FormIdentificacion.validarCargaInicial(),
-            FormIdentificacion.diligenciarContinuar(),
-            Esperas.loader());
+            GoTo.homePage(),
+            GoTo.startOnLanding(),
+            FormIdentification.validatePageLoad(),
+            FormIdentification.fillAndContinue(),
+            Waits.loader());
   }
 
   @Cuando("el cliente ingresa en el tooltip")
@@ -64,6 +64,6 @@ public class PepSteps {
   public void seLeMuestraLaInformaciónDisponibleDeLoQueEsUnPEPMediantePOPUP() {
       JsonFile.setProperty("block", false);
 
-      OnStage.theActorInTheSpotlight().attemptsTo(AsercionesUi.validarPantallaPep());
+      OnStage.theActorInTheSpotlight().attemptsTo(UiAssertions.validarPantallaPep());
   }
 }
