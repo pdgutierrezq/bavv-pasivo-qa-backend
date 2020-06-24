@@ -10,7 +10,7 @@
 
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.OfertaProductosPage;
+import co.com.avvillaspasivos.ui.ProductOffering;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -34,13 +34,13 @@ public class SeleccionCuenta implements Task {
     public <T extends Actor> void performAs(T actor) {
         if ("cuenta simple".equalsIgnoreCase(tipoCuenta)) {
             actor.attemptsTo(
-                Click.on(OfertaProductosPage.RADIO_SIMPLE),
-                Click.on(OfertaProductosPage.BOTON_CONTINUAR_PRODUCTOS)
+                Click.on(ProductOffering.RADIO_SIMPLE),
+                Click.on(ProductOffering.BOTON_CONTINUAR_PRODUCTOS)
             );
         } else if ("cuenta pro".equalsIgnoreCase(tipoCuenta)) {
             actor.attemptsTo(
-                Click.on(OfertaProductosPage.RADIO_PRO),
-                Click.on(OfertaProductosPage.BOTON_CONTINUAR_PRODUCTOS)
+                Click.on(ProductOffering.RADIO_PRO),
+                Click.on(ProductOffering.BOTON_CONTINUAR_PRODUCTOS)
             );
          }
     }
