@@ -42,6 +42,6 @@ public class Constantes {
   public static final String DATA_PHONE_PROP = "phone";
   public static final String DATA_SALARY_PROP = "salary";
 
-  public static final String EXECUTION_TAGS = "@run";
+  public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
 }

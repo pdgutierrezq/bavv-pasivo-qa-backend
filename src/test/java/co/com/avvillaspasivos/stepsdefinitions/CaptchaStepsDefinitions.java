@@ -14,7 +14,7 @@ import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
-import co.com.avvillaspasivos.ui.OfertaProductosPage;
+import co.com.avvillaspasivos.ui.ProductOffering;
 import co.com.avvillaspasivos.util.Constantes;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
@@ -97,7 +97,7 @@ public class CaptchaStepsDefinitions {
             .attemptsTo(
                 WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
                 WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()),
-                WaitUntil.the(OfertaProductosPage.RADIO_PRO, isVisible()),
+                WaitUntil.the(ProductOffering.RADIO_PRO, isVisible()),
                 thatTheCurrentPage().currentUrl().contains(Constantes.PATH_OFRECIMIENTO));
     }
 }

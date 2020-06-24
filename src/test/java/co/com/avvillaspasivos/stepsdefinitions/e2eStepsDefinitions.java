@@ -160,7 +160,7 @@ public class e2eStepsDefinitions {
   @Y("Selecciono que {string} es PEP")
   public void seleccionoQueEsPEP(String opcion) {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(Click.on(PepPage.RADIO_NO_PEP), Click.on(PepPage.BOTON_CONTINUAR));
+        .attemptsTo(Click.on(PepPage.RADIO_NO_PEP), Click.on(PepPage.CONTINUE_BUTTON));
   }
 
   @Y("{string} el beneficio de excencion de gmf")
