@@ -16,10 +16,16 @@ import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.util.ActorActions;
 import co.com.avvillaspasivos.util.VariablesDeSession;
+import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class GeneralSteps {
+    @Before
+    public void setTheStage() {
+        OnStage.setTheStage(new OnlineCast());
+    }
 
   @Dado(
       "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} y cuenta cat {string}")
