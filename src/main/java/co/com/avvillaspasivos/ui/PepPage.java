@@ -22,7 +22,9 @@ public class PepPage {
       Target.the("Ver mas Pep").located(By.xpath("//button[@class='more-info-pep']"));
   public static final Target RADIO_NO_PEP =
       Target.the("Radio button no PEP").located(By.xpath("//mat-radio-button[contains(*,'No')]"));
-  public static final Target BOTON_CONTINUAR =
+  public static final Target RADIO_SI_PEP =
+      Target.the("Radio button no PEP").located(By.xpath("//mat-radio-button[contains(*,'Si')]"));
+  public static final Target CONTINUE_BUTTON =
       Target.the("Boton continuar PEP")
           .located(By.xpath("//button[contains(text(),' Continuar')]"));
 }

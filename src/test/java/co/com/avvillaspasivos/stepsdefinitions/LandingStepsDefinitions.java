@@ -34,11 +34,6 @@ public class LandingStepsDefinitions {
         OnStage.theActorCalled(featureActor).attemptsTo(GoTo.homePage());
     }
 
-    @Dado(
-        "que el usuario ingreso al landing y vio landing  con esta informacion: un mensaje que motive a aperturar la cuenta  Descripcion o beneficios de las cuentas")
-    public void
-    queElUsuarioIngresoAlLandingYVioLandingConEstaInformacionUnMensajeQueMotiveAAperturarLaCuentaDescripcionOBeneficiosDeLasCuentas() {}
-
     @Cuando("de click en comenzar")
     public void deClickEnComenzar() {
         OnStage.theActorInTheSpotlight().attemptsTo(GoTo.startOnLanding());

@@ -11,7 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.ErrorPage;
 import co.com.avvillaspasivos.ui.IdentificacionPage;
-import co.com.avvillaspasivos.ui.OfertaProductosPage;
+import co.com.avvillaspasivos.ui.ProductOfferingPage;
 import co.com.avvillaspasivos.ui.PepPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
@@ -31,11 +31,24 @@ public class UiAssertions {
     throw new IllegalStateException("Utility class");
   }
 
+    public static Performable validateProductOfferingCharge() {
+    return Task.where(
+        "{0} valida la ubicacion en la pantalla oferta de productos",
+        WaitUntil.the(ProductOfferingPage.RADIO_PRO, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.productOfferingPath()));
+    }
+
+    public static Performable validateContinueOptionPep() {
+        return Task.where(
+            "{0} valida opcion continuar pep",
+            Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
+    }
+
   public static Performable validateSelectedRadioPro() {
     return Task.where(
         "{0} valida que el l atarjeta de cuenta Pro este seleccionada",
         Ensure.that(
-                OfertaProductosPage.RADIO_CIRCLE_PRO
+                ProductOfferingPage.RADIO_CIRCLE_PRO
                     .resolveFor(OnStage.theActorInTheSpotlight())
                     .isSelected())
             .isTrue());
@@ -44,7 +57,7 @@ public class UiAssertions {
     return Task.where(
         "{0} valida que el l atarjeta de cuenta simple este seleccionada",
         Ensure.that(
-                OfertaProductosPage.RADIO_CIRCLE_SIMPLE
+                ProductOfferingPage.RADIO_CIRCLE_SIMPLE
                     .resolveFor(OnStage.theActorInTheSpotlight())
                     .isSelected())
             .isTrue());
@@ -130,4 +143,5 @@ public class UiAssertions {
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
         Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
+
 }

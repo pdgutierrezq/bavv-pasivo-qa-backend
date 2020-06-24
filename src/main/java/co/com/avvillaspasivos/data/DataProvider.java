@@ -56,7 +56,6 @@ public class DataProvider {
 
     JsonObject joMain = getDataMain();
     JsonObject jsonObjectUser = JsonFile.getUser(joMain, clientConditions);
-    JsonFile.setProperty(joMain, jsonObjectUser, DATA_BLOCK_PROP, true);
 
     return buildActorData(jsonObjectUser, joMain);
   }

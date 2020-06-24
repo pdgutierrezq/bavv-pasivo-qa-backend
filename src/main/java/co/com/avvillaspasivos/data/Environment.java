@@ -28,4 +28,6 @@ public interface Environment extends Config {
   String iporacle();
 
   String pepPage();
+
+  String productOfferingPage();
 }

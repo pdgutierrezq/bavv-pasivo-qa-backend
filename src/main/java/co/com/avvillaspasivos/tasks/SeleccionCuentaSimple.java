@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.ProductOffering;
+import co.com.avvillaspasivos.ui.ProductOfferingPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -21,13 +21,13 @@ public class SeleccionCuentaSimple {
   public static Performable simple() {
     return Task.where(
         "{0} selecciona cuenta simple",
-        Click.on(ProductOffering.RADIO_SIMPLE),
-        Click.on(ProductOffering.BOTON_CONTINUAR_PRODUCTOS));
+        Click.on(ProductOfferingPage.RADIO_SIMPLE),
+        Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS));
   }
   public static Performable pro() {
     return Task.where(
         "{0} selecciona cuenta pro",
-        Click.on(ProductOffering.RADIO_PRO),
-        Click.on(ProductOffering.BOTON_CONTINUAR_PRODUCTOS));
+        Click.on(ProductOfferingPage.RADIO_PRO),
+        Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS));
   }
 }

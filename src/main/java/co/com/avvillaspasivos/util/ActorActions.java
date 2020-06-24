@@ -5,21 +5,21 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
-
 package co.com.avvillaspasivos.util;
 
 import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
+import co.com.avvillaspasivos.tasks.BdUser;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class ActorActions {
     private ActorActions() {
         throw new IllegalStateException("Utility class");
     }
+
     public static void configure(String client, String updated, String listRest) {
         ClientConditions clientConditions =
             ClientConditions.builder()
@@ -39,8 +39,11 @@ public class ActorActions {
                 + listRest)
             .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
 
+        OnStage.theActorInTheSpotlight().attemptsTo(BdUser.toBlock(true));
+
         OnStage.theActorInTheSpotlight().has(Usuario.informacion());
     }
+
     public static void configure(String client, String updated, String listRest, String cat) {
         ClientConditions clientConditions =
             ClientConditions.builder()
@@ -60,6 +63,8 @@ public class ActorActions {
                 + " y listas restrictivas "
                 + listRest)
             .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+
+        OnStage.theActorInTheSpotlight().attemptsTo(BdUser.toBlock(true));
 
         OnStage.theActorInTheSpotlight().has(Usuario.informacion());
     }
