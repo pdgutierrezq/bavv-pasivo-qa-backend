@@ -9,7 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.ApplicationHomePage;
-import co.com.avvillaspasivos.ui.IdentificacionPage;
+import co.com.avvillaspasivos.ui.IdentificationPage;
 import co.com.avvillaspasivos.ui.PepPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -39,18 +39,18 @@ public class GoTo {
   public static Performable verMasHabeasData() {
     return Task.where(
         "{0} da clic sobre ver mas de habeas data",
-        Click.on(IdentificacionPage.VER_MAS_HABEAS_DATA_BUTTON));
+        Click.on(IdentificationPage.VER_MAS_HABEAS_DATA_BUTTON));
   }
 
   public static Performable entendidoHabeasData() {
     return Task.where(
         "{0} da clic sobre entendido de habeas data",
-        Click.on(IdentificacionPage.ENTENDIDO_HABEAS_DATA_BUTTON));
+        Click.on(IdentificationPage.ENTENDIDO_HABEAS_DATA_BUTTON));
   }
 
   public static Performable cerrarHabeasData() {
     return Task.where(
         "{0} da clic sobre cerrar de habeas data",
-        Click.on(IdentificacionPage.CERRAR_HABEAS_DATA_BUTTON));
+        Click.on(IdentificationPage.CERRAR_HABEAS_DATA_BUTTON));
   }
 }

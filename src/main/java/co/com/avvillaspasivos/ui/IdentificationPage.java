@@ -11,9 +11,9 @@ package co.com.avvillaspasivos.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class IdentificacionPage {
+public class IdentificationPage {
 
-  private IdentificacionPage() {
+  private IdentificationPage() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -32,7 +32,7 @@ public class IdentificacionPage {
           .located(
               By.xpath(
                   "//*[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"));
-  public static final Target CONTINUAR_BUTTON =
+  public static final Target CONTINUE_BUTTON =
       Target.the("Boton continuar ").located(By.xpath("//button[contains(text(),'Continuar')]"));
   public static final Target MSJ_CAMPOS_OBLIG =
       Target.the("Texto campos obligatorios ")
@@ -49,6 +49,6 @@ public class IdentificacionPage {
           .located(By.xpath("//button[contains(text(),'ENTENDIDO')]"));
   public static final Target CERRAR_HABEAS_DATA_BUTTON =
       Target.the("Boton cerrar habeas data").located(By.xpath("//*[@class='icon-salir']"));
-  public static final Target INGRESOS_INPUT =
+  public static final Target SALARY_INPUT =
       Target.the("Input Ingresos").located(By.id("MonthlyIncomeInput"));
 }

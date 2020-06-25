@@ -12,7 +12,7 @@ import co.com.avvillaspasivos.facts.CondicionesCliente;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.*;
-import co.com.avvillaspasivos.ui.IdentificacionPage;
+import co.com.avvillaspasivos.ui.IdentificationPage;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
@@ -48,7 +48,7 @@ public class testSteps {
         .attemptsTo(
             GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.fill());
 
-    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificacionPage.CONTINUAR_BUTTON));
+    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificationPage.CONTINUE_BUTTON));
   }
 
   @Cuando("esta en pantalla de ofecimiento de cuenta y selecciona cuenta {string}")
