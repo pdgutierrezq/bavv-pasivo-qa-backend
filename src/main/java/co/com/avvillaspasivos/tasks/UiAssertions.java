@@ -19,14 +19,27 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_PRINCIPAL;
-import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_SECUNDARIO;
+import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class UiAssertions {
 
   private UiAssertions() {
     throw new IllegalStateException("Utility class");
+  }
+
+  public static Performable validateIncomeFormat() {
+    return Task.where(
+        "{0} valida que presenta formato numero",
+        Ensure.that(IdentificationPage.SALARY_INPUT).value().contains("$"),
+        Ensure.that(IdentificationPage.SALARY_INPUT).value().contains(".")
+    );
+  }
+
+  public static Performable validateMinIncome(String msg) {
+    return Task.where(
+        "{0} valida que solo este presente la card de cuenta Pro",
+        Ensure.that(IdentificationPage.ALERT_ERROR).textContent().isEqualToIgnoringCase(msg));
   }
 
   public static Performable validateAccountSelectionWithCat(String text) {
@@ -51,12 +64,14 @@ public class UiAssertions {
         WaitUntil.the(InsuranceOfferPage.RADIO_ACEPTA_SEGURO, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.insuranceOfferPath()));
   }
+
   public static Performable validateProductOfferingCharge() {
     return Task.where(
         "{0} valida la ubicacion en la pantalla oferta de productos",
         WaitUntil.the(ProductOfferingPage.RADIO_PRO, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.productOfferingPath()));
   }
+
   public static Performable validateAccoutPackageCharge() {
     return Task.where(
         "{0} valida la carga de la pantalla de selección de paquetes",
@@ -90,7 +105,7 @@ public class UiAssertions {
   public static Performable validarBotonContinuarLanding() {
     return Task.where(
         "{0} valida boton continuar landing",
-        WaitUntil.the(IdentificacionPage.CONTINUAR_BUTTON, isVisible()),
+        WaitUntil.the(IdentificationPage.CONTINUE_BUTTON, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(Constantes.PATH_FORM_IDENTIFICACION));
   }
 
@@ -105,54 +120,68 @@ public class UiAssertions {
         "{0} valida la presencia del pop up de pep", Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
   }
 
-  public static Performable botonContinuarFormIdentificacionEnabled() {
+  public static Performable validateContinueButtonFormIdentificationEnabled() {
     return Task.where(
-        "{0} valida boton continuar landing habilitado",
-        Scroll.to(IdentificacionPage.CONTINUAR_BUTTON),
-        Ensure.that(IdentificacionPage.CONTINUAR_BUTTON).isEnabled());
+        "{0} valida boton continuar formulario identificacion habilitado",
+        Scroll.to(IdentificationPage.CONTINUE_BUTTON),
+        Ensure.that(IdentificationPage.CONTINUE_BUTTON).isEnabled());
   }
 
   public static Performable botonContinuarFormIdentificacionDisabled() {
     return Task.where(
         "{0} valida boton continuar landing deshabilitado",
-        Scroll.to(IdentificacionPage.CONTINUAR_BUTTON),
-        Ensure.that(IdentificacionPage.CONTINUAR_BUTTON).isDisabled());
+        Scroll.to(IdentificationPage.CONTINUE_BUTTON),
+        Ensure.that(IdentificationPage.CONTINUE_BUTTON).isDisabled());
   }
 
   public static Performable cantidadMsjObligatoriosFormIdentificacion() {
     return Task.where(
         "{0} valida mensajes de error en formulario identificacion",
-        Ensure.that(IdentificacionPage.MSJ_CAMPOS_OBLIG).values().hasSize(5));
+        Ensure.that(IdentificationPage.MSJ_CAMPOS_OBLIG).values().hasSize(5));
   }
 
   public static Performable validarMensajeCelularErrado(String mensaje) {
     return Task.where(
         "{0} valida mensajes de error por celular errado",
-        Ensure.that(IdentificacionPage.ALERT_ERROR).text().contains(mensaje));
+        Ensure.that(IdentificationPage.ALERT_ERROR).text().contains(mensaje));
   }
 
   public static Performable validatePopUpHabeasData() {
     return Task.where(
         "{0} valida presencia de popup habeas data",
-        Ensure.that(IdentificacionPage.VER_MAS_HABEAS_DATA_POPUP).isDisplayed());
+        Ensure.that(IdentificationPage.VER_MAS_HABEAS_DATA_POPUP).isDisplayed());
   }
 
   public static Performable validaFormularioIdentificacionHabilitado() {
     return Task.where(
         "{0} valida que no este presente el popup de habeas data",
-        Ensure.that(IdentificacionPage.VER_MAS_HABEAS_DATA_POPUP).isNotDisplayed());
+        Ensure.that(IdentificationPage.VER_MAS_HABEAS_DATA_POPUP).isNotDisplayed());
   }
 
   public static Performable validarCantidadLimiteTexto() {
     return Task.where(
         "{0} valida que no se supere el limite de texto en campos de texto",
-        Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(20),
-        Ensure.that(IdentificacionPage.PRIMER_APELLIDO_INPUT).value().hasSize(20));
+        Ensure.that(IdentificationPage.PRIMER_NOMBRE_INPUT).value().hasSize(20),
+        Ensure.that(IdentificationPage.PRIMER_APELLIDO_INPUT).value().hasSize(20));
+  }
+
+  public static Performable validateSalaryLimitForm() {
+
+    return Task.where(
+        "{0} valida que no se supere el limite del salario",
+        Ensure.that(
+                IdentificationPage.SALARY_INPUT
+                    .resolveFor(OnStage.theActorInTheSpotlight())
+                    .getValue()
+                    .replace(" ", "")
+                    .replace("$", "")
+                    .replace(".", ""))
+            .hasSize(SALARY_SIZE));
   }
 
   public static Performable validarCantidadTextoConfirmacionCel() {
     return Task.where(
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
-        Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
+        Ensure.that(IdentificationPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
 }

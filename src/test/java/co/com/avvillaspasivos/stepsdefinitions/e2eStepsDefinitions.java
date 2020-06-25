@@ -83,13 +83,7 @@ public class e2eStepsDefinitions {
   public void elSeguro(String afirmacion) {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(SeleccionSeguros.selecciona(afirmacion), Waits.loader());
-    //    if ("acepta".equalsIgnoreCase(afirmacion)) {
-    //      OnStage.theActorInTheSpotlight().attemptsTo(SeleccionSeguros.acepta(),
-    // Esperas.loader());
-    //    } else if ("no acepta".equalsIgnoreCase(afirmacion)) {
-    //      OnStage.theActorInTheSpotlight().attemptsTo(SeleccionSeguros.noAcepta(),
-    // Esperas.loader());
-    //    }
+
     OnStage.theActorInTheSpotlight().remember(VariablesDeSession.SEGURO.toString(), afirmacion);
   }
 
@@ -116,13 +110,6 @@ public class e2eStepsDefinitions {
             Click.on(DeclarantePage.BOTON_CONTINUAR),
             Waits.loader(Constantes.MAX_WAIT_GET_PDF));
 
-//    ActorData actorData = GlobalData.getInstance().getActorData();
-//    String numDoc = actorData.getDocumentNumber();
-//    JsonObject joMain = actorData.getJsonObjectDataFlow();
-//    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
-//
-//    JsonFile.setProperty(joMain, jsonObjectUser, "updated", true);
-
       JsonFile.setProperty("block", true);
 
   }
@@ -141,20 +128,8 @@ public class e2eStepsDefinitions {
   public void seMuestraElResumenDeLaCreacionDeLaCuenta() {
       JsonFile.setProperty("block", false);
 
-//    ActorData actorData = GlobalData.getInstance().getActorData();
-//    String numDoc = actorData.getDocumentNumber();
-//    JsonObject joMain = actorData.getJsonObjectDataFlow();
-//    JsonObject jsonObjectUser = JsonFile.getUserById(joMain, numDoc);
-//
-//    JsonFile.setProperty(joMain, jsonObjectUser, "block", false);
-//    JsonFile.setProperty(joMain, jsonObjectUser, "cat", true);
-
     OnStage.theActorInTheSpotlight().attemptsTo(Click.on(ResumenPage.BOTON_ENTENDIDO));
 
-    //    OnStage.theActorInTheSpotlight().attemptsTo(Switch.toWindow("Banco AV Villas"));
-    //    OnStage.theActorInTheSpotlight()
-    //        .attemptsTo(Click.on(ResumenPage.BOTON_ENTENDIDO), Switch.toWindow("Banco AV
-    // Villas"));
   }
 
   @Y("Selecciono que {string} es PEP")

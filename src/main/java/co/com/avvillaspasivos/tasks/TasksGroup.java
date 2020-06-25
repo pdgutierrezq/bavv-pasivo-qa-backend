@@ -22,9 +22,10 @@ public class TasksGroup {
         GoTo.homePage(),
         GoTo.startOnLanding(),
         FormIdentification.validatePageLoad(),
-        FormIdentification.fillWithSalary(salary),
+        FormIdentification.fillWithSalaryAndContinue(salary),
         Waits.loader());
   }
+
   public static Performable navigateToProductOffering() {
     return Task.where(
         "{0} navega hasta la pagina de ofrecimiento de cuentas",
@@ -33,5 +34,13 @@ public class TasksGroup {
         FormIdentification.validatePageLoad(),
         FormIdentification.fillAndContinue(),
         Waits.loader());
+  }
+
+  public static Performable navigateToIdentificationForm() {
+    return Task.where(
+        "{0} navega hasta la pagina formulario de identificacion",
+        GoTo.homePage(),
+        GoTo.startOnLanding(),
+        FormIdentification.validatePageLoad());
   }
 }

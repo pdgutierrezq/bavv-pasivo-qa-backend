@@ -9,9 +9,7 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.JsonFile;
-import co.com.avvillaspasivos.tasks.UiAssertions;
-import co.com.avvillaspasivos.tasks.FormIdentification;
-import co.com.avvillaspasivos.tasks.GoTo;
+import co.com.avvillaspasivos.tasks.*;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -24,10 +22,7 @@ public class FormIdentificationSteps {
   public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(
       String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(
-            GoTo.homePage(),
-            GoTo.startOnLanding(),
-            FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa los datos correctamente")
@@ -42,10 +37,9 @@ public class FormIdentificationSteps {
 
   @Entonces("se activara el boton de continuar")
   public void seActivaraElBotonDeContinuar() {
-    JsonFile.setProperty("block", false);
-
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(UiAssertions.botonContinuarFormIdentificacionEnabled());
+        .attemptsTo(
+            BdUser.toBlock(false), UiAssertions.validateContinueButtonFormIdentificationEnabled());
   }
 
   @Entonces("no se activara el boton de continuar y muestra mensaje de error")
@@ -60,10 +54,7 @@ public class FormIdentificationSteps {
   @Dado("que el {string} esta en la pantalla del formulario de identificacion de usuario")
   public void queElEstaEnLaPantallaDelFormularioDeIdentificacionDeUsuario(String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(
-            GoTo.homePage(),
-            GoTo.startOnLanding(),
-            FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa celular con cuarto numero igual a 1 o 0")
@@ -80,11 +71,7 @@ public class FormIdentificationSteps {
 
   @Dado("que los campos donde digito mi informacion son tipo texto")
   public void queLosCamposDondeDigitoMiInformacionSonTipoTexto() {
-    OnStage.theActorCalled("Usuario")
-        .attemptsTo(
-            GoTo.homePage(),
-            GoTo.startOnLanding(),
-            FormIdentification.validatePageLoad());
+    OnStage.theActorCalled("Usuario").attemptsTo(TasksGroup.navigateToIdentificationForm());
   }
 
   @Cuando("ingrese mas de 20 caracteres")
@@ -100,15 +87,7 @@ public class FormIdentificationSteps {
   @Dado("que el {string} esta digitando informacion en el campo confirmacion de telefono")
   public void queElEstaDigitandoInformacionEnElCampoConfirmacionDeTelefono(String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(
-            GoTo.homePage(),
-            GoTo.startOnLanding(),
-            FormIdentification.validatePageLoad());
-  }
-
-  @Cuando("intente pegar la informacion \\(control V)")
-  public void intentePegarLaInformacionControlV() {
-    OnStage.theActorInTheSpotlight().attemptsTo(FormIdentification.copiarPegarTelefono());
+        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
   }
 
   @Entonces("no me permitira pegar los datos")
