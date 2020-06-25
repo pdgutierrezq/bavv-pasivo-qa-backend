@@ -11,8 +11,8 @@ package co.com.avvillaspasivos.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class OfertaSeguroPage {
-  private OfertaSeguroPage() {
+public class InsuranceOfferPage {
+  private InsuranceOfferPage() {
     throw new IllegalStateException("Utility class");
   }
 

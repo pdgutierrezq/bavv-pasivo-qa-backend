@@ -49,6 +49,12 @@ public class ServicePaths {
   public static String productOfferingPath() {
     return environment.productOfferingPage();
   }
+  public static String insuranceOfferPath() {
+    return environment.insuranceOffer();
+  }
+  public static String accountPackagePath() {
+    return environment.accountPackagePath();
+  }
 
   public static String pathCustomerConditions() {
     return environment.customerConditions();
