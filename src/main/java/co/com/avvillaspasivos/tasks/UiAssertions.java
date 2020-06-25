@@ -9,16 +9,14 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.paths.ServicePaths;
-import co.com.avvillaspasivos.ui.ErrorPage;
-import co.com.avvillaspasivos.ui.IdentificacionPage;
-import co.com.avvillaspasivos.ui.ProductOfferingPage;
-import co.com.avvillaspasivos.ui.PepPage;
+import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static co.com.avvillaspasivos.util.Constantes.TEXTO_ERROR_PROCESO_PRINCIPAL;
@@ -31,36 +29,50 @@ public class UiAssertions {
     throw new IllegalStateException("Utility class");
   }
 
-    public static Performable validateProductOfferingCharge() {
+  public static Performable validateAccountSelectionWithCat(String text) {
+    return Task.where(
+        "{0} valida que solo este presente la card de cuenta Pro",
+        Ensure.that(ProductOfferingPage.TITLE_PRODUCT_OFFERING).textContent().contains(text),
+        Ensure.that(ProductOfferingPage.FIRST_CARD).textContent().contains("PRO"),
+        Ensure.that(ProductOfferingPage.RADIO_SIMPLE).isNotDisplayed());
+  }
+
+  public static Performable validateAccountOffering(String text, String account, Target radio) {
+    return Task.where(
+        "{0} valida el titulo de la oferta para cuenta simple",
+        Ensure.that(ProductOfferingPage.TITLE_PRODUCT_OFFERING).textContent().contains(text),
+        Ensure.that(ProductOfferingPage.FIRST_CARD).textContent().contains(account),
+        Ensure.that(radio.resolveFor(OnStage.theActorInTheSpotlight()).isSelected()).isTrue());
+  }
+
+  public static Performable validateInsuranceOffer() {
+    return Task.where(
+        "{0} valida la ubicacion en la pantalla oferta de seguro",
+        WaitUntil.the(InsuranceOfferPage.RADIO_ACEPTA_SEGURO, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.insuranceOfferPath()));
+  }
+  public static Performable validateProductOfferingCharge() {
     return Task.where(
         "{0} valida la ubicacion en la pantalla oferta de productos",
         WaitUntil.the(ProductOfferingPage.RADIO_PRO, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.productOfferingPath()));
-    }
-
-    public static Performable validateContinueOptionPep() {
-        return Task.where(
-            "{0} valida opcion continuar pep",
-            Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
-    }
-
-  public static Performable validateSelectedRadioPro() {
-    return Task.where(
-        "{0} valida que el l atarjeta de cuenta Pro este seleccionada",
-        Ensure.that(
-                ProductOfferingPage.RADIO_CIRCLE_PRO
-                    .resolveFor(OnStage.theActorInTheSpotlight())
-                    .isSelected())
-            .isTrue());
   }
-  public static Performable validateSelectedRadioSimple() {
+  public static Performable validateAccoutPackageCharge() {
     return Task.where(
-        "{0} valida que el l atarjeta de cuenta simple este seleccionada",
-        Ensure.that(
-                ProductOfferingPage.RADIO_CIRCLE_SIMPLE
-                    .resolveFor(OnStage.theActorInTheSpotlight())
-                    .isSelected())
-            .isTrue());
+        "{0} valida la carga de la pantalla de selección de paquetes",
+        WaitUntil.the(AccountPackagePage.FORM_ACCOUNT_PACKAGE, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.accountPackagePath()));
+  }
+
+  public static Performable validateContinueOptionPep() {
+    return Task.where(
+        "{0} valida opcion continuar pep", Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
+  }
+
+  public static Performable validateSelectedRadio(Target radio) {
+    return Task.where(
+        "{0} valida que el la tarjeta de la cuenta este seleccionada",
+        Ensure.that(radio.resolveFor(OnStage.theActorInTheSpotlight()).isSelected()).isTrue());
   }
 
   public static Performable validarPantallaErrorDeProceso() {
@@ -143,5 +155,4 @@ public class UiAssertions {
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
         Ensure.that(IdentificacionPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
-
 }

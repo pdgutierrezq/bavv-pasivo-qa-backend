@@ -30,4 +30,8 @@ public interface Environment extends Config {
   String pepPage();
 
   String productOfferingPage();
+
+  String accountPackagePath();
+
+  String insuranceOffer();
 }

@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.OfertaSeguroPage;
+import co.com.avvillaspasivos.ui.InsuranceOfferPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -32,12 +32,12 @@ public class SeleccionSeguros implements Task {
   public <T extends Actor> void performAs(T actor) {
     if ("acepta".equalsIgnoreCase(afirmacion)) {
       actor.attemptsTo(
-          Click.on(OfertaSeguroPage.RADIO_ACEPTA_SEGURO),
-          Click.on(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS));
+          Click.on(InsuranceOfferPage.RADIO_ACEPTA_SEGURO),
+          Click.on(InsuranceOfferPage.BOTON_CONTINUAR_SEGUROS));
     } else if ("no acepta".equalsIgnoreCase(afirmacion)) {
       actor.attemptsTo(
-                  Click.on(OfertaSeguroPage.RADIO_RECHAZA_SEGURO),
-                  Click.on(OfertaSeguroPage.BOTON_CONTINUAR_SEGUROS));
+                  Click.on(InsuranceOfferPage.RADIO_RECHAZA_SEGURO),
+                  Click.on(InsuranceOfferPage.BOTON_CONTINUAR_SEGUROS));
     }
   }
 }

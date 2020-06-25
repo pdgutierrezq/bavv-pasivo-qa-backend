@@ -16,7 +16,7 @@ import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.Waits;
 import co.com.avvillaspasivos.tasks.FormIdentification;
-import co.com.avvillaspasivos.tasks.SeleccionCuenta;
+import co.com.avvillaspasivos.tasks.AccountSelection;
 import co.com.avvillaspasivos.tasks.SeleccionSeguros;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
@@ -76,7 +76,7 @@ public class e2eStepsDefinitions {
 
   @Y("selecciona el producto {string}")
   public void seleccionaElProducto(String tipoCuenta) {
-    OnStage.theActorInTheSpotlight().attemptsTo(SeleccionCuenta.tipo(tipoCuenta));
+    OnStage.theActorInTheSpotlight().attemptsTo(AccountSelection.type(tipoCuenta));
   }
 
   @Y("{string} el seguro")
@@ -165,7 +165,7 @@ public class e2eStepsDefinitions {
 
   @Y("{string} el beneficio de excencion de gmf")
   public void elBeneficioDeExcencionDeGmf(String arg0) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(PaqueteProPage.BOTON_CONTINUAR));
+    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(AccountPackagePage.BOTON_CONTINUAR));
   }
 
   @Y("selecciona actividad economica")
