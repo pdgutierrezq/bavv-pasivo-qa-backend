@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
+import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
@@ -32,14 +33,30 @@ public class UiAssertions {
     return Task.where(
         "{0} valida que presenta formato numero",
         Ensure.that(IdentificationPage.SALARY_INPUT).value().contains("$"),
-        Ensure.that(IdentificationPage.SALARY_INPUT).value().contains(".")
-    );
+        Ensure.that(IdentificationPage.SALARY_INPUT).value().contains("."));
   }
 
   public static Performable validateMinIncome(String msg) {
     return Task.where(
         "{0} valida que solo este presente la card de cuenta Pro",
         Ensure.that(IdentificationPage.ALERT_ERROR).textContent().isEqualToIgnoringCase(msg));
+  }
+
+  public static Performable validateVisibilityPopUpInsurance(boolean validation) {
+    AnonymousTask task;
+    if (validation) {
+      task =
+          Task.where(
+              "{0} valida que este presente el pop up de seguros",
+              Ensure.that(InsuranceOfferPage.POP_UP_SEE_MORE).isDisplayed());
+    } else {
+      task =
+          Task.where(
+              "{0} valida que no este presente el pop up de seguros",
+              Ensure.that(InsuranceOfferPage.POP_UP_SEE_MORE).isNotDisplayed());
+    }
+
+    return task;
   }
 
   public static Performable validateAccountSelectionWithCat(String text) {
@@ -61,7 +78,7 @@ public class UiAssertions {
   public static Performable validateInsuranceOffer() {
     return Task.where(
         "{0} valida la ubicacion en la pantalla oferta de seguro",
-        WaitUntil.the(InsuranceOfferPage.RADIO_ACEPTA_SEGURO, isVisible()),
+        WaitUntil.the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.insuranceOfferPath()));
   }
 
@@ -79,9 +96,22 @@ public class UiAssertions {
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.accountPackagePath()));
   }
 
+  public static Performable validateOtpPageCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla de identificacion mediante Otp",
+        WaitUntil.the(AutenticacionPage.LIST_OTP_INPUT, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.otpPagePath()));
+  }
+
   public static Performable validateContinueOptionPep() {
     return Task.where(
         "{0} valida opcion continuar pep", Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
+  }
+
+  public static Performable validateContinueOptionInsurance() {
+    return Task.where(
+        "{0} valida opcion continuar oferta de seguro",
+        Ensure.that(InsuranceOfferPage.CONTINUE_BUTTON).isEnabled());
   }
 
   public static Performable validateSelectedRadio(Target radio) {

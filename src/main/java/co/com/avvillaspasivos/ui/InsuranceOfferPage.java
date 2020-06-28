@@ -16,13 +16,22 @@ public class InsuranceOfferPage {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final Target RADIO_ACEPTA_SEGURO =
+  public static final Target RADIO_ACCEPT_INSURANCE =
       Target.the("Radio Button acepta seguro")
           .located(By.xpath("//mat-radio-button[@value='true']"));
-  public static final Target RADIO_RECHAZA_SEGURO =
+  public static final Target RADIO_REJECT_INSURANCE =
       Target.the("Radio Button rechaza seguro")
           .located(By.xpath("//mat-radio-button[@value='false']"));
-  public static final Target BOTON_CONTINUAR_SEGUROS =
+  public static final Target CONTINUE_BUTTON =
       Target.the("Boton continuar oferta seguros")
           .located(By.xpath("//button[contains(text(),' Continuar')]"));
+    public static final Target UNDERSTOOD_POP_UP_BUTTON =
+        Target.the("Boton entendido pop up")
+            .located(By.xpath("//button[contains(text(),'ENTENDIDO')]"));
+  public static final Target LINK_SEE_MORE =
+      Target.the("Enlace ver mas oferta seguros")
+          .located(By.xpath("//span[text()='Ver más']"));
+  public static final Target POP_UP_SEE_MORE =
+      Target.the("Pop up ver mas oferta seguros")
+          .located(By.xpath("//*[@role='dialog']"));
 }

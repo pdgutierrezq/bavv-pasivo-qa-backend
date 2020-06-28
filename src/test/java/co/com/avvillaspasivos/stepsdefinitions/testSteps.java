@@ -58,7 +58,7 @@ public class testSteps {
 
   @Y("{string} acepta el ofrecimiento de seguro")
   public void aceptaElOfrecimientoDeSeguro(String aceptacionSeguro) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Waits.loader(), SeleccionSeguros.selecciona(aceptacionSeguro));
+    OnStage.theActorInTheSpotlight().attemptsTo(Waits.loader(), InsuranceSelection.choose(aceptacionSeguro,true));
   }
 
   @Entonces("el usuario ingresa la otp")

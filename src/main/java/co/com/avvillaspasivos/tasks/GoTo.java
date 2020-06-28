@@ -10,6 +10,7 @@ package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.ApplicationHomePage;
 import co.com.avvillaspasivos.ui.IdentificationPage;
+import co.com.avvillaspasivos.ui.InsuranceOfferPage;
 import co.com.avvillaspasivos.ui.PepPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -40,6 +41,16 @@ public class GoTo {
     return Task.where(
         "{0} da clic sobre ver mas de habeas data",
         Click.on(IdentificationPage.VER_MAS_HABEAS_DATA_BUTTON));
+  }
+  public static Performable seeMoreInsurance() {
+    return Task.where(
+        "{0} da clic sobre ver mas de oferta de seguro",
+        Click.on(InsuranceOfferPage.LINK_SEE_MORE));
+  }
+  public static Performable understoodPopupButton() {
+    return Task.where(
+        "{0} da clic sobre entendido del pop up oferta de seguro",
+        Click.on(InsuranceOfferPage.UNDERSTOOD_POP_UP_BUTTON));
   }
 
   public static Performable entendidoHabeasData() {

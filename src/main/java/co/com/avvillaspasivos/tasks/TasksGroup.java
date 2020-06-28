@@ -11,6 +11,8 @@ package co.com.avvillaspasivos.tasks;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 
+import static co.com.avvillaspasivos.util.Constantes.TAG_SIMPLE_ACCOUNT;
+
 public class TasksGroup {
   private TasksGroup() {
     throw new IllegalStateException("Utility class");
@@ -34,6 +36,13 @@ public class TasksGroup {
         FormIdentification.validatePageLoad(),
         FormIdentification.fillAndContinue(),
         Waits.loader());
+  }
+  public static Performable navigateToInsuranceOffering() {
+    return Task.where(
+        "{0} navega hasta la pagina de ofrecimiento de seguro",
+        navigateToProductOffering(),
+        AccountSelection.type(TAG_SIMPLE_ACCOUNT)
+    );
   }
 
   public static Performable navigateToIdentificationForm() {
