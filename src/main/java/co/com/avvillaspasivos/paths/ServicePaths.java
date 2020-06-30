@@ -46,6 +46,9 @@ public class ServicePaths {
   public static String pepPagePath() {
     return environment.pepPage();
   }
+  public static String otpPagePath() {
+    return environment.otpPage();
+  }
   public static String productOfferingPath() {
     return environment.productOfferingPage();
   }

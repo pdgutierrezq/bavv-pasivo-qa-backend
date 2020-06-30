@@ -54,6 +54,7 @@ public class Constantes {
   public static final String TAG_PRO = "PRO";
   public static final String SIMPLE_SALARY = "1799000";
   public static final String TAG_SIMPLE = "SIMPLE";
+  public static final String TAG_SIMPLE_ACCOUNT = "cuenta simple";
 
   public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";

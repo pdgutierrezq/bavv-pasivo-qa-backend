@@ -9,13 +9,13 @@ Característica: Ingresar campo de ingresos en formulario identificación de usu
   NECESITO ingresar mis ingresos
   PARA determinar que cuenta me sugieren
 
-  Escenario: validaciones de longitud para el campo de ingresos mensuales
+  Escenario: validaciones de longitud minima para el campo de ingresos mensuales
     Dado que se obtiene un usuario tipo cliente "true" actualizado "false" lista restrictiva "false"
     Y que el usuario en pantalla identificación de usuario
     Cuando ingrese el valor de los ingresos mensuales mayores o iguales a 10000
     Entonces se activará el botón continuar si este y los demás campos están diligenciados correctamente.
 
-  Escenario: validaciones de longitud para el campo de ingresos mensuales
+  Escenario: validaciones de longitud maxima para el campo de ingresos mensuales
     Dado que se obtiene un usuario tipo cliente "true" actualizado "false" lista restrictiva "false"
     Y que el usuario en pantalla identificación de usuario
     Cuando ingrese el valor con longitud mayor de diez caracteres numéricos

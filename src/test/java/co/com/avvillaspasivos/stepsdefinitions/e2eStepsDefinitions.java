@@ -17,7 +17,7 @@ import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.Waits;
 import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.AccountSelection;
-import co.com.avvillaspasivos.tasks.SeleccionSeguros;
+import co.com.avvillaspasivos.tasks.InsuranceSelection;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.VariablesDeSession;
@@ -80,11 +80,11 @@ public class e2eStepsDefinitions {
   }
 
   @Y("{string} el seguro")
-  public void elSeguro(String afirmacion) {
+  public void elSeguro(String afirmation) {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(SeleccionSeguros.selecciona(afirmacion), Waits.loader());
+        .attemptsTo(InsuranceSelection.choose(afirmation,true), Waits.loader());
 
-    OnStage.theActorInTheSpotlight().remember(VariablesDeSession.SEGURO.toString(), afirmacion);
+    OnStage.theActorInTheSpotlight().remember(VariablesDeSession.SEGURO.toString(), afirmation);
   }
 
   @Y("se autentica mediante otp")
