@@ -9,7 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -35,7 +35,7 @@ public class CallPost implements Task {
   @Override
   @Step("{0} llama servicio Post")
   public <T extends Actor> void performAs(T actor) {
-    ActorData actorData = actor.recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    ActorData actorData = actor.recall(String.valueOf(SessionVariables.DATA_ACTOR));
 
     actor.attemptsTo(
         Post.to(path)

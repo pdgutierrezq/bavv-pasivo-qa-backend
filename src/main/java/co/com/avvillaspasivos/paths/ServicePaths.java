@@ -49,6 +49,9 @@ public class ServicePaths {
   public static String otpPagePath() {
     return environment.otpPage();
   }
+  public static String deliveryAddressPagePath() {
+    return environment.deliveryAddressPage();
+  }
   public static String productOfferingPath() {
     return environment.productOfferingPage();
   }
@@ -65,4 +68,9 @@ public class ServicePaths {
   public static String pathUserIdentity() {
     return pathIdentificationProject().concat(environment.userIdentity());
   }
+
+    public static String declaringPagePath() {
+        return environment.declaringPage();
+
+    }
 }

@@ -10,7 +10,7 @@ package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.ui.IdentificationPage;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -31,7 +31,7 @@ public class FormIdentification {
 
   private static void getRecallDataActor(){
       actorData =
-          OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+          OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
   }
   private static Performable fill (String salary) {
      getRecallDataActor();
@@ -91,7 +91,7 @@ public class FormIdentification {
 
   public static Performable fillWithSalaryAndContinue(String salary) {
     ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
         "{0} diligencia formulario con salario definido y continua ",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),
@@ -108,7 +108,7 @@ public class FormIdentification {
 
   public static Performable fillAndContinue() {
     ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
         "{0} diligencia formulario y continua ",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),

@@ -10,9 +10,9 @@
 
 package co.com.avvillaspasivos.util;
 
-public enum VariablesDeSession {
+public enum SessionVariables {
 
-    SEGURO,
-    DATA_ACTOR
-
+    INSURANCE,
+    DATA_ACTOR,
+    CRM_ADDRESS
 }

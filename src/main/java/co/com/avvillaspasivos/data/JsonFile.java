@@ -11,7 +11,7 @@ package co.com.avvillaspasivos.data;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.paths.ServicePaths;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -116,7 +116,7 @@ public class JsonFile {
 
   public static void setProperty(String property, boolean value) {
     ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     actorData.getJsonObjectUser().addProperty(property, value);
     writeJsonFile(actorData.getJsonObjectDataFlow());
   }

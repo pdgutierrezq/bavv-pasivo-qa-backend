@@ -37,7 +37,7 @@ public class ActorActions {
                 + updated
                 + " y listas restrictivas "
                 + listRest)
-            .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+            .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
         OnStage.theActorInTheSpotlight().attemptsTo(BdUser.toBlock(true));
 
@@ -62,7 +62,7 @@ public class ActorActions {
                 + updated
                 + " y listas restrictivas "
                 + listRest)
-            .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+            .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
         OnStage.theActorInTheSpotlight().attemptsTo(BdUser.toBlock(true));
 

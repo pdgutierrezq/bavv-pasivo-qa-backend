@@ -15,7 +15,7 @@ import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.FormIdentification;
 import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.util.ActorActions;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -58,7 +58,7 @@ public class GeneralSteps {
     ActorData actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled("usuario tipo " + clientConditions.getValidOtp())
-        .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+        .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
     OnStage.theActorInTheSpotlight().has(Usuario.informacion());
   }

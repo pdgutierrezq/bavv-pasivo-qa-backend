@@ -13,7 +13,7 @@ import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.*;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -30,7 +30,7 @@ public class PantallasDeErrorSteps {
     actorData = DataProvider.getActorData(clientConditions);
 
     OnStage.theActorCalled("usuario tipo listas restrictivas " + listRest)
-        .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+        .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
     OnStage.theActorInTheSpotlight().has(Usuario.informacion());
   }

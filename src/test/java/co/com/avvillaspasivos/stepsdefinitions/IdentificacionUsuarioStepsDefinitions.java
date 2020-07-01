@@ -14,7 +14,7 @@ import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.CallPost;
 import co.com.avvillaspasivos.tasks.ValidarIdentificacionUsuario;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
@@ -34,7 +34,7 @@ public class IdentificacionUsuarioStepsDefinitions {
     @Cuando("se envia la informacion para generar la otp")
     public void seEnviaLaInformacionParaGenerarLaOtp() {
         actorData =
-            OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+            OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
         OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
 
         BodyGenerarOtp bodyGenerarOtp =

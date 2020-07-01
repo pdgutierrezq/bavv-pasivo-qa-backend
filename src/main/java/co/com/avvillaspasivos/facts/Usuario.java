@@ -11,7 +11,7 @@
 package co.com.avvillaspasivos.facts;
 
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.facts.Fact;
 
@@ -24,7 +24,7 @@ public class Usuario implements Fact {
 
     @Override
     public void setup(Actor actor) {
-         actorData=actor.recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+         actorData=actor.recall(String.valueOf(SessionVariables.DATA_ACTOR));
     }
 
     public String toString() {

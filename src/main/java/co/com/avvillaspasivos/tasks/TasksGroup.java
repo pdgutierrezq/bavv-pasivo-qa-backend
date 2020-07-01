@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 
+import static co.com.avvillaspasivos.util.Constantes.TAG_ACCEPT;
 import static co.com.avvillaspasivos.util.Constantes.TAG_SIMPLE_ACCOUNT;
 
 public class TasksGroup {
@@ -21,9 +22,7 @@ public class TasksGroup {
   public static Performable navigateToProductOfferingWithSalary(String salary) {
     return Task.where(
         "{0} navega hasta la pagina de ofrecimiento de cuentas",
-        GoTo.homePage(),
-        GoTo.startOnLanding(),
-        FormIdentification.validatePageLoad(),
+        navigateToIdentificationForm(),
         FormIdentification.fillWithSalaryAndContinue(salary),
         Waits.loader());
   }
@@ -31,25 +30,30 @@ public class TasksGroup {
   public static Performable navigateToProductOffering() {
     return Task.where(
         "{0} navega hasta la pagina de ofrecimiento de cuentas",
-        GoTo.homePage(),
-        GoTo.startOnLanding(),
-        FormIdentification.validatePageLoad(),
+        navigateToIdentificationForm(),
         FormIdentification.fillAndContinue(),
         Waits.loader());
   }
+
   public static Performable navigateToInsuranceOffering() {
     return Task.where(
         "{0} navega hasta la pagina de ofrecimiento de seguro",
-        navigateToProductOffering(),
-        AccountSelection.type(TAG_SIMPLE_ACCOUNT)
+        navigateToProductOffering(), AccountSelection.type(TAG_SIMPLE_ACCOUNT));
+  }
+
+  public static Performable navigateToSendCard() {
+    return Task.where(
+        "{0} navega hasta la pagina de envio de tarjeta",
+        navigateToInsuranceOffering(),
+        InsuranceSelection.choose(TAG_ACCEPT,true),
+        Waits.loader(),
+        Autentication.byOtp()
     );
   }
 
   public static Performable navigateToIdentificationForm() {
     return Task.where(
         "{0} navega hasta la pagina formulario de identificacion",
-        GoTo.homePage(),
-        GoTo.startOnLanding(),
-        FormIdentification.validatePageLoad());
+        GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
   }
 }

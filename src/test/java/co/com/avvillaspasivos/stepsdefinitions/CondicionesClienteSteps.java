@@ -14,7 +14,7 @@ import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.CallPost;
 import co.com.avvillaspasivos.tasks.Esquema;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
@@ -37,7 +37,7 @@ public class CondicionesClienteSteps {
   @Cuando("consumo el servicio rest de condiciones cliente")
   public void consumoElServicioRestDeCondicionesCliente() {
     OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
-    actorData=OnStage.theActorInTheSpotlight().recall(String.valueOf(VariablesDeSession.DATA_ACTOR));
+    actorData=OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
 
     BodyGenerarOtp bodyCustCond =
         BodyGenerarOtp.builder()

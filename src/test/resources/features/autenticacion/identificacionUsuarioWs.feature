@@ -8,7 +8,6 @@ Característica: Consumir servicio de identificación de usuario de la nube negr
 
   @Sprint-3
     @PBA-120
-    @ok
   Esquema del escenario: Consumir servicio de identificacion de usuario para generar otp
     Dado que se obtiene un usuario tipo valido otp "<tipo>"
     Cuando se envia la informacion para generar la otp
