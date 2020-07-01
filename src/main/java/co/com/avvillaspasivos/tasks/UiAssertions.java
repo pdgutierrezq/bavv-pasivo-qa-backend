@@ -11,6 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -27,6 +28,15 @@ public class UiAssertions {
 
   private UiAssertions() {
     throw new IllegalStateException("Utility class");
+  }
+
+  public static Performable validateCrmAddress() {
+    String crmAddress =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.CRM_ADDRESS));
+
+    return Task.where(
+        "{0} valida que la direccion de Crm no se modifico",
+        Ensure.that(AddressPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(crmAddress));
   }
 
   public static Performable validateIncomeFormat() {
@@ -103,6 +113,27 @@ public class UiAssertions {
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.otpPagePath()));
   }
 
+  public static Performable validateDeliveryAddressCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla de direccion de entrega",
+        WaitUntil.the(AddressPage.FORM_ADDRESS, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.deliveryAddressPagePath()));
+  }
+
+  public static Performable validateDeclaringPageCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla de no declarante",
+        WaitUntil.the(DeclarantePage.RADIO_SI, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.declaringPagePath()));
+  }
+
+  public static Performable validateAddressTextBoxPrecharged() {
+    return Task.where(
+        "{0} valida la carga de informacion en los campos de texto de direccion",
+        Ensure.that(AddressPage.TEXT_CITY).value().isNotEmpty(),
+        Ensure.that(AddressPage.TEXT_ADDRESS).value().isNotEmpty());
+  }
+
   public static Performable validateContinueOptionPep() {
     return Task.where(
         "{0} valida opcion continuar pep", Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
@@ -148,6 +179,13 @@ public class UiAssertions {
   public static Performable validarPopUpPep() {
     return Task.where(
         "{0} valida la presencia del pop up de pep", Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
+  }
+
+  public static Performable validatePopUpDirection() {
+    return Task.where(
+        "{0} valida la presencia del pop up de direccion",
+        Ensure.that(AddressPage.POP_UP).isDisplayed(),
+        Ensure.that(AddressPage.POP_UP).text().contains(TEST_DIRECTION));
   }
 
   public static Performable validateContinueButtonFormIdentificationEnabled() {

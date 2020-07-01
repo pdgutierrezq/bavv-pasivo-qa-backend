@@ -11,10 +11,15 @@ package co.com.avvillaspasivos.data;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.BodyGenerarOtp;
 import co.com.avvillaspasivos.model.ClientConditions;
+import co.com.avvillaspasivos.util.Constantes;
+import co.com.avvillaspasivos.util.SessionVariables;
+import co.com.avvillaspasivos.util.Xml;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.serenitybdd.core.Serenity;
+import net.serenitybdd.screenplay.actors.OnStage;
 import org.aeonbits.owner.ConfigFactory;
 
 import java.io.FileNotFoundException;
@@ -106,4 +111,22 @@ public class DataProvider {
         .findFirst()
         .orElse(new JsonObject());
   }
+
+    public  static String getOtp(){
+        ActorData actorData =
+            OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+
+        String url= Serenity.getWebdriverManager().getWebdriver().getCurrentUrl();
+        String otp ="";
+
+        if (url.contains(Constantes.DEV_VALUE)) {
+            otp= Constantes.VALUE_OTP;
+        } else if (url.contains(Constantes.STG_VALUE)) {
+            DbQuerys dbQuerys = new DbQuerys();
+            String dataTagOtp = dbQuerys.getXmlOtp(actorData.getPhone());
+            otp= Xml.getDataTextString(dataTagOtp, Constantes.TAG_OTP).substring(8);
+        }
+
+        return otp;
+    }
 }

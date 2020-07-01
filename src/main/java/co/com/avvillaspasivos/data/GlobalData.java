@@ -9,11 +9,8 @@
 package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.util.Constantes;
-import co.com.avvillaspasivos.util.Xml;
 import lombok.Getter;
 import lombok.Setter;
-import net.serenitybdd.core.Serenity;
 
 @Getter
 @Setter
@@ -32,19 +29,4 @@ public class GlobalData {
         }
 
 
-
-    public  String getOtp(){
-        String url= Serenity.getWebdriverManager().getWebdriver().getCurrentUrl();
-        String otp ="";
-
-        if (url.contains(Constantes.DEV_VALUE)) {
-            otp= Constantes.VALUE_OTP;
-        } else if (url.contains(Constantes.STG_VALUE)) {
-            DbQuerys dbQuerys = new DbQuerys();
-            String dataTagOtp = dbQuerys.getXmlOtp(actorData.getPhone());
-             otp= Xml.getDataTextString(dataTagOtp, Constantes.TAG_OTP).substring(8);
-        }
-
-        return otp;
-    }
 }

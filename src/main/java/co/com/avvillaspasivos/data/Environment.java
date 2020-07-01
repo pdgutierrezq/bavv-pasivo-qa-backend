@@ -36,4 +36,8 @@ public interface Environment extends Config {
   String insuranceOffer();
 
   String otpPage();
+
+  String deliveryAddressPage();
+
+  String declaringPage();
 }

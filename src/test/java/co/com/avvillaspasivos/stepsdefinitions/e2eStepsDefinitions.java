@@ -9,18 +9,14 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.DataProvider;
-import co.com.avvillaspasivos.data.GlobalData;
 import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
-import co.com.avvillaspasivos.tasks.Waits;
-import co.com.avvillaspasivos.tasks.FormIdentification;
-import co.com.avvillaspasivos.tasks.AccountSelection;
-import co.com.avvillaspasivos.tasks.InsuranceSelection;
+import co.com.avvillaspasivos.tasks.*;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
-import co.com.avvillaspasivos.util.VariablesDeSession;
+import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -60,7 +56,7 @@ public class e2eStepsDefinitions {
               + cat
               + " y listas restrictivas "
               + false)
-          .remember(String.valueOf(VariablesDeSession.DATA_ACTOR), actorData);
+          .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
       OnStage.theActorInTheSpotlight().has(Usuario.informacion());
   }
@@ -84,22 +80,20 @@ public class e2eStepsDefinitions {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(InsuranceSelection.choose(afirmation,true), Waits.loader());
 
-    OnStage.theActorInTheSpotlight().remember(VariablesDeSession.SEGURO.toString(), afirmation);
+    OnStage.theActorInTheSpotlight().remember(SessionVariables.INSURANCE.toString(), afirmation);
   }
 
   @Y("se autentica mediante otp")
   public void seAutenticaMedianteOtp() {
-    String otp = GlobalData.getInstance().getOtp();
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            Enter.theValue(otp).into(AutenticacionPage.LIST_OTP_INPUT),
-            Click.on(AutenticacionPage.CONTINUAR_BUTTON),
-            Waits.loader(120));
+      OnStage.theActorInTheSpotlight()
+          .attemptsTo(
+              Autentication.byOtp()
+          );
   }
 
   @Y("{string} la direccion de envio")
   public void laDireccionDeEnvio(String arg0) {
-    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(DireccionPage.BOTON_CONTINUAR));
+    OnStage.theActorInTheSpotlight().attemptsTo(Click.on(AddressPage.CONTINUE_BUTTON));
   }
 
   @Y("{string} que es declarante")

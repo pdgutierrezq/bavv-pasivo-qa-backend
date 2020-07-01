@@ -26,6 +26,7 @@ public class Constantes {
   public static final int DB_WAIT = 3;
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";
   public static final String EXCEED_SIZE_SALARY_TEXT = "12345678901";
+  public static final String TEST_DIRECTION = "Direccion de prueba pasivo avvillas";
   public static final int SALARY_SIZE = 10;
   public static final String TAG_OTP = "s1:CustIdNum";
   public static final String VALUE_OTP = "12345678";
@@ -55,6 +56,10 @@ public class Constantes {
   public static final String SIMPLE_SALARY = "1799000";
   public static final String TAG_SIMPLE = "SIMPLE";
   public static final String TAG_SIMPLE_ACCOUNT = "cuenta simple";
+  public static final String TAG_ACCEPT = "acepta";
+  public static final String TAG_NOT_ACCEPT = "no acepta";
+  public static final String TAG_EDIT = "modifica";
+  public static final String TAG_NOT_EDIT = "no modifica";
 
   public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
