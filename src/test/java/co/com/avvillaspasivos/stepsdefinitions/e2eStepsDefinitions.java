@@ -85,10 +85,10 @@ public class e2eStepsDefinitions {
 
   @Y("se autentica mediante otp")
   public void seAutenticaMedianteOtp() {
-      OnStage.theActorInTheSpotlight()
-          .attemptsTo(
-              Autentication.byOtp()
-          );
+          OnStage.theActorInTheSpotlight()
+              .attemptsTo(
+                  Autentication.byOtp()
+              );
   }
 
   @Y("{string} la direccion de envio")
@@ -110,7 +110,6 @@ public class e2eStepsDefinitions {
 
   @Y("realiza la firma electronica de documentos")
   public void realizaLaFirmaElectronicaDeDocumentos() {
-
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             Click.on(FirmaElectronicaPage.CHECK_AUTORIZACION),

@@ -28,6 +28,9 @@ public class AddressPage {
   public static final Target LIST_CITIES =
       Target.the("Lista de ciudades")
           .located(By.xpath("//*[@role='option']"));
+  public static final Target LIST_TEXT_CITIES =
+      Target.the("Lista de texto de ciudades")
+          .located(By.xpath("//div[@role='listbox']/*[@role='option']/span"));
   public static final Target TEXT_ADDRESS =
       Target.the("Campo de texto de ciudad")
           .located(By.id("DeliveryAddress"));
@@ -40,4 +43,7 @@ public class AddressPage {
   public static final Target POP_UP_REJECT =
       Target.the("Cancelar cambio de direccion")
           .located(By.id("CancelChangeDeliveryAddressButton"));
+  public static final Target ALERT_INVALID =
+      Target.the("Alerta de direccion errada")
+          .located(By.xpath("//*[@role='alert']"));
 }

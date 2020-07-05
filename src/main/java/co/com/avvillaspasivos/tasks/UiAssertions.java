@@ -11,17 +11,21 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
+import co.com.avvillaspasivos.util.Report;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
-import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class UiAssertions {
@@ -30,9 +34,50 @@ public class UiAssertions {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable validateAutocompleteCityAddress() {
+
+    return Task.where(
+        "{0} valida autocompletar de ciudad, campo texto y check transporte masivo",
+        Ensure.that(
+                LIST_CITIES.contains(
+                    AddressPage.TEXT_CITY.resolveFor(theActorInTheSpotlight()).getValue()))
+            .isTrue(),
+        Ensure.that(AddressPage.TEXT_ADDRESS).value().isEmpty());
+  }
+
+  public static Performable validateCityList() {
+    List<String> cityListUi = getCityAddressList();
+    Report.logListCompared(LIST_CITIES, cityListUi);
+
+    return Task.where(
+        "{0} valida que ciudades coincidan con la lista de domina",
+        Ensure.that(LIST_CITIES.equals(cityListUi)).isTrue());
+  }
+
+  private static List<String> getCityAddressList() {
+    List<String> cityListUi = new ArrayList<>();
+    AddressPage.LIST_TEXT_CITIES
+        .resolveAllFor(theActorInTheSpotlight())
+        .forEach(i -> cityListUi.add(i.getText()));
+    return cityListUi;
+  }
+
+  public static Performable validateInvalidWordsOnAddres(String errorText) {
+    return Task.where(
+        "{0} valida que las palabras invalidas generen error",
+        ValidateInvalidWords.onSendAddress(errorText));
+  }
+
+  public static Performable validateAlert(String errorText) {
+
+    return Task.where(
+        "{0} valida que se presente la alerta de direccion invalida",
+        Ensure.that(AddressPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText));
+  }
+
   public static Performable validateCrmAddress() {
     String crmAddress =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.CRM_ADDRESS));
+        theActorInTheSpotlight().recall(String.valueOf(SessionVariables.CRM_ADDRESS));
 
     return Task.where(
         "{0} valida que la direccion de Crm no se modifico",
@@ -82,7 +127,7 @@ public class UiAssertions {
         "{0} valida el titulo de la oferta para cuenta simple",
         Ensure.that(ProductOfferingPage.TITLE_PRODUCT_OFFERING).textContent().contains(text),
         Ensure.that(ProductOfferingPage.FIRST_CARD).textContent().contains(account),
-        Ensure.that(radio.resolveFor(OnStage.theActorInTheSpotlight()).isSelected()).isTrue());
+        Ensure.that(radio.resolveFor(theActorInTheSpotlight()).isSelected()).isTrue());
   }
 
   public static Performable validateInsuranceOffer() {
@@ -134,6 +179,12 @@ public class UiAssertions {
         Ensure.that(AddressPage.TEXT_ADDRESS).value().isNotEmpty());
   }
 
+  public static Performable validateContinueAddressDisabled() {
+    return Task.where(
+        "{0} valida opcion continuar de direccion deshabilitada",
+        Ensure.that(AddressPage.CONTINUE_BUTTON).isDisabled());
+  }
+
   public static Performable validateContinueOptionPep() {
     return Task.where(
         "{0} valida opcion continuar pep", Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
@@ -148,7 +199,7 @@ public class UiAssertions {
   public static Performable validateSelectedRadio(Target radio) {
     return Task.where(
         "{0} valida que el la tarjeta de la cuenta este seleccionada",
-        Ensure.that(radio.resolveFor(OnStage.theActorInTheSpotlight()).isSelected()).isTrue());
+        Ensure.that(radio.resolveFor(theActorInTheSpotlight()).isSelected()).isTrue());
   }
 
   public static Performable validarPantallaErrorDeProceso() {
@@ -239,7 +290,7 @@ public class UiAssertions {
         "{0} valida que no se supere el limite del salario",
         Ensure.that(
                 IdentificationPage.SALARY_INPUT
-                    .resolveFor(OnStage.theActorInTheSpotlight())
+                    .resolveFor(theActorInTheSpotlight())
                     .getValue()
                     .replace(" ", "")
                     .replace("$", "")

@@ -14,5 +14,6 @@ public enum SessionVariables {
 
     INSURANCE,
     DATA_ACTOR,
-    CRM_ADDRESS
+    CRM_ADDRESS,
+    WORD_LIST
 }
