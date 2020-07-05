@@ -168,7 +168,7 @@ public class UiAssertions {
   public static Performable validateDeclaringPageCharge() {
     return Task.where(
         "{0} valida la carga de la pantalla de no declarante",
-        WaitUntil.the(DeclarantePage.RADIO_SI, isVisible()),
+        WaitUntil.the(DeclaringPage.RADIO_SI, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.declaringPagePath()));
   }
 
@@ -303,4 +303,19 @@ public class UiAssertions {
         "{0} valida que no exista informacion despues de pegar sobre el campo confirmacion celular",
         Ensure.that(IdentificationPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
+
+    public static Performable validateDeclaringPopUpClosed() {
+        return Task.where(
+            "{0} valida que el formulario de declarante este habilitado",
+            Ensure.that(DeclaringPage.POP_UP_BUTTON).isNotDisplayed()
+        );
+    }
+
+    public static Performable validateDigitalSignatureCharge() {
+        return Task.where(
+            "{0} valida la carga de la pantalla de firma electronica",
+            WaitUntil.the(FirmaElectronicaPage.CHECK_AUTORIZACION, isVisible()),
+            Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.electronicSignaturePagePath())
+        );
+    }
 }

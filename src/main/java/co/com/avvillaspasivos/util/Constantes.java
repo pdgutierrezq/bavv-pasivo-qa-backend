@@ -64,7 +64,7 @@ public class Constantes {
   public static final String TAG_EDIT = "modifica";
   public static final String TAG_NOT_EDIT = "no modifica";
 
-  public static final String EXECUTION_TAGS = "@ok";
+  public static final String EXECUTION_TAGS = "@run";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final List<String> LIST_CITIES = Arrays.asList(
       "Acacías - Meta",

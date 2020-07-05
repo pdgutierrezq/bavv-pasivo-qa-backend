@@ -100,8 +100,8 @@ public class e2eStepsDefinitions {
   public void queEsDeclarante(String arg0) {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            Click.on(DeclarantePage.RADIO_SI),
-            Click.on(DeclarantePage.BOTON_CONTINUAR),
+            Click.on(DeclaringPage.RADIO_SI),
+            Click.on(DeclaringPage.CONTINUE_BUTTON),
             Waits.loader(Constantes.MAX_WAIT_GET_PDF));
 
       JsonFile.setProperty("block", true);

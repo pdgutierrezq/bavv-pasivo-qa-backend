@@ -40,4 +40,6 @@ public interface Environment extends Config {
   String deliveryAddressPage();
 
   String declaringPage();
+
+  String electronicSignaturePage();
 }

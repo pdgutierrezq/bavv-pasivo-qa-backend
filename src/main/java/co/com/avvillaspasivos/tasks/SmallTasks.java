@@ -9,9 +9,12 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.DeclaringPage;
+import co.com.avvillaspasivos.util.Constantes;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
 public class SmallTasks {
@@ -65,4 +68,13 @@ public class SmallTasks {
         Enter.theValue(faker.number().randomDigit() + faker.address().secondaryAddress())
             .into(AddressPage.TEXT_ADDRESS));
   }
+
+    public static Performable declarationSelect() {
+        return Task.where(
+            "{0} acepta declarante y continua",
+            Click.on(DeclaringPage.RADIO_SI),
+            Click.on(DeclaringPage.CONTINUE_BUTTON),
+            Waits.loader(Constantes.MAX_WAIT_GET_PDF)
+            );
+    }
 }

@@ -73,4 +73,8 @@ public class ServicePaths {
         return environment.declaringPage();
 
     }
+    public static String electronicSignaturePagePath() {
+        return environment.electronicSignaturePage();
+
+    }
 }
