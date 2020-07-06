@@ -11,10 +11,19 @@ package co.com.avvillaspasivos.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 public class Report {
   private Report() {
     throw new IllegalStateException("Utility class");
   }
 
   public static final Logger LOGGER = LoggerFactory.getLogger(Report.class);
+
+  public static void logListCompared(List<String> expected,List<String> actual){
+      LOGGER.info("Expected list->");
+      expected.forEach(LOGGER::info);
+      LOGGER.info("Actual list->");
+      actual.forEach(LOGGER::info);
+  }
 }

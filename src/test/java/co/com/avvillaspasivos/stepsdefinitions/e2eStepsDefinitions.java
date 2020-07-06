@@ -85,10 +85,10 @@ public class e2eStepsDefinitions {
 
   @Y("se autentica mediante otp")
   public void seAutenticaMedianteOtp() {
-      OnStage.theActorInTheSpotlight()
-          .attemptsTo(
-              Autentication.byOtp()
-          );
+          OnStage.theActorInTheSpotlight()
+              .attemptsTo(
+                  Autentication.byOtp()
+              );
   }
 
   @Y("{string} la direccion de envio")
@@ -100,8 +100,8 @@ public class e2eStepsDefinitions {
   public void queEsDeclarante(String arg0) {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            Click.on(DeclarantePage.RADIO_SI),
-            Click.on(DeclarantePage.BOTON_CONTINUAR),
+            Click.on(DeclaringPage.RADIO_SI),
+            Click.on(DeclaringPage.CONTINUE_BUTTON),
             Waits.loader(Constantes.MAX_WAIT_GET_PDF));
 
       JsonFile.setProperty("block", true);
@@ -110,7 +110,6 @@ public class e2eStepsDefinitions {
 
   @Y("realiza la firma electronica de documentos")
   public void realizaLaFirmaElectronicaDeDocumentos() {
-
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             Click.on(FirmaElectronicaPage.CHECK_AUTORIZACION),

@@ -11,8 +11,7 @@ package co.com.avvillaspasivos.tasks;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 
-import static co.com.avvillaspasivos.util.Constantes.TAG_ACCEPT;
-import static co.com.avvillaspasivos.util.Constantes.TAG_SIMPLE_ACCOUNT;
+import static co.com.avvillaspasivos.util.Constantes.*;
 
 public class TasksGroup {
   private TasksGroup() {
@@ -48,6 +47,13 @@ public class TasksGroup {
         InsuranceSelection.choose(TAG_ACCEPT,true),
         Waits.loader(),
         Autentication.byOtp()
+    );
+  }
+  public static Performable navigateToDeclaringScreen() {
+    return Task.where(
+        "{0} navega hasta la pagina de declarante",
+        navigateToSendCard(),
+        EditAddress.toSendCard(TAG_NOT_EDIT)
     );
   }
 
