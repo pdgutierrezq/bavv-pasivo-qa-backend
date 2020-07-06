@@ -23,17 +23,14 @@ public class SmallTasks {
   }
 
   public static Performable leaveEmptyFields() {
-    Faker faker = new Faker();
     return Task.where(
-        "{0} ingresa una ciudad sin cobertura",
+        "{0} ingresa vacio en ciudad y direccion",
         leaveEmptyCityField(),
         Enter.theValue(" ").into(AddressPage.TEXT_ADDRESS)
     );
   }
   public static Performable leaveEmptyCityField() {
-    Faker faker = new Faker();
-    return Task.where(
-        "{0} ingresa una ciudad sin cobertura",
+    return Task.where("{0} ingresa vacio en ciudad",
         Enter.theValue(" ").into(AddressPage.TEXT_CITY)
     );
   }

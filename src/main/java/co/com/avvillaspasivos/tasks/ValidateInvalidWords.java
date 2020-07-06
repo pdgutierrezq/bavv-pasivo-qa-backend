@@ -37,10 +37,9 @@ public class ValidateInvalidWords implements Task {
     List<String> invalidWords = actor.recall(String.valueOf(SessionVariables.WORD_LIST));
 
     invalidWords.forEach(
-        word -> {
-          actor.attemptsTo(
-              Enter.theValue(word).into(AddressPage.TEXT_ADDRESS),
-              Ensure.that(AddressPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText));
-        });
+        word ->
+            actor.attemptsTo(
+                Enter.theValue(word).into(AddressPage.TEXT_ADDRESS),
+                Ensure.that(AddressPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText)));
   }
 }

@@ -38,7 +38,7 @@ public class DeclaringScreenSteps {
   @Y("que el usuario esta en POP-UP de lo que es una persona declarante")
   public void queElUsuarioEstaEnPOPUPDeLoQueEsUnaPersonaDeclarante() {
     theActorInTheSpotlight()
-        .attemptsTo(TasksGroup.navigateToDeclaringScreen(), GoTo.PopUpDeclaring());
+        .attemptsTo(TasksGroup.navigateToDeclaringScreen(), GoTo.popUpDeclaring());
   }
 
   @Entonces("se cierra el POP-UP quedando el cliente en la pantalla de pregunta declarante")

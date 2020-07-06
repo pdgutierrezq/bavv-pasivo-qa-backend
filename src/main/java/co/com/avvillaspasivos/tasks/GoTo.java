@@ -24,7 +24,7 @@ public class GoTo {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
 
-  public static Performable PopUpDeclaring() {
+  public static Performable popUpDeclaring() {
     return Task.where(
         "{0} ingresa en en el pop up de declarante", Click.on(DeclaringPage.POP_UP_LINK));
   }
