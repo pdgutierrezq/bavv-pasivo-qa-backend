@@ -8,8 +8,7 @@
  */
 package co.com.avvillaspasivos.util;
 
-import java.util.Arrays;
-import java.util.List;
+import com.google.common.collect.ImmutableList;
 
 public class Constantes {
 
@@ -64,9 +63,10 @@ public class Constantes {
   public static final String TAG_EDIT = "modifica";
   public static final String TAG_NOT_EDIT = "no modifica";
 
-  public static final String EXECUTION_TAGS = "@run";
+  public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
-  public static final List<String> LIST_CITIES = Arrays.asList(
+    public static final ImmutableList<String> LIST_CITIES =
+        ImmutableList.of(
       "Acacías - Meta",
       "Aguazul - Casanare",
       "Andalucía - Valle Del Cauca",

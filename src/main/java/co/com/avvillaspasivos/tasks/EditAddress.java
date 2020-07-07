@@ -37,11 +37,9 @@ public class EditAddress implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     if (TAG_EDIT.equalsIgnoreCase(option)) {
+
       if (AddressPage.TEXT_CITY.resolveFor(actor).getValue().equals("")) {
-        actor.attemptsTo(Enter.theValue(" ").into(AddressPage.TEXT_CITY));
-        actor.attemptsTo(
-            Click.on(
-                AddressPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
+        selectRandomCity(actor);
       }
 
       actor.attemptsTo(
@@ -51,5 +49,12 @@ public class EditAddress implements Task {
     } else if (TAG_NOT_EDIT.equalsIgnoreCase(option)) {
       actor.attemptsTo(Click.on(AddressPage.CONTINUE_BUTTON));
     }
+  }
+
+  private void selectRandomCity(Actor actor){
+      actor.attemptsTo(Enter.theValue(" ").into(AddressPage.TEXT_CITY));
+      actor.attemptsTo(
+          Click.on(
+              AddressPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
   }
 }

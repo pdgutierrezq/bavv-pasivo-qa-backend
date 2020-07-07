@@ -8,10 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.ApplicationHomePage;
-import co.com.avvillaspasivos.ui.IdentificationPage;
-import co.com.avvillaspasivos.ui.InsuranceOfferPage;
-import co.com.avvillaspasivos.ui.PepPage;
+import co.com.avvillaspasivos.ui.*;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -27,6 +24,10 @@ public class GoTo {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
 
+  public static Performable popUpDeclaring() {
+    return Task.where(
+        "{0} ingresa en en el pop up de declarante", Click.on(DeclaringPage.POP_UP_LINK));
+  }
   public static Performable startOnLanding() {
     return Task.where(
         "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
@@ -63,5 +64,10 @@ public class GoTo {
     return Task.where(
         "{0} da clic sobre cerrar de habeas data",
         Click.on(IdentificationPage.CERRAR_HABEAS_DATA_BUTTON));
+  }
+  public static Performable closeDeclaringPopUp() {
+    return Task.where(
+        "{0} da clic sobre dentendido en pop up declarante",
+        Click.on(DeclaringPage.POP_UP_BUTTON));
   }
 }
