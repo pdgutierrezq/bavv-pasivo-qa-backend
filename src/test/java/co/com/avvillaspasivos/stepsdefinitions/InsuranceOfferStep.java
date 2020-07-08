@@ -33,12 +33,12 @@ public class InsuranceOfferStep {
 
   @Cuando("ingresa en la opcion ver mas")
   public void ingresaEnLaOpcionVerMas() {
-    OnStage.theActorInTheSpotlight().attemptsTo(GoTo.seeMoreInsurance());
+    OnStage.theActorInTheSpotlight().attemptsTo(SmallTasks.seeMoreInsurance());
   }
 
   @Cuando("ingrese en la opcion cerrar o el entendido")
   public void ingresaEnLaOpcionCerrar() {
-    OnStage.theActorInTheSpotlight().attemptsTo(GoTo.understoodPopupButton());
+    OnStage.theActorInTheSpotlight().attemptsTo(SmallTasks.understoodPopupButton());
   }
 
   @Cuando("{string} el seguro y continua")

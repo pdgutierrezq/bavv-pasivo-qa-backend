@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
+import co.com.avvillaspasivos.tasks.SmallTasks;
 import co.com.avvillaspasivos.tasks.UiAssertions;
 import co.com.avvillaspasivos.tasks.GoTo;
 import cucumber.api.java.es.Cuando;
@@ -24,7 +25,7 @@ public class DetalleHabeasDataSteps {
 
     @Cuando("de click en ver mas habeas data")
     public void deClickEnVerMasHabeasData() {
-        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.verMasHabeasData());
+        OnStage.theActorInTheSpotlight().attemptsTo(SmallTasks.seeMoreMasHabeasData());
     }
 
     @Entonces(
@@ -35,7 +36,7 @@ public class DetalleHabeasDataSteps {
 
     @Cuando("Cuando de click en entendido")
     public void cuandoDeClickEnEntendido() {
-        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.entendidoHabeasData());
+        OnStage.theActorInTheSpotlight().attemptsTo(SmallTasks.understoodHabeasData());
     }
 
     @Entonces("Regresara a la pantalla de identificacion cliente")
@@ -47,11 +48,11 @@ public class DetalleHabeasDataSteps {
     @Dado("que el {string} esta en el POPUP de lo que es la autorizacion de habeas data")
     public void queElEstaEnElPOPUPDeLoQueEsLaAutorizacionDeHabeasData(String actor) {
         OnStage.theActorCalled(actor)
-            .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), GoTo.verMasHabeasData());
+            .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), SmallTasks.seeMoreMasHabeasData());
     }
 
     @Cuando("Cuando de click en cerrar")
     public void cuandoDeClickEnCerrar() {
-        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.cerrarHabeasData());
+        OnStage.theActorInTheSpotlight().attemptsTo(SmallTasks.closeHabeasData());
     }
 }

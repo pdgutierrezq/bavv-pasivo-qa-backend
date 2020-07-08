@@ -21,7 +21,7 @@ import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class EditAddress implements Task {
-  Faker faker = new Faker();
+  private Faker faker = new Faker();
 
   private final String option;
 
