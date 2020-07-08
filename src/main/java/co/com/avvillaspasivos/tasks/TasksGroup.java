@@ -8,8 +8,12 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.ui.DeclaringPage;
+import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.targets.Target;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 
@@ -49,11 +53,39 @@ public class TasksGroup {
         Autentication.byOtp()
     );
   }
-  public static Performable navigateToDeclaringScreen() {
+  public static Performable passSendCardScreen() {
     return Task.where(
-        "{0} navega hasta la pagina de declarante",
+        "{0} avanza de la pagina envio de tarjeta",
         navigateToSendCard(),
         EditAddress.toSendCard(TAG_NOT_EDIT)
+    );
+  }
+  public static Performable navigateToDeclaringScreen(boolean continueOption,boolean declaringOption) {
+      AnonymousTask task;
+
+      if (continueOption){
+          Target radioOption=(declaringOption)?DeclaringPage.RADIO_SI:DeclaringPage.RADIO_NO;
+
+          task=Task.where(
+              "{0} navega hasta la pagina de declarante y continua",
+              passSendCardScreen(),
+              Click.on(radioOption),
+              Click.on(DeclaringPage.CONTINUE_BUTTON)
+          );
+      }
+      else {
+          task=Task.where(
+              "{0} navega hasta la pagina de declarante",
+              passSendCardScreen()
+          );
+      }
+    return task;
+  }
+  public static Performable navigateToElectronicSignatureScreen() {
+    return Task.where(
+        "{0} navega hasta la pagina de firma electronica",
+        navigateToDeclaringScreen(true,true),
+        Waits.loader()
     );
   }
 

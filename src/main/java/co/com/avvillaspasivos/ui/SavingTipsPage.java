@@ -13,15 +13,12 @@ package co.com.avvillaspasivos.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class FirmaElectronicaPage {
-    private FirmaElectronicaPage() {
+public class SavingTipsPage {
+    private SavingTipsPage() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static final Target BOTON_CONTINUAR =
-        Target.the("Boton continuar direccion")
-            .located(By.xpath("//button[contains(text(),' Continuar')]"));
-    public static final Target CHECK_AUTORIZACION =
-        Target.the("Boton continuar direccion")
-            .located(By.id("DigitalSignatureCheck"));
+    public static final Target ANIMATION =
+        Target.the("Animacion de tips de ahorro")
+            .located(By.className("lottie-animation"));
 }

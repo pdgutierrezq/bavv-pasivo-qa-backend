@@ -112,8 +112,8 @@ public class e2eStepsDefinitions {
   public void realizaLaFirmaElectronicaDeDocumentos() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            Click.on(FirmaElectronicaPage.CHECK_AUTORIZACION),
-            Click.on(FirmaElectronicaPage.BOTON_CONTINUAR),
+            Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
+            Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),
             Waits.loader());
   }
 

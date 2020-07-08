@@ -30,6 +30,10 @@ public class DeclaringPage {
         Target.the("Radio Button SI")
             .located(By.xpath("//mat-radio-button[@value='true']"));
 
+    public static final Target RADIO_NO =
+        Target.the("Radio Button SI")
+            .located(By.xpath("//mat-radio-button[@value='false']"));
+
     public static final Target CONTINUE_BUTTON =
         Target.the("Boton continuar declarante")
             .located(By.xpath("//button[contains(text(),' Continuar')]"));

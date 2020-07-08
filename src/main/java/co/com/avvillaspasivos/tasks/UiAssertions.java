@@ -165,6 +165,13 @@ public class UiAssertions {
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.deliveryAddressPagePath()));
   }
 
+  public static Performable validateSavingTipsPageCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla tips de ahorro",
+        WaitUntil.the(SavingTipsPage.ANIMATION, isVisible()),
+        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.savingTipsPagePath()));
+  }
+
   public static Performable validateDeclaringPageCharge() {
     return Task.where(
         "{0} valida la carga de la pantalla de no declarante",
@@ -225,6 +232,12 @@ public class UiAssertions {
     return Task.where(
         "{0} valida la ubicacion en la pantalla pep",
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.pepPagePath()));
+  }
+
+  public static Performable validatePopUpEs() {
+    return Task.where(
+        "{0} valida la presencia del pop up de firma electronica",
+        Ensure.that(ElectronicSignaturePage.POP_UP_ES).isDisplayed());
   }
 
   public static Performable validarPopUpPep() {
@@ -304,18 +317,18 @@ public class UiAssertions {
         Ensure.that(IdentificationPage.PRIMER_NOMBRE_INPUT).value().hasSize(0));
   }
 
-    public static Performable validateDeclaringPopUpClosed() {
-        return Task.where(
-            "{0} valida que el formulario de declarante este habilitado",
-            Ensure.that(DeclaringPage.POP_UP_BUTTON).isNotDisplayed()
-        );
-    }
+  public static Performable validateDeclaringPopUpClosed() {
+    return Task.where(
+        "{0} valida que el formulario de declarante este habilitado",
+        Ensure.that(DeclaringPage.POP_UP_BUTTON).isNotDisplayed());
+  }
 
-    public static Performable validateDigitalSignatureCharge() {
-        return Task.where(
-            "{0} valida la carga de la pantalla de firma electronica",
-            WaitUntil.the(FirmaElectronicaPage.CHECK_AUTORIZACION, isVisible()),
-            Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.electronicSignaturePagePath())
-        );
-    }
+  public static Performable validateDigitalSignatureCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla de firma electronica",
+        WaitUntil.the(ElectronicSignaturePage.CHECK_AUTORIZATION, isVisible()),
+        Ensure.thatTheCurrentPage()
+            .currentUrl()
+            .contains(ServicePaths.electronicSignaturePagePath()));
+  }
 }

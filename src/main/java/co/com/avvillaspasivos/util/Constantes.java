@@ -65,7 +65,7 @@ public class Constantes {
   public static final String TRUE_VALUE = "verdadero";
   public static final String FALSE_VALUE = "falso";
 
-  public static final String EXECUTION_TAGS = "@run";
+  public static final String EXECUTION_TAGS = "@ok";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
     public static final ImmutableList<String> LIST_CITIES =
         ImmutableList.of(
