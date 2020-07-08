@@ -22,16 +22,23 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class GeneralSteps {
-    @Before
-    public void setTheStage() {
-        OnStage.setTheStage(new OnlineCast());
-    }
+  @Before
+  public void setTheStage() {
+    OnStage.setTheStage(new OnlineCast());
+  }
 
   @Dado(
       "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} y cuenta cat {string}")
   public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictivaYCuentaCat(
       String client, String updated, String listRest, String cat) {
-    ActorActions.configure(client, updated, listRest,cat);
+    ActorActions.configure(client, updated, listRest, cat);
+  }
+
+  @Dado(
+      "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} cuenta cat {string} y canales {string}")
+  public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictivaCuentaCatYCanales(
+      String client, String updated, String listRest, String cat, String channels) {
+    ActorActions.configure(client, updated, listRest, cat, channels);
   }
 
   @Dado(

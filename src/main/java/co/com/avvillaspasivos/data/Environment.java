@@ -42,4 +42,6 @@ public interface Environment extends Config {
   String declaringPage();
 
   String electronicSignaturePage();
+
+  String savingTipsPage();
 }
