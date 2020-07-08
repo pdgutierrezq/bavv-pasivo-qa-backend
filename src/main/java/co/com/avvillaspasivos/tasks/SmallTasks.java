@@ -8,8 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
-import co.com.avvillaspasivos.ui.DeclaringPage;
+import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Performable;
@@ -22,25 +21,79 @@ public class SmallTasks {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable continueElectronicSignature() {
+    return Task.where(
+        "{0} selecciona continuar en firma electronica",
+        Click.on(ElectronicSignaturePage.CONTINUE_BUTTON), Waits.loader());
+  }
+
+  public static Performable authorizeElectronicSignature() {
+    return Task.where(
+        "{0} autoriza firma electronica", Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION));
+  }
+
+  public static Performable seeMoreInsurance() {
+    return Task.where(
+        "{0} da clic sobre ver mas de oferta de seguro",
+        Click.on(InsuranceOfferPage.LINK_SEE_MORE));
+  }
+
+  public static Performable understoodPopupButton() {
+    return Task.where(
+        "{0} da clic sobre entendido del pop up oferta de seguro",
+        Click.on(InsuranceOfferPage.UNDERSTOOD_POP_UP_BUTTON));
+  }
+
+  public static Performable understoodHabeasData() {
+    return Task.where(
+        "{0} da clic sobre entendido de habeas data",
+        Click.on(IdentificationPage.ENTENDIDO_HABEAS_DATA_BUTTON));
+  }
+
+  public static Performable closeHabeasData() {
+    return Task.where(
+        "{0} da clic sobre cerrar de habeas data",
+        Click.on(IdentificationPage.CERRAR_HABEAS_DATA_BUTTON));
+  }
+
+  public static Performable closeDeclaringPopUp() {
+    return Task.where(
+        "{0} da clic sobre dentendido en pop up declarante", Click.on(DeclaringPage.POP_UP_BUTTON));
+  }
+
+  public static Performable seeMoreMasHabeasData() {
+    return Task.where(
+        "{0} da clic sobre ver mas de habeas data",
+        Click.on(IdentificationPage.VER_MAS_HABEAS_DATA_BUTTON));
+  }
+
+  public static Performable popUpDeclaring() {
+    return Task.where(
+        "{0} ingresa en en el pop up de declarante", Click.on(DeclaringPage.POP_UP_LINK));
+  }
+
+  public static Performable popUpElectronicSignature() {
+    return Task.where(
+        "{0} ingresa en en el pop up de firma electronica",
+        Click.on(ElectronicSignaturePage.POP_UP_LINK));
+  }
+
   public static Performable leaveEmptyFields() {
     return Task.where(
         "{0} ingresa vacio en ciudad y direccion",
-        leaveEmptyCityField(),
-        Enter.theValue(" ").into(AddressPage.TEXT_ADDRESS)
-    );
+        leaveEmptyCityField(), Enter.theValue(" ").into(AddressPage.TEXT_ADDRESS));
   }
+
   public static Performable leaveEmptyCityField() {
-    return Task.where("{0} ingresa vacio en ciudad",
-        Enter.theValue(" ").into(AddressPage.TEXT_CITY)
-    );
+    return Task.where(
+        "{0} ingresa vacio en ciudad", Enter.theValue(" ").into(AddressPage.TEXT_CITY));
   }
 
   public static Performable insertInvalidCity() {
     Faker faker = new Faker();
     return Task.where(
         "{0} ingresa una ciudad sin cobertura",
-        Enter.theValue(faker.address().city()).into(AddressPage.TEXT_CITY)
-    );
+        Enter.theValue(faker.address().city()).into(AddressPage.TEXT_CITY));
   }
 
   public static Performable writeTextWithSize(int size) {
@@ -66,12 +119,11 @@ public class SmallTasks {
             .into(AddressPage.TEXT_ADDRESS));
   }
 
-    public static Performable declarationSelect() {
-        return Task.where(
-            "{0} acepta declarante y continua",
-            Click.on(DeclaringPage.RADIO_SI),
-            Click.on(DeclaringPage.CONTINUE_BUTTON),
-            Waits.loader(Constantes.MAX_WAIT_GET_PDF)
-            );
-    }
+  public static Performable declarationSelect() {
+    return Task.where(
+        "{0} acepta declarante y continua",
+        Click.on(DeclaringPage.RADIO_SI),
+        Click.on(DeclaringPage.CONTINUE_BUTTON),
+        Waits.loader(Constantes.MAX_WAIT_GET_PDF));
+  }
 }

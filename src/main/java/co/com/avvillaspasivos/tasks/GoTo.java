@@ -24,10 +24,6 @@ public class GoTo {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
 
-  public static Performable popUpDeclaring() {
-    return Task.where(
-        "{0} ingresa en en el pop up de declarante", Click.on(DeclaringPage.POP_UP_LINK));
-  }
   public static Performable startOnLanding() {
     return Task.where(
         "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
@@ -38,36 +34,6 @@ public class GoTo {
         "{0} selecciona la opcion continuar pep",
         Click.on(PepPage.CONTINUE_BUTTON));
   }
-  public static Performable verMasHabeasData() {
-    return Task.where(
-        "{0} da clic sobre ver mas de habeas data",
-        Click.on(IdentificationPage.VER_MAS_HABEAS_DATA_BUTTON));
-  }
-  public static Performable seeMoreInsurance() {
-    return Task.where(
-        "{0} da clic sobre ver mas de oferta de seguro",
-        Click.on(InsuranceOfferPage.LINK_SEE_MORE));
-  }
-  public static Performable understoodPopupButton() {
-    return Task.where(
-        "{0} da clic sobre entendido del pop up oferta de seguro",
-        Click.on(InsuranceOfferPage.UNDERSTOOD_POP_UP_BUTTON));
-  }
 
-  public static Performable entendidoHabeasData() {
-    return Task.where(
-        "{0} da clic sobre entendido de habeas data",
-        Click.on(IdentificationPage.ENTENDIDO_HABEAS_DATA_BUTTON));
-  }
 
-  public static Performable cerrarHabeasData() {
-    return Task.where(
-        "{0} da clic sobre cerrar de habeas data",
-        Click.on(IdentificationPage.CERRAR_HABEAS_DATA_BUTTON));
-  }
-  public static Performable closeDeclaringPopUp() {
-    return Task.where(
-        "{0} da clic sobre dentendido en pop up declarante",
-        Click.on(DeclaringPage.POP_UP_BUTTON));
-  }
 }

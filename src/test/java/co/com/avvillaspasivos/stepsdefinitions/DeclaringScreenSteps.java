@@ -8,7 +8,6 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.tasks.SmallTasks;
 import co.com.avvillaspasivos.tasks.TasksGroup;
 import co.com.avvillaspasivos.tasks.UiAssertions;
@@ -31,14 +30,14 @@ public class DeclaringScreenSteps {
   public void seleccionaLaOpciónCerrarOEntendido() {
       theActorInTheSpotlight()
           .attemptsTo(
-              GoTo.closeDeclaringPopUp()
+              SmallTasks.closeDeclaringPopUp()
           );
   }
 
   @Y("que el usuario esta en POP-UP de lo que es una persona declarante")
   public void queElUsuarioEstaEnPOPUPDeLoQueEsUnaPersonaDeclarante() {
     theActorInTheSpotlight()
-        .attemptsTo(TasksGroup.navigateToDeclaringScreen(), GoTo.popUpDeclaring());
+        .attemptsTo(TasksGroup.navigateToDeclaringScreen(false,false), SmallTasks.popUpDeclaring());
   }
 
   @Entonces("se cierra el POP-UP quedando el cliente en la pantalla de pregunta declarante")
@@ -52,7 +51,7 @@ public class DeclaringScreenSteps {
     @Y("el usuario esta en pantalla pregunta de declarante")
     public void elUsuarioEstaEnPantallaPreguntaDeDeclarante() {
         theActorInTheSpotlight()
-            .attemptsTo(TasksGroup.navigateToDeclaringScreen());
+            .attemptsTo(TasksGroup.navigateToDeclaringScreen(false,false));
     }
 
     @Cuando("selecciona la opcion continuar")
