@@ -57,4 +57,20 @@ public class ElectronicaSignatureSteps {
             UiAssertions.validateSavingTipsPageCharge()
         );
   }
+
+    @Entonces("pasará a pantalla de enrolamiento")
+    public void pasaráAPantallaDeEnrolamiento() {
+        theActorInTheSpotlight()
+            .attemptsTo(
+            UiAssertions.validateChannelEnrollmentPageCharge()
+        );
+    }
+
+    @Entonces("Se validara la presencia del nombre ingresado en el formulario de identificacion")
+    public void seValidaraLaPresenciaDelNombreIngresadoEnElFormularioDeIdentificacion() {
+      theActorInTheSpotlight()
+          .attemptsTo(
+              UiAssertions.validateNameOnElectronicSign()
+          );
+    }
 }

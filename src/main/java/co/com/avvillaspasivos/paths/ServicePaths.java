@@ -77,6 +77,10 @@ public class ServicePaths {
         return environment.savingTipsPage();
 
     }
+    public static String channelEnrollmentPagePath() {
+        return environment.channelEnrollmentPage();
+
+    }
     public static String electronicSignaturePagePath() {
         return environment.electronicSignaturePage();
 

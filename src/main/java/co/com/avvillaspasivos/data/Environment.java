@@ -44,4 +44,6 @@ public interface Environment extends Config {
   String electronicSignaturePage();
 
   String savingTipsPage();
+
+  String channelEnrollmentPage();
 }
