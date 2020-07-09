@@ -9,7 +9,7 @@
 package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.BodyWs;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.SessionVariables;
@@ -45,10 +45,10 @@ public class DataProvider {
     return environment.users();
   }
 
-  public static BodyGenerarOtp getBodyIdentification(String tipoUsuario) {
+  public static BodyWs getBodyIdentification(String tipoUsuario) {
     JsonObject jsonObjectUser = filterUsersList(tipoUsuario, getUsers());
 
-    return BodyGenerarOtp.builder()
+    return BodyWs.builder()
         .documentType(jsonObjectUser.get(DATA_TIPODOC_PROP).getAsString())
         .documentNumber(jsonObjectUser.get(DATA_NUMDOC_PROP).getAsString())
         .firstName(jsonObjectUser.get(DATA_FIRST_NAME_PROP).getAsString())

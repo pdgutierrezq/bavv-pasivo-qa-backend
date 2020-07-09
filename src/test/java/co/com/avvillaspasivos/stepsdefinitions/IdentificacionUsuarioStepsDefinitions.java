@@ -10,7 +10,7 @@ package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.data.JsonFile;
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.BodyWs;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.CallPost;
 import co.com.avvillaspasivos.tasks.ValidarIdentificacionUsuario;
@@ -37,8 +37,8 @@ public class IdentificacionUsuarioStepsDefinitions {
             OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
         OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
 
-        BodyGenerarOtp bodyGenerarOtp =
-            BodyGenerarOtp.builder()
+        BodyWs bodyGenerarOtp =
+            BodyWs.builder()
                 .documentType(actorData.getDocumentType())
                 .documentNumber(actorData.getDocumentNumber())
                 .firstName(actorData.getFirstName())

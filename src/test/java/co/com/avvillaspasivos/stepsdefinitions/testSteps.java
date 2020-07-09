@@ -9,7 +9,7 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.facts.CondicionesCliente;
-import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.BodyWs;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.*;
 import co.com.avvillaspasivos.ui.IdentificationPage;
@@ -72,7 +72,7 @@ public class testSteps {
                     CallAnApi.at("https://pa5xaz2b8d.execute-api.us-east-2.amazonaws.com/")
                 );
 
-            BodyGenerarOtp bodyGenerarOtp=BodyGenerarOtp.builder()
+            BodyWs bodyGenerarOtp= BodyWs.builder()
                 .documentType("CC")
                 .documentNumber("1096183483")
                 .lastName("mariana")

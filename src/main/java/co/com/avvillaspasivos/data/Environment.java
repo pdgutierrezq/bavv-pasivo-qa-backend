@@ -46,4 +46,12 @@ public interface Environment extends Config {
   String savingTipsPage();
 
   String channelEnrollmentPage();
+
+  String customerAccounts();
+
+  String jsonSchemaBaseDir();
+
+  String custConditiosSchema();
+
+  String custAccountSchema();
 }

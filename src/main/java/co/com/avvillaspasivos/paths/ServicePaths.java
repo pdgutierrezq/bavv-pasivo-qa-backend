@@ -32,32 +32,42 @@ public class ServicePaths {
   public static String pathIdentificationProject() {
     return environment.identificationProject();
   }
-
+  private static String pathjsonSchemaBaseDir() {
+    return environment.jsonSchemaBaseDir();
+  }
 
   public static String passOracle() {
     return environment.psworacle();
   }
+
   public static String jsonDatapath() {
     return environment.jsonData();
   }
+
   public static String ipOracle() {
     return environment.iporacle();
   }
+
   public static String pepPagePath() {
     return environment.pepPage();
   }
+
   public static String otpPagePath() {
     return environment.otpPage();
   }
+
   public static String deliveryAddressPagePath() {
     return environment.deliveryAddressPage();
   }
+
   public static String productOfferingPath() {
     return environment.productOfferingPage();
   }
+
   public static String insuranceOfferPath() {
     return environment.insuranceOffer();
   }
+
   public static String accountPackagePath() {
     return environment.accountPackagePath();
   }
@@ -65,24 +75,36 @@ public class ServicePaths {
   public static String pathCustomerConditions() {
     return environment.customerConditions();
   }
+
+  public static String pathCustomerAccounts() {
+    return environment.customerAccounts();
+  }
+
   public static String pathUserIdentity() {
     return pathIdentificationProject().concat(environment.userIdentity());
   }
 
-    public static String declaringPagePath() {
-        return environment.declaringPage();
+  public static String pathCustAccountSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.custAccountSchema());
+  }
 
-    }
-    public static String savingTipsPagePath() {
-        return environment.savingTipsPage();
+  public static String pathCustConditionsSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.custConditiosSchema());
+  }
 
-    }
-    public static String channelEnrollmentPagePath() {
-        return environment.channelEnrollmentPage();
+  public static String declaringPagePath() {
+    return environment.declaringPage();
+  }
 
-    }
-    public static String electronicSignaturePagePath() {
-        return environment.electronicSignaturePage();
+  public static String savingTipsPagePath() {
+    return environment.savingTipsPage();
+  }
 
-    }
+  public static String channelEnrollmentPagePath() {
+    return environment.channelEnrollmentPage();
+  }
+
+  public static String electronicSignaturePagePath() {
+    return environment.electronicSignaturePage();
+  }
 }

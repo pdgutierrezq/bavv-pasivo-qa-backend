@@ -34,6 +34,16 @@ public class ActorActions {
     setUp(clientConditions);
   }
 
+  public static void configure(String cat) {
+    ClientConditions clientConditions =
+        ClientConditions.builder()
+            .cat(Boolean.valueOf(cat))
+            .restrictiveList(false)
+            .build();
+
+    setUp(clientConditions);
+  }
+
   public static void configure(String client, String updated, String listRest, String cat) {
 
     ClientConditions clientConditions =

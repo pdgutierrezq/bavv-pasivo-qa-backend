@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
+import co.com.avvillaspasivos.tasks.BdUser;
 import co.com.avvillaspasivos.tasks.SmallTasks;
 import co.com.avvillaspasivos.tasks.TasksGroup;
 import co.com.avvillaspasivos.tasks.UiAssertions;
@@ -31,46 +32,34 @@ public class ElectronicaSignatureSteps {
 
   @Entonces("se desplegará lo que es firmar electrónicamente")
   public void seDesplegaráLoQueEsFirmarElectrónicamente() {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validatePopUpEs());
+    theActorInTheSpotlight().attemptsTo(BdUser.toBlock(false), UiAssertions.validatePopUpEs());
   }
 
   @Cuando("Autorice la firma de documentos")
   public void autoriceLaFirmaDeDocumentos() {
-    theActorInTheSpotlight().attemptsTo(
-        SmallTasks.authorizeElectronicSignature()
-    );
+    theActorInTheSpotlight().attemptsTo(SmallTasks.authorizeElectronicSignature());
   }
 
   @Y("seleccione la opcion continuar")
   public void seleccioneLaOpcionContinuar() {
-      theActorInTheSpotlight()
-          .attemptsTo(
-              SmallTasks.continueElectronicSignature()
-          );
-
+    theActorInTheSpotlight().attemptsTo(SmallTasks.continueElectronicSignature());
   }
 
   @Entonces("pasará a pantalla tips de ahorro")
   public void pasaráAPantallaTipsAhorro() {
     theActorInTheSpotlight()
-        .attemptsTo(
-            UiAssertions.validateSavingTipsPageCharge()
-        );
+        .attemptsTo(BdUser.toBlock(false), UiAssertions.validateSavingTipsPageCharge());
   }
 
-    @Entonces("pasará a pantalla de enrolamiento")
-    public void pasaráAPantallaDeEnrolamiento() {
-        theActorInTheSpotlight()
-            .attemptsTo(
-            UiAssertions.validateChannelEnrollmentPageCharge()
-        );
-    }
+  @Entonces("pasará a pantalla de enrolamiento")
+  public void pasaráAPantallaDeEnrolamiento() {
+    theActorInTheSpotlight()
+        .attemptsTo(BdUser.toBlock(false), UiAssertions.validateChannelEnrollmentPageCharge());
+  }
 
-    @Entonces("Se validara la presencia del nombre ingresado en el formulario de identificacion")
-    public void seValidaraLaPresenciaDelNombreIngresadoEnElFormularioDeIdentificacion() {
-      theActorInTheSpotlight()
-          .attemptsTo(
-              UiAssertions.validateNameOnElectronicSign()
-          );
-    }
+  @Entonces("Se validara la presencia del nombre ingresado en el formulario de identificacion")
+  public void seValidaraLaPresenciaDelNombreIngresadoEnElFormularioDeIdentificacion() {
+    theActorInTheSpotlight()
+        .attemptsTo(BdUser.toBlock(false), UiAssertions.validateNameOnElectronicSign());
+  }
 }

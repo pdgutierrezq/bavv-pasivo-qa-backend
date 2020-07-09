@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.facts;
 
-import co.com.avvillaspasivos.model.BodyGenerarOtp;
+import co.com.avvillaspasivos.model.BodyWs;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.CallPost;
 import net.serenitybdd.rest.SerenityRest;
@@ -24,7 +24,7 @@ public class CondicionesCliente implements Fact {
 
   @Override
   public void setup(Actor actor) {
-    BodyGenerarOtp bodyCustCond = BodyGenerarOtp.builder().documentType("CC").documentNumber("8765789").build();
+    BodyWs bodyCustCond = BodyWs.builder().documentType("CC").documentNumber("8765789").build();
     actor.attemptsTo(CallPost.pathBody(ServicePaths.pathCustomerConditions(), bodyCustCond));
     condiciones = SerenityRest.lastResponse().asString();
     actor.remember("Condiciones", condiciones);
