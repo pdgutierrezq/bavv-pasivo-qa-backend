@@ -25,7 +25,7 @@ public class ApiValidations {
   public static Performable customerAccounts() {
       ActorData actorData = OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
-        "{0} valida que el nombre ingresado en el formulario este presente",
+        "{0} valida que coincida los datos de las cuentas con lo esperado",
         Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200)),
         Ensure.that(
             "Se confirma que el usuario tiene cuenta tipo cat ->"
@@ -35,7 +35,7 @@ public class ApiValidations {
   public static Performable customerConditions() {
       ActorData actorData = OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
-        "{0} valida que el nombre ingresado en el formulario este presente",
+        "{0} valida que coincida las condiciones del cliente con lo esperado",
         Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200)),
         Ensure.that(
             "Se confirma que el usuario es cliente",
