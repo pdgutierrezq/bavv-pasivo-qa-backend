@@ -21,9 +21,3 @@ Característica: Formulario de Identificación del usuario
     Cuando ingresa los datos incompletos
     Entonces no se activara el boton de continuar y muestra mensaje de error
 
-  @Sprint-3
-  Escenario: Validacion formulario numero no coincidente
-    Dado que se obtiene un usuario tipo cliente "true" actualizado "true" lista restrictiva "false"
-    Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
-    Cuando ingresa celular con cuarto numero igual a 1 o 0
-    Entonces genera mensaje "El número de celular no es válido"
