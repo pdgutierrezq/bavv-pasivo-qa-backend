@@ -44,4 +44,14 @@ public interface Environment extends Config {
   String electronicSignaturePage();
 
   String savingTipsPage();
+
+  String channelEnrollmentPage();
+
+  String customerAccounts();
+
+  String jsonSchemaBaseDir();
+
+  String custConditiosSchema();
+
+  String custAccountSchema();
 }

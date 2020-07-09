@@ -22,31 +22,14 @@
       Y  seleccione la opcion continuar
       Entonces pasará a pantalla tips de ahorro
 
-#Escenario 1 -  Check de autorización y activación de botón continuar
-#
-#Dado que el usuario esta en pantalla de Firma electrónica
-#
-#Cuando  de check en “Autorizo la firma de documentos”
-#
-#Entonces el botón continuar se activará
-#
-#Escenario 2 -  Descarga de PDF con documentos a firmar
-#
-#Dado que el usuario esta en pantalla de Firma electrónica.
-#
-#Cuando  de click en Ver Documentos
-#
-#Entonces se descargará un PDF de prueba.
-#
-#
-#
-#
+    Escenario:  Redirección a Pantalla de enrolamiento
+      Dado que se obtiene un usuario tipo cliente "true" actualizado "true" lista restrictiva "false" cuenta cat "false" y canales "false"
+      Y que el usuario esta en pantalla de firma electronica
+      Cuando Autorice la firma de documentos
+      Y  seleccione la opcion continuar
+      Entonces pasará a pantalla de enrolamiento
 
-#
-#Escenario 5 -  Nombre dinamico
-#
-#Dado que el usuario esta en pantalla de Firma electrónica
-#
-#Cuando  cargue la pantalla
-#
-#Entonces se colocará el nombre de la persona que digitó en el formulario.
+    Escenario:  Redirección a Pantalla de tips de ahorro
+      Dado que se obtiene un usuario tipo cliente "true" actualizado "true" lista restrictiva "false" y cuenta cat "false"
+      Cuando que el usuario esta en pantalla de firma electronica
+      Entonces Se validara la presencia del nombre ingresado en el formulario de identificacion

@@ -18,6 +18,9 @@ public class ElectronicSignaturePage {
         throw new IllegalStateException("Utility class");
     }
 
+    public static final Target TITLE =
+        Target.the("Titulo de la pagina")
+            .located(By.xpath("//div[@class='digital-signature-container']//h2"));
     public static final Target POP_UP_ES =
         Target.the("Enlace para abrir pop pup")
             .located(By.xpath("//*[@role='dialog']"));

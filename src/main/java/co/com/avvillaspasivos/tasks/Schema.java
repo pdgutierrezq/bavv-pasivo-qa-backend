@@ -20,15 +20,15 @@ import static com.github.fge.jsonschema.SchemaVersion.DRAFTV4;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class Esquema implements Task {
+public class Schema implements Task {
   private final String path;
 
-  public Esquema(String path) {
+  public Schema(String path) {
     this.path = path;
   }
 
-  public static Performable validacion(String path) {
-    return instrumented(Esquema.class, path);
+  public static Performable validation(String path) {
+    return instrumented(Schema.class, path);
   }
 
   @Step("Se realiza validacion del esquema de  #path")

@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
@@ -32,6 +33,14 @@ public class UiAssertions {
 
   private UiAssertions() {
     throw new IllegalStateException("Utility class");
+  }
+
+  public static Performable validateNameOnElectronicSign() {
+    ActorData actorData =
+        theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+    return Task.where(
+        "{0} valida que el nombre ingresado en el formulario este presente",
+        Ensure.that(ElectronicSignaturePage.TITLE).text().containsIgnoringCase(actorData.getFirstName()));
   }
 
   public static Performable validateAutocompleteCityAddress() {
@@ -163,6 +172,15 @@ public class UiAssertions {
         "{0} valida la carga de la pantalla de direccion de entrega",
         WaitUntil.the(AddressPage.FORM_ADDRESS, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.deliveryAddressPagePath()));
+  }
+
+  public static Performable validateChannelEnrollmentPageCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla tips de ahorro",
+        WaitUntil.the(ChannelEnrollmentPage.CONTAINER_MAIN, isVisible()),
+        Ensure.thatTheCurrentPage()
+            .currentUrl()
+            .contains(ServicePaths.channelEnrollmentPagePath()));
   }
 
   public static Performable validateSavingTipsPageCharge() {

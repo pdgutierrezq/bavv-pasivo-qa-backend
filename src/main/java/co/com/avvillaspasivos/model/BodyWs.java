@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class BodyGenerarOtp {
+public class BodyWs {
 
   private String documentType;
 
