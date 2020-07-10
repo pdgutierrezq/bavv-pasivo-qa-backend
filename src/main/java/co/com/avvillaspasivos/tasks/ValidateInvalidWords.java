@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.CommonWebElementsPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -40,6 +41,6 @@ public class ValidateInvalidWords implements Task {
         word ->
             actor.attemptsTo(
                 Enter.theValue(word).into(AddressPage.TEXT_ADDRESS),
-                Ensure.that(AddressPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText)));
+                Ensure.that(CommonWebElementsPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText)));
   }
 }
