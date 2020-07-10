@@ -81,7 +81,7 @@ public class UiAssertions {
 
     return Task.where(
         "{0} valida que se presente la alerta de direccion invalida",
-        Ensure.that(AddressPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText));
+        Ensure.that(CommonWebElementsPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText));
   }
 
   public static Performable validateCrmAddress() {
@@ -208,6 +208,12 @@ public class UiAssertions {
     return Task.where(
         "{0} valida opcion continuar de direccion deshabilitada",
         Ensure.that(AddressPage.CONTINUE_BUTTON).isDisabled());
+  }
+
+  public static Performable validateContinueEnroomentDisabled() {
+    return Task.where(
+        "{0} valida opcion continuar de enrolamiento deshabilitada",
+        Ensure.that(EnrollmentPage.CONTINUE_BUTTON).isDisabled());
   }
 
   public static Performable validateContinueOptionPep() {

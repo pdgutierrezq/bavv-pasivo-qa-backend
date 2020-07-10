@@ -11,15 +11,17 @@ package co.com.avvillaspasivos.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class CommonWebElementsPage {
+public class EnrollmentPage {
 
-  private CommonWebElementsPage() {
+  private EnrollmentPage() {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final Target LOADER =
-      Target.the("Elemento de carga").located(By.className("blobs"));
-    public static final Target ALERT_INVALID =
-        Target.the("Alerta de error")
-            .located(By.xpath("//*[@role='alert']"));
+  public static final Target PASSWORD_INPUT =
+      Target.the("Campos de ingreso para clave")
+          .located(By.xpath("//input[@type='password']"));
+
+  public static final Target CONTINUE_BUTTON =
+      Target.the("Boton continuar enrolamiento")
+          .located(By.xpath("//button[contains(text(),' Continuar')]"));
 }
