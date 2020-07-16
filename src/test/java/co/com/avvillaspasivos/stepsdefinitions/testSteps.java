@@ -46,7 +46,7 @@ public class testSteps {
 
     OnStage.theActorCalled(actor)
         .attemptsTo(
-            GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.fill());
+            GoTo.homePage(), GoTo.openAccount(), FormIdentification.fill());
 
     OnStage.theActorInTheSpotlight().attemptsTo(Click.on(IdentificationPage.CONTINUE_BUTTON));
   }

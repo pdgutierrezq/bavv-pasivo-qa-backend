@@ -20,7 +20,7 @@ public class DetalleHabeasDataSteps {
 
     @Dado("que el {string} quiere saber que es la autorizacion de habeas data")
     public void queElQuiereSaberQueEsLaAutorizacionDeHabeasData(String actor) {
-        OnStage.theActorCalled(actor).attemptsTo(GoTo.homePage(), GoTo.startOnLanding());
+        OnStage.theActorCalled(actor).attemptsTo(GoTo.homePage(), GoTo.openAccount());
     }
 
     @Cuando("de click en ver mas habeas data")
@@ -48,7 +48,7 @@ public class DetalleHabeasDataSteps {
     @Dado("que el {string} esta en el POPUP de lo que es la autorizacion de habeas data")
     public void queElEstaEnElPOPUPDeLoQueEsLaAutorizacionDeHabeasData(String actor) {
         OnStage.theActorCalled(actor)
-            .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), SmallTasks.seeMoreMasHabeasData());
+            .attemptsTo(GoTo.homePage(), GoTo.openAccount(), SmallTasks.seeMoreMasHabeasData());
     }
 
     @Cuando("Cuando de click en cerrar")

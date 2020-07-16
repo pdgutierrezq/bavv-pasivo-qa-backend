@@ -20,7 +20,7 @@ public class ValidacionPepSteps {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             GoTo.homePage(),
-            GoTo.startOnLanding(),
+            GoTo.openAccount(),
             FormIdentification.validatePageLoad(),
             FormIdentification.fillAndContinue(),
             Waits.loader());

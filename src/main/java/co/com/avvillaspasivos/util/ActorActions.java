@@ -15,8 +15,7 @@ import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.BdUser;
 import net.serenitybdd.screenplay.actors.OnStage;
 
-import static co.com.avvillaspasivos.util.Constantes.FALSE_VALUE;
-import static co.com.avvillaspasivos.util.Constantes.TRUE_VALUE;
+import static co.com.avvillaspasivos.util.Constantes.*;
 
 public class ActorActions {
   private ActorActions() {
@@ -34,12 +33,31 @@ public class ActorActions {
     setUp(clientConditions);
   }
 
+  public static ClientConditions buildActorConditions(String userType) {
+    ClientConditions conditions;
+
+    switch (userType) {
+      case CLIENT_UPDATED_REST_LIST_CAT_CANALES:
+        conditions = ClientConditions.builder()
+            .client(true)
+            .updated(true)
+            .restrictiveList(false)
+            .cat(false)
+            .channels(true)
+            .build();
+        break;
+      case CLIENT_NOT_UPDATED_REST_LIST_CAT_CANALES:
+        conditions = ClientConditions.builder().build();
+        break;
+      default:
+          conditions = ClientConditions.builder().build();
+    }
+    return conditions;
+  }
+
   public static void configure(String cat) {
     ClientConditions clientConditions =
-        ClientConditions.builder()
-            .cat(Boolean.valueOf(cat))
-            .restrictiveList(false)
-            .build();
+        ClientConditions.builder().cat(Boolean.valueOf(cat)).restrictiveList(false).build();
 
     setUp(clientConditions);
   }
@@ -84,35 +102,35 @@ public class ActorActions {
     OnStage.theActorInTheSpotlight().has(Usuario.informacion());
   }
 
-  private static String concatActorDescription(
-      String base, String firstParam, Boolean condition) {
+  private static String concatActorDescription(String base, String firstParam, Boolean condition) {
     return base.concat(firstParam)
         .concat((Boolean.TRUE.equals(condition)) ? TRUE_VALUE : FALSE_VALUE);
   }
 
-  private static String buildReportNameActor(ClientConditions conditions) {
+  public static String buildReportNameActor(ClientConditions conditions) {
     String actorDesc = "usuario tipo ";
 
     if (conditions.getClient() != null) {
-        actorDesc =concatActorDescription(actorDesc," -cliente: ",conditions.getClient());
+      actorDesc = concatActorDescription(actorDesc, " -cliente: ", conditions.getClient());
     }
     if (conditions.getUpdated() != null) {
-        actorDesc =concatActorDescription(actorDesc," -actualizado: ",conditions.getUpdated());
+      actorDesc = concatActorDescription(actorDesc, " -actualizado: ", conditions.getUpdated());
     }
     if (conditions.getRestrictiveList() != null) {
-        actorDesc =concatActorDescription(actorDesc," -listas restrictivas: ",conditions.getRestrictiveList());
+      actorDesc =
+          concatActorDescription(
+              actorDesc, " -listas restrictivas: ", conditions.getRestrictiveList());
     }
     if (conditions.getCat() != null) {
-        actorDesc =concatActorDescription(actorDesc," -cat: ",conditions.getCat());
+      actorDesc = concatActorDescription(actorDesc, " -cat: ", conditions.getCat());
     }
     if (conditions.getChannels() != null) {
-        actorDesc =concatActorDescription(actorDesc," -canales: ",conditions.getChannels());
+      actorDesc = concatActorDescription(actorDesc, " -canales: ", conditions.getChannels());
     }
     if (conditions.getValidOtp() != null) {
-        actorDesc =concatActorDescription(actorDesc," -valido otp: ",conditions.getValidOtp());
+      actorDesc = concatActorDescription(actorDesc, " -valido otp: ", conditions.getValidOtp());
     }
 
     return actorDesc;
   }
-
 }

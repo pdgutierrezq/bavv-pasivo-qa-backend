@@ -20,6 +20,8 @@ public class AccountPackagePage {
 
     public static final Target FORM_ACCOUNT_PACKAGE =
         Target.the("Formulario de seleccion de paquete").located(By.id("WithdrawalForm"));
-    public static final Target  BOTON_CONTINUAR =
-        Target.the("Boton continuar Paquete Pro").located(By.xpath("//button[contains(text(),' Continuar')]"));
+    public static final Target CONTINUE_BUTTON =
+        Target.the("Boton continuar 4X1000").located(By.xpath("//button[contains(text(),' Continuar')]"));
+    public static final Target CHECK_ACCEPT =
+        Target.the("Check aceptar 4X1000").located(By.id("ExemptAccountCheck"));
 }
