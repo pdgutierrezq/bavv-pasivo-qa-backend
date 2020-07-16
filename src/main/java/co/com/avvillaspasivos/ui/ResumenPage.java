@@ -18,7 +18,7 @@ public class ResumenPage {
         throw new IllegalStateException("Utility class");
     }
 
-    public static final Target BOTON_ENTENDIDO =
-        Target.the("Boton entendido resumen")
-            .located(By.xpath("//*[contains(text(),'ENTENDIDO')]"));
+    public static final Target GO_NOW_BUTTON =
+        Target.the("Boton ir ahora resumen")
+            .located(By.xpath("//*[contains(text(),'IR AHORA')]"));
 }

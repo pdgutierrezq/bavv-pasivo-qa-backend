@@ -36,7 +36,7 @@ public class LandingStepsDefinitions {
 
     @Cuando("de click en comenzar")
     public void deClickEnComenzar() {
-        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.startOnLanding());
+        OnStage.theActorInTheSpotlight().attemptsTo(GoTo.openAccount());
     }
 
     @Cuando("de click en ver mas")

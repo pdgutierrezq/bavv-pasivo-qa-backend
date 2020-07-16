@@ -28,7 +28,7 @@ public class PepSteps {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             GoTo.homePage(),
-            GoTo.startOnLanding(),
+            GoTo.openAccount(),
             FormIdentification.validatePageLoad(),
             FormIdentification.fillAndContinue(),
             Waits.loader());
@@ -49,7 +49,7 @@ public class PepSteps {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
             GoTo.homePage(),
-            GoTo.startOnLanding(),
+            GoTo.openAccount(),
             FormIdentification.validatePageLoad(),
             FormIdentification.fillAndContinue(),
             Waits.loader());

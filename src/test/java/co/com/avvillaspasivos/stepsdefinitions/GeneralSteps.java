@@ -12,14 +12,14 @@ import co.com.avvillaspasivos.data.DataProvider;
 import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
-import co.com.avvillaspasivos.tasks.FormIdentification;
-import co.com.avvillaspasivos.tasks.GoTo;
 import co.com.avvillaspasivos.util.ActorActions;
 import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+
+import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationForm;
 
 public class GeneralSteps {
   @Before
@@ -52,9 +52,7 @@ public class GeneralSteps {
       "que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos")
   public void
       queElUsuarioEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos() {
-
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
+    OnStage.theActorInTheSpotlight().attemptsTo(navigateToIdentificationForm());
   }
 
   @Dado("que se obtiene un usuario tipo valido otp {string}")

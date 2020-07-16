@@ -94,6 +94,6 @@ public class TasksGroup {
   public static Performable navigateToIdentificationForm() {
     return Task.where(
         "{0} navega hasta la pagina formulario de identificacion",
-        GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
+        GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
 }

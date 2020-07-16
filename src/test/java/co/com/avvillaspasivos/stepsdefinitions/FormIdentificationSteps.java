@@ -22,7 +22,7 @@ public class FormIdentificationSteps {
   public void queElEstaInteresadoEnAdquirirElProductoYEnPantallaSeMuestraElFormularioDeDatos(
       String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa los datos correctamente")
@@ -54,7 +54,7 @@ public class FormIdentificationSteps {
   @Dado("que el {string} esta en la pantalla del formulario de identificacion de usuario")
   public void queElEstaEnLaPantallaDelFormularioDeIdentificacionDeUsuario(String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
 
   @Cuando("ingresa celular con cuarto numero igual a 1 o 0")
@@ -87,7 +87,7 @@ public class FormIdentificationSteps {
   @Dado("que el {string} esta digitando informacion en el campo confirmacion de telefono")
   public void queElEstaDigitandoInformacionEnElCampoConfirmacionDeTelefono(String actor) {
     OnStage.theActorCalled(actor)
-        .attemptsTo(GoTo.homePage(), GoTo.startOnLanding(), FormIdentification.validatePageLoad());
+        .attemptsTo(GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
 
   @Entonces("no me permitira pegar los datos")

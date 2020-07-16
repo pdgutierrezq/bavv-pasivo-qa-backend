@@ -7,7 +7,6 @@ Característica: Creacion cuenta de ahorros escenarios alternos
   NECESITO abrir una cuenta de ahorros digital
   PARA tener acceso a una cuenta de ahorros digital
 
-  @e2e
   Escenario: Creacion cuenta de ahorros pro con cliente actualizado con seguros
     Dado el usuario con condiciones cliente "true" actualizado "true" canales "false" y cuenta cat "true"
     Y que el usuario esta interesado en adquirir el producto y en pantalla se muestra el formulario de datos
@@ -20,7 +19,6 @@ Característica: Creacion cuenta de ahorros escenarios alternos
     Y "confirma" que es declarante
     Y realiza la firma electronica de documentos
     Entonces se muestra el resumen de la creacion de la cuenta
-  @construcciond
 
   Escenario: Creacion cuenta de ahorros pro con cliente no actualizado enrolado
     Dado el usuario con condiciones cliente "true" actualizado "false" canales "false" y cuenta cat "false"

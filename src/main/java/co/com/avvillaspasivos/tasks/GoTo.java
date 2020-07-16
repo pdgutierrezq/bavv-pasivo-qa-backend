@@ -24,7 +24,7 @@ public class GoTo {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
 
-  public static Performable startOnLanding() {
+  public static Performable openAccount() {
     return Task.where(
         "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
   }

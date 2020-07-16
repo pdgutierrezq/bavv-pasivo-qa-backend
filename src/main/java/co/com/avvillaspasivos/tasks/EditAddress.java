@@ -17,44 +17,34 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Constantes.TEST_DIRECTION;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class EditAddress implements Task {
   private Faker faker = new Faker();
 
-  private final String option;
-
-  public EditAddress(String option) {
-    this.option = option;
-  }
-
   public static Performable toSendCard(String option) {
-    return instrumented(EditAddress.class,option);
+    return instrumented(EditAddress.class, option);
   }
 
   @Step("{0} edita la direccion de envio de la tarjeta")
   public <T extends Actor> void performAs(T actor) {
+    if (AddressPage.TEXT_CITY.resolveFor(actor).getValue().equals("")
+        || AddressPage.TEXT_ADDRESS.resolveFor(actor).getValue().equals("")) {
 
-    if (TAG_EDIT.equalsIgnoreCase(option)) {
-
-      if (AddressPage.TEXT_CITY.resolveFor(actor).getValue().equals("")) {
-        selectRandomCity(actor);
-      }
-
+      selectRandomCity(actor);
       actor.attemptsTo(
           Enter.theValue(TEST_DIRECTION).into(AddressPage.TEXT_ADDRESS),
-          Click.on(AddressPage.CONTINUE_BUTTON));
-
-    } else if (TAG_NOT_EDIT.equalsIgnoreCase(option)) {
+          Click.on(AddressPage.CONTINUE_BUTTON),
+          Click.on(AddressPage.POP_UP_ACCEPT));
+    } else {
       actor.attemptsTo(Click.on(AddressPage.CONTINUE_BUTTON));
     }
   }
 
-  private void selectRandomCity(Actor actor){
-      actor.attemptsTo(Enter.theValue(" ").into(AddressPage.TEXT_CITY));
-      actor.attemptsTo(
-          Click.on(
-              AddressPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
+  private void selectRandomCity(Actor actor) {
+    actor.attemptsTo(Enter.theValue(" ").into(AddressPage.TEXT_CITY));
+    actor.attemptsTo(
+        Click.on(AddressPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
   }
 }
