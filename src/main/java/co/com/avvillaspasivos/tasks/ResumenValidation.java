@@ -8,31 +8,25 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.CommonWebElementsPage;
-import co.com.avvillaspasivos.ui.ElectronicSignaturePage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class SignDocuments implements Task {
+public class ResumenValidation implements Task {
 
   public static Performable perform() {
-    return instrumented(SignDocuments.class);
+    return instrumented(ResumenValidation.class);
   }
 
-  @Step("{0} firma los docummentos")
+  @Step("{0} selecciona cuenta #tipocuenta")
   public <T extends Actor> void performAs(T actor) {
-    if (CommonWebElementsPage.LOADER.resolveFor(actor).isPresent()) {
-      actor.attemptsTo(Waits.loader(), perform());
-    } else {
-      actor.attemptsTo(
-          Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
-          Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),
-          Waits.loader());
-    }
+    actor.attemptsTo(
+        BdUser.toBlock(false),
+        ValidateAccountResume.perform(),
+        ValidateInsuranceResume.perform(),
+        ValidateDebitResume.perform());
   }
 }

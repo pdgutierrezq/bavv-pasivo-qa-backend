@@ -16,7 +16,6 @@ import co.com.avvillaspasivos.tasks.*;
 import co.com.avvillaspasivos.ui.ActividadEconomicaPage;
 import co.com.avvillaspasivos.ui.DatosContactoPage;
 import co.com.avvillaspasivos.ui.PepPage;
-import co.com.avvillaspasivos.ui.ResumenPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
@@ -28,6 +27,8 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.Keys;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class e2eStepsDefinitions {
   @Before
@@ -63,80 +64,74 @@ public class e2eStepsDefinitions {
                 + false)
         .remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
-    OnStage.theActorInTheSpotlight().has(Usuario.informacion());
+    theActorInTheSpotlight().has(Usuario.informacion());
   }
 
   @Cuando("el usuario diligencia el formulario de identificacion de usuario")
   public void elUsuarioDiligenciaElFormularioDeIdentificacionDeUsuario() {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(FormIdentification.fillAndContinue(), Waits.loader());
+    theActorInTheSpotlight().attemptsTo(FormIdentification.fillAndContinue(), Waits.loader());
   }
 
   @Y("selecciona el producto {string}")
   public void seleccionaElProducto(String accountType) {
-    OnStage.theActorInTheSpotlight().attemptsTo(AccountSelection.type(accountType));
+    theActorInTheSpotlight().attemptsTo(AccountSelection.type(accountType));
   }
 
   @Y("{string} el seguro")
   public void elSeguro(String afirmation) {
-    OnStage.theActorInTheSpotlight()
+    theActorInTheSpotlight()
         .attemptsTo(InsuranceSelection.choose(afirmation, true), Waits.loader());
 
-    OnStage.theActorInTheSpotlight().remember(SessionVariables.INSURANCE.toString(), afirmation);
+    theActorInTheSpotlight().remember(SessionVariables.INSURANCE.toString(), afirmation);
   }
 
   @Y("se autentica mediante otp")
   public void seAutenticaMedianteOtp() {
-    OnStage.theActorInTheSpotlight().attemptsTo(Autentication.byOtp());
+    theActorInTheSpotlight().attemptsTo(Autentication.byOtp());
   }
 
   @Y("{string} la direccion de envio")
   public void laDireccionDeEnvio(String option) {
-    OnStage.theActorInTheSpotlight().attemptsTo(EditAddress.toSendCard(option));
+    theActorInTheSpotlight().attemptsTo(EditAddress.toSendCard(option));
   }
 
   @Y("{string} que es declarante")
   public void queEsDeclarante(String option) {
-    OnStage.theActorInTheSpotlight().attemptsTo(DeclaringSelection.choose(option));
-
-    //    JsonFile.setProperty("declarante", true);
+    theActorInTheSpotlight().attemptsTo(DeclaringSelection.choose(option));
   }
 
   @Y("realiza la firma electronica de documentos")
   public void realizaLaFirmaElectronicaDeDocumentos() {
-    OnStage.theActorInTheSpotlight().attemptsTo(SignDocuments.perform());
+    theActorInTheSpotlight().attemptsTo(SignDocuments.perform());
   }
 
   @Entonces("se muestra el resumen de la creacion de la cuenta")
   public void seMuestraElResumenDeLaCreacionDeLaCuenta() {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(BdUser.toBlock(false), Click.on(ResumenPage.GO_NOW_BUTTON));
+    theActorInTheSpotlight().attemptsTo(ResumenValidation.perform());
   }
 
   @Y("Selecciono que {string} es PEP")
   public void seleccionoQueEsPEP(String opcion) {
-    OnStage.theActorInTheSpotlight()
+    theActorInTheSpotlight()
         .attemptsTo(Click.on(PepPage.RADIO_NO_PEP), Click.on(PepPage.CONTINUE_BUTTON));
   }
 
   @Y("{string} el beneficio de excencion de gmf")
   public void elBeneficioDeExcencionDeGmf(String option) {
-    OnStage.theActorInTheSpotlight().attemptsTo(RequiredGmf.selection(option));
+    theActorInTheSpotlight().attemptsTo(RequiredGmf.selection(option));
   }
 
   @Y("selecciona actividad economica")
   public void seleccionaActividadEconomica() {
-    OnStage.theActorInTheSpotlight()
+    theActorInTheSpotlight()
         .attemptsTo(
             Click.on(ActividadEconomicaPage.RADIO_HOGAR),
-            Click.on(ActividadEconomicaPage.BOTON_CONTINUAR)
-
-            );
+            Click.on(ActividadEconomicaPage.BOTON_CONTINUAR));
   }
 
   @Y("diligenciar datos de contacto")
   public void diligenciarDatosDeContacto() {
-    OnStage.theActorInTheSpotlight()
+    theActorInTheSpotlight()
         .attemptsTo(
             Enter.theValue("correo@correo.com").into(DatosContactoPage.TEXTBOX_CORREO),
             Enter.theValue("correo@correo.com").into(DatosContactoPage.TEXTBOX_COPIA_CORREO),
@@ -153,9 +148,6 @@ public class e2eStepsDefinitions {
 
   @Cuando("el usuario realiza el flujo con {string} y {string} el seguro")
   public void elUsuarioRealizaElFlujoConYElSeguro(String accountType, String insurance) {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(
-            PerformFlow.type(accountType,insurance)
-            );
+    theActorInTheSpotlight().attemptsTo(PerformFlow.type(accountType, insurance));
   }
 }

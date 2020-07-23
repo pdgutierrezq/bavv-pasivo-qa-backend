@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -46,5 +47,7 @@ public class PerformFlow implements Task {
         SignDocuments.perform(),
         SavingTips.waitAndGo(),
         Waits.loader());
+
+    actor.remember(String.valueOf(SessionVariables.ACCOUNT_TYPE), accountType);
   }
 }

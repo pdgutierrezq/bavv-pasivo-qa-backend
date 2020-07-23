@@ -9,15 +9,13 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.DeclaringPage;
-import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.avvillaspasivos.util.Constantes.TAG_CONFIRM;
-import static co.com.avvillaspasivos.util.Constantes.TAG_NOT_CONFIRM;
+import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class DeclaringSelection implements Task {
@@ -38,7 +36,6 @@ public class DeclaringSelection implements Task {
     } else if (TAG_NOT_CONFIRM.equalsIgnoreCase(option)) {
       actor.attemptsTo(Click.on(DeclaringPage.RADIO_NO));
     }
-    actor.attemptsTo(
-        Click.on(DeclaringPage.CONTINUE_BUTTON), Waits.loader(Constantes.MAX_WAIT_GET_PDF));
+    actor.attemptsTo(Click.on(DeclaringPage.CONTINUE_BUTTON), Waits.loader(MAX_WAIT_GET_PDF));
   }
 }
