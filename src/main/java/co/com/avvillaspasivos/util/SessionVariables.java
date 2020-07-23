@@ -12,6 +12,7 @@ package co.com.avvillaspasivos.util;
 
 public enum SessionVariables {
 
+    ACCOUNT_TYPE,
     INSURANCE,
     DATA_ACTOR,
     CRM_ADDRESS,

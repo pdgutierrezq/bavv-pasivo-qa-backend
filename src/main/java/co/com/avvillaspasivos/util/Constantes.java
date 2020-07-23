@@ -72,6 +72,12 @@ public class Constantes {
       "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales";
   public static final String CLIENT_NOT_UPDATED_REST_LIST_CAT_CANALES =
       "cliente desactualizado sin lista restrictiva con cuenta cat y que tenga canales";
+  public static final String RESUMEN_TITLE_XPATH = "//h2";
+  public static final String ACCOUNT_NUMBER_CLASS = "account-number";
+  public static final String MONEY_CLASS = "money";
+  public static final String MONTH_COST_VALUE = "$ 0,00";
+  public static final String WITHDRAWALS_TEXT = "3 retiros gratis al mes";
+  public static final String INSURANCE_COST = "$ 14.600,00";
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(

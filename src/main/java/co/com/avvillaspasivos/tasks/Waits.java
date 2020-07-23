@@ -14,7 +14,8 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class Waits {
 
@@ -26,18 +27,15 @@ public class Waits {
     return Task.where(
         "{0} espera elemento de carga",
         WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
-        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()).forNoMoreThan(Constantes.MAX_WAIT).seconds());
+        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
+            .forNoMoreThan(Constantes.MAX_WAIT)
+            .seconds());
   }
+
   public static Performable loader(int time) {
     return Task.where(
         "{0} espera elemento de carga",
         WaitUntil.the(CommonWebElementsPage.LOADER, isVisible()),
         WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()).forNoMoreThan(time).seconds());
-  }
-
-  public static Performable captchaReady() {
-    return Task.where(
-        "{0} espera que el captcha este listo en el formulario de identificacion",
-        WaitUntil.angularRequestsHaveFinished());
   }
 }
