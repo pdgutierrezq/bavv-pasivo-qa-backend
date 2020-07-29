@@ -15,6 +15,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 
+import static co.com.avvillaspasivos.util.Constantes.TAG_ACCEPT;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class AccountSelection implements Task {
@@ -37,7 +38,9 @@ public class AccountSelection implements Task {
     } else if ("cuenta pro".equalsIgnoreCase(tipoCuenta)) {
       actor.attemptsTo(
           Click.on(ProductOfferingPage.RADIO_PRO),
-          Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS));
+          Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS),
+          RequiredGmf.selection(TAG_ACCEPT)
+      );
     }
   }
 }

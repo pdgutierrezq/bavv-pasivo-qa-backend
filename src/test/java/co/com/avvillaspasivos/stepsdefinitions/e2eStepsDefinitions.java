@@ -105,7 +105,7 @@ public class e2eStepsDefinitions {
     theActorInTheSpotlight().attemptsTo(SignDocuments.perform());
   }
 
-  @Entonces("se muestra el resumen de la creacion de la cuenta")
+  @Entonces("se muestra el resumen de la creación de la cuenta")
   public void seMuestraElResumenDeLaCreacionDeLaCuenta() {
     theActorInTheSpotlight().attemptsTo(ResumenValidation.perform());
   }
@@ -150,4 +150,6 @@ public class e2eStepsDefinitions {
   public void elUsuarioRealizaElFlujoConYElSeguro(String accountType, String insurance) {
     theActorInTheSpotlight().attemptsTo(PerformFlow.type(accountType, insurance));
   }
+
+
 }
