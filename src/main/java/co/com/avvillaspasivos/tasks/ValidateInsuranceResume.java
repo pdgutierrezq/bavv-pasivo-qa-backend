@@ -17,7 +17,9 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 
-import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Constantes.MONEY_CLASS;
+import static co.com.avvillaspasivos.util.Constantes.TAG_ACCEPT;
+import static co.com.avvillaspasivos.util.Constantes.INSURANCE_COST;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 

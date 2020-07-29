@@ -48,7 +48,7 @@ public class PerformFlow implements Task {
         SavingTips.waitAndGo(),
         Waits.loader());
 
-    actor.remember(String.valueOf(SessionVariables.ACCOUNT_TYPE), accountType);
-    actor.remember(String.valueOf(SessionVariables.INSURANCE), insurance);
+    actor.remember(SessionVariables.ACCOUNT_TYPE.name(), accountType);
+    actor.remember(SessionVariables.INSURANCE.name(), insurance);
   }
 }

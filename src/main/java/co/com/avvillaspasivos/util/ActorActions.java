@@ -38,24 +38,27 @@ public class ActorActions {
 
     switch (userType) {
       case CLIENT_UPDATED_REST_LIST_CAT_CANALES:
-        conditions = ClientConditions.builder()
-            .client(true)
-            .updated(true)
-            .restrictiveList(false)
-            .cat(true)
-            .channels(true)
-            .build();
+        conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(true)
+                .restrictiveList(false)
+                .cat(true)
+                .channels(true)
+                .build();
         break;
       case CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES:
-          conditions = ClientConditions.builder()
-              .client(true)
-              .updated(true)
-              .restrictiveList(false)
-              .cat(false)
-              .channels(true)
-              .build();        break;
+        conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(true)
+                .restrictiveList(false)
+                .cat(false)
+                .channels(true)
+                .build();
+        break;
       default:
-          conditions = ClientConditions.builder().build();
+        conditions = ClientConditions.builder().build();
     }
     return conditions;
   }
