@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.ResumenPage;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -16,8 +17,7 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 
-import static co.com.avvillaspasivos.util.Constantes.INSURANCE_COST;
-import static co.com.avvillaspasivos.util.Constantes.MONEY_CLASS;
+import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -29,14 +29,19 @@ public class ValidateInsuranceResume implements Task {
 
   @Step("{0} valida el resumen de seguro")
   public <T extends Actor> void performAs(T actor) {
+    String insurance = theActorInTheSpotlight().recall(String.valueOf(SessionVariables.INSURANCE));
 
-    actor.attemptsTo(
-        Ensure.that(ResumenPage.ARTICLE_INSURANCE).isDisplayed(),
-        Ensure.that(
-                ResumenPage.ARTICLE_INSURANCE
-                    .resolveFor(theActorInTheSpotlight())
-                    .findElement(By.className(MONEY_CLASS))
-                    .getText())
-            .isEqualToIgnoringCase(INSURANCE_COST));
+    if (TAG_ACCEPT.equalsIgnoreCase(insurance)) {
+      actor.attemptsTo(
+          Ensure.that(ResumenPage.ARTICLE_INSURANCE).isDisplayed(),
+          Ensure.that(
+                  ResumenPage.ARTICLE_INSURANCE
+                      .resolveFor(theActorInTheSpotlight())
+                      .findElement(By.className(MONEY_CLASS))
+                      .getText())
+              .isEqualToIgnoringCase(INSURANCE_COST));
+    } else {
+      actor.attemptsTo(Ensure.that(ResumenPage.ARTICLE_INSURANCE).isNotDisplayed());
+    }
   }
 }

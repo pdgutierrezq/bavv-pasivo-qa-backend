@@ -42,13 +42,18 @@ public class ActorActions {
             .client(true)
             .updated(true)
             .restrictiveList(false)
-            .cat(false)
+            .cat(true)
             .channels(true)
             .build();
         break;
-      case CLIENT_NOT_UPDATED_REST_LIST_CAT_CANALES:
-        conditions = ClientConditions.builder().build();
-        break;
+      case CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES:
+          conditions = ClientConditions.builder()
+              .client(true)
+              .updated(true)
+              .restrictiveList(false)
+              .cat(false)
+              .channels(true)
+              .build();        break;
       default:
           conditions = ClientConditions.builder().build();
     }

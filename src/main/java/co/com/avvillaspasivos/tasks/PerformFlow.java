@@ -33,12 +33,12 @@ public class PerformFlow implements Task {
 
   @Step("{0} realiza el flujo con  #accountType y #insurance")
   public <T extends Actor> void performAs(T actor) {
+
     actor.attemptsTo(
         navigateToIdentificationForm(),
         FormIdentification.fillAndContinue(),
         Waits.loader(),
         AccountSelection.type(accountType),
-        RequiredGmf.selection(TAG_ACCEPT),
         InsuranceSelection.choose(insurance, true),
         Waits.loader(),
         Autentication.byOtp(),
@@ -49,5 +49,6 @@ public class PerformFlow implements Task {
         Waits.loader());
 
     actor.remember(String.valueOf(SessionVariables.ACCOUNT_TYPE), accountType);
+    actor.remember(String.valueOf(SessionVariables.INSURANCE), insurance);
   }
 }

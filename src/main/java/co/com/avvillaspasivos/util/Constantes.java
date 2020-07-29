@@ -16,7 +16,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@e2e";
+  public static final String EXECUTION_TAGS = "@e2esonar";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -70,8 +70,8 @@ public class Constantes {
   public static final String FALSE_VALUE = "falso";
   public static final String CLIENT_UPDATED_REST_LIST_CAT_CANALES =
       "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales";
-  public static final String CLIENT_NOT_UPDATED_REST_LIST_CAT_CANALES =
-      "cliente desactualizado sin lista restrictiva con cuenta cat y que tenga canales";
+  public static final String CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES =
+      "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
   public static final String RESUMEN_TITLE_XPATH = "//h2";
   public static final String ACCOUNT_NUMBER_CLASS = "account-number";
   public static final String MONEY_CLASS = "money";
