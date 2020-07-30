@@ -16,7 +16,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@e2esonar";
+  public static final String EXECUTION_TAGS = "@e2e";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
