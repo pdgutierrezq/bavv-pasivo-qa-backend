@@ -1,7 +1,7 @@
 # language: es
-@Frontend:E2E-ClienteActualizado
+@Frontend:E2E-ClienteActualizadoEnrolado
 
-Característica: Creación cuenta de ahorros cliente actualizado
+Característica: Creación cuenta de ahorros cliente actualizado enrolado
   YO COMO  cliente actualizado
   NECESITO abrir una cuenta de ahorros digital
   PARA tener acceso a una cuenta de ahorros digital

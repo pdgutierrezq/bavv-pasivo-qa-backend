@@ -36,5 +36,6 @@ public class PepSelection implements Task {
     } else if ("no".equalsIgnoreCase(confirmation)) {
       actor.attemptsTo(Click.on(PepPage.RADIO_NO_PEP));
     }
+    actor.attemptsTo(Click.on(PepPage.CONTINUE_BUTTON));
   }
 }
