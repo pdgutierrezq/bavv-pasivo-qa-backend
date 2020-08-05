@@ -15,7 +15,8 @@ import net.serenitybdd.screenplay.Task;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationForm;
-import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Constantes.TAG_CONFIRM;
+import static co.com.avvillaspasivos.util.Constantes.TAG_NOT_EDIT;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PerformFlow implements Task {
@@ -38,6 +39,7 @@ public class PerformFlow implements Task {
         navigateToIdentificationForm(),
         FormIdentification.fillAndContinue(),
         Waits.loader(),
+        PepSelection.option("no"),
         AccountSelection.type(accountType),
         InsuranceSelection.choose(insurance, true),
         Waits.loader(),
