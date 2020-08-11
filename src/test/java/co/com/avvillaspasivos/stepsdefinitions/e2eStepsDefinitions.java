@@ -151,5 +151,4 @@ public class e2eStepsDefinitions {
     theActorInTheSpotlight().attemptsTo(PerformFlow.type(accountType, insurance));
   }
 
-
 }

@@ -25,7 +25,7 @@ public class Constantes {
       "Debes acercarte a una oficina AV Villas para abrir tu cuenta.";
   public static final String PATH_FORM_IDENTIFICACION = "user-identification";
   public static final String PATH_OFRECIMIENTO = "account-selection";
-  public static final int MAX_WAIT = 60;
+  public static final int MAX_WAIT = 30;
   public static final int MAX_WAIT_GET_PDF = 120;
   public static final int DB_WAIT = 3;
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";
@@ -72,12 +72,16 @@ public class Constantes {
       "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales";
   public static final String CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES =
       "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
+  public static final String CLIENT_UPDATED_WITH_CHANNELS =
+      "cliente actualizado que no tenga canales";
   public static final String RESUMEN_TITLE_XPATH = "//h2";
   public static final String ACCOUNT_NUMBER_CLASS = "account-number";
   public static final String MONEY_CLASS = "money";
   public static final String MONTH_COST_VALUE = "$ 0,00";
   public static final String WITHDRAWALS_TEXT = "3 retiros gratis al mes";
   public static final String INSURANCE_COST = "$ 14.600,00";
+  public static final String CORRECT_PASS_OPTION = "correcta";
+  public static final String CORRECT_PASS = "1636";
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(
