@@ -36,11 +36,12 @@ public class ValidateAccountResume implements Task {
     String accountType =
         theActorInTheSpotlight().recall(String.valueOf(SessionVariables.ACCOUNT_TYPE));
 
+    actor.attemptsTo(Waits.infoAccount());
+
     actor.attemptsTo(
         Ensure.that(ResumenPage.RESUMEN_TITLE)
             .text()
             .containsIgnoringCase(actorData.getFirstName()),
-        Ensure.that(ResumenPage.ARTICLE_ACCOUNT).isDisplayed(),
         Ensure.that(
                 ResumenPage.ARTICLE_ACCOUNT
                     .resolveFor(theActorInTheSpotlight())

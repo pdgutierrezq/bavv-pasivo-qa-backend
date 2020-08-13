@@ -18,7 +18,7 @@ public class CommonWebElementsPage {
   }
 
   public static final Target LOADER =
-      Target.the("Elemento de carga").located(By.className("blobs"));
+      Target.the("Elemento de carga").locatedBy(".loading-general");
     public static final Target ALERT_INVALID =
         Target.the("Alerta de error")
             .located(By.xpath("//*[@role='alert']"));

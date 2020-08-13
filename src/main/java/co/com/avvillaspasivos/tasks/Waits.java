@@ -9,12 +9,15 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
+import co.com.avvillaspasivos.ui.ResumenPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class Waits {
 
@@ -22,13 +25,20 @@ public class Waits {
     throw new IllegalStateException("Utility class");
   }
 
+
   public static Performable loader() {
     return Task.where(
         "{0} espera elemento de carga",
-        WaitUntil.the(CommonWebElementsPage.LOADER, isCurrentlyVisible())
-            .forNoMoreThan(Constantes.MAX_WAIT)
-            .seconds(),
-        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
+        Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
+            .andIfSo( WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
+                .forNoMoreThan(Constantes.MAX_WAIT)
+                .seconds())
+       );
+  }
+  public static Performable infoAccount() {
+    return Task.where(
+        "{0} espera informacion de la cuenta",
+        WaitUntil.the(ResumenPage.INFO_ACCOUNT, isVisible())
             .forNoMoreThan(Constantes.MAX_WAIT)
             .seconds());
   }
