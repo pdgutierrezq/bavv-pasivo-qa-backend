@@ -57,6 +57,16 @@ public class ActorActions {
                 .channels(true)
                 .build();
         break;
+      case CLIENT_UPDATED_WITH_CHANNELS:
+        conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(true)
+                .restrictiveList(false)
+                .cat(false)
+                .channels(false)
+                .build();
+        break;
       default:
         conditions = ClientConditions.builder().build();
     }

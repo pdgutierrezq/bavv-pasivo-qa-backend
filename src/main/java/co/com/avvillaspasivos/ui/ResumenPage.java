@@ -26,4 +26,7 @@ public class ResumenPage {
       Target.the("Seccion de seguro ").located(By.id("debitTotal"));
   public static final Target RESUMEN_TITLE =
       Target.the("Titulo de resumen").located(By.xpath("//h1"));
+  public static final Target INFO_ACCOUNT =
+      Target.the("Informacion de cuenta")
+          .located(By.xpath("//h3[contains(.,'3 retiros gratis al mes')]"));
 }

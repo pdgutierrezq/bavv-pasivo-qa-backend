@@ -8,15 +8,16 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationForm;
-import static co.com.avvillaspasivos.util.Constantes.TAG_CONFIRM;
-import static co.com.avvillaspasivos.util.Constantes.TAG_NOT_EDIT;
+import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PerformFlow implements Task {
@@ -34,6 +35,7 @@ public class PerformFlow implements Task {
 
   @Step("{0} realiza el flujo con  #accountType y #insurance")
   public <T extends Actor> void performAs(T actor) {
+    ActorData actorData = actor.recall(SessionVariables.DATA_ACTOR.name());
 
     actor.attemptsTo(
         navigateToIdentificationForm(),
@@ -47,8 +49,9 @@ public class PerformFlow implements Task {
         EditAddress.toSendCard(TAG_NOT_EDIT),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
-        SavingTips.waitAndGo(),
-        Waits.loader());
+        Check.whether(actorData.isChannels())
+            .andIfSo(SavingTips.waitAndGo())
+            .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION)));
 
     actor.remember(SessionVariables.ACCOUNT_TYPE.name(), accountType);
     actor.remember(SessionVariables.INSURANCE.name(), insurance);

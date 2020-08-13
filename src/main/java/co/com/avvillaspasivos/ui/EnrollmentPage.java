@@ -8,8 +8,10 @@
  */
 package co.com.avvillaspasivos.ui;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
-import org.openqa.selenium.By;
+
+import static org.openqa.selenium.By.xpath;
 
 public class EnrollmentPage {
 
@@ -19,9 +21,14 @@ public class EnrollmentPage {
 
   public static final Target PASSWORD_INPUT =
       Target.the("Campos de ingreso para clave")
-          .located(By.xpath("//input[@type='password']"));
+          .located(xpath("//input[@type='password']"));
 
   public static final Target CONTINUE_BUTTON =
       Target.the("Boton continuar enrolamiento")
-          .located(By.xpath("//button[contains(text(),' Continuar')]"));
+          .locatedBy("#ChannelEnrollmentButton");
+
+  public static final Target POPUP_BUTTON =
+      Target.the("Boton entendido pop up enrolamiento")
+          .located(By.buttonText("ENTENDIDO"));
+
 }
