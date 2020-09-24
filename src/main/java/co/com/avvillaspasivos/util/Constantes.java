@@ -16,7 +16,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@e2e";
+  public static final String EXECUTION_TAGS = "@e2ew";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -25,7 +25,7 @@ public class Constantes {
       "Debes acercarte a una oficina AV Villas para abrir tu cuenta.";
   public static final String PATH_FORM_IDENTIFICACION = "user-identification";
   public static final String PATH_OFRECIMIENTO = "account-selection";
-  public static final int MAX_WAIT = 30;
+  public static final int MAX_WAIT = 60;
   public static final int MAX_WAIT_GET_PDF = 120;
   public static final int DB_WAIT = 3;
   public static final String TEXTO_SUPERIOR_LIMITE_TAMANIO = "sssssqqqqqwwwwweeeeeqqqqq";

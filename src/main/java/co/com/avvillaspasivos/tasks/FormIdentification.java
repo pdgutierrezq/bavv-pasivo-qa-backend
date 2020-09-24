@@ -33,6 +33,7 @@ public class FormIdentification {
       actorData =
           OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
   }
+
   private static Performable fill (String salary) {
      getRecallDataActor();
     return Task.where(

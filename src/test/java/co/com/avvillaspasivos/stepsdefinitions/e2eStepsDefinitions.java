@@ -28,6 +28,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.Keys;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class e2eStepsDefinitions {
@@ -51,7 +52,7 @@ public class e2eStepsDefinitions {
             .build();
     ActorData actorData = DataProvider.getActorData(clientConditions);
 
-    OnStage.theActorCalled(
+    theActorCalled(
             "usuario tipo cliente "
                 + client
                 + " actualizado "
@@ -143,12 +144,12 @@ public class e2eStepsDefinitions {
 
   @Dado("que se obtiene un usuario tipo {string}")
   public void queSeObtieneUnUsuarioTipo(String userType) {
-    OnStage.theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
+
+    theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
   }
 
   @Cuando("el usuario realiza el flujo con {string} y {string} el seguro")
   public void elUsuarioRealizaElFlujoConYElSeguro(String accountType, String insurance) {
     theActorInTheSpotlight().attemptsTo(PerformFlow.type(accountType, insurance));
   }
-
 }

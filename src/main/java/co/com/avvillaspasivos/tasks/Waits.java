@@ -25,16 +25,16 @@ public class Waits {
     throw new IllegalStateException("Utility class");
   }
 
-
   public static Performable loader() {
     return Task.where(
         "{0} espera elemento de carga",
         Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
-            .andIfSo( WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
-                .forNoMoreThan(Constantes.MAX_WAIT)
-                .seconds())
-       );
+            .andIfSo(
+                WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
+                    .forNoMoreThan(Constantes.MAX_WAIT)
+                    .seconds()));
   }
+
   public static Performable infoAccount() {
     return Task.where(
         "{0} espera informacion de la cuenta",
@@ -42,15 +42,13 @@ public class Waits {
             .forNoMoreThan(Constantes.MAX_WAIT)
             .seconds());
   }
+
   public static Performable loader(int time) {
     return Task.where(
         "{0} espera elemento de carga",
         WaitUntil.the(CommonWebElementsPage.LOADER, isCurrentlyVisible())
             .forNoMoreThan(time)
             .seconds(),
-        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible())
-            .forNoMoreThan(time)
-            .seconds());
+        WaitUntil.the(CommonWebElementsPage.LOADER, isNotVisible()).forNoMoreThan(time).seconds());
   }
-
 }

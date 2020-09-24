@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.ui.InsuranceOfferPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -19,6 +20,8 @@ import net.thucydides.core.annotations.Step;
 import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationForm;
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class PerformFlow implements Task {
   private final String accountType;
@@ -36,14 +39,18 @@ public class PerformFlow implements Task {
   @Step("{0} realiza el flujo con  #accountType y #insurance")
   public <T extends Actor> void performAs(T actor) {
     ActorData actorData = actor.recall(SessionVariables.DATA_ACTOR.name());
-
+    actor.attemptsTo(GoTo.homePage());
     actor.attemptsTo(
         navigateToIdentificationForm(),
         FormIdentification.fillAndContinue(),
         Waits.loader(),
         PepSelection.option("no"),
         AccountSelection.type(accountType),
-        InsuranceSelection.choose(insurance, true),
+        Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
+            .andIfSo(
+                InsuranceSelection.choose(insurance, true),
+                Remember.variable(SessionVariables.INSURANCE.name(), insurance))
+            .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
         Waits.loader(),
         Autentication.byOtp(),
         EditAddress.toSendCard(TAG_NOT_EDIT),
@@ -54,6 +61,5 @@ public class PerformFlow implements Task {
             .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION)));
 
     actor.remember(SessionVariables.ACCOUNT_TYPE.name(), accountType);
-    actor.remember(SessionVariables.INSURANCE.name(), insurance);
   }
 }

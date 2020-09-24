@@ -13,6 +13,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.util.Constantes.TAG_ACCEPT;
@@ -31,16 +32,16 @@ public class AccountSelection implements Task {
 
   @Step("{0} selecciona cuenta #tipocuenta")
   public <T extends Actor> void performAs(T actor) {
-    if ("cuenta simple".equalsIgnoreCase(tipoCuenta)) {
-      actor.attemptsTo(
-          Click.on(ProductOfferingPage.RADIO_SIMPLE),
-          Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS));
-    } else if ("cuenta pro".equalsIgnoreCase(tipoCuenta)) {
-      actor.attemptsTo(
-          Click.on(ProductOfferingPage.RADIO_PRO),
-          Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS),
-          RequiredGmf.selection(TAG_ACCEPT)
-      );
-    }
+    actor.attemptsTo(
+        Waits.loader(),
+        Check.whether("cuenta simple".equalsIgnoreCase(tipoCuenta))
+            .andIfSo(
+                Click.on(ProductOfferingPage.RADIO_SIMPLE),
+                Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS))
+            .otherwise(
+                Waits.loader(),
+                Click.on(ProductOfferingPage.RADIO_PRO),
+                Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS),
+                RequiredGmf.selection(TAG_ACCEPT)));
   }
 }
