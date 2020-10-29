@@ -80,8 +80,7 @@ public class e2eStepsDefinitions {
 
   @Y("{string} el seguro")
   public void elSeguro(String afirmation) {
-    theActorInTheSpotlight()
-        .attemptsTo(InsuranceSelection.choose(afirmation), Waits.loader());
+    theActorInTheSpotlight().attemptsTo(InsuranceSelection.choose(afirmation), Waits.loader());
 
     theActorInTheSpotlight().remember(SessionVariables.INSURANCE.toString(), afirmation);
   }

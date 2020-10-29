@@ -28,7 +28,7 @@ public class Remember implements Task {
     return instrumented(Remember.class, variable, value);
   }
 
-  @Step("{0} guard variable de sesion #variable con valor #value")
+  @Step("{0} almacena variable de sesion #variable con valor #value")
   public <T extends Actor> void performAs(T actor) {
     actor.remember(variable, value);
   }

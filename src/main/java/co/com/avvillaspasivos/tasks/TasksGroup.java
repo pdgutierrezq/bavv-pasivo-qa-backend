@@ -81,8 +81,7 @@ public class TasksGroup {
         navigateToElectronicSignatureScreen(),
         Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
         Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),
-        Waits.loader()
-    );
+        Waits.loader());
   }
 
   public static Performable navigateToElectronicSignatureScreen() {
