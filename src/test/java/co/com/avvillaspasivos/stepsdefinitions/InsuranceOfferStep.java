@@ -28,7 +28,7 @@ public class InsuranceOfferStep {
 
   @Cuando("el usuario {string} el seguro")
   public void elUsuarioElSeguro(String afirmation) {
-    OnStage.theActorInTheSpotlight().attemptsTo(InsuranceSelection.choose(afirmation, false));
+    OnStage.theActorInTheSpotlight().attemptsTo(InsuranceSelection.choose(afirmation));
   }
 
   @Cuando("ingresa en la opcion ver mas")
@@ -44,7 +44,7 @@ public class InsuranceOfferStep {
   @Cuando("{string} el seguro y continua")
   public void elSeguroyContinua(String afirmation) {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(InsuranceSelection.choose(afirmation, true), Waits.loader());
+        .attemptsTo(InsuranceSelection.choose(afirmation), Waits.loader());
   }
 
   @Entonces("se despliega un POP UP con la descripción del seguir")

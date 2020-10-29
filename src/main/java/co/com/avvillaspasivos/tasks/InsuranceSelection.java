@@ -13,36 +13,28 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class InsuranceSelection implements Task {
   private final String afirmation;
-  private final boolean continueOption;
 
-  public InsuranceSelection(String afirmation,boolean continueOption ) {
+  public InsuranceSelection(String afirmation) {
     this.afirmation = afirmation;
-    this.continueOption = continueOption;
   }
 
-  public static Performable choose(String afirmation,boolean continueOption) {
-    return instrumented(InsuranceSelection.class, afirmation,continueOption);
+  public static Performable choose(String afirmation) {
+    return instrumented(InsuranceSelection.class, afirmation);
   }
 
   @Step("{0} selecciona #afirmacion seguro")
   public <T extends Actor> void performAs(T actor) {
-    if ("acepta".equalsIgnoreCase(afirmation)) {
-      actor.attemptsTo(
-          Click.on(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE));
-    } else if ("no acepta".equalsIgnoreCase(afirmation)) {
-      actor.attemptsTo(
-                  Click.on(InsuranceOfferPage.RADIO_REJECT_INSURANCE));
-    }
-    if (continueOption){
-        actor.attemptsTo(
-            Click.on(InsuranceOfferPage.CONTINUE_BUTTON)
-        );
-    }
+    actor.attemptsTo(
+        Check.whether("acepta".equalsIgnoreCase(afirmation))
+            .andIfSo(Click.on(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE))
+            .otherwise(Click.on(InsuranceOfferPage.RADIO_REJECT_INSURANCE)),
+        Click.on(InsuranceOfferPage.CONTINUE_BUTTON));
   }
 }

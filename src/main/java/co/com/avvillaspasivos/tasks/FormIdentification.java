@@ -29,12 +29,13 @@ public class FormIdentification {
     throw new IllegalStateException("Utility class");
   }
 
-  private static void getRecallDataActor(){
-      actorData =
-          OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+  private static void getRecallDataActor() {
+    actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
   }
-  private static Performable fill (String salary) {
-     getRecallDataActor();
+
+  private static Performable fill(String salary) {
+    getRecallDataActor();
     return Task.where(
         "{0} esta diligenciando formulario",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),
@@ -48,43 +49,39 @@ public class FormIdentification {
         Click.on(IdentificationPage.HABEAS_DATA_CHECKBOX));
   }
 
-  public static Performable fillForm(String salaryType,boolean continueClick) {
-      String salary;
+  public static Performable fillForm(String salaryType, boolean continueClick) {
+    String salary;
 
-      switch(salaryType) {
-          case TAG_VALID:
-                salary=VALID_SALARY;
-              break;
-          case TAG_INVALID:
-                salary=INVALID_SALARY;
-              break;
-          case TAG_PRO:
-                salary=PRO_SALARY;
-              break;
-          case TAG_SIMPLE:
-                salary=SIMPLE_SALARY;
-              break;
-          case TAG_EXCEED_MAX:
-                salary=EXCEED_SIZE_SALARY_TEXT;
-              break;
-          default:
-              salary="";
-      }
+    switch (salaryType) {
+      case TAG_VALID:
+        salary = VALID_SALARY;
+        break;
+      case TAG_INVALID:
+        salary = INVALID_SALARY;
+        break;
+      case TAG_PRO:
+        salary = PRO_SALARY;
+        break;
+      case TAG_SIMPLE:
+        salary = SIMPLE_SALARY;
+        break;
+      case TAG_EXCEED_MAX:
+        salary = EXCEED_SIZE_SALARY_TEXT;
+        break;
+      default:
+        salary = "";
+    }
 
-      AnonymousTask returnTask;
+    AnonymousTask returnTask;
 
-      if (continueClick){
-          returnTask =
-              Task.where(
-                  "{0} inicia a diligenciar formulario",
-                  fill(salary),
-                  Click.on(IdentificationPage.CONTINUE_BUTTON));
-      }else{
-          returnTask =
-              Task.where(
-                  "{0} inicia a diligenciar formulario y continua",
-                  fill(salary));
-      }
+    if (continueClick) {
+      returnTask =
+          Task.where(
+              "{0} inicia a diligenciar formulario",
+              fill(salary), Click.on(IdentificationPage.CONTINUE_BUTTON));
+    } else {
+      returnTask = Task.where("{0} inicia a diligenciar formulario y continua", fill(salary));
+    }
 
     return returnTask;
   }

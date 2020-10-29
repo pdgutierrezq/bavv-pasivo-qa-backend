@@ -17,9 +17,7 @@ public class CommonWebElementsPage {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final Target LOADER =
-      Target.the("Elemento de carga").locatedBy(".loading-general");
-    public static final Target ALERT_INVALID =
-        Target.the("Alerta de error")
-            .located(By.xpath("//*[@role='alert']"));
+  public static final Target LOADER = Target.the("Elemento de carga").locatedBy(".loading-general");
+  public static final Target ALERT_INVALID =
+      Target.the("Alerta de error").located(By.xpath("//*[@role='alert']"));
 }
