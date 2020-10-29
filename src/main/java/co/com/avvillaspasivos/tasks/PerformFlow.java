@@ -48,7 +48,7 @@ public class PerformFlow implements Task {
         AccountSelection.type(accountType),
         Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
             .andIfSo(
-                InsuranceSelection.choose(insurance, true),
+                InsuranceSelection.choose(insurance),
                 Remember.variable(SessionVariables.INSURANCE.name(), insurance))
             .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
         Waits.loader(),

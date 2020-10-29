@@ -47,7 +47,7 @@ public class TasksGroup {
     return Task.where(
         "{0} navega hasta la pagina de envio de tarjeta",
         navigateToInsuranceOffering(),
-        InsuranceSelection.choose(TAG_ACCEPT, true),
+        InsuranceSelection.choose(TAG_ACCEPT),
         Waits.loader(),
         Autentication.byOtp());
   }

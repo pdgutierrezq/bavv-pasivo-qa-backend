@@ -20,15 +20,13 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class InsuranceSelection implements Task {
   private final String afirmation;
-  private final boolean continueOption;
 
-  public InsuranceSelection(String afirmation, boolean continueOption) {
+  public InsuranceSelection(String afirmation) {
     this.afirmation = afirmation;
-    this.continueOption = continueOption;
   }
 
-  public static Performable choose(String afirmation, boolean continueOption) {
-    return instrumented(InsuranceSelection.class, afirmation, continueOption);
+  public static Performable choose(String afirmation) {
+    return instrumented(InsuranceSelection.class, afirmation);
   }
 
   @Step("{0} selecciona #afirmacion seguro")
