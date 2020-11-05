@@ -28,7 +28,7 @@ public class ProductOfferingPage {
   public static final Target RADIO_CIRCLE_SIMPLE =
       Target.the("Radio Button cuenta simple").located(By.xpath("//input[@value='CUENTA_SIMPLE']"));
   public static final Target RADIO_PRO =
-      Target.the("Card cuenta pro").located(By.xpath("//mat-radio-button[contains(*,'PRO')]"));
+      Target.the("Card cuenta Digital").located(By.xpath("//mat-radio-button[contains(*,'Digital')]"));
   public static final Target BOTON_CONTINUAR_PRODUCTOS =
       Target.the("Boton continuar oferta de productos")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));
