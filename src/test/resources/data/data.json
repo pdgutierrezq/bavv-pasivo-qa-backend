@@ -9,7 +9,7 @@
       "salary": "1800000",
       "client": true,
       "updated": true,
-      "cat": false,
+      "cat": true,
       "hasChannels": true,
       "block": false,
       "restrictiveList": false,
