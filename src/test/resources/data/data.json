@@ -2,6 +2,18 @@
   "users": [
     {
       "tipoDoc": "CC",
+      "numDoc": "52172141",
+      "firstName": "CAMILLA",
+      "lastName": "FAJARDO",
+      "phone": "3004529099",
+      "salary": "1800000",
+      "client": true,
+      "updated": true,
+      "block": false,
+      "fundingAcc": true
+    },
+    {
+      "tipoDoc": "CC",
       "numDoc": "1033111100",
       "firstName": "JULIO",
       "lastName": "DIAZ",
