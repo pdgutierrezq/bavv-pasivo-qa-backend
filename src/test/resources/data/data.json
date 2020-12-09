@@ -2,15 +2,20 @@
   "users": [
     {
       "tipoDoc": "CC",
-      "numDoc": "52172141",
-      "firstName": "CAMILLA",
-      "lastName": "FAJARDO",
-      "phone": "3004529099",
+      "numDoc": "38789654",
+      "firstName": "JORGE",
+      "lastName": "CRUZ",
+      "phone": "3168736726",
       "salary": "1800000",
       "client": true,
       "updated": true,
       "block": false,
-      "fundingAcc": true
+      "fundingAcc": true,
+      "cat": true,
+      "hasChannels": true,
+      "restrictiveList": false,
+      "infoCrm": true,
+      "validOtp": true
     },
     {
       "tipoDoc": "CC",
