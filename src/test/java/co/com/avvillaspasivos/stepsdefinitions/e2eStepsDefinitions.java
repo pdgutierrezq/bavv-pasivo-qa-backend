@@ -143,7 +143,6 @@ public class e2eStepsDefinitions {
 
   @Dado("que se obtiene un usuario tipo {string}")
   public void queSeObtieneUnUsuarioTipo(String userType) {
-
     theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
   }
 

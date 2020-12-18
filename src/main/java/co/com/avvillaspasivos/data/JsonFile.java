@@ -83,7 +83,9 @@ public class JsonFile {
           x.filter(
               i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
     }
-
+      if (Objects.nonNull(conditions.getFundingAcc())) {
+          x = x.filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
+      }
     return x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
   }
 

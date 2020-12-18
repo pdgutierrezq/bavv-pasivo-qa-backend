@@ -95,4 +95,9 @@ public class TasksGroup {
         "{0} navega hasta la pagina formulario de identificacion",
         GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
+  public static Performable navigateToIdentificationFormCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina formulario de identificacion de cdt",
+        GoTo.homePageCdt(), GoTo.openCdt());
+  }
 }
