@@ -17,6 +17,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.openqa.selenium.Keys;
 
@@ -116,6 +117,25 @@ public class FormIdentification {
         Enter.theValue(actorData.getFirstName()).into(IdentificationPage.PRIMER_NOMBRE_INPUT),
         Enter.theValue(actorData.getLastName()).into(IdentificationPage.PRIMER_APELLIDO_INPUT),
         Enter.theValue(actorData.getSalary()).into(IdentificationPage.SALARY_INPUT),
+        Click.on(IdentificationPage.HABEAS_DATA_CHECKBOX),
+        Click.on(IdentificationPage.CONTINUE_BUTTON));
+  }
+
+  public static Performable fillAndContinue(String product) {
+    ActorData actorData =
+        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+    return Task.where(
+        "{0} diligencia formulario y continua ",
+        Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),
+        Enter.theValue(actorData.getPhone())
+            .into(IdentificationPage.CELULAR_INPUT)
+            .thenHit(Keys.TAB),
+        Enter.theValue(actorData.getPhone()).into(IdentificationPage.CELULAR_CONFIRMACION_INPUT),
+        Enter.theValue(actorData.getFirstName()).into(IdentificationPage.PRIMER_NOMBRE_INPUT),
+        Enter.theValue(actorData.getLastName()).into(IdentificationPage.PRIMER_APELLIDO_INPUT),
+        Check.whether(product.equals(PRODUCT_CDA)).andIfSo(
+            Enter.theValue(actorData.getSalary()).into(IdentificationPage.SALARY_INPUT)
+            ),
         Click.on(IdentificationPage.HABEAS_DATA_CHECKBOX),
         Click.on(IdentificationPage.CONTINUE_BUTTON));
   }

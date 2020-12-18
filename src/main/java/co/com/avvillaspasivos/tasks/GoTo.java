@@ -23,10 +23,17 @@ public class GoTo {
   public static Performable homePage() {
     return Task.where("{0} abre landing page", Open.browserOn().the(ApplicationHomePage.class));
   }
+  public static Performable homePageCdt() {
+    return Task.where("{0} abre landing page CDT", Open.browserOn().the(CdtHomePage.class));
+  }
 
   public static Performable openAccount() {
     return Task.where(
         "{0} ingresa en comenzar solicitud", Click.on(ApplicationHomePage.BOTON_ABRIR_MI_CUENTA));
+  }
+  public static Performable openCdt() {
+    return Task.where(
+        "{0} ingresa en la opcion abrir Cdt", Click.on(CdtHomePage.BOTON_ABRIR_MI_CDT));
   }
 
   public static Performable pepContinue() {

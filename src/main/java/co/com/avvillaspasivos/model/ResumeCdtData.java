@@ -5,20 +5,19 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
 
-package co.com.avvillaspasivos.util;
+package co.com.avvillaspasivos.model;
 
-public enum SessionVariables {
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-    ACCOUNT_TYPE,
-    INSURANCE,
-    DATA_ACTOR,
-    CRM_ADDRESS,
-    WORD_LIST,
-    CDT_DATA,
-    INCOME_ACCOUNT,
-    RENEWAL
-
+@Getter
+@Setter
+@Builder
+public class ResumeCdtData {
+    private String term;
+    private String amount;
+    private String rate;
 }

@@ -6,7 +6,7 @@ Característica: Creación cuenta de ahorros cliente actualizado enrolado
   NECESITO abrir una cuenta de ahorros digital
   PARA tener acceso a una cuenta de ahorros digital
 
-  @e2e
+  @e2ew
   Escenario: Creación cuenta de ahorros pro con cliente actualizado con seguro
     Dado que se obtiene un usuario tipo "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales"
     Cuando el usuario realiza el flujo con "Cuenta Digital" y "acepta" el seguro

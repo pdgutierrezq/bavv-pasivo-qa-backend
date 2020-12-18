@@ -37,17 +37,38 @@ public class ActorActions {
     ClientConditions conditions;
 
     switch (userType) {
-      case CLIENT_UPDATED_REST_LIST_CAT_CANALES:
+      case CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL:
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+        conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(true)
+                .fundingAcc(true)
+                .channels(false)
+                .build();
+        break;
+      case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
+          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+
+          conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(true)
+                .fundingAcc(true)
+                .channels(true)
+                .build();
+        break;
+      case CLIENT_UPDATED_REST_LIST_CAT_WITH_CHANNELS:
         conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
                 .restrictiveList(false)
                 .cat(true)
-                .channels(true)
+                .channels(false)
                 .build();
         break;
-      case CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES:
+      case CLIENT_UPDATED_REST_LIST_NOT_CAT_WITH_CHANNELS:
         conditions =
             ClientConditions.builder()
                 .client(true)

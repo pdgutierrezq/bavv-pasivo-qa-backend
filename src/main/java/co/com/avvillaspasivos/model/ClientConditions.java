@@ -24,4 +24,6 @@ public class ClientConditions {
     private Boolean cat;
     private Boolean restrictiveList;
     private Boolean validOtp;
+    private Boolean fundingAcc;
+    private Boolean renewal;
 }
