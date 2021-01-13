@@ -11,17 +11,20 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ResumeCdtData;
 import co.com.avvillaspasivos.ui.ResumenCdtPage;
+import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.containsText;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class ResumenValidationCdt implements Task {
@@ -39,9 +42,15 @@ public class ResumenValidationCdt implements Task {
 
     boolean renewal=actor.recall(SessionVariables.RENEWAL.name());
 
-    String amount=ResumenCdtPage.TEXT_AMOUNT.resolveFor(actor).getText().replace("$","").replace(".","");
+      actor.attemptsTo(
+          WaitUntil.the(ResumenCdtPage.TEXT_AMOUNT, isVisible())
+          .forNoMoreThan(Constantes.MAX_WAIT)
+          .seconds()
+      );
 
-    actor.attemptsTo(
+      String amount=ResumenCdtPage.TEXT_AMOUNT.resolveFor(actor).getText().replace("$","").replace(".","");
+
+      actor.attemptsTo(
         Ensure.that(ResumenCdtPage.RESUMEN_TITLE)
             .text()
             .containsIgnoringCase(actorData.getFirstName()),

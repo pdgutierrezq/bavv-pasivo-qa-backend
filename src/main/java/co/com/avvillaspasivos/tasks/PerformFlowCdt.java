@@ -37,20 +37,13 @@ public class PerformFlowCdt implements Task {
         Waits.loader(),
         PepSelection.option("no"),
         FillConfigurationCdt.type(),
-        Waits.loader()//,
-        //,
-        );
-    actor.attemptsTo(
-        Autentication.byOtp()
-        );
-    actor.attemptsTo(
+        Waits.loader(),
+        Autentication.byOtp(),
         AccountConfigurationCdt.type(),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
             .andIfSo(SavingTips.waitAndGo())
-            .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION))
-    );
-
+            .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION)));
   }
 }
