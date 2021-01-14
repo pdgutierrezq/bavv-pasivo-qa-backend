@@ -31,6 +31,9 @@ public class ElectronicSignaturePage {
         Target.the("Boton continuar direccion")
             .located(By.xpath("//button[contains(text(),' Continuar')]"));
     public static final Target CHECK_AUTORIZATION =
-        Target.the("Boton continuar direccion")
+        Target.the("Check de autorizacion")
             .located(By.id("DigitalSignatureCheck"));
+    public static final Target CHECK_DATA =
+        Target.the("Check consentimiento")
+            .located(By.id("CheckUnderConsent"));
 }

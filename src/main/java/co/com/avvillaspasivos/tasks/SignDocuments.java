@@ -31,6 +31,7 @@ public class SignDocuments implements Task {
     } else {
       actor.attemptsTo(
           Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
+          Click.on(ElectronicSignaturePage.CHECK_DATA),
           Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),
           Waits.loader());
     }

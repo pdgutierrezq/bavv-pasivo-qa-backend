@@ -42,6 +42,7 @@ public class Constantes {
   public static final String DATA_CAT_PROP = "cat";
   public static final String DATA_OTP_PROP = "validOtp";
   public static final String DATA_REST_LIST_PROP = "restrictiveList";
+  public static final String DATA_FUNDING_ACC = "fundingAcc";
   public static final String DATA_BLOCK_PROP = "block";
   public static final String DATA_USERS_PROP = "users";
   public static final String DATA_NUMDOC_PROP = "numDoc";
@@ -68,9 +69,13 @@ public class Constantes {
   public static final String TAG_NOT_EDIT = "no modifica";
   public static final String TRUE_VALUE = "verdadero";
   public static final String FALSE_VALUE = "falso";
-  public static final String CLIENT_UPDATED_REST_LIST_CAT_CANALES =
+  public static final String CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL =
+      "cliente actualizado con cuenta para fondeo no enrolado con renovacion";
+  public static final String CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL =
+      "cliente actualizado con cuenta para fondeo enrolado sin renovacion";
+  public static final String CLIENT_UPDATED_REST_LIST_CAT_WITH_CHANNELS =
       "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales";
-  public static final String CLIENT_UPDATED_REST_LIST_NOT_CAT_CANALES =
+  public static final String CLIENT_UPDATED_REST_LIST_NOT_CAT_WITH_CHANNELS =
       "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
   public static final String CLIENT_UPDATED_WITH_CHANNELS =
       "cliente actualizado que no tenga canales";
@@ -82,6 +87,8 @@ public class Constantes {
   public static final String INSURANCE_COST = "$ 14.600,00";
   public static final String CORRECT_PASS_OPTION = "correcta";
   public static final String CORRECT_PASS = "1636";
+  public static final String PRODUCT_CDT = "CDT";
+  public static final String PRODUCT_CDA = "CDA";
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(

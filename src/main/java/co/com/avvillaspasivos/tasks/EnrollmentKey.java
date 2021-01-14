@@ -42,12 +42,12 @@ public class EnrollmentKey implements Task {
       actor.attemptsTo(
           Enter.theValue(CORRECT_PASS).into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)),
           Enter.theValue(CORRECT_PASS).into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(4)),
-          Click.on(EnrollmentPage.CONTINUE_BUTTON),
+          Click.on(EnrollmentPage.CONTINUE_BUTTON)
+      );
+      actor.attemptsTo(
           Check.whether(the(EnrollmentPage.POPUP_BUTTON),isVisible())
           .andIfSo(Click.on(EnrollmentPage.POPUP_BUTTON))
       );
-
-
 
     }else  if ("3 dígitos consecutivos de manera ascendente".equalsIgnoreCase(condition)) {
       actor.attemptsTo(
