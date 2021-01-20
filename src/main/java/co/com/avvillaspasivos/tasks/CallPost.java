@@ -13,6 +13,7 @@ import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
@@ -35,7 +36,9 @@ public class CallPost implements Task {
   @Override
   @Step("{0} llama servicio Post")
   public <T extends Actor> void performAs(T actor) {
-    ActorData actorData = actor.recall(String.valueOf(SessionVariables.DATA_ACTOR));
+    ActorData actorData =
+        OnStage.theActor("cliente actualizado con cuenta para fondeo no enrolado con renovacion")
+            .recall(SessionVariables.DATA_ACTOR.name());
 
     actor.attemptsTo(
         Post.to(path)
@@ -44,7 +47,7 @@ public class CallPost implements Task {
                     requestSpecification
                         .header("Content-Type", "application/json")
                         .header("transaction-id", "5510241587652313827")
-                        .header("x-adl-channel", "bavv-pasivo-prueba")
+                        .header("x-adl-channel", "bavv-pasivo-cda-masivo")
                         .header("x-adl-document-type", actorData.getDocumentType())
                         .header("x-adl-document-number", actorData.getDocumentNumber())
                         .body(body)));

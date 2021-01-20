@@ -8,8 +8,10 @@
  */
 package co.com.avvillaspasivos.tasks;
 
+import co.com.avvillaspasivos.ui.AccountConfigurationPage;
 import co.com.avvillaspasivos.ui.DeclaringPage;
 import co.com.avvillaspasivos.ui.ElectronicSignaturePage;
+import co.com.avvillaspasivos.ui.PsePage;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -95,9 +97,27 @@ public class TasksGroup {
         "{0} navega hasta la pagina formulario de identificacion",
         GoTo.homePage(), GoTo.openAccount(), FormIdentification.validatePageLoad());
   }
+
   public static Performable navigateToIdentificationFormCdt() {
     return Task.where(
         "{0} navega hasta la pagina formulario de identificacion de cdt",
         GoTo.homePageCdt(), GoTo.openCdt());
+  }
+
+  public static Performable navigateToPseCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina pse",
+        navigateToIdentificationFormCdt(),
+        FormIdentification.fillAndContinue(PRODUCT_CDT),
+        Waits.loader(),
+        PepSelection.option("no"),
+        FillConfigurationCdt.type(),
+        Waits.loader(),
+        Autentication.byOtp(),
+        Click.on(AccountConfigurationPage.PSE_BUTTON));
+  }
+
+  public static Performable openBankListPse() {
+    return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
   }
 }

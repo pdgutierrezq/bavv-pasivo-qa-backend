@@ -16,6 +16,10 @@ public class AccountConfigurationPage {
     throw new IllegalStateException("Utility class");
   }
 
+  public static final Target PSE_BUTTON =
+      Target.the("Boton ir a Pse")
+      .located(By.linkText("Link PSE"));
+
   public static final Target BOTON_CONTINUAR =
       Target.the("Boton continuar direccion")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));
