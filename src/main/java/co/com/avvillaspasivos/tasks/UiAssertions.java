@@ -355,4 +355,10 @@ public class UiAssertions {
             .currentUrl()
             .contains(ServicePaths.electronicSignaturePagePath()));
   }
+  public static Performable validatePseCharge() {
+    return Task.where(
+        "{0} valida la carga de la pantalla de Pse",
+        Ensure.thatTheCurrentPage().currentUrl().contains("pse")
+    );
+  }
 }

@@ -38,7 +38,7 @@ public class AccountConfigurationCdt implements Task {
 
         String incomeAccount=Text.of(AccountConfigurationPage.RADIO_CUENTA_RENDIMIENTOS).viewedBy(actor).resolve();
 
-        actor.remember(SessionVariables.INCOME_ACCOUNT.name(),incomeAccount.substring(incomeAccount.lastIndexOf("*")+1));
+        actor.remember(SessionVariables.INCOME_ACCOUNT.name(),incomeAccount.substring(incomeAccount.lastIndexOf('*')+1));
 
         actor.attemptsTo(
             Click.on(AccountConfigurationPage.BOTON_CONTINUAR),

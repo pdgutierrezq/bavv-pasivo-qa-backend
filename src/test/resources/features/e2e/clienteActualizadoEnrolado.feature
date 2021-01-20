@@ -7,12 +7,14 @@ Característica: Creación cuenta de ahorros cliente actualizado enrolado
   PARA tener acceso a una cuenta de ahorros digital
 
   @e2e
+  @regresion
   Escenario: Creación cuenta de ahorros pro con cliente actualizado con seguro
     Dado que se obtiene un usuario tipo "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales"
     Cuando el usuario realiza el flujo con "Cuenta Digital" y "acepta" el seguro
     Entonces se muestra el resumen de la creación de la cuenta
 
   @e2e
+  @regresion
   Escenario: Creación cuenta de ahorros pro con cliente actualizado  sin seguro
     Dado que se obtiene un usuario tipo "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales"
     Cuando el usuario realiza el flujo con "Cuenta Digital" y "no acepta" el seguro

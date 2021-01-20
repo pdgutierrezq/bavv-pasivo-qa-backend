@@ -16,7 +16,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@e2e";
+  public static final String EXECUTION_TAGS = "@regresion";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -89,6 +89,9 @@ public class Constantes {
   public static final String CORRECT_PASS = "1636";
   public static final String PRODUCT_CDT = "CDT";
   public static final String PRODUCT_CDA = "CDA";
+  public static final String AUTHENTICATION_ACTOR = "Actor autenticación";
+  public static final String BANK_LIST_ACTOR = "Actor ws bank list";
+  public static final String MAIN_ACTOR = "Actor principal";
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(

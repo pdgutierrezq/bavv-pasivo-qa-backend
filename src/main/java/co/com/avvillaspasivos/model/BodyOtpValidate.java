@@ -5,23 +5,18 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
 
-package co.com.avvillaspasivos.util;
+package co.com.avvillaspasivos.model;
 
-public enum SessionVariables {
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-    MAIN_ACTOR,
-    ACCOUNT_TYPE,
-    INSURANCE,
-    DATA_ACTOR,
-    CRM_ADDRESS,
-    WORD_LIST,
-    BANK_LIST,
-    CDT_DATA,
-    TOKEN,
-    INCOME_ACCOUNT,
-    RENEWAL
-
+@Getter
+@Setter
+@Builder
+public class BodyOtpValidate {
+    private String otpDesc;
+    private String otpValue;
 }
