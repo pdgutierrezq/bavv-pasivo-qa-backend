@@ -117,6 +117,18 @@ public class TasksGroup {
         Click.on(AccountConfigurationPage.PSE_BUTTON));
   }
 
+  public static Performable navigateToPersonalData() {
+    return Task.where(
+        "{0} navega hasta la pagina datos personales",
+        navigateToIdentificationFormCdt(),
+        FormIdentification.fillAndContinue(PRODUCT_CDT),
+        Waits.loader(),
+        PepSelection.option("no"),
+        FillConfigurationCdt.type(),
+        Waits.loader(),
+        Autentication.byOtp());
+  }
+
   public static Performable openBankListPse() {
     return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
   }

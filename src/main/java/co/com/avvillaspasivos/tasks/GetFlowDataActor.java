@@ -40,8 +40,6 @@ public class GetFlowDataActor implements Task {
 
     actor.remember(String.valueOf(SessionVariables.DATA_ACTOR), actorData);
 
-    actor.attemptsTo(BdUser.toBlock(true));
-
     actor.has(Usuario.informacion());
   }
 }

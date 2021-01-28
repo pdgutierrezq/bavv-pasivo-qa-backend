@@ -14,10 +14,12 @@ import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.Report;
 import co.com.avvillaspasivos.util.SessionVariables;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static java.util.stream.Collectors.toList;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -40,7 +43,9 @@ public class UiAssertions {
         theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
         "{0} valida que el nombre ingresado en el formulario este presente",
-        Ensure.that(ElectronicSignaturePage.TITLE).text().containsIgnoringCase(actorData.getFirstName()));
+        Ensure.that(ElectronicSignaturePage.TITLE)
+            .text()
+            .containsIgnoringCase(actorData.getFirstName()));
   }
 
   public static Performable validateAutocompleteCityAddress() {
@@ -52,6 +57,14 @@ public class UiAssertions {
                     AddressPage.TEXT_CITY.resolveFor(theActorInTheSpotlight()).getValue()))
             .isTrue(),
         Ensure.that(AddressPage.TEXT_ADDRESS).value().isEmpty());
+  }
+
+  public static Performable validateCityListItem() {
+    List<String> birthCityListUi = getListCitiesFromDropdown(PersonalDataPage.CITY_LIST_ITEM);
+
+    return Task.where(
+        "{0} valida que ciudades coincidan con la lista de domina",
+        Ensure.that(LIST_CITIES_FULL).isEqualTo(birthCityListUi));
   }
 
   public static Performable validateCityList() {
@@ -69,6 +82,12 @@ public class UiAssertions {
         .resolveAllFor(theActorInTheSpotlight())
         .forEach(i -> cityListUi.add(i.getText()));
     return cityListUi;
+  }
+
+  private static List<String> getListCitiesFromDropdown(Target dropDown) {
+    return dropDown.resolveAllFor(OnStage.theActorInTheSpotlight()).stream()
+        .map(WebElementFacade::getText)
+        .collect(toList());
   }
 
   public static Performable validateInvalidWordsOnAddres(String errorText) {
@@ -355,10 +374,10 @@ public class UiAssertions {
             .currentUrl()
             .contains(ServicePaths.electronicSignaturePagePath()));
   }
+
   public static Performable validatePseCharge() {
     return Task.where(
         "{0} valida la carga de la pantalla de Pse",
-        Ensure.thatTheCurrentPage().currentUrl().contains("pse")
-    );
+        Ensure.thatTheCurrentPage().currentUrl().contains("pse"));
   }
 }

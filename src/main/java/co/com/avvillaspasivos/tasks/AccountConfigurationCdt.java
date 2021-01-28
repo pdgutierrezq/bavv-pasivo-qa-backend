@@ -32,6 +32,7 @@ public class AccountConfigurationCdt implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
             Click.on(AccountConfigurationPage.RADIO_CUENTA_TRANSFERIR),
+            Scroll.to(AccountConfigurationPage.RADIO_CUENTA_RENDIMIENTOS),
             Click.on(AccountConfigurationPage.RADIO_CUENTA_RENDIMIENTOS),
             Scroll.to(AccountConfigurationPage.BOTON_CONTINUAR)
         );
