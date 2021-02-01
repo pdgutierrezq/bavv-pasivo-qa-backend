@@ -65,7 +65,7 @@ public class ActorActions {
                 .updated(true)
                 .restrictiveList(false)
                 .cat(true)
-                .channels(false)
+                .channels(true)
                 .build();
         break;
       case CLIENT_UPDATED_REST_LIST_NOT_CAT_WITH_CHANNELS:
@@ -83,6 +83,18 @@ public class ActorActions {
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
+                .restrictiveList(false)
+                .cat(false)
+                .channels(false)
+                .build();
+        break;
+      case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
+          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+
+          conditions =
+            ClientConditions.builder()
+                .client(false)
+                .updated(false)
                 .restrictiveList(false)
                 .cat(false)
                 .channels(false)

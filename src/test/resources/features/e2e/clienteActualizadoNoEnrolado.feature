@@ -8,6 +8,7 @@ Característica: Creación cuenta de ahorros cliente actualizado no enrolado
 
 
   @e2e
+  @cda
   @regresion
   Escenario: Creación cuenta de ahorros pro con cliente actualizado con seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
@@ -15,6 +16,7 @@ Característica: Creación cuenta de ahorros cliente actualizado no enrolado
     Entonces se muestra el resumen de la creación de la cuenta
 
   @e2e
+  @cda
   @regresion
   Escenario: Creación cuenta de ahorros pro con cliente actualizado  sin seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
