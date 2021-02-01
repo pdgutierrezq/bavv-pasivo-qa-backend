@@ -40,24 +40,27 @@ public class EnrollmentKey implements Task {
 
     if (CORRECT_PASS_OPTION.equalsIgnoreCase(condition)) {
       actor.attemptsTo(
-          Enter.theValue(CORRECT_PASS).into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)),
-          Enter.theValue(CORRECT_PASS).into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(4)),
-          Click.on(EnrollmentPage.CONTINUE_BUTTON)
-      );
-      actor.attemptsTo(
-          Check.whether(the(EnrollmentPage.POPUP_BUTTON),isVisible())
-          .andIfSo(Click.on(EnrollmentPage.POPUP_BUTTON))
+          Enter.theValue(CORRECT_PASS)
+              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)),
+          Enter.theValue(CORRECT_PASS)
+              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(4)),
+          Click.on(EnrollmentPage.CONTINUE_BUTTON),
+          Waits.loader(),
+          Check.whether(the(EnrollmentPage.POPUP_BUTTON), isVisible())
+              .andIfSo(Click.on(EnrollmentPage.POPUP_BUTTON))
       );
 
-    }else  if ("3 dígitos consecutivos de manera ascendente".equalsIgnoreCase(condition)) {
+
+
+    } else if ("3 dígitos consecutivos de manera ascendente".equalsIgnoreCase(condition)) {
       actor.attemptsTo(
-          Enter.theValue("4234").into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0))
-      );
+          Enter.theValue("4234")
+              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)));
 
     } else if ("3 dígitos iguales".equalsIgnoreCase(condition)) {
       actor.attemptsTo(
-          Enter.theValue("3334").into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0))
-      );
+          Enter.theValue("3334")
+              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)));
     }
   }
 }
