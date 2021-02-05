@@ -17,7 +17,9 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
+import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class CallPost implements Task {
 
@@ -36,8 +38,10 @@ public class CallPost implements Task {
   @Override
   @Step("{0} llama servicio Post")
   public <T extends Actor> void performAs(T actor) {
+      String mainActor=theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+
     ActorData actorData =
-        OnStage.theActor("cliente actualizado con cuenta para fondeo no enrolado con renovacion")
+        OnStage.theActor(mainActor)
             .recall(SessionVariables.DATA_ACTOR.name());
 
     actor.attemptsTo(

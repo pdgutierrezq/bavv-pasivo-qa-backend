@@ -31,7 +31,7 @@ public class Autentication implements Task {
 
     actor.attemptsTo(
         Enter.theValue(otp).into(AutenticacionPage.LIST_OTP_INPUT),
-        Click.on(AutenticacionPage.CONTINUAR_BUTTON),
-        Waits.loader(120));
+        Click.on(AutenticacionPage.CONTINUAR_BUTTON)
+       );
   }
 }

@@ -37,6 +37,14 @@ public class ActorActions {
     ClientConditions conditions;
 
     switch (userType) {
+      case CLIENT_NO_UPDATED:
+          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+          conditions =
+            ClientConditions.builder()
+                .client(true)
+                .updated(false)
+                .build();
+        break;
       case CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
         conditions =

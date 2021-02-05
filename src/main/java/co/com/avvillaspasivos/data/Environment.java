@@ -15,11 +15,17 @@ public interface Environment extends Config {
 
   String jsonData();
 
+  String countryCitiesData();
+
+  String dominaCitiesData();
+
   String users();
 
   String customerConditions();
 
   String userIdentity();
+
+  String crmInfo();
 
   String identificationProject();
 

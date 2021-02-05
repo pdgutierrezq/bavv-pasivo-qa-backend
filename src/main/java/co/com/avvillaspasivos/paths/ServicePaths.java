@@ -20,6 +20,7 @@ public class ServicePaths {
   private static Environment environment;
 
   private static final String BASE_ENDPOINT = "api.baseurl";
+  private static final String BASE_ENDPOINT_CRM = "api.baseurl.crm";
 
   static {
     environment = ConfigFactory.create(Environment.class);
@@ -29,9 +30,14 @@ public class ServicePaths {
     return EnvironmentProperties.getProperty(BASE_ENDPOINT);
   }
 
+  public static String getCrmEndPointBase() {
+    return EnvironmentProperties.getProperty(BASE_ENDPOINT_CRM);
+  }
+
   public static String pathIdentificationProject() {
     return environment.identificationProject();
   }
+
   private static String pathjsonSchemaBaseDir() {
     return environment.jsonSchemaBaseDir();
   }
@@ -42,6 +48,14 @@ public class ServicePaths {
 
   public static String jsonDatapath() {
     return environment.jsonData();
+  }
+
+  public static String jsonCountryCitiesDatapath() {
+    return environment.countryCitiesData();
+  }
+
+  public static String jsonDominaCitiesDatapath() {
+    return environment.dominaCitiesData();
   }
 
   public static String ipOracle() {
@@ -106,5 +120,9 @@ public class ServicePaths {
 
   public static String electronicSignaturePagePath() {
     return environment.electronicSignaturePage();
+  }
+
+  public static String pathCrmInfo() {
+    return environment.crmInfo();
   }
 }

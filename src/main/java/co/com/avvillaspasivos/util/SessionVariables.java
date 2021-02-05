@@ -19,6 +19,7 @@ public enum SessionVariables {
     CRM_ADDRESS,
     WORD_LIST,
     BANK_LIST,
+    CRM_DATA,
     CDT_DATA,
     TOKEN,
     INCOME_ACCOUNT,

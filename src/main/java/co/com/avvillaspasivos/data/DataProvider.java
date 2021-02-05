@@ -8,9 +8,7 @@
  */
 package co.com.avvillaspasivos.data;
 
-import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.model.BodyWs;
-import co.com.avvillaspasivos.model.ClientConditions;
+import co.com.avvillaspasivos.model.*;
 import co.com.avvillaspasivos.util.Constantes;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
@@ -20,6 +18,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
@@ -71,6 +70,30 @@ public class DataProvider {
     return joMain;
   }
 
+  public static String getCompanyCity(String daneCode, String cityListType) {
+    CityList cityList = null;
+    String city = "";
+
+    if (!daneCode.equals("0")) {
+      try {
+        cityList = JsonFile.readCitiesFile(cityListType);
+      } catch (FileNotFoundException e) {
+        LOGGER.error("Fail reading json country cities file->".concat(e.getMessage()));
+      }
+      city = filterCity(cityList, daneCode);
+    }
+
+    return city;
+  }
+
+  private static String filterCity(CityList listCities, String daneCode) {
+    return Objects.requireNonNull(listCities).getCity().stream()
+        .filter(e -> e.getCodeDANE().equals(daneCode))
+        .map(City::getMunicipality)
+        .findFirst()
+        .orElseGet(() -> "Ciudad no encontrada");
+  }
+
   private static ActorData buildActorData(JsonObject jsonObjectUser, JsonObject joMain) {
     return ActorData.builder()
         .documentType(jsonObjectUser.get(DATA_TIPODOC_PROP).getAsString())
@@ -108,7 +131,7 @@ public class DataProvider {
         .orElse(new JsonObject());
   }
 
-    public  static String getOtp(){
-        return Constantes.VALUE_OTP;
-    }
+  public static String getOtp() {
+    return Constantes.VALUE_OTP;
+  }
 }

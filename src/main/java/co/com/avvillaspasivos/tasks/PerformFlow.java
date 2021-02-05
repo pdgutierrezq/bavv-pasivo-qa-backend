@@ -53,6 +53,7 @@ public class PerformFlow implements Task {
             .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
         Waits.loader(),
         Autentication.byOtp(),
+        Waits.loader(120),
         EditAddress.toSendCard(TAG_NOT_EDIT),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
