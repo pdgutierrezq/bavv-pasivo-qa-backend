@@ -125,8 +125,6 @@ public class TasksGroup {
   }
 
 
-
-
   public static Performable navigateLaterAuthetication() {
     return Task.where(
         "{0} navega hasta la pagina datos personales",
@@ -138,8 +136,15 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+  public static Performable navigateLaterForeignInformation() {
+    return Task.where(
+        "{0} navega hasta seleccionar las opciones de validacion del extranjero",
+        FillContactInformation.perfom(),
+        FillForeignInformation.perfom());
+  }
 
   public static Performable openBankListPse() {
     return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
   }
+
 }

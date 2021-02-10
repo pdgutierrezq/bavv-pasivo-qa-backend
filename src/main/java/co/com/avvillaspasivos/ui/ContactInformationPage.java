@@ -16,7 +16,7 @@ public class ContactInformationPage {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final Target BOTON_CONTINUAR =
+  public static final Target BUTTON_CONTINUE =
       Target.the("Boton continuar direccion")
           .located(By.xpath("//button[contains(text(),' Continuar')]"));
 

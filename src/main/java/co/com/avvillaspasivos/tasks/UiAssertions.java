@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.CrmResponseData;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
@@ -20,6 +21,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
@@ -28,9 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static co.com.avvillaspasivos.util.Util.cleanMoneyFormat;
 import static java.util.stream.Collectors.toList;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.actors.OnStage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class UiAssertions {
 
@@ -379,5 +383,69 @@ public class UiAssertions {
     return Task.where(
         "{0} valida la carga de la pantalla de Pse",
         Ensure.thatTheCurrentPage().currentUrl().contains("pse"));
+  }
+
+  public static Performable validateContactPreload() {
+    CrmResponseData crmResponseData =
+        theActorCalled(CRM_ACTOR).recall(SessionVariables.CRM_DATA.name());
+
+    return Task.where(
+        "{0} valida la precarga de informacion en datos de contacto",
+        Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
+        Ensure.that(ContactInformationPage.TEXTBOX_MAIL)
+            .value()
+            .isEqualToIgnoringCase(crmResponseData.getMail()),
+        Ensure.that(ContactInformationPage.TEXTBOX_MAIL_COPY)
+            .value()
+            .isEqualToIgnoringCase(crmResponseData.getMail()),
+//        Ensure.that(ContactInformationPage.TEXTBOX_CITY)
+//            .value()
+//            .isEqualTo(crmResponseData.getCityAddress()),
+        Ensure.that(ContactInformationPage.TEXTBOX_PHONE)
+            .value()
+            .isEqualTo(crmResponseData.getPhone()),
+        Ensure.that(ContactInformationPage.TEXTBOX_ADDRESS)
+            .value()
+            .isEqualTo(crmResponseData.getAddress()),
+        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_NAME)
+            .value()
+            .isEqualTo(crmResponseData.getCompanyName()),
+//        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
+//            .value()
+//            .isEqualTo(crmResponseData.getCompanyCity()),
+        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_PHONE)
+            .value()
+            .isEqualTo(crmResponseData.getCompanyPhone()),
+        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS)
+            .value()
+            .isEqualTo(crmResponseData.getCompanyAddress()));
+  }
+
+  public static Performable validateFinancialInfPreload() {
+    String uiActorName = theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+
+    CrmResponseData crmResponseData =
+        theActorCalled(CRM_ACTOR).recall(SessionVariables.CRM_DATA.name());
+
+    return Task.where(
+        "{0} valida la precarga de datos en informacion financiera",
+        Ensure.that(
+                cleanMoneyFormat(
+                    FinancialInformationPage.TEXT_ASSETS
+                        .resolveFor(theActor(uiActorName))
+                        .getValue()))
+            .isEqualTo(crmResponseData.getAssetsnumber()),
+        Ensure.that(
+                cleanMoneyFormat(
+                    FinancialInformationPage.TEXT_LIABILITIES
+                        .resolveFor(theActor(uiActorName))
+                        .getValue()))
+            .isEqualTo(crmResponseData.getLiabilitiesNumber()),
+        Ensure.that(
+                cleanMoneyFormat(
+                    FinancialInformationPage.TEXT_MONTHLY_EXPENSES
+                        .resolveFor(theActor(uiActorName))
+                        .getValue()))
+            .isEqualTo(crmResponseData.getMontlyExpenses()));
   }
 }
