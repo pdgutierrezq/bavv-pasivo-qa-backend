@@ -11,7 +11,6 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.model.ResumeCdtData;
 import co.com.avvillaspasivos.ui.ConfigurationCdtPage;
 import co.com.avvillaspasivos.util.SessionVariables;
-import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
