@@ -8,10 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AccountConfigurationPage;
-import co.com.avvillaspasivos.ui.DeclaringPage;
-import co.com.avvillaspasivos.ui.ElectronicSignaturePage;
-import co.com.avvillaspasivos.ui.PsePage;
+import co.com.avvillaspasivos.ui.*;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -107,17 +104,28 @@ public class TasksGroup {
   public static Performable navigateToPseCdt() {
     return Task.where(
         "{0} navega hasta la pagina pse",
-        navigateToIdentificationFormCdt(),
-        FormIdentification.fillAndContinue(PRODUCT_CDT),
-        Waits.loader(),
-        PepSelection.option("no"),
-        FillConfigurationCdt.type(),
-        Waits.loader(),
-        Autentication.byOtp(),
+        navigateLaterAuthetication(),
         Click.on(AccountConfigurationPage.PSE_BUTTON));
   }
 
-  public static Performable navigateToPersonalData() {
+  public static Performable navigateToContactDataCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
+        navigateLaterAuthetication(),
+        fillEconomicActivity()
+        );
+  }
+
+  public static Performable fillEconomicActivity() {
+    return Task.where(
+        "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
+        Click.on(EconomicActivityPage.RADIO_EMPLOYMENT),
+        Click.on(EconomicActivityPage.CONTINUE_BUTTON)
+        );
+  }
+
+
+  public static Performable navigateLaterAuthetication() {
     return Task.where(
         "{0} navega hasta la pagina datos personales",
         navigateToIdentificationFormCdt(),
@@ -128,8 +136,15 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+  public static Performable navigateLaterForeignInformation() {
+    return Task.where(
+        "{0} navega hasta seleccionar las opciones de validacion del extranjero",
+        FillContactInformation.perfom(),
+        FillForeignInformation.perfom());
+  }
 
   public static Performable openBankListPse() {
     return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
   }
+
 }

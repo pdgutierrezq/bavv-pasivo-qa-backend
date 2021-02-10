@@ -20,7 +20,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 public class PersonalDataSteps {
   @Dado("que estoy en pantalla donde ingreso mis datos personales.")
   public void queEstoyEnPantallaDondeIngresoMisDatosPersonales() {
-    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToPersonalData());
+    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateLaterAuthetication());
   }
 
   @Cuando("de click en el campo de Ciudad de nacimiento.")

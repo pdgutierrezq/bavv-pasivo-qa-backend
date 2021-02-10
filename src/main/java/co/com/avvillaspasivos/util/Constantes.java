@@ -16,7 +16,8 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@regresion";
+
+  public static final String EXECUTION_TAGS = "@build";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -36,6 +37,8 @@ public class Constantes {
   public static final String VALUE_OTP = "12345678";
   public static final String STG_VALUE = "stg";
   public static final String DEV_VALUE = "dev";
+  public static final String DOMINA = "DOMINA";
+  public static final String FULL_CITIES = "FULL";
   public static final String DATA_CLIENT_PROP = "client";
   public static final String DATA_UPDATED_PROP = "updated";
   public static final String DATA_CHANNELS_PROP = "hasChannels";
@@ -81,6 +84,7 @@ public class Constantes {
       "cliente actualizado que no tenga canales";
   public static final String NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS =
       "no cliente no actualizado que no tenga canales";
+  public static final String CLIENT_NO_UPDATED = "cliente no actualizado";
   public static final String RESUMEN_TITLE_XPATH = "//h2";
   public static final String ACCOUNT_NUMBER_CLASS = "account-number";
   public static final String MONEY_CLASS = "money";
@@ -93,6 +97,7 @@ public class Constantes {
   public static final String PRODUCT_CDA = "CDA";
   public static final String AUTHENTICATION_ACTOR = "Actor autenticación";
   public static final String BANK_LIST_ACTOR = "Actor ws bank list";
+  public static final String CRM_ACTOR = "Actor ws crm";
   public static final String MAIN_ACTOR = "Actor principal";
 
   public static final ImmutableList<String> LIST_CITIES =
@@ -1343,4 +1348,7 @@ public static final ImmutableList<String> LIST_CITIES_FULL =
           "Zona Bananera - Magdalena",
           "Útica - Cundinamarca"
       );
+
+
+
 }

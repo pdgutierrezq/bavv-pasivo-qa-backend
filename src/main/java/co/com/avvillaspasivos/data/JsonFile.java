@@ -9,10 +9,12 @@
 package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.CityList;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.util.SessionVariables;
 import com.google.common.collect.Streams;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -35,6 +37,18 @@ public class JsonFile {
   static JsonObject readJsonFile() throws FileNotFoundException {
     Reader reader = new FileReader(ServicePaths.jsonDatapath());
     return JsonParser.parseReader(reader).getAsJsonObject();
+  }
+
+  static CityList readCitiesFile(String listType) throws FileNotFoundException {
+    String jsonPath =
+        (listType.equals(DOMINA))
+            ? ServicePaths.jsonDominaCitiesDatapath()
+            : ServicePaths.jsonCountryCitiesDatapath();
+
+    Reader reader = new FileReader(jsonPath);
+    Gson gson = new Gson();
+    JsonObject joMain = JsonParser.parseReader(reader).getAsJsonObject();
+    return gson.fromJson(joMain.toString(), CityList.class);
   }
 
   private static void writeJsonFile(JsonObject joMain) {
@@ -83,9 +97,9 @@ public class JsonFile {
           x.filter(
               i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
     }
-      if (Objects.nonNull(conditions.getFundingAcc())) {
-          x = x.filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
-      }
+    if (Objects.nonNull(conditions.getFundingAcc())) {
+      x = x.filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
+    }
     return x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
   }
 

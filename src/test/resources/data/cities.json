@@ -1,0 +1,836 @@
+{
+  "city": [
+    {
+      "codeDANE": "5579",
+      "municipality": "Antioquia - Puerto Berrío"
+    },
+    {
+      "codeDANE": "5607",
+      "municipality": "Antioquia - Retiro"
+    },
+    {
+      "codeDANE": "5615",
+      "municipality": "Antioquia - Rionegro"
+    },
+    {
+      "codeDANE": "5631",
+      "municipality": "Antioquia - Sabaneta"
+    },
+    {
+      "codeDANE": "5656",
+      "municipality": "Antioquia - San Jerónimo"
+    },
+    {
+      "codeDANE": "5664",
+      "municipality": "Antioquia - San Pedro"
+    },
+    {
+      "codeDANE": "5686",
+      "municipality": "Antioquia - Santa Rosa de Osos"
+    },
+    {
+      "codeDANE": "5697",
+      "municipality": "Antioquia - El Santuario"
+    },
+    {
+      "codeDANE": "5761",
+      "municipality": "Antioquia - Sopetrán"
+    },
+    {
+      "codeDANE": "5837",
+      "municipality": "Antioquia - Turbo"
+    },
+    {
+      "codeDANE": "5861",
+      "municipality": "Antioquia - Venecia"
+    },
+    {
+      "codeDANE": "5887",
+      "municipality": "Antioquia - Yarumal"
+    },
+    {
+      "codeDANE": "5001",
+      "municipality": "Antioquia - Medellín"
+    },
+    {
+      "codeDANE": "5030",
+      "municipality": "Antioquia - Amagá"
+    },
+    {
+      "codeDANE": "5034",
+      "municipality": "Antioquia - Andes"
+    },
+    {
+      "codeDANE": "5042",
+      "municipality": "Antioquia - Santafé de Antioquia"
+    },
+    {
+      "codeDANE": "5045",
+      "municipality": "Antioquia - Apartadó"
+    },
+    {
+      "codeDANE": "5079",
+      "municipality": "Antioquia - Barbosa"
+    },
+    {
+      "codeDANE": "5088",
+      "municipality": "Antioquia - Bello"
+    },
+    {
+      "codeDANE": "5101",
+      "municipality": "Antioquia - Ciudad Bolívar"
+    },
+    {
+      "codeDANE": "5129",
+      "municipality": "Antioquia - Caldas"
+    },
+    {
+      "codeDANE": "5147",
+      "municipality": "Antioquia - Carepa"
+    },
+    {
+      "codeDANE": "5148",
+      "municipality": "Antioquia - El Carmen de Viboral"
+    },
+    {
+      "codeDANE": "5154",
+      "municipality": "Antioquia - Caucasia"
+    },
+    {
+      "codeDANE": "5172",
+      "municipality": "Antioquia - Chigorodó"
+    },
+    {
+      "codeDANE": "5212",
+      "municipality": "Antioquia - Copacabana"
+    },
+    {
+      "codeDANE": "5264",
+      "municipality": "Antioquia - Entrerrios"
+    },
+    {
+      "codeDANE": "5266",
+      "municipality": "Antioquia - Envigado"
+    },
+    {
+      "codeDANE": "5308",
+      "municipality": "Antioquia - Girardota"
+    },
+    {
+      "codeDANE": "5318",
+      "municipality": "Antioquia - Guarne"
+    },
+    {
+      "codeDANE": "5321",
+      "municipality": "Antioquia - Guatapé"
+    },
+    {
+      "codeDANE": "5360",
+      "municipality": "Antioquia - Itagui"
+    },
+    {
+      "codeDANE": "5364",
+      "municipality": "Antioquia - Jardín"
+    },
+    {
+      "codeDANE": "5376",
+      "municipality": "Antioquia - La Ceja"
+    },
+    {
+      "codeDANE": "5380",
+      "municipality": "Antioquia - La Estrella"
+    },
+    {
+      "codeDANE": "5400",
+      "municipality": "Antioquia - La Unión"
+    },
+    {
+      "codeDANE": "5237",
+      "municipality": "Antioquia - Don Matías"
+    },
+    {
+      "codeDANE": "5440",
+      "municipality": "Antioquia - Marinilla"
+    },
+    {
+      "codeDANE": "8001",
+      "municipality": "Atlántico - Barranquilla"
+    },
+    {
+      "codeDANE": "8078",
+      "municipality": "Atlántico - Baranoa"
+    },
+    {
+      "codeDANE": "8296",
+      "municipality": "Atlántico - Galapa"
+    },
+    {
+      "codeDANE": "8433",
+      "municipality": "Atlántico - Malambo"
+    },
+    {
+      "codeDANE": "8520",
+      "municipality": "Atlántico - Palmar de Varela"
+    },
+    {
+      "codeDANE": "8573",
+      "municipality": "Atlántico - Puerto Colombia"
+    },
+    {
+      "codeDANE": "8634",
+      "municipality": "Atlántico - Sabanagrande"
+    },
+    {
+      "codeDANE": "8638",
+      "municipality": "Atlántico - Sabanalarga"
+    },
+    {
+      "codeDANE": "8685",
+      "municipality": "Atlántico - Santo Tomás"
+    },
+    {
+      "codeDANE": "8758",
+      "municipality": "Atlántico - Soledad"
+    },
+    {
+      "codeDANE": "11001",
+      "municipality": "Bogotá D.C. - Bogotá D.C."
+    },
+    {
+      "codeDANE": "13001",
+      "municipality": "Bolívar - Cartagena"
+    },
+    {
+      "codeDANE": "13052",
+      "municipality": "Bolívar - Arjona"
+    },
+    {
+      "codeDANE": "13836",
+      "municipality": "Bolívar - Turbaco"
+    },
+    {
+      "codeDANE": "15001",
+      "municipality": "Boyacá - Tunja"
+    },
+    {
+      "codeDANE": "15176",
+      "municipality": "Boyacá - Chiquinquirá"
+    },
+    {
+      "codeDANE": "15238",
+      "municipality": "Boyacá - Duitama"
+    },
+    {
+      "codeDANE": "15407",
+      "municipality": "Boyacá - Villa de Leyva"
+    },
+    {
+      "codeDANE": "15491",
+      "municipality": "Boyacá - Nobsa"
+    },
+    {
+      "codeDANE": "15516",
+      "municipality": "Boyacá - Paipa"
+    },
+    {
+      "codeDANE": "15759",
+      "municipality": "Boyacá - Sogamoso"
+    },
+    {
+      "codeDANE": "15806",
+      "municipality": "Boyacá - Tibasosa"
+    },
+    {
+      "codeDANE": "17001",
+      "municipality": "Caldas - Manizales"
+    },
+    {
+      "codeDANE": "17042",
+      "municipality": "Caldas - Anserma"
+    },
+    {
+      "codeDANE": "17174",
+      "municipality": "Caldas - Chinchiná"
+    },
+    {
+      "codeDANE": "17380",
+      "municipality": "Caldas - La Dorada"
+    },
+    {
+      "codeDANE": "17524",
+      "municipality": "Caldas - Palestina"
+    },
+    {
+      "codeDANE": "17614",
+      "municipality": "Caldas - Riosucio"
+    },
+    {
+      "codeDANE": "17777",
+      "municipality": "Caldas - Supía"
+    },
+    {
+      "codeDANE": "17873",
+      "municipality": "Caldas - Villamaría"
+    },
+    {
+      "codeDANE": "18001",
+      "municipality": "Caquetá - Florencia"
+    },
+    {
+      "codeDANE": "85410",
+      "municipality": "Casanare - Tauramena"
+    },
+    {
+      "codeDANE": "85001",
+      "municipality": "Casanare - Yopal"
+    },
+    {
+      "codeDANE": "85010",
+      "municipality": "Casanare - Aguazul"
+    },
+    {
+      "codeDANE": "19001",
+      "municipality": "Cauca - Popayán"
+    },
+    {
+      "codeDANE": "19455",
+      "municipality": "Cauca - Miranda"
+    },
+    {
+      "codeDANE": "19548",
+      "municipality": "Cauca - Piendamó"
+    },
+    {
+      "codeDANE": "19573",
+      "municipality": "Cauca - Puerto Tejada"
+    },
+    {
+      "codeDANE": "19698",
+      "municipality": "Cauca - Santander de Quilichao"
+    },
+    {
+      "codeDANE": "19807",
+      "municipality": "Cauca - Timbío"
+    },
+    {
+      "codeDANE": "19845",
+      "municipality": "Cauca - Villa Rica"
+    },
+    {
+      "codeDANE": "20001",
+      "municipality": "Cesar - Valledupar"
+    },
+    {
+      "codeDANE": "27001",
+      "municipality": "Chocó - Quibdó"
+    },
+    {
+      "codeDANE": "27361",
+      "municipality": "Chocó - Istmina"
+    },
+    {
+      "codeDANE": "23001",
+      "municipality": "Córdoba - Montería"
+    },
+    {
+      "codeDANE": "23162",
+      "municipality": "Córdoba - Cereté"
+    },
+    {
+      "codeDANE": "23182",
+      "municipality": "Córdoba - Chinú"
+    },
+    {
+      "codeDANE": "23189",
+      "municipality": "Córdoba - Ciénaga de Oro"
+    },
+    {
+      "codeDANE": "23417",
+      "municipality": "Córdoba - Lorica"
+    },
+    {
+      "codeDANE": "23466",
+      "municipality": "Córdoba - Montelíbano"
+    },
+    {
+      "codeDANE": "23555",
+      "municipality": "Córdoba - Planeta Rica"
+    },
+    {
+      "codeDANE": "23570",
+      "municipality": "Córdoba - Pueblo Nuevo"
+    },
+    {
+      "codeDANE": "23660",
+      "municipality": "Córdoba - Sahagún"
+    },
+    {
+      "codeDANE": "23672",
+      "municipality": "Córdoba - San Antero"
+    },
+    {
+      "codeDANE": "25126",
+      "municipality": "Cundinamarca - Cajicá"
+    },
+    {
+      "codeDANE": "25175",
+      "municipality": "Cundinamarca - Chía"
+    },
+    {
+      "codeDANE": "25200",
+      "municipality": "Cundinamarca - Cogua"
+    },
+    {
+      "codeDANE": "25214",
+      "municipality": "Cundinamarca - Cota"
+    },
+    {
+      "codeDANE": "25260",
+      "municipality": "Cundinamarca - El Rosal"
+    },
+    {
+      "codeDANE": "25269",
+      "municipality": "Cundinamarca - Facatativá"
+    },
+    {
+      "codeDANE": "25286",
+      "municipality": "Cundinamarca - Funza"
+    },
+    {
+      "codeDANE": "25290",
+      "municipality": "Cundinamarca - Fusagasugá"
+    },
+    {
+      "codeDANE": "25295",
+      "municipality": "Cundinamarca - Gachancipá"
+    },
+    {
+      "codeDANE": "25307",
+      "municipality": "Cundinamarca - Girardot"
+    },
+    {
+      "codeDANE": "25377",
+      "municipality": "Cundinamarca - La Calera"
+    },
+    {
+      "codeDANE": "25402",
+      "municipality": "Cundinamarca - La Vega"
+    },
+    {
+      "codeDANE": "25430",
+      "municipality": "Cundinamarca - Madrid"
+    },
+    {
+      "codeDANE": "25473",
+      "municipality": "Cundinamarca - Mosquera"
+    },
+    {
+      "codeDANE": "25572",
+      "municipality": "Cundinamarca - Puerto Salgar"
+    },
+    {
+      "codeDANE": "25740",
+      "municipality": "Cundinamarca - Sibaté"
+    },
+    {
+      "codeDANE": "25754",
+      "municipality": "Cundinamarca - Soacha"
+    },
+    {
+      "codeDANE": "25758",
+      "municipality": "Cundinamarca - Sopó"
+    },
+    {
+      "codeDANE": "25769",
+      "municipality": "Cundinamarca - Subachoque"
+    },
+    {
+      "codeDANE": "25785",
+      "municipality": "Cundinamarca - Tabio"
+    },
+    {
+      "codeDANE": "25799",
+      "municipality": "Cundinamarca - Tenjo"
+    },
+    {
+      "codeDANE": "25817",
+      "municipality": "Cundinamarca - Tocancipá"
+    },
+    {
+      "codeDANE": "25843",
+      "municipality": "Cundinamarca - Villa de San Diego de Ubate"
+    },
+    {
+      "codeDANE": "25899",
+      "municipality": "Cundinamarca - Zipaquirá"
+    },
+    {
+      "codeDANE": "41001",
+      "municipality": "Huila - Neiva"
+    },
+    {
+      "codeDANE": "41020",
+      "municipality": "Huila - Algeciras"
+    },
+    {
+      "codeDANE": "41132",
+      "municipality": "Huila - Campoalegre"
+    },
+    {
+      "codeDANE": "41298",
+      "municipality": "Huila - Garzón"
+    },
+    {
+      "codeDANE": "41306",
+      "municipality": "Huila - Gigante"
+    },
+    {
+      "codeDANE": "41349",
+      "municipality": "Huila - Hobo"
+    },
+    {
+      "codeDANE": "41524",
+      "municipality": "Huila - Palermo"
+    },
+    {
+      "codeDANE": "41551",
+      "municipality": "Huila - Pitalito"
+    },
+    {
+      "codeDANE": "41615",
+      "municipality": "Huila - Rivera"
+    },
+    {
+      "codeDANE": "41807",
+      "municipality": "Huila - Timaná"
+    },
+    {
+      "codeDANE": "47001",
+      "municipality": "Magdalena - Santa Marta"
+    },
+    {
+      "codeDANE": "47189",
+      "municipality": "Magdalena - Ciénaga"
+    },
+    {
+      "codeDANE": "50001",
+      "municipality": "Meta - Villavicencio"
+    },
+    {
+      "codeDANE": "50006",
+      "municipality": "Meta - Acacias"
+    },
+    {
+      "codeDANE": "52001",
+      "municipality": "Nariño - Pasto"
+    },
+    {
+      "codeDANE": "52356",
+      "municipality": "Nariño - Ipiales"
+    },
+    {
+      "codeDANE": "54874",
+      "municipality": "Norte de Santander - Villa del Rosario"
+    },
+    {
+      "codeDANE": "54405",
+      "municipality": "Norte de Santander - Los Patios"
+    },
+    {
+      "codeDANE": "54001",
+      "municipality": "Norte de Santander - Cúcuta"
+    },
+    {
+      "codeDANE": "63001",
+      "municipality": "Quindío - Armenia"
+    },
+    {
+      "codeDANE": "63130",
+      "municipality": "Quindío - Calarcá"
+    },
+    {
+      "codeDANE": "63190",
+      "municipality": "Quindío - Circasia"
+    },
+    {
+      "codeDANE": "63272",
+      "municipality": "Quindío - Filandia"
+    },
+    {
+      "codeDANE": "63401",
+      "municipality": "Quindío - La Tebaida"
+    },
+    {
+      "codeDANE": "63470",
+      "municipality": "Quindío - Montenegro"
+    },
+    {
+      "codeDANE": "63594",
+      "municipality": "Quindío - Quimbaya"
+    },
+    {
+      "codeDANE": "63690",
+      "municipality": "Quindío - Salento"
+    },
+    {
+      "codeDANE": "66001",
+      "municipality": "Risaralda - Pereira"
+    },
+    {
+      "codeDANE": "66170",
+      "municipality": "Risaralda - Dosquebradas"
+    },
+    {
+      "codeDANE": "66400",
+      "municipality": "Risaralda - La Virginia"
+    },
+    {
+      "codeDANE": "66682",
+      "municipality": "Risaralda - Santa Rosa de Cabal"
+    },
+    {
+      "codeDANE": "88001",
+      "municipality": "Archipiélago de San Andrés Providencia y Santa Catalina - San Andrés"
+    },
+    {
+      "codeDANE": "68001",
+      "municipality": "Santander - Bucaramanga"
+    },
+    {
+      "codeDANE": "68081",
+      "municipality": "Santander - Barrancabermeja"
+    },
+    {
+      "codeDANE": "68276",
+      "municipality": "Santander - Floridablanca"
+    },
+    {
+      "codeDANE": "68307",
+      "municipality": "Santander - Girón"
+    },
+    {
+      "codeDANE": "68406",
+      "municipality": "Santander - Lebríja"
+    },
+    {
+      "codeDANE": "68547",
+      "municipality": "Santander - Piedecuesta"
+    },
+    {
+      "codeDANE": "68679",
+      "municipality": "Santander - San Gil"
+    },
+    {
+      "codeDANE": "70001",
+      "municipality": "Sucre - Sincelejo"
+    },
+    {
+      "codeDANE": "70215",
+      "municipality": "Sucre - Corozal"
+    },
+    {
+      "codeDANE": "70221",
+      "municipality": "Sucre - Coveñas"
+    },
+    {
+      "codeDANE": "70670",
+      "municipality": "Sucre - Sampués"
+    },
+    {
+      "codeDANE": "70820",
+      "municipality": "Sucre - Santiago de Tolú"
+    },
+    {
+      "codeDANE": "70823",
+      "municipality": "Sucre - Tolú Viejo"
+    },
+    {
+      "codeDANE": "73001",
+      "municipality": "Tolima - Ibagué"
+    },
+    {
+      "codeDANE": "73026",
+      "municipality": "Tolima - Alvarado"
+    },
+    {
+      "codeDANE": "73268",
+      "municipality": "Tolima - Espinal"
+    },
+    {
+      "codeDANE": "73275",
+      "municipality": "Tolima - Flandes"
+    },
+    {
+      "codeDANE": "73319",
+      "municipality": "Tolima - Guamo"
+    },
+    {
+      "codeDANE": "73349",
+      "municipality": "Tolima - Honda"
+    },
+    {
+      "codeDANE": "73408",
+      "municipality": "Tolima - Lérida"
+    },
+    {
+      "codeDANE": "73443",
+      "municipality": "Tolima - Mariquita"
+    },
+    {
+      "codeDANE": "73449",
+      "municipality": "Tolima - Melgar"
+    },
+    {
+      "codeDANE": "73585",
+      "municipality": "Tolima - Purificación"
+    },
+    {
+      "codeDANE": "73671",
+      "municipality": "Tolima - Saldaña"
+    },
+    {
+      "codeDANE": "73861",
+      "municipality": "Tolima - Venadillo"
+    },
+    {
+      "codeDANE": "76001",
+      "municipality": "Valle del Cauca - Cali"
+    },
+    {
+      "codeDANE": "76036",
+      "municipality": "Valle del Cauca - Andalucía"
+    },
+    {
+      "codeDANE": "76041",
+      "municipality": "Valle del Cauca - Ansermanuevo"
+    },
+    {
+      "codeDANE": "76100",
+      "municipality": "Valle del Cauca - Bolívar"
+    },
+    {
+      "codeDANE": "76109",
+      "municipality": "Valle del Cauca - Buenaventura"
+    },
+    {
+      "codeDANE": "76111",
+      "municipality": "Valle del Cauca - Guadalajara de Buga"
+    },
+    {
+      "codeDANE": "76113",
+      "municipality": "Valle del Cauca - Bugalagrande"
+    },
+    {
+      "codeDANE": "76122",
+      "municipality": "Valle del Cauca - Caicedonia"
+    },
+    {
+      "codeDANE": "76126",
+      "municipality": "Valle del Cauca - Calima"
+    },
+    {
+      "codeDANE": "76130",
+      "municipality": "Valle del Cauca - Candelaria"
+    },
+    {
+      "codeDANE": "76147",
+      "municipality": "Valle del Cauca - Cartago"
+    },
+    {
+      "codeDANE": "76248",
+      "municipality": "Valle del Cauca - El Cerrito"
+    },
+    {
+      "codeDANE": "76275",
+      "municipality": "Valle del Cauca - Florida"
+    },
+    {
+      "codeDANE": "76306",
+      "municipality": "Valle del Cauca - Ginebra"
+    },
+    {
+      "codeDANE": "76318",
+      "municipality": "Valle del Cauca - Guacarí"
+    },
+    {
+      "codeDANE": "76364",
+      "municipality": "Valle del Cauca - Jamundí"
+    },
+    {
+      "codeDANE": "76400",
+      "municipality": "Valle del Cauca - La Unión"
+    },
+    {
+      "codeDANE": "76403",
+      "municipality": "Valle del Cauca - La Victoria"
+    },
+    {
+      "codeDANE": "76520",
+      "municipality": "Valle del Cauca - Palmira"
+    },
+    {
+      "codeDANE": "76563",
+      "municipality": "Valle del Cauca - Pradera"
+    },
+    {
+      "codeDANE": "76606",
+      "municipality": "Valle del Cauca - Restrepo"
+    },
+    {
+      "codeDANE": "76616",
+      "municipality": "Valle del Cauca - Riofrío"
+    },
+    {
+      "codeDANE": "76622",
+      "municipality": "Valle del Cauca - Roldanillo"
+    },
+    {
+      "codeDANE": "76670",
+      "municipality": "Valle del Cauca - San Pedro"
+    },
+    {
+      "codeDANE": "76736",
+      "municipality": "Valle del Cauca - Sevilla"
+    },
+    {
+      "codeDANE": "76828",
+      "municipality": "Valle del Cauca - Trujillo"
+    },
+    {
+      "codeDANE": "76834",
+      "municipality": "Valle del Cauca - Tuluá"
+    },
+    {
+      "codeDANE": "76869",
+      "municipality": "Valle del Cauca - Vijes"
+    },
+    {
+      "codeDANE": "76890",
+      "municipality": "Valle del Cauca - Yotoco"
+    },
+    {
+      "codeDANE": "76892",
+      "municipality": "Valle del Cauca - Yumbo"
+    },
+    {
+      "codeDANE": "76895",
+      "municipality": "Valle del Cauca - Zarzal"
+    },
+    {
+      "codeDANE": "5001",
+      "municipality": "Antioquia - Las Palmas"
+    },
+    {
+      "codeDANE": "5001",
+      "municipality": "Antioquia - San Antonio de Prado"
+    },
+    {
+      "codeDANE": "5001",
+      "municipality": "Antioquia - Santa Elena"
+    },
+    {
+      "codeDANE": "5255",
+      "municipality": "Antioquia - Peñol"
+    }
+  ]
+}

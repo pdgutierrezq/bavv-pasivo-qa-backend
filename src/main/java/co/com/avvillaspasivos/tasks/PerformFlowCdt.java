@@ -39,6 +39,7 @@ public class PerformFlowCdt implements Task {
         FillConfigurationCdt.type(),
         Waits.loader(),
         Autentication.byOtp(),
+        Waits.loader(120),
         AccountConfigurationCdt.type(),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),

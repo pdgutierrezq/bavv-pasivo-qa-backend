@@ -8,30 +8,29 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.data.DataProvider;
-import co.com.avvillaspasivos.ui.AutenticacionPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
 import net.thucydides.core.annotations.Step;
 
+import static co.com.avvillaspasivos.tasks.TasksGroup.navigateLaterForeignInformation;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class Autentication implements Task {
+public class ValidateContactPreload implements Task {
 
-  public static Performable byOtp() {
-    return instrumented(Autentication.class);
+  public static Performable perform() {
+    return instrumented(ValidateContactPreload.class);
   }
 
-  @Step("{0} se autentica mediante otp")
+  @Step(
+      "{0} valida la precarga de datos para el cliente desactualizado"
+          + " en Informacion de contacto e informacion financiera")
   public <T extends Actor> void performAs(T actor) {
-    String otp = DataProvider.getOtp();
 
     actor.attemptsTo(
-        Enter.theValue(otp).into(AutenticacionPage.LIST_OTP_INPUT),
-        Click.on(AutenticacionPage.CONTINUAR_BUTTON)
-       );
+        UiAssertions.validateContactPreload(),
+        navigateLaterForeignInformation());
+    actor.attemptsTo(
+        UiAssertions.validateFinancialInfPreload());
   }
 }

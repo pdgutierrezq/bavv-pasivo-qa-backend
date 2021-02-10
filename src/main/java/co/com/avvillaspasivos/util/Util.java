@@ -5,24 +5,15 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
-
 package co.com.avvillaspasivos.util;
 
-public enum SessionVariables {
+public class Util {
+  private Util() {
+    throw new IllegalStateException("Utility class");
+  }
 
-    MAIN_ACTOR,
-    ACCOUNT_TYPE,
-    INSURANCE,
-    DATA_ACTOR,
-    CRM_ADDRESS,
-    WORD_LIST,
-    BANK_LIST,
-    CRM_DATA,
-    CDT_DATA,
-    TOKEN,
-    INCOME_ACCOUNT,
-    RENEWAL
-
+  public static String cleanMoneyFormat(String frontValue) {
+    return frontValue.replace("$", "").replace(" ", "").replace(",", "").replace(".", "");
+  }
 }
