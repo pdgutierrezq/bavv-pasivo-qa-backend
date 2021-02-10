@@ -11,7 +11,6 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.model.ResumeCdtData;
 import co.com.avvillaspasivos.ui.ConfigurationCdtPage;
 import co.com.avvillaspasivos.util.SessionVariables;
-import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -31,11 +30,11 @@ public class FillConfigurationCdt implements Task {
 
   @Step("{0} configura el cdt")
   public <T extends Actor> void performAs(T actor) {
-    Faker faker = new Faker();
+
     ResumeCdtData cdtData =
         ResumeCdtData.builder()
             .amount("10000000")
-            .term(String.valueOf(faker.number().numberBetween(90, 999)))
+            .term("100")
             .build();
 
     boolean renewal = actor.recall(SessionVariables.RENEWAL.name());
