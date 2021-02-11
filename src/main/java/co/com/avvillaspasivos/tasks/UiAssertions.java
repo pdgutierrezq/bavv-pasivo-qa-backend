@@ -406,10 +406,13 @@ public class UiAssertions {
             .isEqualTo(crmResponseData.getPhone()),
         Ensure.that(ContactInformationPage.TEXTBOX_ADDRESS)
             .value()
-            .isEqualTo(crmResponseData.getAddress()),
+            .isEqualToIgnoringCase(crmResponseData.getAddress()),
+        Ensure.that(ContactInformationPage.TEXTBOX_NEIGHBORHOOD)
+            .value()
+            .isEqualToIgnoringCase(crmResponseData.getNeighborhood()),
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_NAME)
             .value()
-            .isEqualTo(crmResponseData.getCompanyName()),
+            .isEqualToIgnoringCase(crmResponseData.getCompanyName()),
 //        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
 //            .value()
 //            .isEqualTo(crmResponseData.getCompanyCity()),
@@ -418,7 +421,7 @@ public class UiAssertions {
             .isEqualTo(crmResponseData.getCompanyPhone()),
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS)
             .value()
-            .isEqualTo(crmResponseData.getCompanyAddress()));
+            .isEqualToIgnoringCase(crmResponseData.getCompanyAddress()));
   }
 
   public static Performable validateFinancialInfPreload() {
