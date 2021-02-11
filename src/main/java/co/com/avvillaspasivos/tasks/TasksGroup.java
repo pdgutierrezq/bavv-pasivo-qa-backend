@@ -55,6 +55,25 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+  public static Performable navigateToContactDataCDa() {
+    return Task.where(
+        "{0} navega hasta la pagina de informacion de contacto en Cda",
+        navigateToIdentificationForm(),
+        FormIdentification.fillAndContinue(),
+        Waits.loader(),
+        PepSelection.option("no"),
+        AccountSelection.type("Cuenta Digital"),
+        Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
+            .andIfSo(
+                InsuranceSelection.choose("acepta"),
+                Remember.variable(SessionVariables.INSURANCE.name(), "acepta"))
+            .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
+        Waits.loader(),
+        Autentication.byOtp(),
+        fillEconomicActivity()
+
+    );
+  }
 
   public static Performable passSendCardScreen() {
     return Task.where(

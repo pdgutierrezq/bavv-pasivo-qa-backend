@@ -58,6 +58,7 @@ public class CrmInfo implements Task {
   private CrmResponseData getCrmResponseData() {
     String mail = getFlagCrm("emailAdressContact");
     String address = getFlagCrm("addresessList[0]");
+    String neighborhood = getFlagCrm("neighborhood");
     String phone = getFlagCrm("contactPhonesList[0].phoneNumber");
 
     String city = getCompanyCity(getFlagCrm("contactCity"), DOMINA);
@@ -78,6 +79,7 @@ public class CrmInfo implements Task {
         .phone(phone)
         .cityAddress(city)
         .address(address)
+        .neighborhood(neighborhood)
         .companyName(companyName)
         .companyCity(companyCity)
         .companyAddress(companyAddress)

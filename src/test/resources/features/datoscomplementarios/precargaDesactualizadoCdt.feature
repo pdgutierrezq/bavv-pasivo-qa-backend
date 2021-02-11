@@ -1,7 +1,12 @@
 # language: es
 @Frontend:CDT-precarga
 @Sprint-57
+@Sprint-58
+@PBA-2288
 @PBA-2182
+
+@Back-CRM-Barrio
+@PBA-2326
 
 Característica: Implementar Precarga de info a cliente des actualizado CDT
   YO COMO Cliente
