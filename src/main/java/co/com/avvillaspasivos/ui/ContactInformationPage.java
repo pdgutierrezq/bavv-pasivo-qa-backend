@@ -31,6 +31,9 @@ public class ContactInformationPage {
   public static final Target TEXTBOX_ADDRESS =
       Target.the("Textbox direccion").located(By.id("HomeAddress"));
 
+  public static final Target TEXTBOX_NEIGHBORHOOD =
+      Target.the("Textbox barrio").located(By.id("HomeDistrict"));
+
   public static final Target TEXTBOX_CITY = Target.the("Textbox ciudad").located(By.id("HomeCity"));
 
   public static final Target TEXTBOX_COMPANY_NAME =

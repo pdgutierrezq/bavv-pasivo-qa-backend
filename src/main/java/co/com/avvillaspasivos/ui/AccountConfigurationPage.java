@@ -20,6 +20,10 @@ public class AccountConfigurationPage {
       Target.the("Boton ir a Pse")
       .located(By.linkText("Link PSE"));
 
+  public static final Target SENDING_CARD_LINK =
+      Target.the("Link ir a Datos Tarjeta")
+      .located(By.linkText("Link Datos Tarjeta"));
+
   public static final Target BOTON_CONTINUAR =
       Target.the("Boton continuar direccion")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));

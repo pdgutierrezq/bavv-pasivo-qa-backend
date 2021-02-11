@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.SendingCardPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -30,7 +30,7 @@ public class City implements Task {
     String chars = LIST_CITIES.stream().findAny().orElse("BOG").substring(0, 3);
 
     actor.attemptsTo(
-        Enter.theValue(chars).into(AddressPage.TEXT_CITY),
-        Enter.keyValues(Keys.TAB).into(AddressPage.TEXT_CITY));
+        Enter.theValue(chars).into(SendingCardPage.TEXT_CITY),
+        Enter.keyValues(Keys.TAB).into(SendingCardPage.TEXT_CITY));
   }
 }

@@ -87,7 +87,9 @@ public class ActorActions {
                 .build();
         break;
       case CLIENT_UPDATED_WITH_CHANNELS:
-        conditions =
+      case CLIENT_UPDATED:
+          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+          conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)

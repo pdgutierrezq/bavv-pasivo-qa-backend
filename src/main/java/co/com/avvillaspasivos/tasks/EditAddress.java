@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.SendingCardPage;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -29,22 +29,22 @@ public class EditAddress implements Task {
 
   @Step("{0} edita la direccion de envio de la tarjeta")
   public <T extends Actor> void performAs(T actor) {
-    if (AddressPage.TEXT_CITY.resolveFor(actor).getValue().equals("")
-        || AddressPage.TEXT_ADDRESS.resolveFor(actor).getValue().equals("")) {
+    if (SendingCardPage.TEXT_CITY.resolveFor(actor).getValue().equals("")
+        || SendingCardPage.TEXT_ADDRESS.resolveFor(actor).getValue().equals("")) {
 
       selectRandomCity(actor);
       actor.attemptsTo(
-          Enter.theValue(TEST_DIRECTION).into(AddressPage.TEXT_ADDRESS),
-          Click.on(AddressPage.CONTINUE_BUTTON),
-          Click.on(AddressPage.POP_UP_ACCEPT));
+          Enter.theValue(TEST_DIRECTION).into(SendingCardPage.TEXT_ADDRESS),
+          Click.on(SendingCardPage.CONTINUE_BUTTON),
+          Click.on(SendingCardPage.POP_UP_ACCEPT));
     } else {
-      actor.attemptsTo(Click.on(AddressPage.CONTINUE_BUTTON));
+      actor.attemptsTo(Click.on(SendingCardPage.CONTINUE_BUTTON));
     }
   }
 
   private void selectRandomCity(Actor actor) {
-    actor.attemptsTo(Enter.theValue(" ").into(AddressPage.TEXT_CITY));
+    actor.attemptsTo(Enter.theValue(" ").into(SendingCardPage.TEXT_CITY));
     actor.attemptsTo(
-        Click.on(AddressPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
+        Click.on(SendingCardPage.LIST_CITIES.resolveAllFor(actor).get(faker.number().randomDigit())));
   }
 }

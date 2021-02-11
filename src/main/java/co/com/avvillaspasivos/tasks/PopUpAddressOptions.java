@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.SendingCardPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -32,9 +32,9 @@ public class PopUpAddressOptions implements Task {
   @Step("{0} selecciona la opcion #confirmation del pop up de direccion")
   public <T extends Actor> void performAs(T actor) {
     if (TAG_ACCEPT.equalsIgnoreCase(confirmation)) {
-      actor.attemptsTo(Click.on(AddressPage.POP_UP_ACCEPT));
+      actor.attemptsTo(Click.on(SendingCardPage.POP_UP_ACCEPT));
     } else {
-      actor.attemptsTo(Click.on(AddressPage.POP_UP_REJECT));
+      actor.attemptsTo(Click.on(SendingCardPage.POP_UP_REJECT));
     }
   }
 }

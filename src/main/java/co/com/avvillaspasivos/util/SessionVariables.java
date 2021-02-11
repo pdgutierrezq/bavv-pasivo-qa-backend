@@ -20,6 +20,7 @@ public enum SessionVariables {
     WORD_LIST,
     BANK_LIST,
     CRM_DATA,
+    CONTACT_INFORMATION_DATA,
     CDT_DATA,
     TOKEN,
     INCOME_ACCOUNT,

@@ -8,7 +8,7 @@
  */
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.SendingCardPage;
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
@@ -40,7 +40,7 @@ public class ValidateInvalidWords implements Task {
     invalidWords.forEach(
         word ->
             actor.attemptsTo(
-                Enter.theValue(word).into(AddressPage.TEXT_ADDRESS),
+                Enter.theValue(word).into(SendingCardPage.TEXT_ADDRESS),
                 Ensure.that(CommonWebElementsPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText)));
   }
 }
