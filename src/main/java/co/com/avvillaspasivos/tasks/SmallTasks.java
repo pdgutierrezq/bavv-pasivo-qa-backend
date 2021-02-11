@@ -81,26 +81,26 @@ public class SmallTasks {
   public static Performable leaveEmptyFields() {
     return Task.where(
         "{0} ingresa vacio en ciudad y direccion",
-        leaveEmptyCityField(), Enter.theValue(" ").into(AddressPage.TEXT_ADDRESS));
+        leaveEmptyCityField(), Enter.theValue(" ").into(SendingCardPage.TEXT_ADDRESS));
   }
 
   public static Performable leaveEmptyCityField() {
     return Task.where(
-        "{0} ingresa vacio en ciudad", Enter.theValue(" ").into(AddressPage.TEXT_CITY));
+        "{0} ingresa vacio en ciudad", Enter.theValue(" ").into(SendingCardPage.TEXT_CITY));
   }
 
   public static Performable insertInvalidCity() {
     Faker faker = new Faker();
     return Task.where(
         "{0} ingresa una ciudad sin cobertura",
-        Enter.theValue(faker.address().city()).into(AddressPage.TEXT_CITY));
+        Enter.theValue(faker.address().city()).into(SendingCardPage.TEXT_CITY));
   }
 
   public static Performable writeTextWithSize(int size) {
     Faker faker = new Faker();
     return Task.where(
         "{0} ingresa una direccion tamaño #size",
-        Enter.theValue(faker.lorem().characters(size - 1)).into(AddressPage.TEXT_ADDRESS));
+        Enter.theValue(faker.lorem().characters(size - 1)).into(SendingCardPage.TEXT_ADDRESS));
   }
 
   public static Performable writeAddressWithAtSymbol() {
@@ -108,7 +108,7 @@ public class SmallTasks {
     return Task.where(
         "{0} ingresa una direccion con @ en cualquier posicion",
         Enter.theValue(faker.address().streetName() + "@" + faker.address().fullAddress())
-            .into(AddressPage.TEXT_ADDRESS));
+            .into(SendingCardPage.TEXT_ADDRESS));
   }
 
   public static Performable writeAnyNumberOnAddress() {
@@ -116,7 +116,7 @@ public class SmallTasks {
     return Task.where(
         "{0} ingresa un numero en la primera posicion de direccion de envio",
         Enter.theValue(faker.number().randomDigit() + faker.address().secondaryAddress())
-            .into(AddressPage.TEXT_ADDRESS));
+            .into(SendingCardPage.TEXT_ADDRESS));
   }
 
   public static Performable declarationSelect() {

@@ -11,8 +11,8 @@ package co.com.avvillaspasivos.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class AddressPage {
-  private AddressPage() {
+public class SendingCardPage {
+  private SendingCardPage() {
     throw new IllegalStateException("Utility class");
   }
 

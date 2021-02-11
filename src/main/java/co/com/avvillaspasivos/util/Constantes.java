@@ -16,7 +16,6 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-
   public static final String EXECUTION_TAGS = "@regresion";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
@@ -82,6 +81,7 @@ public class Constantes {
       "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
   public static final String CLIENT_UPDATED_WITH_CHANNELS =
       "cliente actualizado que no tenga canales";
+  public static final String CLIENT_UPDATED = "cliente actualizado";
   public static final String NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS =
       "no cliente no actualizado que no tenga canales";
   public static final String CLIENT_NO_UPDATED = "cliente no actualizado";
@@ -90,7 +90,7 @@ public class Constantes {
   public static final String MONEY_CLASS = "money";
   public static final String MONTH_COST_VALUE = "$ 0,00";
   public static final String WITHDRAWALS_TEXT = "3 retiros gratis al mes";
-  public static final String INSURANCE_COST = "$ 14.600,00";
+  public static final String INSURANCE_COST = "$ 14.800,00";
   public static final String CORRECT_PASS_OPTION = "correcta";
   public static final String CORRECT_PASS = "1636";
   public static final String PRODUCT_CDT = "CDT";
@@ -222,7 +222,7 @@ public class Constantes {
           "Zarzal - Valle Del Cauca",
           "Zipaquirá - Cundinamarca");
 
-public static final ImmutableList<String> LIST_CITIES_FULL =
+  public static final ImmutableList<String> LIST_CITIES_FULL =
       ImmutableList.of(
           "Abejorral - Antioquia",
           "Abrego - Norte de Santander",
@@ -1346,9 +1346,5 @@ public static final ImmutableList<String> LIST_CITIES_FULL =
           "Zipacón - Cundinamarca",
           "Zipaquirá - Cundinamarca",
           "Zona Bananera - Magdalena",
-          "Útica - Cundinamarca"
-      );
-
-
-
+          "Útica - Cundinamarca");
 }

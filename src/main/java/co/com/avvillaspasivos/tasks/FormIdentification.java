@@ -22,6 +22,7 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import org.openqa.selenium.Keys;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class FormIdentification {
   private static ActorData actorData;
@@ -122,8 +123,11 @@ public class FormIdentification {
   }
 
   public static Performable fillAndContinue(String product) {
-    ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+      String userType=theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+
+      ActorData actorData =
+        OnStage.theActor(userType).recall(String.valueOf(SessionVariables.DATA_ACTOR));
+
     return Task.where(
         "{0} diligencia formulario y continua ",
         Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),

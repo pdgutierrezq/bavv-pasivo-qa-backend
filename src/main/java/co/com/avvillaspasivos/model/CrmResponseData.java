@@ -29,4 +29,5 @@ public class CrmResponseData {
     private String montlyExpenses;
     private String assetsnumber;
     private String incomeAmount;
+    private String neighborhood;
 }

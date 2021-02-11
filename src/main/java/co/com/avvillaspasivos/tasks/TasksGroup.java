@@ -9,13 +9,18 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.*;
+import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class TasksGroup {
   private TasksGroup() {
@@ -105,6 +110,7 @@ public class TasksGroup {
     return Task.where(
         "{0} navega hasta la pagina pse",
         navigateLaterAuthetication(),
+        Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
         Click.on(AccountConfigurationPage.PSE_BUTTON));
   }
 
@@ -113,6 +119,27 @@ public class TasksGroup {
         "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
         navigateLaterAuthetication(),
         fillEconomicActivity()
+        );
+  }
+  public static Performable navigateToSendingCardCdt() {
+      String userType=theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+
+      return Task.where(
+        "{0} navega hasta la pagina de datos para envio de tarjeta ",
+        navigateLaterAuthetication(),
+          Check.whether(userType.equals(CLIENT_UPDATED))
+          .andIfSo(
+              Waits.loader(),
+              Click.on(AccountConfigurationPage.SENDING_CARD_LINK)
+          ).otherwise(
+              fillEconomicActivity(),
+              Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
+              FillContactInfo.fixed(),
+              FillForeignInformation.perfom(),
+              FillFinancialInformation.perfom(),
+              Click.on(AccountConfigurationPage.SENDING_CARD_LINK)
+          )
+
         );
   }
 

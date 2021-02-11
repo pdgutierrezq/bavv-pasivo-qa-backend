@@ -8,6 +8,9 @@
  */
 package co.com.avvillaspasivos.util;
 
+import co.com.avvillaspasivos.model.CrmResponseData;
+import com.github.javafaker.Faker;
+
 public class Util {
   private Util() {
     throw new IllegalStateException("Utility class");
@@ -15,5 +18,19 @@ public class Util {
 
   public static String cleanMoneyFormat(String frontValue) {
     return frontValue.replace("$", "").replace(" ", "").replace(",", "").replace(".", "");
+  }
+
+  public static CrmResponseData buildContactData(){
+      Faker faker = new Faker();
+
+      String mail = faker.internet().emailAddress();
+
+      return CrmResponseData.builder()
+          .mail(mail)
+          .cityAddress("Bogotá D.C. - Bogotá D.C.")
+          .address(faker.address().streetName().concat(faker.address().fullAddress()))
+          .companyName(faker.dragonBall().character())
+          .neighborhood(faker.address().streetName())
+          .build();
   }
 }

@@ -58,9 +58,9 @@ public class UiAssertions {
         "{0} valida autocompletar de ciudad, campo texto y check transporte masivo",
         Ensure.that(
                 LIST_CITIES.contains(
-                    AddressPage.TEXT_CITY.resolveFor(theActorInTheSpotlight()).getValue()))
+                    SendingCardPage.TEXT_CITY.resolveFor(theActorInTheSpotlight()).getValue()))
             .isTrue(),
-        Ensure.that(AddressPage.TEXT_ADDRESS).value().isEmpty());
+        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEmpty());
   }
 
   public static Performable validateCityListItem() {
@@ -82,7 +82,7 @@ public class UiAssertions {
 
   private static List<String> getCityAddressList() {
     List<String> cityListUi = new ArrayList<>();
-    AddressPage.LIST_TEXT_CITIES
+    SendingCardPage.LIST_TEXT_CITIES
         .resolveAllFor(theActorInTheSpotlight())
         .forEach(i -> cityListUi.add(i.getText()));
     return cityListUi;
@@ -113,7 +113,7 @@ public class UiAssertions {
 
     return Task.where(
         "{0} valida que la direccion de Crm no se modifico",
-        Ensure.that(AddressPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(crmAddress));
+        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(crmAddress));
   }
 
   public static Performable validateIncomeFormat() {
@@ -193,7 +193,7 @@ public class UiAssertions {
   public static Performable validateDeliveryAddressCharge() {
     return Task.where(
         "{0} valida la carga de la pantalla de direccion de entrega",
-        WaitUntil.the(AddressPage.FORM_ADDRESS, isVisible()),
+        WaitUntil.the(SendingCardPage.FORM_ADDRESS, isVisible()),
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.deliveryAddressPagePath()));
   }
 
@@ -223,14 +223,14 @@ public class UiAssertions {
   public static Performable validateAddressTextBoxPrecharged() {
     return Task.where(
         "{0} valida la carga de informacion en los campos de texto de direccion",
-        Ensure.that(AddressPage.TEXT_CITY).value().isNotEmpty(),
-        Ensure.that(AddressPage.TEXT_ADDRESS).value().isNotEmpty());
+        Ensure.that(SendingCardPage.TEXT_CITY).value().isNotEmpty(),
+        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isNotEmpty());
   }
 
   public static Performable validateContinueAddressDisabled() {
     return Task.where(
         "{0} valida opcion continuar de direccion deshabilitada",
-        Ensure.that(AddressPage.CONTINUE_BUTTON).isDisabled());
+        Ensure.that(SendingCardPage.CONTINUE_BUTTON).isDisabled());
   }
 
   public static Performable validateContinueEnroomentDisabled() {
@@ -295,8 +295,8 @@ public class UiAssertions {
   public static Performable validatePopUpDirection() {
     return Task.where(
         "{0} valida la presencia del pop up de direccion",
-        Ensure.that(AddressPage.POP_UP).isDisplayed(),
-        Ensure.that(AddressPage.POP_UP).text().contains(TEST_DIRECTION));
+        Ensure.that(SendingCardPage.POP_UP).isDisplayed(),
+        Ensure.that(SendingCardPage.POP_UP).text().contains(TEST_DIRECTION));
   }
 
   public static Performable validateContinueButtonFormIdentificationEnabled() {

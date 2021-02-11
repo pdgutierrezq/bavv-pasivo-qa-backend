@@ -10,7 +10,7 @@
 
 package co.com.avvillaspasivos.tasks;
 
-import co.com.avvillaspasivos.ui.AddressPage;
+import co.com.avvillaspasivos.ui.SendingCardPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -27,6 +27,6 @@ public class RememberAddress implements Task {
 
     @Step("{0} recuerda la direccion precargada de Crm")
     public <T extends Actor> void performAs(T actor) {
-        actor.remember(String.valueOf(SessionVariables.CRM_ADDRESS), AddressPage.TEXT_ADDRESS.resolveFor(actor).getValue());
+        actor.remember(String.valueOf(SessionVariables.CRM_ADDRESS), SendingCardPage.TEXT_ADDRESS.resolveFor(actor).getValue());
     }
 }
