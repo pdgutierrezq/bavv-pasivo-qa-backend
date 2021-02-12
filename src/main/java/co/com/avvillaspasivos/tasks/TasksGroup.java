@@ -14,6 +14,7 @@ import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
 
@@ -55,24 +56,11 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+
   public static Performable navigateToContactDataCDa() {
     return Task.where(
         "{0} navega hasta la pagina de informacion de contacto en Cda",
-        navigateToIdentificationForm(),
-        FormIdentification.fillAndContinue(),
-        Waits.loader(),
-        PepSelection.option("no"),
-        AccountSelection.type("Cuenta Digital"),
-        Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
-            .andIfSo(
-                InsuranceSelection.choose("acepta"),
-                Remember.variable(SessionVariables.INSURANCE.name(), "acepta"))
-            .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
-        Waits.loader(),
-        Autentication.byOtp(),
-        fillEconomicActivity()
-
-    );
+        navigateLaterAutheticationCda(), fillEconomicActivity());
   }
 
   public static Performable passSendCardScreen() {
@@ -119,7 +107,7 @@ public class TasksGroup {
   public static Performable navigateToPseCdt() {
     return Task.where(
         "{0} navega hasta la pagina pse",
-        navigateLaterAuthetication(),
+        navigateLaterAutheticationCdt(),
         Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
         Click.on(AccountConfigurationPage.PSE_BUTTON));
   }
@@ -127,42 +115,53 @@ public class TasksGroup {
   public static Performable navigateToContactDataCdt() {
     return Task.where(
         "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
-        navigateLaterAuthetication(),
-        fillEconomicActivity()
-        );
+        navigateLaterAutheticationCdt(), fillEconomicActivity());
   }
+
   public static Performable navigateToSendingCardCdt() {
-      String userType=theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
-      return Task.where(
+    return Task.where(
         "{0} navega hasta la pagina de datos para envio de tarjeta ",
-        navigateLaterAuthetication(),
-          Check.whether(userType.equals(CLIENT_UPDATED))
-          .andIfSo(
-              Waits.loader(),
-              Click.on(AccountConfigurationPage.SENDING_CARD_LINK)
-          ).otherwise(
-              fillEconomicActivity(),
-              Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
-              FillContactInfo.fixed(),
-              FillForeignInformation.perfom(),
-              FillFinancialInformation.perfom(),
-              Click.on(AccountConfigurationPage.SENDING_CARD_LINK)
-          )
+        navigateLaterAutheticationCdt(),
+        Check.whether(userType.equals(CLIENT_UPDATED))
+            .andIfSo(Waits.loader(), Click.on(AccountConfigurationPage.SENDING_CARD_LINK))
+            .otherwise(
+                fillEconomicActivity(),
+                Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
+                    .andIfSo(Waits.loader()),
+                FillContactInfo.fixed(),
+                FillForeignInformation.perfom(),
+                FillFinancialInformation.perfom(),
+                Click.on(AccountConfigurationPage.SENDING_CARD_LINK)));
+  }
 
-        );
+  public static Performable navigateToSendingCardCda() {
+    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    OnStage.theActor(userType).entersTheScene();
+
+    return Task.where(
+        "{0} navega hasta la pagina de datos para envio de tarjeta para Cda ",
+        navigateLaterAutheticationCda(),
+        Check.whether(userType.equals(CLIENT_UPDATED))
+            .andIfSo(Waits.loader())
+            .otherwise(
+                fillEconomicActivity(),
+                Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
+                    .andIfSo(Waits.loader()),
+                FillContactInfo.fixed(),
+                FillForeignInformation.perfom(), FillFinancialInformation.perfom(),
+                Waits.loader()));
   }
 
   public static Performable fillEconomicActivity() {
     return Task.where(
         "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
         Click.on(EconomicActivityPage.RADIO_EMPLOYMENT),
-        Click.on(EconomicActivityPage.CONTINUE_BUTTON)
-        );
+        Click.on(EconomicActivityPage.CONTINUE_BUTTON));
   }
 
-
-  public static Performable navigateLaterAuthetication() {
+  public static Performable navigateLaterAutheticationCdt() {
     return Task.where(
         "{0} navega hasta la pagina datos personales",
         navigateToIdentificationFormCdt(),
@@ -173,15 +172,31 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+
+  public static Performable navigateLaterAutheticationCda() {
+    return Task.where(
+        "{0} navega hasta superar la autenticacion",
+        navigateToIdentificationForm(),
+        FormIdentification.fillAndContinue(),
+        Waits.loader(),
+        PepSelection.option("no"),
+        AccountSelection.type("Cuenta Digital"),
+        Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
+            .andIfSo(
+                InsuranceSelection.choose("acepta"),
+                Remember.variable(SessionVariables.INSURANCE.name(), "acepta"))
+            .otherwise(Remember.variable(SessionVariables.INSURANCE.name(), "no acepta")),
+        Waits.loader(),
+        Autentication.byOtp());
+  }
+
   public static Performable navigateLaterForeignInformation() {
     return Task.where(
         "{0} navega hasta seleccionar las opciones de validacion del extranjero",
-        FillContactInformation.perfom(),
-        FillForeignInformation.perfom());
+        FillContactInformation.perfom(), FillForeignInformation.perfom());
   }
 
   public static Performable openBankListPse() {
     return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
   }
-
 }

@@ -8,84 +8,33 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.*;
-import co.com.avvillaspasivos.util.SessionVariables;
+import co.com.avvillaspasivos.tasks.TasksGroup;
+import co.com.avvillaspasivos.tasks.ValidateSendingCard;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
-import cucumber.api.java.es.Y;
-import io.cucumber.datatable.DataTable;
-
-import static co.com.avvillaspasivos.tasks.SmallTasks.leaveEmptyCityField;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import net.serenitybdd.screenplay.actors.OnStage;
 
 public class SendingCardSteps {
-
-  @Cuando("ingrese textos en el campo de dirección como")
-  public void ingreseTextosEnElCampoDeDirecciónComo(DataTable table) {
-    theActorInTheSpotlight().remember(String.valueOf(SessionVariables.WORD_LIST), table.asList());
-  }
-
-  @Entonces("Se validará que se presenta el mensaje {string} al ingresar palabra invalidas")
-  public void seValidaráQueSePresentaElMensajeAlIngresarPalabraInvalidas(String errorText) {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validateInvalidWordsOnAddres(errorText));
-  }
-
-  @Cuando("ingrese un numero en la primera posición y cambié de campo")
-  public void ingreseUnNumeroEnLaPrimeraPosiciónYCambiéDeCampo() {
-    theActorInTheSpotlight().attemptsTo(SmallTasks.writeAnyNumberOnAddress());
-  }
-
-  @Entonces("le aparecerá un mensaje informando que {string}")
-  public void leApareceráUnMensajeInformandoQue(String errorText) {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validateAlert(errorText));
-  }
-
-  @Cuando("ingrese un @ en cualquier posición  y cambié de campo")
-  public void ingreseUnEnCualquierPosiciónYCambiéDeCampo() {
-    theActorInTheSpotlight().attemptsTo(SmallTasks.writeAddressWithAtSymbol());
-  }
-
-  @Cuando("ingrese un valor inferior a {int} caracteres")
-  public void ingreseUnValorInferiorACaracteres(int limitChars) {
-    theActorInTheSpotlight().attemptsTo(SmallTasks.writeTextWithSize(limitChars));
-  }
-
-  @Cuando("ingrese a digitar el campo")
-  public void ingreseADigitarElCampo() {
-    theActorInTheSpotlight().attemptsTo(leaveEmptyCityField());
+  @Cuando("se cargue la pantalla de envio de tarjeta para cdt")
+  public void seCargueLaPantallaDeEnvioDeTarjetaParaCdt() {
+    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToSendingCardCdt());
   }
 
   @Entonces(
-      "se desplegará el listado de las ciudades o municipios de Colombia que tiene cobertura de Domina.")
-  public void seDesplegaráElListadoDeLasCiudadesOMunicipiosDeColombiaQueTieneCoberturaDeDomina() {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validateCityList());
+      "el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de crm")
+  public void elSistemaDebeTraerLaDirecciónYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeCrm() {
+    OnStage.theActorInTheSpotlight().attemptsTo(ValidateSendingCard.perform());
   }
 
-  @Y("será un bloqueante para la activación de la opción continuar")
-  public void seráUnBloqueanteParaLaActivaciónDeLaOpciónContinuar() {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validateContinueAddressDisabled());
+  @Entonces(
+      "el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de datos de contacto")
+  public void
+      elSistemaDebeTraerLaDirecciónYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeDatosDeContacto() {
+    OnStage.theActorInTheSpotlight().attemptsTo(ValidateSendingCard.perform());
   }
 
-  @Cuando("ingrese alguna ciudad que no este en la lista desplegable")
-  public void ingreseAlgunaCiudadQueNoEsteEnLaListaDesplegable() {
-    theActorInTheSpotlight().attemptsTo(SmallTasks.insertInvalidCity());
-  }
-
-  @Cuando("deje el campo de dirección o de ciudad vacío y cambie de campo")
-  public void dejeElCampoDeDirecciónODeCiudadVacíoYCambieDeCampo() {
-    theActorInTheSpotlight().attemptsTo(SmallTasks.leaveEmptyFields());
-  }
-
-  @Cuando("cambie la ciudad y sea una Ciudad valida")
-  public void cambieLaCiudadYSeaUnaCiudadValida() {
-    theActorInTheSpotlight().attemptsTo(City.autoComplete());
-  }
-
-  @Entonces("El campo de dirección y check de transporte masivo deberá quedar vació")
-  public void elCampoDeDirecciónYCheckDeTransporteMasivoDeberáQuedarVació() {
-      theActorInTheSpotlight()
-          .attemptsTo(
-              UiAssertions.validateAutocompleteCityAddress()
-          );
+  @Cuando("se cargue la pantalla de envio de tarjeta para cda")
+  public void seCargueLaPantallaDeEnvioDeTarjetaParaCda() {
+    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToSendingCardCda());
   }
 }

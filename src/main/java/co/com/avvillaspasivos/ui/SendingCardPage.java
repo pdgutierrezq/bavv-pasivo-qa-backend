@@ -37,4 +37,7 @@ public class SendingCardPage {
   public static final Target POP_UP_REJECT =
       Target.the("Cancelar cambio de direccion")
           .located(By.id("CancelChangeDeliveryAddressButton"));
+  public static final Target TEXT_NEIGHBORHOOD =
+      Target.the("Texto barrio")
+          .located(By.id("DeliveryNeighborhood"));
 }

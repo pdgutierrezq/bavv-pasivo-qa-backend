@@ -15,12 +15,12 @@
     @regresion
     Escenario: Pre carga de información en campo barrio cliente actualizado
       Dado que se obtiene un usuario tipo "cliente actualizado"
-      Cuando se cargue la pantalla de envio de tarjeta para cdt
+      Cuando se cargue la pantalla de envio de tarjeta para cda
       Entonces el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de crm
 
     @regresion
     Escenario: Pre carga de información en campo barrio para no cliente o desactualizado
       Dado que se obtiene un usuario tipo "cliente no actualizado"
-      Cuando se cargue la pantalla de envio de tarjeta para cdt
+      Cuando se cargue la pantalla de envio de tarjeta para cda
       Entonces el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de datos de contacto
 
