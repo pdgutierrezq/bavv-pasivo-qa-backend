@@ -15,6 +15,10 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.conditions.Check;
+
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class SmallTasks {
   private SmallTasks() {
@@ -125,5 +129,17 @@ public class SmallTasks {
         Click.on(DeclaringPage.RADIO_SI),
         Click.on(DeclaringPage.CONTINUE_BUTTON),
         Waits.loader(Constantes.MAX_WAIT_GET_PDF));
+  }
+  public static Performable seeDocumentExpeditionListCities() {
+    return Task.where(
+        "{0} hace clic sobre la lista de ciudades de expedicion de la cedula",
+        Waits.loader(),
+        Click.on(PersonalDataPage.EXPEDITION_CITY_LIST));
+  }
+  public static Performable seeBithCitiesList() {
+    return Task.where(
+        "{0} hace clic sobre la lista de ciudades de nacimiento",
+        Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
+        Click.on(PersonalDataPage.BIRTH_CITY_LIST));
   }
 }
