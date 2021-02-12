@@ -98,15 +98,6 @@ public class TasksGroup {
     return task;
   }
 
-  public static Performable navigateToEnrollmentScreen() {
-    return Task.where(
-        "{0} navega hasta la pagina de enrolamiento",
-        navigateToElectronicSignatureScreen(),
-        Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
-        Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),
-        Waits.loader());
-  }
-
   public static Performable navigateToElectronicSignatureScreen() {
     return Task.where(
         "{0} navega hasta la pagina de firma electronica",

@@ -20,58 +20,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class SendingCardSteps {
 
-  @Y(
-      "el cliente está en la pantalla de confirmación de dirección de envío de la tarjeta débito y viene de OTP")
-  public void
-      dadoQueElClienteEstáEnLaPantallaDeConfirmaciónDeDirecciónDeEnvíoDeLaTarjetaDébitoYVieneDeOTP() {
-    theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToSendCard());
-  }
-
-  @Cuando("se cargue la pantalla")
-  public void seCargueLaPantalla() {
-    theActorInTheSpotlight().attemptsTo(UiAssertions.validateDeliveryAddressCharge());
-  }
-
-  @Entonces("el sistema debe traer la dirección y ciudad de residencia que tiene en memoria")
-  public void elSistemaDebeTraerLaDirecciónYCiudadDeResidenciaQueTieneEnMemoria() {
-    theActorInTheSpotlight()
-        .attemptsTo(BdUser.toBlock(false), UiAssertions.validateAddressTextBoxPrecharged());
-  }
-
-  @Cuando("el cliente {string} la direccion y continue")
-  public void elClienteLaDireccionYContinue(String option) {
-    theActorInTheSpotlight().attemptsTo(EditAddress.toSendCard(option));
-  }
-
-  @Entonces("saldrá el POP-UP de confirmación con la información ingresada")
-  public void saldráElPOPUPDeConfirmaciónConLaInformaciónIngresada() {
-    theActorInTheSpotlight()
-        .attemptsTo(BdUser.toBlock(false), UiAssertions.validatePopUpDirection());
-  }
-
-  @Cuando("{string} la nueva direccion en el POP-UP")
-  public void laNuevaDireccionEnElPOPUP(String option) {
-    theActorInTheSpotlight().attemptsTo(PopUpAddressOptions.choose(option));
-  }
-
-  @Entonces("pasará a pregunta de no declarante")
-  public void pasaráAPreguntaDeNoDeclarante() {
-    theActorInTheSpotlight()
-        .attemptsTo(BdUser.toBlock(false), UiAssertions.validateDeclaringPageCharge());
-  }
-
-  @Y("el cliente recuerda la direccion que se precarga de crm")
-  public void elClienteRecuerdaLaDireccionQueSePrecargaDeCrm() {
-    theActorInTheSpotlight().attemptsTo(RememberAddress.fromSendCard());
-  }
-
-  @Entonces(
-      "volverá a pantalla de Dirección de envío de tarjeta Débito con la información pre cargada en memoria que venia de CRM")
-  public void
-      volveráAPantallaDeDirecciónDeEnvíoDeTarjetaDébitoConLaInformaciónPreCargadaEnMemoriaQueVeniaDeCRM() {
-    theActorInTheSpotlight().attemptsTo(BdUser.toBlock(false), UiAssertions.validateCrmAddress());
-  }
-
   @Cuando("ingrese textos en el campo de dirección como")
   public void ingreseTextosEnElCampoDeDirecciónComo(DataTable table) {
     theActorInTheSpotlight().remember(String.valueOf(SessionVariables.WORD_LIST), table.asList());
