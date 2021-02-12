@@ -48,6 +48,7 @@ public class ValidateSendingCard implements Task {
     }
     actor.attemptsTo(
         Ensure.that(SendingCardPage.TEXT_CITY).value().isEqualToIgnoringCase(data.getCityAddress()),
+        Ensure.that(SendingCardPage.TEXT_NEIGHBORHOOD).value().isEqualToIgnoringCase(data.getNeighborhood()),
         Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(data.getAddress()));
   }
 }

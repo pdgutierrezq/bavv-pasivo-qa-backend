@@ -26,7 +26,7 @@ import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 public class PersonalDataSteps {
   @Dado("que estoy en pantalla donde ingreso mis datos personales.")
   public void queEstoyEnPantallaDondeIngresoMisDatosPersonales() {
-    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateLaterAuthetication());
+    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateLaterAutheticationCdt());
   }
 
   @Cuando("de click en el campo de Ciudad de nacimiento.")

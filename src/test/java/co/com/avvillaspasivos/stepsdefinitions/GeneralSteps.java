@@ -27,12 +27,7 @@ public class GeneralSteps {
     OnStage.setTheStage(new OnlineCast());
   }
 
-  @Dado(
-      "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} y cuenta cat {string}")
-  public void queSeObtieneUnUsuarioTipoClienteActualizadoListaRestrictivaYCuentaCat(
-      String client, String updated, String listRest, String cat) {
-    ActorActions.configure(client, updated, listRest, cat);
-  }
+
 
   @Dado(
       "que se obtiene un usuario tipo cliente {string} actualizado {string} lista restrictiva {string} cuenta cat {string} y canales {string}")
