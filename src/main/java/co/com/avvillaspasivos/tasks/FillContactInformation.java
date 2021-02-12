@@ -45,6 +45,9 @@ public class FillContactInformation implements Task {
         Check.whether(ContactInformationPage.TEXTBOX_ADDRESS.resolveFor(actor).getValue().isEmpty())
             .andIfSo(
                 Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_ADDRESS)),
+        Check.whether(ContactInformationPage.TEXTBOX_NEIGHBORHOOD.resolveFor(actor).getValue().isEmpty())
+            .andIfSo(
+                Enter.theValue(data.getNeighborhood()).into(ContactInformationPage.TEXTBOX_NEIGHBORHOOD)),
         Check.whether(
                 ContactInformationPage.TEXTBOX_COMPANY_NAME.resolveFor(actor).getValue().isEmpty())
             .andIfSo(
