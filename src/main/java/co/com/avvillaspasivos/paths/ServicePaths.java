@@ -101,6 +101,9 @@ public class ServicePaths {
   public static String pathCustAccountSchema() {
     return pathjsonSchemaBaseDir().concat(environment.custAccountSchema());
   }
+  public static String pathPseGetBankListSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.pseListBankSchema());
+  }
 
   public static String pathCustConditionsSchema() {
     return pathjsonSchemaBaseDir().concat(environment.custConditiosSchema());

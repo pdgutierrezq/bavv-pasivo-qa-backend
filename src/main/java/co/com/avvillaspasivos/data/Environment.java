@@ -60,4 +60,6 @@ public interface Environment extends Config {
   String custConditiosSchema();
 
   String custAccountSchema();
+
+  String pseListBankSchema();
 }
