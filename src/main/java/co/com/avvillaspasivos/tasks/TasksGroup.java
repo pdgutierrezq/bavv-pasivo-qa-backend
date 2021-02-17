@@ -17,6 +17,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.waits.Wait;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -109,7 +110,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina pse",
         navigateLaterAutheticationCdt(),
         Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
-        Click.on(AccountConfigurationPage.PSE_BUTTON));
+        Click.on(AccountConfigurationPageCdt.PSE_BUTTON));
   }
 
   public static Performable navigateToContactDataCdt() {
@@ -125,7 +126,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina de datos para envio de tarjeta ",
         navigateLaterAutheticationCdt(),
         Check.whether(userType.equals(CLIENT_UPDATED))
-            .andIfSo(Waits.loader(), Click.on(AccountConfigurationPage.SENDING_CARD_LINK))
+            .andIfSo(Waits.loader(), Click.on(AccountConfigurationPageCdt.SENDING_CARD_LINK))
             .otherwise(
                 fillEconomicActivity(),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
@@ -133,7 +134,7 @@ public class TasksGroup {
                 FillContactInfo.fixed(),
                 FillForeignInformation.perfom(),
                 FillFinancialInformation.perfom(),
-                Click.on(AccountConfigurationPage.SENDING_CARD_LINK)));
+                Click.on(AccountConfigurationPageCdt.SENDING_CARD_LINK)));
   }
 
   public static Performable navigateToSendingCardCda() {
@@ -171,6 +172,17 @@ public class TasksGroup {
         FillConfigurationCdt.type(),
         Waits.loader(),
         Autentication.byOtp());
+  }
+
+  public static Performable navigateToDigitalSignatureCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina firma electronica",
+
+        navigateLaterAutheticationCdt(),
+        Waits.loader(),
+        AccountConfigurationCdt.perform(),
+        DeclaringSelection.choose("l")
+        );
   }
 
   public static Performable navigateLaterAutheticationCda() {

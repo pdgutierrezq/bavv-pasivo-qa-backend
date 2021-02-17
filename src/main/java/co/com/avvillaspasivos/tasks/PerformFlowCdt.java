@@ -40,7 +40,7 @@ public class PerformFlowCdt implements Task {
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
-        AccountConfigurationCdt.type(),
+        AccountConfigurationCdt.perform(),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
