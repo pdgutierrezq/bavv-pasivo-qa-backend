@@ -1,5 +1,6 @@
 # language: es
 @Frontend:E2E-CDT
+@PBA-1965
 
 Característica: Creación CDT
   YO COMO  cliente
