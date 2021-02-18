@@ -9,6 +9,9 @@
 package co.com.avvillaspasivos.util;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+
+import java.util.Map;
 
 public class Constantes {
 
@@ -99,6 +102,12 @@ public class Constantes {
   public static final String BANK_LIST_ACTOR = "Actor ws bank list";
   public static final String CRM_ACTOR = "Actor ws crm";
   public static final String MAIN_ACTOR = "Actor principal";
+
+  public static final Map<String, String> MAP_URL_PATHS =
+      ImmutableMap.<String, String>builder()
+          .put("enrolamiento de canales", "enrolamiento-cliente")
+          .put("tips de ahorro", "tips-ahorro")
+          .build();
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(
