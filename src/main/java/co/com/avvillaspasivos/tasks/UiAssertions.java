@@ -42,6 +42,13 @@ public class UiAssertions {
     throw new IllegalStateException("Utility class");
   }
 
+  public static Performable validatePageLoad(String page) {
+    String urlPath = Constantes.MAP_URL_PATHS.get(page);
+    return Task.where(
+        "{0} valida que el usuario se dirige a #urlPath",
+        Waits.loader(), Ensure.thatTheCurrentPage().currentUrl().contains(urlPath));
+  }
+
   public static Performable validateNameOnElectronicSign() {
     ActorData actorData =
         theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
@@ -50,17 +57,6 @@ public class UiAssertions {
         Ensure.that(ElectronicSignaturePage.TITLE)
             .text()
             .containsIgnoringCase(actorData.getFirstName()));
-  }
-
-  public static Performable validateAutocompleteCityAddress() {
-
-    return Task.where(
-        "{0} valida autocompletar de ciudad, campo texto y check transporte masivo",
-        Ensure.that(
-                LIST_CITIES.contains(
-                    SendingCardPage.TEXT_CITY.resolveFor(theActorInTheSpotlight()).getValue()))
-            .isTrue(),
-        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEmpty());
   }
 
   public static Performable validateCityListItem() {
@@ -92,28 +88,6 @@ public class UiAssertions {
     return dropDown.resolveAllFor(OnStage.theActorInTheSpotlight()).stream()
         .map(WebElementFacade::getText)
         .collect(toList());
-  }
-
-  public static Performable validateInvalidWordsOnAddres(String errorText) {
-    return Task.where(
-        "{0} valida que las palabras invalidas generen error",
-        ValidateInvalidWords.onSendAddress(errorText));
-  }
-
-  public static Performable validateAlert(String errorText) {
-
-    return Task.where(
-        "{0} valida que se presente la alerta de direccion invalida",
-        Ensure.that(CommonWebElementsPage.ALERT_INVALID).text().isEqualToIgnoringCase(errorText));
-  }
-
-  public static Performable validateCrmAddress() {
-    String crmAddress =
-        theActorInTheSpotlight().recall(String.valueOf(SessionVariables.CRM_ADDRESS));
-
-    return Task.where(
-        "{0} valida que la direccion de Crm no se modifico",
-        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(crmAddress));
   }
 
   public static Performable validateIncomeFormat() {
@@ -213,32 +187,6 @@ public class UiAssertions {
         Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.savingTipsPagePath()));
   }
 
-  public static Performable validateDeclaringPageCharge() {
-    return Task.where(
-        "{0} valida la carga de la pantalla de no declarante",
-        WaitUntil.the(DeclaringPage.RADIO_SI, isVisible()),
-        Ensure.thatTheCurrentPage().currentUrl().contains(ServicePaths.declaringPagePath()));
-  }
-
-  public static Performable validateAddressTextBoxPrecharged() {
-    return Task.where(
-        "{0} valida la carga de informacion en los campos de texto de direccion",
-        Ensure.that(SendingCardPage.TEXT_CITY).value().isNotEmpty(),
-        Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isNotEmpty());
-  }
-
-  public static Performable validateContinueAddressDisabled() {
-    return Task.where(
-        "{0} valida opcion continuar de direccion deshabilitada",
-        Ensure.that(SendingCardPage.CONTINUE_BUTTON).isDisabled());
-  }
-
-  public static Performable validateContinueEnroomentDisabled() {
-    return Task.where(
-        "{0} valida opcion continuar de enrolamiento deshabilitada",
-        Ensure.that(EnrollmentPage.CONTINUE_BUTTON).isDisabled());
-  }
-
   public static Performable validateContinueOptionPep() {
     return Task.where(
         "{0} valida opcion continuar pep", Ensure.that(PepPage.CONTINUE_BUTTON).isEnabled());
@@ -248,12 +196,6 @@ public class UiAssertions {
     return Task.where(
         "{0} valida opcion continuar oferta de seguro",
         Ensure.that(InsuranceOfferPage.CONTINUE_BUTTON).isEnabled());
-  }
-
-  public static Performable validateSelectedRadio(Target radio) {
-    return Task.where(
-        "{0} valida que el la tarjeta de la cuenta este seleccionada",
-        Ensure.that(radio.resolveFor(theActorInTheSpotlight()).isSelected()).isTrue());
   }
 
   public static Performable validarPantallaErrorDeProceso() {
@@ -285,18 +227,6 @@ public class UiAssertions {
     return Task.where(
         "{0} valida la presencia del pop up de firma electronica",
         Ensure.that(ElectronicSignaturePage.POP_UP_ES).isDisplayed());
-  }
-
-  public static Performable validarPopUpPep() {
-    return Task.where(
-        "{0} valida la presencia del pop up de pep", Ensure.that(PepPage.POP_UP_PEP).isDisplayed());
-  }
-
-  public static Performable validatePopUpDirection() {
-    return Task.where(
-        "{0} valida la presencia del pop up de direccion",
-        Ensure.that(SendingCardPage.POP_UP).isDisplayed(),
-        Ensure.that(SendingCardPage.POP_UP).text().contains(TEST_DIRECTION));
   }
 
   public static Performable validateContinueButtonFormIdentificationEnabled() {
@@ -398,9 +328,9 @@ public class UiAssertions {
         Ensure.that(ContactInformationPage.TEXTBOX_MAIL_COPY)
             .value()
             .isEqualToIgnoringCase(crmResponseData.getMail()),
-//        Ensure.that(ContactInformationPage.TEXTBOX_CITY)
-//            .value()
-//            .isEqualTo(crmResponseData.getCityAddress()),
+        //        Ensure.that(ContactInformationPage.TEXTBOX_CITY)
+        //            .value()
+        //            .isEqualTo(crmResponseData.getCityAddress()),
         Ensure.that(ContactInformationPage.TEXTBOX_PHONE)
             .value()
             .isEqualTo(crmResponseData.getPhone()),
@@ -413,9 +343,9 @@ public class UiAssertions {
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_NAME)
             .value()
             .isEqualToIgnoringCase(crmResponseData.getCompanyName()),
-//        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
-//            .value()
-//            .isEqualTo(crmResponseData.getCompanyCity()),
+        //        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
+        //            .value()
+        //            .isEqualTo(crmResponseData.getCompanyCity()),
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_PHONE)
             .value()
             .isEqualTo(crmResponseData.getCompanyPhone()),

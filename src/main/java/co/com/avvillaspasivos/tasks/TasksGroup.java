@@ -17,7 +17,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
-import net.serenitybdd.screenplay.waits.Wait;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -176,12 +175,13 @@ public class TasksGroup {
 
   public static Performable navigateToDigitalSignatureCdt() {
     return Task.where(
-        "{0} navega hasta la pagina firma electronica",
+        "{0} navega hasta la pagina firma electronica y continua",
 
         navigateLaterAutheticationCdt(),
         Waits.loader(),
         AccountConfigurationCdt.perform(),
-        DeclaringSelection.choose("l")
+        DeclaringSelection.choose(TAG_NOT_CONFIRM),
+        SignDocuments.perform()
         );
   }
 

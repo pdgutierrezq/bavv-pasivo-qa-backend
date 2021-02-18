@@ -9,6 +9,9 @@
 package co.com.avvillaspasivos.util;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+
+import java.util.Map;
 
 public class Constantes {
 
@@ -16,7 +19,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@avc";
+  public static final String EXECUTION_TAGS = "@regresion";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -99,6 +102,12 @@ public class Constantes {
   public static final String BANK_LIST_ACTOR = "Actor ws bank list";
   public static final String CRM_ACTOR = "Actor ws crm";
   public static final String MAIN_ACTOR = "Actor principal";
+
+  public static final Map<String, String> MAP_URL_PATHS =
+      ImmutableMap.<String, String>builder()
+          .put("enrolamiento de canales", "enrolamiento-cliente")
+          .put("tips de ahorro", "tips-ahorro")
+          .build();
 
   public static final ImmutableList<String> LIST_CITIES =
       ImmutableList.of(

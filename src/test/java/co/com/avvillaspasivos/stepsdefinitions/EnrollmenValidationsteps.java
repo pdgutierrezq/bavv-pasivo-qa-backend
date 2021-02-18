@@ -1,6 +1,7 @@
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.tasks.TasksGroup;
+import co.com.avvillaspasivos.tasks.UiAssertions;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -17,13 +18,11 @@ public class EnrollmenValidationsteps {
             );
     }
 
-    @Entonces("redirecciona a pantalla de enrolamiento de canales")
-    public void redireccionaAPantallaDeEnrolamientoDeCanales(){
-        System.out.println("l");
-
-    }
-
-    @Entonces("redirecciona a pantalla de enrolamiento de tips de ahorro")
-    public void redireccionaAPantallaDeEnrolamientoDeTipsDeAhorro() {
+    @Entonces("redirecciona a pantalla de {string}")
+    public void redireccionaAPantallaDe(String page) {
+        OnStage.theActorInTheSpotlight()
+            .attemptsTo(
+                UiAssertions.validatePageLoad(page)
+            );
     }
 }
