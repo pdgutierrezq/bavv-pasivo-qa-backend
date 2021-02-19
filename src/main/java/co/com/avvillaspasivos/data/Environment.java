@@ -27,6 +27,8 @@ public interface Environment extends Config {
 
   String crmInfo();
 
+  String sst();
+
   String identificationProject();
 
   String psworacle();
@@ -58,6 +60,8 @@ public interface Environment extends Config {
   String jsonSchemaBaseDir();
 
   String custConditiosSchema();
+
+  String sstSchema();
 
   String custAccountSchema();
 

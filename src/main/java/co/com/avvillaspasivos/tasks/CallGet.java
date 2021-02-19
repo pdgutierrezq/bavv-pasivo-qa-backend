@@ -9,8 +9,10 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.HeaderData;
 import co.com.avvillaspasivos.util.Constantes;
 import co.com.avvillaspasivos.util.SessionVariables;
+import co.com.avvillaspasivos.util.UtilWs;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -18,7 +20,6 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 import net.thucydides.core.annotations.Step;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static co.com.avvillaspasivos.util.Constantes.AUTHENTICATION_ACTOR;
@@ -45,14 +46,20 @@ public class CallGet implements Task {
 
     String token = OnStage.theActor(AUTHENTICATION_ACTOR).recall(SessionVariables.TOKEN.name());
 
-    Map<String, Object> headers = new HashMap<>();
-    headers.put("Content-Type", "application/json");
-    headers.put("transaction-id", "5510241587652313827");
-    headers.put("authorization-token", token);
-    headers.put("x-adl-document-type", actorData.getDocumentType());
-    headers.put("x-adl-document-number", actorData.getDocumentNumber());
+    HeaderData headerData =
+        HeaderData.builder()
+            .transactionId("5510241587652313827")
+            .documentNumber(actorData.getDocumentNumber())
+            .documentType(actorData.getDocumentType())
+            .build();
 
-    actor.attemptsTo(
-        Get.resource(path).with(requestSpecification -> requestSpecification.headers(headers)));
+      Map<String, Object> mapHeaders= UtilWs.getHeaders(headerData);
+
+      mapHeaders.put("authorization-token", token);
+
+      actor.attemptsTo(
+        Get.resource(path)
+            .with(
+                requestSpecification -> requestSpecification.headers(mapHeaders)));
   }
 }
