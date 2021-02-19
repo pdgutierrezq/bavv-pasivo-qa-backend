@@ -16,6 +16,7 @@ import co.com.avvillaspasivos.tasks.BdUser;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class ActorActions {
   private ActorActions() {
@@ -38,12 +39,8 @@ public class ActorActions {
 
     switch (userType) {
       case CLIENT_NO_UPDATED:
-          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
-          conditions =
-            ClientConditions.builder()
-                .client(true)
-                .updated(false)
-                .build();
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+        conditions = ClientConditions.builder().client(true).updated(false).build();
         break;
       case CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
@@ -56,9 +53,9 @@ public class ActorActions {
                 .build();
         break;
       case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
-          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
-          conditions =
+        conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
@@ -88,8 +85,8 @@ public class ActorActions {
         break;
       case CLIENT_UPDATED_WITH_CHANNELS:
       case CLIENT_UPDATED:
-          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
-          conditions =
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+        conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
@@ -99,9 +96,9 @@ public class ActorActions {
                 .build();
         break;
       case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
-          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
-          conditions =
+        conditions =
             ClientConditions.builder()
                 .client(false)
                 .updated(false)
@@ -111,7 +108,7 @@ public class ActorActions {
                 .build();
         break;
       default:
-        conditions = ClientConditions.builder().build();
+        conditions = ClientConditions.builder().client(true).updated(false).build();
     }
     return conditions;
   }
@@ -193,5 +190,16 @@ public class ActorActions {
     }
 
     return actorDesc;
+  }
+
+  public static String getMainActorName() {
+    return theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+  }
+
+  public static ActorData getActorDataFlow(String actorName) {
+    return OnStage.theActor(actorName).recall(SessionVariables.DATA_ACTOR.name());
+  }
+  public static String getToken() {
+    return OnStage.theActor(AUTHENTICATION_ACTOR).recall(SessionVariables.TOKEN.name());
   }
 }

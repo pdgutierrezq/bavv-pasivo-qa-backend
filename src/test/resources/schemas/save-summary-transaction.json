@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "persistedData": {
+      "type": "object",
+      "properties": {
+        "cdtFundingAcct": {
+          "type": "string"
+        },
+        "cdtProfitsAcct": {
+          "type": "string"
+        },
+        "cdtTermination": {
+          "type": "string"
+        },
+        "transactionId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cdtFundingAcct",
+        "cdtProfitsAcct",
+        "cdtTermination",
+        "transactionId"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "persistedData",
+    "message"
+  ]
+}
