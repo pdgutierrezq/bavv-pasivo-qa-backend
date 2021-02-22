@@ -21,15 +21,9 @@ public class SendingCardSteps {
   }
 
   @Entonces(
-      "el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de crm")
-  public void elSistemaDebeTraerLaDirecciónYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeCrm() {
-    OnStage.theActorInTheSpotlight().attemptsTo(ValidateSendingCard.perform());
-  }
-
-  @Entonces(
-      "el sistema debe traer la dirección y ciudad de residencia que tiene en memoria proveniente de datos de contacto")
+      "el sistema debe traer la dirección, barrio y ciudad de residencia que tiene en memoria proveniente de crm")
   public void
-      elSistemaDebeTraerLaDirecciónYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeDatosDeContacto() {
+      elSistemaDebeTraerLaDirecciónBarrioYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeCrm() {
     OnStage.theActorInTheSpotlight().attemptsTo(ValidateSendingCard.perform());
   }
 
@@ -37,4 +31,9 @@ public class SendingCardSteps {
   public void seCargueLaPantallaDeEnvioDeTarjetaParaCda() {
     OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToSendingCardCda());
   }
+
+    @Entonces("el sistema debe traer la dirección, barrio y ciudad de residencia que tiene en memoria proveniente de datos de contacto")
+    public void elSistemaDebeTraerLaDirecciónBarrioYCiudadDeResidenciaQueTieneEnMemoriaProvenienteDeDatosDeContacto() {
+        OnStage.theActorInTheSpotlight().attemptsTo(ValidateSendingCard.perform());
+    }
 }
