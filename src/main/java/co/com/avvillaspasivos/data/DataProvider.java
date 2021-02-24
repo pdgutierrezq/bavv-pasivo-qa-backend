@@ -80,7 +80,8 @@ public class DataProvider {
       } catch (FileNotFoundException e) {
         LOGGER.error("Fail reading json country cities file->".concat(e.getMessage()));
       }
-      city = filterCity(cityList, daneCode);
+        daneCode=(daneCode.startsWith("0"))?daneCode.substring(1):daneCode;
+        city = filterCity(cityList, daneCode);
     }
 
     return city;
