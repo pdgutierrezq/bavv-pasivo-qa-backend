@@ -1,8 +1,9 @@
   # language: es
-  @Frontend:LogicaGetPdfCdt
+  @Backend:LogicaGetPdfCdt
   @Sprint-49
   @PBA-1740
   @CDT
+  @regresion
   Característica: Lógica de Get PDFs para CDT (Back)
 
     Escenario: Paquete 1508

@@ -2,6 +2,7 @@
   @Backend:PantallaDeclarante
   @Sprint-51
   @PBA-1814
+  @regresion
 
   Característica: Modificar el servicio de save summary transation CDT
     YO COMO Usuario

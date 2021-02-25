@@ -150,7 +150,8 @@ public class TasksGroup {
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
                     .andIfSo(Waits.loader()),
                 FillContactInfo.fixed(),
-                FillForeignInformation.perfom(), FillFinancialInformation.perfom(),
+                FillForeignInformation.perfom(),
+                FillFinancialInformation.perfom(),
                 Waits.loader()));
   }
 
@@ -176,13 +177,11 @@ public class TasksGroup {
   public static Performable navigateToDigitalSignatureCdt() {
     return Task.where(
         "{0} navega hasta la pagina firma electronica y continua",
-
         navigateLaterAutheticationCdt(),
         Waits.loader(),
         AccountConfigurationCdt.perform(),
         DeclaringSelection.choose(TAG_NOT_CONFIRM),
-        SignDocuments.perform()
-        );
+        SignDocuments.perform());
   }
 
   public static Performable navigateLaterAutheticationCda() {
@@ -209,6 +208,7 @@ public class TasksGroup {
   }
 
   public static Performable openBankListPse() {
-    return Task.where("{0} abre el listado de bancos pse", Click.on(PsePage.BANK_LIST_SELECT));
+    return Task.where(
+        "{0} abre el listado de bancos pse", Waits.loader(), Click.on(PsePage.BANK_LIST_SELECT));
   }
 }
