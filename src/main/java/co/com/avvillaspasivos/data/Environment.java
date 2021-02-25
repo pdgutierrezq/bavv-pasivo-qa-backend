@@ -29,6 +29,8 @@ public interface Environment extends Config {
 
   String sst();
 
+  String getPdf();
+
   String identificationProject();
 
   String psworacle();

@@ -109,8 +109,13 @@ public class ServicePaths {
   public static String pathCustConditionsSchema() {
     return pathjsonSchemaBaseDir().concat(environment.custConditiosSchema());
   }
+
   public static String pathSstSchema() {
     return pathjsonSchemaBaseDir().concat(environment.sstSchema());
+  }
+
+  public static String pathGetPdfSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
 
   public static String declaringPagePath() {
@@ -132,6 +137,7 @@ public class ServicePaths {
   public static String pathCrmInfo() {
     return environment.crmInfo();
   }
+
   public static String pathSst() {
     return environment.sst();
   }
