@@ -1,0 +1,27 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1614268915.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "packageId",
+    "pdfBase64"
+  ],
+  "properties": {
+    "packageId": {
+      "$id": "#root/packageId",
+      "title": "Packageid",
+      "type": "string",
+      "default": "",
+      "pattern": "^.*$"
+    },
+    "pdfBase64": {
+      "$id": "#root/pdfBase64",
+      "title": "Pdfbase64",
+      "type": "string",
+      "default": "",
+      "pattern": "^.*$"
+    }
+  }
+}

@@ -8,6 +8,7 @@
  */
 package co.com.avvillaspasivos.util;
 
+import co.com.avvillaspasivos.model.BodyGetPdf;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
@@ -102,11 +103,85 @@ public class Constantes {
   public static final String BANK_LIST_ACTOR = "Actor ws bank list";
   public static final String CRM_ACTOR = "Actor ws crm";
   public static final String MAIN_ACTOR = "Actor principal";
+  public static final String ACCT_COD_TYPE_GET_PDF = "CUENTA_PRO";
+  public static final String NO_SELECTED_ACCOUNT_GET_PDF = "NOT_SELECTED";
 
   public static final Map<String, String> MAP_URL_PATHS =
       ImmutableMap.<String, String>builder()
           .put("enrolamiento de canales", "enrolamiento-cliente")
           .put("tips de ahorro", "tips-ahorro")
+          .build();
+
+  public static final Map<String, String> pdfCodeExpectedMap =
+      ImmutableMap.<String, String>builder()
+          .put("fondeo por PSE, no seleccionó cuenta y no requiere formato declarante", "1508")
+          .put("fondeo por PSE, no seleccionó cuenta y requiere formato declarante", "1509")
+          .put(
+              "fondeo por PSE, con cuenta abierta en el flujo y no requiere formato declarante",
+              "1510")
+          .put(
+              "fondeo por PSE, con cuenta abierta en el flujo y requiere formato declarante",
+              "1511")
+          .put("fondeo con debito de cuenta en el banco y no requiere formato declarante", "1512")
+          .put("fondeo con debito de cuenta en el banco y requiere formato declarante", "1513")
+          .build();
+
+  public static final Map<String, BodyGetPdf> pdfOptionsMap =
+      ImmutableMap.<String, BodyGetPdf>builder()
+          .put(
+              "fondeo por PSE, no seleccionó cuenta y no requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(false)
+                  .declarant(true)
+                  .fundingType("PSE")
+                  .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
+                  .build())
+          .put(
+              "fondeo por PSE, no seleccionó cuenta y requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(false)
+                  .declarant(false)
+                  .fundingType("PSE")
+                  .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
+                  .build())
+          .put(
+              "fondeo por PSE, con cuenta abierta en el flujo y no requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(false)
+                  .declarant(true)
+                  .fundingType("PSE")
+                  .selectedAccount("FLOW_ACCOUNT")
+                  .build())
+          .put(
+              "fondeo por PSE, con cuenta abierta en el flujo y requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(false)
+                  .declarant(false)
+                  .fundingType("PSE")
+                  .selectedAccount("FLOW_ACCOUNT")
+                  .build())
+          .put(
+              "fondeo con debito de cuenta en el banco y no requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(true)
+                  .declarant(true)
+                  .fundingType("BANK_DEBIT")
+                  .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
+                  .build())
+          .put(
+              "fondeo con debito de cuenta en el banco y requiere formato declarante",
+              BodyGetPdf.builder()
+                  .acctCodType(ACCT_COD_TYPE_GET_PDF)
+                  .selectInsurance(true)
+                  .declarant(false)
+                  .fundingType("BANK_DEBIT")
+                  .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
+                  .build())
           .build();
 
   public static final ImmutableList<String> LIST_CITIES =

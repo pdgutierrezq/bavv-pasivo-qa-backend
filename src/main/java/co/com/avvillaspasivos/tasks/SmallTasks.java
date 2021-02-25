@@ -10,6 +10,7 @@ package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.*;
 import co.com.avvillaspasivos.util.Constantes;
+import co.com.avvillaspasivos.util.SessionVariables;
 import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -23,6 +24,22 @@ import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 public class SmallTasks {
   private SmallTasks() {
     throw new IllegalStateException("Utility class");
+  }
+
+  public static Performable rememberExpectedGetPdfCode(String pdfConditions) {
+    return Task.where(
+        "{0} recuerda el codigo esperado para get pdf ",
+        Remember.variable(
+            SessionVariables.CODE_PDF_EXPECTED_CONDITIONS.name(),
+            Constantes.pdfCodeExpectedMap.get(pdfConditions)));
+  }
+
+  public static Performable rememberUserPdfConditions(String pdfConditions) {
+    return Task.where(
+        "{0} recuerda las condiciones para el consumo del servicio get pdf",
+        Remember.variable(
+            SessionVariables.GET_PDF_CONDITIONS.name(),
+            Constantes.pdfOptionsMap.get(pdfConditions)));
   }
 
   public static Performable continueElectronicSignature() {
@@ -130,12 +147,13 @@ public class SmallTasks {
         Click.on(DeclaringPage.CONTINUE_BUTTON),
         Waits.loader(Constantes.MAX_WAIT_GET_PDF));
   }
+
   public static Performable seeDocumentExpeditionListCities() {
     return Task.where(
         "{0} hace clic sobre la lista de ciudades de expedicion de la cedula",
-        Waits.loader(),
-        Click.on(PersonalDataPage.EXPEDITION_CITY_LIST));
+        Waits.loader(), Click.on(PersonalDataPage.EXPEDITION_CITY_LIST));
   }
+
   public static Performable seeBithCitiesList() {
     return Task.where(
         "{0} hace clic sobre la lista de ciudades de nacimiento",

@@ -17,14 +17,14 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Remember implements Task {
   private final String variable;
-  private final String value;
+  private final Object value;
 
-  public Remember(String variable, String value) {
+  public Remember(String variable, Object value) {
     this.variable = variable;
     this.value = value;
   }
 
-  public static Performable variable(String variable, String value) {
+  public static Performable variable(String variable, Object value) {
     return instrumented(Remember.class, variable, value);
   }
 
