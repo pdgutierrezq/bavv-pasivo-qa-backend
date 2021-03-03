@@ -40,11 +40,11 @@ public class PerformFlowCdt implements Task {
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
-        AccountConfigurationCdt.perform(),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
             .andIfSo(SavingTips.waitAndGo())
-            .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION)));
+            .otherwise(EnrollmentKey.perform()));
   }
 }

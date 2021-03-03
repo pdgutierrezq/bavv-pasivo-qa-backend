@@ -59,7 +59,7 @@ public class PerformFlow implements Task {
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
             .andIfSo(SavingTips.waitAndGo())
-            .otherwise(EnrollmentKey.option(CORRECT_PASS_OPTION)));
+            .otherwise(EnrollmentKey.perform()));
 
     actor.remember(SessionVariables.ACCOUNT_TYPE.name(), accountType);
   }
