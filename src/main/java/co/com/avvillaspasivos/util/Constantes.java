@@ -20,7 +20,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@regresion";
+  public static final String EXECUTION_TAGS = "@sonar";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -83,8 +83,10 @@ public class Constantes {
       "cliente actualizado sin lista restrictiva con cuenta cat y que tenga canales";
   public static final String CLIENT_UPDATED_REST_LIST_NOT_CAT_WITH_CHANNELS =
       "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
-  public static final String CLIENT_UPDATED_WITH_CHANNELS =
+  public static final String CLIENT_UPDATED_WITHOUT_CHANNELS =
       "cliente actualizado que no tenga canales";
+  public static final String CLIENT_UPDATED_WITH_CHANNELS =
+      "cliente actualizado con canales activos";
   public static final String CLIENT_UPDATED = "cliente actualizado";
   public static final String NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS =
       "no cliente no actualizado que no tenga canales";
@@ -105,6 +107,14 @@ public class Constantes {
   public static final String MAIN_ACTOR = "Actor principal";
   public static final String ACCT_COD_TYPE_GET_PDF = "CUENTA_PRO";
   public static final String NO_SELECTED_ACCOUNT_GET_PDF = "NOT_SELECTED";
+  public static final String ACCOUNT_FUNDING_TAG = "Cuenta AV Villas";
+
+  public static final Map<String, String> UI_URL_PATHS =
+      ImmutableMap.<String, String>builder()
+          .put("tips CDT", "tips-ahorro")
+          .put("PSE en el flujo", "pse")
+          .put("resumen", "resumen-producto")
+          .build();
 
   public static final Map<String, String> MAP_URL_PATHS =
       ImmutableMap.<String, String>builder()
@@ -133,7 +143,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(false)
-                  .declarant(true)
+                  .notDeclarantDocument(false)
                   .fundingType("PSE")
                   .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
                   .build())
@@ -142,7 +152,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(false)
-                  .declarant(false)
+                  .notDeclarantDocument(true)
                   .fundingType("PSE")
                   .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
                   .build())
@@ -151,7 +161,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(false)
-                  .declarant(true)
+                  .notDeclarantDocument(false)
                   .fundingType("PSE")
                   .selectedAccount("FLOW_ACCOUNT")
                   .build())
@@ -160,7 +170,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(false)
-                  .declarant(false)
+                  .notDeclarantDocument(true)
                   .fundingType("PSE")
                   .selectedAccount("FLOW_ACCOUNT")
                   .build())
@@ -169,7 +179,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(true)
-                  .declarant(true)
+                  .notDeclarantDocument(false)
                   .fundingType("BANK_DEBIT")
                   .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
                   .build())
@@ -178,7 +188,7 @@ public class Constantes {
               BodyGetPdf.builder()
                   .acctCodType(ACCT_COD_TYPE_GET_PDF)
                   .selectInsurance(true)
-                  .declarant(false)
+                  .notDeclarantDocument(true)
                   .fundingType("BANK_DEBIT")
                   .selectedAccount(NO_SELECTED_ACCOUNT_GET_PDF)
                   .build())

@@ -37,6 +37,13 @@ public static final Target BOTON_POPUP_SI =
           .located(
               By.xpath(
                   "(//*[@formcontrolname='accountSettingFirstGroup']//mat-radio-button[contains(*,'Cuenta')])[1]"));
+
+
+  public static final Target RADIO_PSE_TRANSFERIR =
+      Target.the("Radio para transferir desde otro banco")
+          .located(
+              By.xpath(
+                  "//*[@formcontrolname='accountSettingFirstGroup']//mat-radio-button[contains(*,'Desde otro banco')]"));
   public static final Target RADIO_CUENTA_RENDIMIENTOS =
       Target.the("Radio de la cuenta que se va a pagar rendimienitos")
           .located(

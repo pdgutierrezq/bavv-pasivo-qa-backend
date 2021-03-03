@@ -173,13 +173,21 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+  public static Performable fundingSelectBy(String fundingType) {
+    return Task.where(
+        "{0} navega hasta la pagina datos personales",
+        navigateLaterAutheticationCdt(),
+        Waits.loader(),
+        AccountConfigurationCdt.perform(fundingType)
+        );
+  }
 
   public static Performable navigateToDigitalSignatureCdt() {
     return Task.where(
         "{0} navega hasta la pagina firma electronica y continua",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG),
         DeclaringSelection.choose(TAG_NOT_CONFIRM),
         SignDocuments.perform());
   }

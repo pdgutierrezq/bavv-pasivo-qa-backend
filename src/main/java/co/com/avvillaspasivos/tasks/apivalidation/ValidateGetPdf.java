@@ -36,9 +36,9 @@ public class ValidateGetPdf implements Task {
 
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            Schema.validation(ServicePaths.pathGetPdfSchema()),
             Ensure.that(
                 "Se valida que el codigo del  pdf es correcto",
-                response -> response.body("packageId", Matchers.is(expectedCode))));
+                response -> response.body("packageId", Matchers.is(expectedCode))),
+            Schema.validation(ServicePaths.pathGetPdfSchema()));
   }
 }

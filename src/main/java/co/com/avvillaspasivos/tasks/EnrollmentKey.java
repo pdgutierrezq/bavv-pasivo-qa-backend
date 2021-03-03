@@ -18,49 +18,28 @@ import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.util.Constantes.CORRECT_PASS;
-import static co.com.avvillaspasivos.util.Constantes.CORRECT_PASS_OPTION;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class EnrollmentKey implements Task {
-  private final String condition;
 
-  public EnrollmentKey(String condition) {
-    this.condition = condition;
-  }
-
-  public static Performable option(String condition) {
-    return instrumented(EnrollmentKey.class, condition);
+  public static Performable perform() {
+    return instrumented(EnrollmentKey.class);
   }
 
   @Step("{0} ingresa clave con #confirmation")
   public <T extends Actor> void performAs(T actor) {
 
-    if (CORRECT_PASS_OPTION.equalsIgnoreCase(condition)) {
-      actor.attemptsTo(
-          Enter.theValue(CORRECT_PASS)
-              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)),
-          Enter.theValue(CORRECT_PASS)
-              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(4)),
-          Click.on(EnrollmentPage.CONTINUE_BUTTON),
-          Waits.loader(),
-          Check.whether(the(EnrollmentPage.POPUP_BUTTON), isVisible())
-              .andIfSo(Click.on(EnrollmentPage.POPUP_BUTTON))
-      );
-
-
-
-    } else if ("3 dígitos consecutivos de manera ascendente".equalsIgnoreCase(condition)) {
-      actor.attemptsTo(
-          Enter.theValue("4234")
-              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)));
-
-    } else if ("3 dígitos iguales".equalsIgnoreCase(condition)) {
-      actor.attemptsTo(
-          Enter.theValue("3334")
-              .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)));
-    }
+    actor.attemptsTo(
+        Enter.theValue(CORRECT_PASS)
+            .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(0)),
+        Enter.theValue(CORRECT_PASS)
+            .into(EnrollmentPage.PASSWORD_INPUT.resolveAllFor(theActorInTheSpotlight()).get(4)),
+        Click.on(EnrollmentPage.CONTINUE_BUTTON),
+        Waits.loader(),
+        Check.whether(the(EnrollmentPage.POPUP_BUTTON), isVisible())
+            .andIfSo(Click.on(EnrollmentPage.POPUP_BUTTON)));
   }
 }

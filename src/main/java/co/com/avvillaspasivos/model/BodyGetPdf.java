@@ -20,5 +20,5 @@ public class BodyGetPdf {
   private String fundingType;
   private String selectedAccount;
   private boolean selectInsurance;
-  private boolean declarant;
+  private boolean notDeclarantDocument;
 }

@@ -3,7 +3,10 @@
   @Sprint-49
   @PBA-1740
   @CDT
+  @Sprint-63
+  @PBA-2336
   @regresion
+
   Característica: Lógica de Get PDFs para CDT (Back)
 
     Escenario: Paquete 1508

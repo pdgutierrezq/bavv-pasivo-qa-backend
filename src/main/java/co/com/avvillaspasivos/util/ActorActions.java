@@ -53,6 +53,7 @@ public class ActorActions {
                 .build();
         break;
       case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
+      case CLIENT_UPDATED_WITH_CHANNELS:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
         conditions =
@@ -83,7 +84,7 @@ public class ActorActions {
                 .channels(true)
                 .build();
         break;
-      case CLIENT_UPDATED_WITH_CHANNELS:
+      case CLIENT_UPDATED_WITHOUT_CHANNELS:
       case CLIENT_UPDATED:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
         conditions =
@@ -199,6 +200,7 @@ public class ActorActions {
   public static ActorData getActorDataFlow(String actorName) {
     return OnStage.theActor(actorName).recall(SessionVariables.DATA_ACTOR.name());
   }
+
   public static String getToken() {
     return OnStage.theActor(AUTHENTICATION_ACTOR).recall(SessionVariables.TOKEN.name());
   }
