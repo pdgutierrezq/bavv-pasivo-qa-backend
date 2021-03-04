@@ -32,7 +32,7 @@ public class PseSteps {
 
   @Y("que llegúe a la pantalla de PSE")
   public void queLlegúeALaPantallaDePSE() {
-    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToPseCdt());
+    OnStage.theActorInTheSpotlight().attemptsTo(TasksGroup.navigateToPseCdtWithLink());
   }
 
   @Entonces("se mostrará precargada la información del número del CDT y el monto a invertir")
