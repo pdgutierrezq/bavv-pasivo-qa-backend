@@ -20,6 +20,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
@@ -104,12 +105,35 @@ public class TasksGroup {
         GoTo.homePageCdt(), GoTo.openCdt());
   }
 
-  public static Performable navigateToPseCdt() {
+  public static Performable navigateToPseCdtWithLink() {
     return Task.where(
         "{0} navega hasta la pagina pse",
         navigateLaterAutheticationCdt(),
         Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
         Click.on(AccountConfigurationPageCdt.PSE_BUTTON));
+  }
+
+  public static Performable navigateToPseCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina pse",
+        fundingSelectBy("PSE"),
+        DeclaringSelection.choose(TAG_CONFIRM),
+        SignDocuments.perform(),
+        Check.whether(the(EnrollmentPage.CONTINUE_BUTTON), isPresent())
+            .andIfSo(EnrollmentKey.perform())
+            .otherwise(SavingTips.waitAndGo()),
+        Waits.loader());
+  }
+
+  public static Performable fillPseCdt() {
+    return Task.where(
+        "{0} diligencia formulario pse",
+        navigateToPseCdt(),
+        Click.on(PsePage.BANK_LIST_SELECT),
+        Click.on(PsePage.FIRST_BANK),
+        Click.on(PsePage.RADIO_NATURAL),
+        Click.on(PsePage.CONTINUE_BUTTON),
+        Waits.loader());
   }
 
   public static Performable navigateToContactDataCdt() {
@@ -173,13 +197,13 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+
   public static Performable fundingSelectBy(String fundingType) {
     return Task.where(
         "{0} navega hasta la pagina datos personales",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(fundingType)
-        );
+        AccountConfigurationCdt.perform(fundingType));
   }
 
   public static Performable navigateToDigitalSignatureCdt() {

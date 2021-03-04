@@ -25,8 +25,21 @@ public class PsePage {
         Target.the("Lista de bancos pse")
             .located(By.xpath("//mat-option"));
 
+    public static final Target FIRST_BANK =
+        Target.the("Primer bamco de la lista de bancos pse")
+            .located(By.xpath("(//mat-option)[1]"));
+
     public static final Target BANK_LIST_SELECT =
         Target.the("Select lista de bancos pse")
             .located(By.id("Bank"));
+
+    public static final Target RADIO_NATURAL =
+        Target.the("Radio Natural pse")
+            .located(By.xpath("//mat-radio-button[contains(*,'Natural')]"));
+
+
+    public static final Target CONTINUE_BUTTON =
+        Target.the("Select lista de bancos pse")
+            .located(By.id("SubmitPseForm"));
 
 }
