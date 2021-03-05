@@ -31,5 +31,5 @@ public class ResumenCdtPage {
       Target.the("Texto plazo").located(By.xpath("(//*[@class='description-value'])[1]"));
 
   public static final Target TEXT_INCOME =
-      Target.the("Texto rendimientos").located(By.xpath("(//*[@class='description-value'])[2]"));
+      Target.the("Texto rendimientos").located(By.xpath("(//*[contains(@class,'description-value')])[3]"));
 }

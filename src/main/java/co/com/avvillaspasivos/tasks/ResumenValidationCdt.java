@@ -10,22 +10,17 @@ package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ResumeCdtData;
+import co.com.avvillaspasivos.tasks.uivalidation.ResumenAssertions;
 import co.com.avvillaspasivos.ui.ResumenCdtPage;
-import co.com.avvillaspasivos.util.Constantes;
+import co.com.avvillaspasivos.util.ActorActions;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.conditions.Check;
-import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.containsText;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class ResumenValidationCdt implements Task {
 
@@ -35,41 +30,37 @@ public class ResumenValidationCdt implements Task {
 
   @Step("{0} valida el resumen de CDT ")
   public <T extends Actor> void performAs(T actor) {
-    ResumeCdtData cdtData = theActorInTheSpotlight().recall(SessionVariables.CDT_DATA.name());
-    String incomeAccount = theActorInTheSpotlight().recall(SessionVariables.INCOME_ACCOUNT.name());
-    ActorData actorData =
-        theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
+    ResumeCdtData cdtData = getResumenData();
+    String incomeAccount = getIncomeAccount();
+    ActorData actorData = ActorActions.getActorInTheSpotLightData();
+    boolean renewal = actor.recall(SessionVariables.RENEWAL.name());
 
-    boolean renewal=actor.recall(SessionVariables.RENEWAL.name());
+    actor.attemptsTo(Waits.resumenPage());
 
-      actor.attemptsTo(
-          WaitUntil.the(ResumenCdtPage.TEXT_AMOUNT, isVisible())
-          .forNoMoreThan(Constantes.MAX_WAIT)
-          .seconds()
-      );
+    String uiAmount = getResumenUiAmount(actor);
 
-      String amount=ResumenCdtPage.TEXT_AMOUNT.resolveFor(actor).getText().replace("$","").replace(".","");
-
-      actor.attemptsTo(
-        Ensure.that(ResumenCdtPage.RESUMEN_TITLE)
-            .text()
-            .containsIgnoringCase(actorData.getFirstName()),
-        Ensure.that(amount).contains(cdtData.getAmount()),
-        Ensure.that(ResumenCdtPage.TEXT_RATE).text().contains(cdtData.getRate()),
-        Ensure.that(ResumenCdtPage.TEXT_TERM).text().contains(cdtData.getTerm())
-
-
-    );
     actor.attemptsTo(
-        Check.whether(the(ResumenCdtPage.TEXT_INCOME),containsText(incomeAccount))
-            .andIfSo(Ensure.that(ResumenCdtPage.TEXT_INCOME).text().contains(incomeAccount))
-    );
+        ResumenAssertions.validateName(actorData.getFirstName()),
+        ResumenAssertions.validateCdtDetailValues(uiAmount, cdtData));
+
     actor.attemptsTo(
-        Check.whether(renewal)
-            .andIfSo(Ensure.that(ResumenCdtPage.RENEWAL_TEXT).isDisplayed())
-            .otherwise(Ensure.that(ResumenCdtPage.RENEWAL_TEXT).isNotDisplayed())
-    );
+        ResumenAssertions.validateIncomeAccount(incomeAccount),
+        ResumenAssertions.validatePeriod(cdtData.getPeriod()));
+
+    actor.attemptsTo(ResumenAssertions.validateRenewal(renewal));
 
     actor.attemptsTo(BdUser.toBlock(false));
+  }
+
+  private static ResumeCdtData getResumenData() {
+    return theActorInTheSpotlight().recall(SessionVariables.CDT_DATA.name());
+  }
+
+  private static String getResumenUiAmount(Actor actor) {
+    return ResumenCdtPage.TEXT_AMOUNT.resolveFor(actor).getText().replace("$", "").replace(".", "");
+  }
+
+  private static String getIncomeAccount() {
+    return theActorInTheSpotlight().recall(SessionVariables.INCOME_ACCOUNT.name());
   }
 }

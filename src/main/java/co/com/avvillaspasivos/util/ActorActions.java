@@ -13,7 +13,10 @@ import co.com.avvillaspasivos.facts.Usuario;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.model.ClientConditions;
 import co.com.avvillaspasivos.tasks.BdUser;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.targets.Target;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -201,7 +204,21 @@ public class ActorActions {
     return OnStage.theActor(actorName).recall(SessionVariables.DATA_ACTOR.name());
   }
 
+  public static ActorData getActorInTheSpotLightData() {
+    return OnStage.theActorInTheSpotlight().recall(SessionVariables.DATA_ACTOR.name());
+  }
+
   public static String getToken() {
     return OnStage.theActor(AUTHENTICATION_ACTOR).recall(SessionVariables.TOKEN.name());
   }
+
+  public static String getTextFromTarget(Actor actor, Target target) {
+    return Text.of(target).viewedBy(actor).resolve();
+  }
+
+  public static String getTextFromPeriodItemList(Actor actor, Target target) {
+    return getTextFromTarget(actor,target).split("\n")[0];
+  }
+
+
 }

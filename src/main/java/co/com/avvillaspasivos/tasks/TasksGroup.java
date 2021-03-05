@@ -193,7 +193,7 @@ public class TasksGroup {
         FormIdentification.fillAndContinue(PRODUCT_CDT),
         Waits.loader(),
         PepSelection.option("no"),
-        FillConfigurationCdt.type(),
+        FillConfigurationCdt.type(EXPIRATION_TAG),
         Waits.loader(),
         Autentication.byOtp());
   }

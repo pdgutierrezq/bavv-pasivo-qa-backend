@@ -21,9 +21,14 @@ import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PerformFlowCdt implements Task {
+    private final String period;
 
-  public static Performable type() {
-    return instrumented(PerformFlowCdt.class);
+    public PerformFlowCdt(String period) {
+        this.period = period;
+    }
+
+  public static Performable type(String period) {
+    return instrumented(PerformFlowCdt.class,period);
   }
 
   @Step("{0} realiza el flujo de CDT")
@@ -36,7 +41,7 @@ public class PerformFlowCdt implements Task {
         FormIdentification.fillAndContinue(PRODUCT_CDT),
         Waits.loader(),
         PepSelection.option("no"),
-        FillConfigurationCdt.type(),
+        FillConfigurationCdt.type(period),
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
