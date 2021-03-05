@@ -20,4 +20,5 @@ public class ResumeCdtData {
     private String term;
     private String amount;
     private String rate;
+    private String period;
 }

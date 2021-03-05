@@ -9,6 +9,7 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.ui.CommonWebElementsPage;
+import co.com.avvillaspasivos.ui.ResumenCdtPage;
 import co.com.avvillaspasivos.ui.ResumenPage;
 import co.com.avvillaspasivos.util.Constantes;
 import net.serenitybdd.screenplay.Performable;
@@ -39,6 +40,14 @@ public class Waits {
     return Task.where(
         "{0} espera informacion de la cuenta",
         WaitUntil.the(ResumenPage.INFO_ACCOUNT, isVisible())
+            .forNoMoreThan(Constantes.MAX_WAIT)
+            .seconds());
+  }
+
+  public static Performable resumenPage() {
+    return Task.where(
+        "{0} espera carga de la pagina de resumen",
+        WaitUntil.the(ResumenCdtPage.TEXT_AMOUNT, isVisible())
             .forNoMoreThan(Constantes.MAX_WAIT)
             .seconds());
   }

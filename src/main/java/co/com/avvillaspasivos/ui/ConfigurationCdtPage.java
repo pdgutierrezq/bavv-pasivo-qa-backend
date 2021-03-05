@@ -8,10 +8,13 @@
  */
 package co.com.avvillaspasivos.ui;
 
+import com.github.javafaker.Faker;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
 public class ConfigurationCdtPage {
+  static Faker faker = new Faker();
+
   private ConfigurationCdtPage() {
     throw new IllegalStateException("Utility class");
   }
@@ -33,4 +36,14 @@ public class ConfigurationCdtPage {
   public static final Target RADIO_SI_RENOVAR =
       Target.the("Radio button no renovar")
           .located(By.xpath("//mat-radio-button[contains(*,'Si')]"));
+
+  public static final Target PERIOD_LIST = Target.the("Lista de periodos").located(By.id("Period"));
+
+  public static final Target PERIOD_LIST_ITEM =
+      Target.the("Item de la lista de periodos")
+          .located(By.xpath("(//mat-option)[".concat(getPeriodListIndex()).concat("]")));
+
+  private static String getPeriodListIndex(){
+      return String.valueOf(faker.number().numberBetween(1,5));
+  }
 }

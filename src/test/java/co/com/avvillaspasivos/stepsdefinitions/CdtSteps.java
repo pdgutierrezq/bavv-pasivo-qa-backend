@@ -18,14 +18,14 @@ import cucumber.api.java.es.Entonces;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class CdtSteps {
-    @Cuando("el usuario realiza el flujo")
-    public void elUsuarioRealizaElFlujo() {
-        theActorInTheSpotlight().attemptsTo(PerformFlowCdt.type());
-
-    }
 
     @Entonces("se muestra el resumen de la creación del CDT")
     public void seMuestraElResumenDeLaCreaciónDelCDT() {
     theActorInTheSpotlight().attemptsTo(ResumenValidationCdt.perform());
+    }
+
+    @Cuando("el usuario realiza el flujo con rendimientos {string}")
+    public void elUsuarioRealizaElFlujoConRendimientos(String period) {
+        theActorInTheSpotlight().attemptsTo(PerformFlowCdt.type(period));
     }
 }
