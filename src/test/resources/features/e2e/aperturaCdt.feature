@@ -1,7 +1,8 @@
 # language: es
 @Frontend:E2E-CDT
-@PBA-1965
 @Sprint-52
+@PBA-1965
+@Sprint-63
 @PBA-2347
 
 Característica: Creación CDT
@@ -10,7 +11,7 @@ Característica: Creación CDT
   PARA no desplazarme hasta una oficina
 
   @e2e
-  @cdt
+  @CDT
   @regresion
   Escenario: Creación CDT no enrolado
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
@@ -18,7 +19,7 @@ Característica: Creación CDT
     Entonces se muestra el resumen de la creación del CDT
 
   @e2e
-    @cdt
+    @CDT
     @regresion
   Esquema del escenario: Creación CDT
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo enrolado sin renovacion"
