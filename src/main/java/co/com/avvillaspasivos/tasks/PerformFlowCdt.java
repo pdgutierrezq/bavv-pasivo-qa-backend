@@ -9,10 +9,12 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.ui.CdtFeaturesPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
@@ -45,7 +47,8 @@ public class PerformFlowCdt implements Task {
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
-        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_FUNDING_TAG),
+        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())

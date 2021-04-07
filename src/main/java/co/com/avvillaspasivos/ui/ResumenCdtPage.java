@@ -28,7 +28,7 @@ public class ResumenCdtPage {
   public static final Target TEXT_RATE = Target.the("Texto tasa").located(By.className("percent"));
 
   public static final Target TEXT_TERM =
-      Target.the("Texto plazo").located(By.xpath("(//*[@class='description-value'])[1]"));
+      Target.the("Texto plazo").located(By.xpath("//*[@class='description-value cdt-time']"));
 
   public static final Target TEXT_INCOME =
       Target.the("Texto rendimientos").located(By.xpath("(//*[contains(@class,'description-value')])[3]"));

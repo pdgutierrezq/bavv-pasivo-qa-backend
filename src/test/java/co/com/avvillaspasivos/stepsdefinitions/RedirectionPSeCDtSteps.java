@@ -18,6 +18,7 @@ import cucumber.api.java.es.Y;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
+import static co.com.avvillaspasivos.tasks.SmallTasks.passCdtFeatures;
 import static co.com.avvillaspasivos.util.Constantes.TAG_CONFIRM;
 import static co.com.avvillaspasivos.util.Constantes.UI_URL_PATHS;
 
@@ -30,7 +31,8 @@ public class RedirectionPSeCDtSteps {
   @Y("obtiene informacion de si esta enrolado")
   public void obtieneInformacionDeSiEstaEnrolado() {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(DeclaringSelection.choose(TAG_CONFIRM), SignDocuments.perform());
+        .attemptsTo(
+            passCdtFeatures(), DeclaringSelection.choose(TAG_CONFIRM), SignDocuments.perform());
   }
 
   @Entonces("se redirecciona al cliente a pantalla de {string}")
@@ -40,12 +42,13 @@ public class RedirectionPSeCDtSteps {
             Ensure.thatTheCurrentPage().currentUrl().contains(UI_URL_PATHS.get(screenType)));
   }
 
-    @Y("falla el proceso de enrolamiento")
-    public void fallaElProcesoDeEnrolamiento() {
+  @Y("falla el proceso de enrolamiento")
+  public void fallaElProcesoDeEnrolamiento() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
+            passCdtFeatures(),
             DeclaringSelection.choose(TAG_CONFIRM),
             SignDocuments.perform(),
             EnrollmentKey.perform());
-    }
+  }
 }

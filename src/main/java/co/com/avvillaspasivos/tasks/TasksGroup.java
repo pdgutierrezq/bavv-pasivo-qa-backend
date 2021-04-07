@@ -149,7 +149,9 @@ public class TasksGroup {
         "{0} navega hasta la pagina de datos para envio de tarjeta ",
         navigateLaterAutheticationCdt(),
         Check.whether(userType.equals(CLIENT_UPDATED))
-            .andIfSo(Waits.loader(), Click.on(AccountConfigurationPageCdt.SENDING_CARD_LINK))
+            .andIfSo(Waits.loader(),
+                AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_FUNDING_TAG)
+            )
             .otherwise(
                 fillEconomicActivity(),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
@@ -157,7 +159,7 @@ public class TasksGroup {
                 FillContactInfo.fixed(),
                 FillForeignInformation.perfom(),
                 FillFinancialInformation.perfom(),
-                Click.on(AccountConfigurationPageCdt.SENDING_CARD_LINK)));
+                AccountConfigurationCdt.perform("PSE", NEW_ACCOUNT_PROFIT_TAG)));
   }
 
   public static Performable navigateToSendingCardCda() {
@@ -203,7 +205,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina datos personales",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(fundingType));
+        AccountConfigurationCdt.perform(fundingType, ACCOUNT_FUNDING_TAG));
   }
 
   public static Performable navigateToDigitalSignatureCdt() {
@@ -211,7 +213,8 @@ public class TasksGroup {
         "{0} navega hasta la pagina firma electronica y continua",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG,ACCOUNT_FUNDING_TAG),
+        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_NOT_CONFIRM),
         SignDocuments.perform());
   }

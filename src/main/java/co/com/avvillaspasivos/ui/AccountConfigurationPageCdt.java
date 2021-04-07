@@ -17,36 +17,37 @@ public class AccountConfigurationPageCdt {
   }
 
   public static final Target PSE_BUTTON =
-      Target.the("Boton ir a Pse")
-      .located(By.linkText("Link PSE"));
+      Target.the("Boton ir a Pse").located(By.linkText("Link PSE"));
 
   public static final Target SENDING_CARD_LINK =
-      Target.the("Link ir a Datos Tarjeta")
-      .located(By.linkText("Link Datos Tarjeta"));
+      Target.the("Link ir a Datos Tarjeta").located(By.linkText("Link Datos Tarjeta"));
 
-  public static final Target BOTON_CONTINUAR =
-      Target.the("Boton continuar direccion")
+  public static final Target CONTINUE_BUTTON =
+      Target.the("Boton continuar en configuracion cuentas")
           .located(By.xpath("//button[contains(text(),'Continuar')]"));
 
-public static final Target BOTON_POPUP_SI =
-      Target.the("Boton continuar direccion")
-          .locatedBy(".avv-btn-primary");
+  public static final Target BOTON_POPUP_OK =
+      Target.the("Boton continuar pop up ").locatedBy(".avv-btn-primary");
 
-  public static final Target RADIO_CUENTA_TRANSFERIR =
+  public static final Target RADIO_ACCOUNT_TRANSF =
       Target.the("Radio de la cuenta que se va a transferir")
           .located(
               By.xpath(
                   "(//*[@formcontrolname='accountSettingFirstGroup']//mat-radio-button[contains(*,'Cuenta')])[1]"));
 
-
-  public static final Target RADIO_PSE_TRANSFERIR =
+  public static final Target RADIO_PSE_TRANSF =
       Target.the("Radio para transferir desde otro banco")
           .located(
               By.xpath(
                   "//*[@formcontrolname='accountSettingFirstGroup']//mat-radio-button[contains(*,'Desde otro banco')]"));
-  public static final Target RADIO_CUENTA_RENDIMIENTOS =
+  public static final Target RADIO_ACCOUNT_PROFIT =
       Target.the("Radio de la cuenta que se va a pagar rendimienitos")
           .located(
               By.xpath(
                   "(//*[@formcontrolname='accountSettingSecondGroup']//mat-radio-button[contains(*,'Cuenta')])[1]"));
+  public static final Target RADIO_NEW_ACCOUNT_PROFIT =
+      Target.the("Radio para abrir cuenta nueva")
+          .located(
+              By.xpath(
+                  "//*[@formcontrolname='accountSettingSecondGroup']//mat-radio-button[contains(*,'Abrir')]"));
 }
