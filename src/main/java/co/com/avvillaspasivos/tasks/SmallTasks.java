@@ -99,6 +99,12 @@ public class SmallTasks {
         Click.on(ElectronicSignaturePage.POP_UP_LINK));
   }
 
+  public static Performable passCdtFeatures() {
+    return Task.where(
+        "{0} avanzaen la pagina de caracteristicas Cdt",
+        Click.on(CdtFeaturesPage.CONTINUE_BUTTON));
+  }
+
   public static Performable leaveEmptyFields() {
     return Task.where(
         "{0} ingresa vacio en ciudad y direccion",

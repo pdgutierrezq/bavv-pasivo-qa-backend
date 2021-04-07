@@ -88,15 +88,22 @@ public class ActorActions {
                 .build();
         break;
       case CLIENT_UPDATED_WITHOUT_CHANNELS:
+          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+          conditions =
+              ClientConditions.builder()
+                  .client(true)
+                  .updated(true)
+                  .restrictiveList(false)
+                  .cat(false)
+                  .channels(false)
+                  .build();
+          break;
       case CLIENT_UPDATED:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
         conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
-                .restrictiveList(false)
-                .cat(false)
-                .channels(false)
                 .build();
         break;
       case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
