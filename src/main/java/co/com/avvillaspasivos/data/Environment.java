@@ -31,6 +31,8 @@ public interface Environment extends Config {
 
   String getPdf();
 
+  String getRates();
+
   String identificationProject();
 
   String psworacle();

@@ -117,6 +117,9 @@ public class ServicePaths {
   public static String pathGetPdfSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
+  public static String pathGetRatesSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.getRates());
+  }
 
   public static String declaringPagePath() {
     return environment.declaringPage();
