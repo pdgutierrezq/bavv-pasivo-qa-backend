@@ -28,7 +28,7 @@ public class BankList implements Task {
   }
 
   @Override
-  @Step("{0} obtiene token mediante user identity")
+  @Step("{0} obtiene el listado de bancos")
   public <T extends Actor> void performAs(T actor) {
     actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
     actor.attemptsTo(CallGet.path("pse-get-bank-list"));
