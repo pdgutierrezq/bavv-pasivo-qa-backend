@@ -47,7 +47,7 @@ public class PerformFlowCdt implements Task {
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
-        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_FUNDING_TAG),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
         Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
