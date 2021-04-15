@@ -1,7 +1,7 @@
 # language: es
-@Backend:PantallaDeclarante
-@Sprint-51
-@PBA-1814
+@Frontend:CargueDocumentos
+@Sprint-46
+@PBA-1654
 
 Característica:Dinamismo en pantalla de Cargue de documentos
   Yo como cliente des-actualizado
