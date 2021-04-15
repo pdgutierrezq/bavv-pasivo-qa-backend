@@ -222,7 +222,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina datos personales",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(fundingType, ACCOUNT_FUNDING_TAG));
+        AccountConfigurationCdt.perform(fundingType, ACCOUNT_PROFIT_TAG));
   }
 
   public static Performable navigateToDigitalSignatureCdt() {
@@ -230,7 +230,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina firma electronica y continua",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG,ACCOUNT_FUNDING_TAG),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG,ACCOUNT_PROFIT_TAG),
         Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_NOT_CONFIRM),
         SignDocuments.perform());
