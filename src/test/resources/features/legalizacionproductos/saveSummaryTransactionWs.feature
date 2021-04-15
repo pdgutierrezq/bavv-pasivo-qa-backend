@@ -4,7 +4,7 @@
   @PBA-1814
   @regresion
 
-  Característica: Modificar el servicio de save summary transation CDT
+    Característica: Modificar el servicio de save summary transation CDT
     YO COMO Usuario
     NECESITO almacenar datos
     PARA presentar posteriormente un resumen
