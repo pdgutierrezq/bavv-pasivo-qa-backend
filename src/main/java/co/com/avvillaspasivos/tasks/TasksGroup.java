@@ -142,11 +142,11 @@ public class TasksGroup {
         navigateLaterAutheticationCdt(), fillEconomicActivity());
   }
 
-  public static Performable navigateToSendingCardCdt() {
-    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+  public static Performable navigateAfterAccountConfigCdt(String fundingType, String profitAccount) {
+      String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     return Task.where(
-        "{0} navega hasta la pagina de datos para envio de tarjeta ",
+        "{0} navega hasta superar configuracion de cuentas ",
         navigateLaterAutheticationCdt(),
         Check.whether(userType.equals(CLIENT_UPDATED))
             .andIfSo(Waits.loader(),
@@ -159,7 +159,24 @@ public class TasksGroup {
                 FillContactInfo.fixed(),
                 FillForeignInformation.perfom(),
                 FillFinancialInformation.perfom(),
-                AccountConfigurationCdt.perform("PSE", NEW_ACCOUNT_PROFIT_TAG)));
+                AccountConfigurationCdt.perform(fundingType, profitAccount)));
+  }
+
+
+    public static Performable navigateToSendingCardCdt() {
+
+        return Task.where(
+            "{0} navega hasta la pagina de datos para envio de tarjeta ",
+            navigateAfterAccountConfigCdt("PSE", NEW_ACCOUNT_PROFIT_TAG));
+    }
+
+  public static Performable navigateToDocumentLoadCdt() {
+
+    return Task.where(
+        "{0} navega hasta la pagina de cargue de documentos en CDT ",
+        navigateAfterAccountConfigCdt(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
+        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
+        DeclaringSelection.choose("confirma"));
   }
 
   public static Performable navigateToSendingCardCda() {
