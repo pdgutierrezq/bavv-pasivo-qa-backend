@@ -111,6 +111,13 @@ public class Constantes {
   public static final String ACCOUNT_PROFIT_TAG = "Cuenta AV Villas";
   public static final String NEW_ACCOUNT_PROFIT_TAG = "Nueva Cuenta AV Villas";
   public static final String EXPIRATION_TAG = "al vencimiento";
+  public static final String EMPLOYMENT_VALUE = "empleado";
+  public static final String RETIRED_VALUE = "pensionado";
+  public static final String STUDENT_VALUE = "estudiante";
+  public static final String HOME_VALUE = "hogar";
+  public static final String INDEPENDENT_VALUE = "independiente";
+  public static final String INDEPENDENT_BUSINESS_VALUE = "independiente con negocio";
+
 
   public static final Map<String, String> UI_URL_PATHS =
       ImmutableMap.<String, String>builder()

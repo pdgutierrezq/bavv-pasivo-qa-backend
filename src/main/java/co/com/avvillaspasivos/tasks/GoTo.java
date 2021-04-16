@@ -12,6 +12,7 @@ import co.com.avvillaspasivos.ui.*;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
 
 public class GoTo {
@@ -33,7 +34,11 @@ public class GoTo {
   }
   public static Performable openCdt() {
     return Task.where(
-        "{0} ingresa en la opcion abrir Cdt", Click.on(CdtHomePage.BOTON_ABRIR_MI_CDT));
+        "{0} ingresa en la opcion abrir Cdt",
+        Enter.theValue("10000").into(CdtHomePage.INPUT_AMOUNT),
+        Enter.theValue("99").into(CdtHomePage.INPUT_TERM),
+        Waits.loader(),
+        Click.on(CdtHomePage.OPEN_CDT_BUTTON));
   }
 
   public static Performable pepContinue() {
