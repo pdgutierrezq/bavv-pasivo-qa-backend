@@ -14,9 +14,11 @@ import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.Keys;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -61,7 +63,7 @@ public class TasksGroup {
   public static Performable navigateToContactDataCDa() {
     return Task.where(
         "{0} navega hasta la pagina de informacion de contacto en Cda",
-        navigateLaterAutheticationCda(), fillEconomicActivity());
+        navigateLaterAutheticationCda(), fillEconomicActivity(EMPLOYMENT_VALUE));
   }
 
   public static Performable passSendCardScreen() {
@@ -139,44 +141,44 @@ public class TasksGroup {
   public static Performable navigateToContactDataCdt() {
     return Task.where(
         "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
-        navigateLaterAutheticationCdt(), fillEconomicActivity());
+        navigateLaterAutheticationCdt(), fillEconomicActivity(EMPLOYMENT_VALUE));
   }
 
-  public static Performable navigateAfterAccountConfigCdt(String fundingType, String profitAccount) {
-      String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+  public static Performable navigateAfterAccountConfigCdt(
+      String economycActivity, String fundingType, String profitAccount) {
+    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     return Task.where(
         "{0} navega hasta superar configuracion de cuentas ",
         navigateLaterAutheticationCdt(),
         Check.whether(userType.equals(CLIENT_UPDATED))
-            .andIfSo(Waits.loader(),
-                AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_FUNDING_TAG)
-            )
+            .andIfSo(
+                Waits.loader(),
+                AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG))
             .otherwise(
-                fillEconomicActivity(),
+                fillEconomicActivity(economycActivity),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
                     .andIfSo(Waits.loader()),
-                FillContactInfo.fixed(),
+                FillContactInformation.perfom(),
                 FillForeignInformation.perfom(),
                 FillFinancialInformation.perfom(),
                 AccountConfigurationCdt.perform(fundingType, profitAccount)));
   }
 
+  public static Performable navigateToSendingCardCdt() {
 
-    public static Performable navigateToSendingCardCdt() {
+    return Task.where(
+        "{0} navega hasta la pagina de datos para envio de tarjeta ",
+        navigateAfterAccountConfigCdt(EMPLOYMENT_VALUE,"PSE", NEW_ACCOUNT_PROFIT_TAG));
+  }
 
-        return Task.where(
-            "{0} navega hasta la pagina de datos para envio de tarjeta ",
-            navigateAfterAccountConfigCdt("PSE", NEW_ACCOUNT_PROFIT_TAG));
-    }
-
-  public static Performable navigateToDocumentLoadCdt() {
+  public static Performable navigateToDocumentLoadCdt(String economicActivity,String declarantOption) {
 
     return Task.where(
         "{0} navega hasta la pagina de cargue de documentos en CDT ",
-        navigateAfterAccountConfigCdt(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
+        navigateAfterAccountConfigCdt(economicActivity, ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
         Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
-        DeclaringSelection.choose("confirma"));
+        DeclaringSelection.choose(declarantOption));
   }
 
   public static Performable navigateToSendingCardCda() {
@@ -189,7 +191,7 @@ public class TasksGroup {
         Check.whether(userType.equals(CLIENT_UPDATED))
             .andIfSo(Waits.loader())
             .otherwise(
-                fillEconomicActivity(),
+                fillEconomicActivity(EMPLOYMENT_VALUE),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
                     .andIfSo(Waits.loader()),
                 FillContactInfo.fixed(),
@@ -198,10 +200,23 @@ public class TasksGroup {
                 Waits.loader()));
   }
 
-  public static Performable fillEconomicActivity() {
+  public static Performable fillEconomicActivity(String economicActivity) {
     return Task.where(
         "{0} navega hasta la pagina de datos de contacto con un cliente desactualizado",
-        Click.on(EconomicActivityPage.RADIO_EMPLOYMENT),
+        Check.whether(EMPLOYMENT_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_EMPLOYMENT)),
+        Check.whether(RETIRED_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_RETIRED)),
+        Check.whether(HOME_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_HOME)),
+        Check.whether(STUDENT_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_STUDENT)),
+        Check.whether(INDEPENDENT_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_INDEPENDET)),
+        Check.whether(INDEPENDENT_BUSINESS_VALUE.equals(economicActivity))
+            .andIfSo(Click.on(EconomicActivityPage.RADIO_INDEPENDENT_BUSINESS)),
+        Check.whether(INDEPENDENT_BUSINESS_VALUE.equals(economicActivity)||INDEPENDENT_VALUE.equals(economicActivity))
+            .andIfSo(Enter.theValue("0111").into(EconomicActivityPage.INPUT_CIUU).thenHit(Keys.TAB)),
         Click.on(EconomicActivityPage.CONTINUE_BUTTON));
   }
 
@@ -230,7 +245,7 @@ public class TasksGroup {
         "{0} navega hasta la pagina firma electronica y continua",
         navigateLaterAutheticationCdt(),
         Waits.loader(),
-        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG,ACCOUNT_PROFIT_TAG),
+        AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
         Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_NOT_CONFIRM),
         SignDocuments.perform());

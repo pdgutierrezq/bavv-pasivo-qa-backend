@@ -32,24 +32,19 @@ public class FillContactInformation implements Task {
   public <T extends Actor> void performAs(T actor) {
     CrmResponseData data = Util.buildContactData();
 
-    actor.attemptsTo(
-        Check.whether(ContactInformationPage.TEXTBOX_MAIL.resolveFor(actor).getValue().isEmpty())
-            .andIfSo(
-                Enter.theValue(data.getMail()).into(ContactInformationPage.TEXTBOX_MAIL),
-                Enter.theValue(data.getMail()).into(ContactInformationPage.TEXTBOX_MAIL_COPY)),
-        Check.whether(ContactInformationPage.TEXTBOX_CITY.resolveFor(actor).getValue().isEmpty())
-            .andIfSo(
-                Enter.theValue(data.getCityAddress())
-                    .into(ContactInformationPage.TEXTBOX_CITY)
-                    .thenHit(Keys.TAB)),
-        Check.whether(ContactInformationPage.TEXTBOX_ADDRESS.resolveFor(actor).getValue().isEmpty())
-            .andIfSo(
-                Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_ADDRESS)),
-        Check.whether(ContactInformationPage.TEXTBOX_NEIGHBORHOOD.resolveFor(actor).getValue().isEmpty())
-            .andIfSo(
-                Enter.theValue(data.getNeighborhood()).into(ContactInformationPage.TEXTBOX_NEIGHBORHOOD)),
-        Check.whether(
-                ContactInformationPage.TEXTBOX_COMPANY_NAME.resolveFor(actor).getValue().isEmpty())
+    actor.attemptsTo(fillOutContactData(actor, data));
+
+    if (ContactInformationPage.TEXTBOX_COMPANY_NAME.resolveFor(actor).isPresent()) {
+      fillOutCompanyData(actor, data);
+    }
+
+    actor.attemptsTo(Click.on(ContactInformationPage.BUTTON_CONTINUE));
+  }
+
+  public static Performable fillOutCompanyData(Actor actor, CrmResponseData data) {
+    return Task.where(
+        "{0} diligencia la informacion de la compañia",
+        Check.whether(ContactInformationPage.TEXTBOX_COMPANY_NAME.resolveFor(actor).isPresent())
             .andIfSo(
                 Enter.theValue(data.getCompanyName())
                     .into(ContactInformationPage.TEXTBOX_COMPANY_NAME)),
@@ -66,7 +61,28 @@ public class FillContactInformation implements Task {
                     .isEmpty())
             .andIfSo(
                 Enter.theValue(data.getAddress())
-                    .into(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS)),
-        Click.on(ContactInformationPage.BUTTON_CONTINUE));
+                    .into(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS)));
+  }
+
+  public static Performable fillOutContactData(Actor actor, CrmResponseData data) {
+    return Task.where(
+        "{0} diligencia la informacion de contacto",
+        Check.whether(ContactInformationPage.TEXTBOX_MAIL.resolveFor(actor).getValue().isEmpty())
+            .andIfSo(
+                Enter.theValue(data.getMail()).into(ContactInformationPage.TEXTBOX_MAIL),
+                Enter.theValue(data.getMail()).into(ContactInformationPage.TEXTBOX_MAIL_COPY)),
+        Check.whether(ContactInformationPage.TEXTBOX_CITY.resolveFor(actor).getValue().isEmpty())
+            .andIfSo(
+                Enter.theValue(data.getCityAddress())
+                    .into(ContactInformationPage.TEXTBOX_CITY)
+                    .thenHit(Keys.TAB)),
+        Check.whether(ContactInformationPage.TEXTBOX_ADDRESS.resolveFor(actor).getValue().isEmpty())
+            .andIfSo(
+                Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_ADDRESS)),
+        Check.whether(
+                ContactInformationPage.TEXTBOX_NEIGHBORHOOD.resolveFor(actor).getValue().isEmpty())
+            .andIfSo(
+                Enter.theValue(data.getNeighborhood())
+                    .into(ContactInformationPage.TEXTBOX_NEIGHBORHOOD)));
   }
 }

@@ -22,4 +22,13 @@ public class DocumentsLoadPage {
         Target.the("Seccion para cargar cedula")
             .located(By.xpath("section[@formgroupname='attachIdGroup']"));
 
+    public static final Target DOCUMENTS_TO_CHARGE =
+        Target.the("documentos a cargar")
+            .located(By.xpath("//*[@id='FormUploadDocuments']//*[@formgroupname='attachWorkDocuments']//mat-radio-button"));
+
+
+    public static final Target INDEPENDENT_DOCUMENTS_TO_CHARGE =
+        Target.the("documentos a cargar")
+            .located(By.xpath("//*[@id='FormUploadDocuments']//*[@formgroupname='attachIndependentDocuments']//mat-radio-button"));
+
 }

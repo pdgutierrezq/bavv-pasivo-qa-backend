@@ -16,8 +16,17 @@ import org.openqa.selenium.By;
 
 @DefaultUrl("page:cdt.home.page")
 public class CdtHomePage extends PageObject {
-    public static final Target BOTON_ABRIR_MI_CDT =
+
+    public static final Target OPEN_CDT_BUTTON =
         Target.the("Boton Abrir mi cuenta")
             .located(By.xpath("//button[contains(text(),'ABRIR MI CDT DIGITAL')]"));
+
+    public static final Target INPUT_AMOUNT =
+        Target.the("Campo monto para brir cdt")
+            .located(By.id("Amount"));
+
+    public static final Target INPUT_TERM =
+        Target.the("Campo plazo para brir cdt")
+            .located(By.id("Term"));
 
 }
