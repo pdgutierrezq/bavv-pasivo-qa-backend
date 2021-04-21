@@ -117,6 +117,14 @@ public class ServicePaths {
   public static String pathGetPdfSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
+  public static String pathGetChannelsSchema(boolean option) {
+      String path=pathjsonSchemaBaseDir().concat(environment.getChannelsFalse());
+
+      if(option){
+          path=pathjsonSchemaBaseDir().concat(environment.getChannelsTrue());
+      }
+    return path;
+  }
   public static String pathGetRatesSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getRates());
   }

@@ -85,6 +85,10 @@ public class Constantes {
       "cliente actualizado sin lista restrictiva sin cuenta cat y que tenga canales";
   public static final String CLIENT_UPDATED_WITHOUT_CHANNELS =
       "cliente actualizado que no tenga canales";
+  public static final String CLIENT_WITHOUT_CHANNELS =
+      "cliente sin canales";
+  public static final String CLIENT_WITH_CHANNELS =
+      "cliente con canales";
   public static final String CLIENT_UPDATED_WITH_CHANNELS =
       "cliente actualizado con canales activos";
   public static final String CLIENT_UPDATED = "cliente actualizado";

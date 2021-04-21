@@ -57,6 +57,7 @@ public class ActorActions {
         break;
       case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
       case CLIENT_UPDATED_WITH_CHANNELS:
+      case CLIENT_WITH_CHANNELS:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
         conditions =
@@ -107,7 +108,8 @@ public class ActorActions {
                 .build();
         break;
       case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
-        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+        case CLIENT_WITHOUT_CHANNELS:
+            OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
         conditions =
             ClientConditions.builder()

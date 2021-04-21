@@ -1,6 +1,7 @@
 # language: es
 @Frontend:E2E-ClienteActualizadoNoEnrolado
-
+@Sprint-23
+@PBA-470
 Característica: Creación cuenta de ahorros cliente actualizado no enrolado
   YO COMO  cliente actualizado
   NECESITO abrir una cuenta de ahorros digital

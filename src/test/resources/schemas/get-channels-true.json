@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "hasChannels": {
+      "type": "boolean"
+    },
+    "information": {
+      "type": "object",
+      "properties": {
+        "pswdStatus": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "channel": {
+                  "type": "string"
+                },
+                "pswdType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "channel",
+                "pswdType"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "pswdStatus",
+        "channel"
+      ]
+    }
+  },
+  "required": [
+    "hasChannels",
+    "information"
+  ]
+}
