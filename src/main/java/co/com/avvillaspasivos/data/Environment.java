@@ -31,6 +31,10 @@ public interface Environment extends Config {
 
   String getPdf();
 
+  String getChannelsFalse();
+
+  String getChannelsTrue();
+
   String getRates();
 
   String identificationProject();
