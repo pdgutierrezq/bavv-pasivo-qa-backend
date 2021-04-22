@@ -8,10 +8,7 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.tasks.CrmInfo;
-import co.com.avvillaspasivos.tasks.GetToken;
-import co.com.avvillaspasivos.tasks.TasksGroup;
-import co.com.avvillaspasivos.tasks.ValidateContactPreload;
+import co.com.avvillaspasivos.tasks.*;
 import co.com.avvillaspasivos.util.SessionVariables;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
@@ -20,6 +17,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActor;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class PreLoadNotUpdatedSteps {
   @Y("que hay información del usuario en el banco")
@@ -40,4 +38,10 @@ public class PreLoadNotUpdatedSteps {
         .attemptsTo(ValidateContactPreload.perform());
   }
 
+    @Entonces("se pre cargarán los datos en la pantalla de datos de contacto.")
+    public void sePreCargaránLosDatosEnLaPantallaDeDatosDeContacto() {
+      theActorInTheSpotlight().attemptsTo(
+          UiAssertions.validateContactPreload()
+      );
+    }
 }
