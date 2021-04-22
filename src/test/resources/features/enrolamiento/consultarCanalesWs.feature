@@ -10,7 +10,6 @@
    NECESITO que se consuma el servicio de clientes en canales
    PARA que saber si tengo o no canales
 
-   @www
    Esquema del escenario: consulta cliente enrolado
      Dado que se obtiene un usuario tipo "<cliente>"
      Cuando el usuario consulta si tiene canales

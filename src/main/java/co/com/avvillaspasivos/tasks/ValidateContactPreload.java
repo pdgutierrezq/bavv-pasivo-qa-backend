@@ -27,10 +27,7 @@ public class ValidateContactPreload implements Task {
           + " en Informacion de contacto e informacion financiera")
   public <T extends Actor> void performAs(T actor) {
 
-    actor.attemptsTo(
-        UiAssertions.validateContactPreload(),
-        navigateLaterForeignInformation());
-    actor.attemptsTo(
-        UiAssertions.validateFinancialInfPreload());
+    actor.attemptsTo(UiAssertions.validateContactPreload(), navigateLaterForeignInformation());
+    actor.attemptsTo(UiAssertions.validateFinancialInfPreload());
   }
 }

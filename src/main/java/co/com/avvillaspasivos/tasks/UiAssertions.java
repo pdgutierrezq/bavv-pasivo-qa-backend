@@ -328,9 +328,12 @@ public class UiAssertions {
         Ensure.that(ContactInformationPage.TEXTBOX_MAIL_COPY)
             .value()
             .isEqualToIgnoringCase(crmResponseData.getMail()),
-        //        Ensure.that(ContactInformationPage.TEXTBOX_CITY)
-        //            .value()
-        //            .isEqualTo(crmResponseData.getCityAddress()),
+        Check.whether(crmResponseData.getCityAddress().equals("Ciudad no encontrada"))
+            .andIfSo(Ensure.that(ContactInformationPage.TEXTBOX_CITY).value().isEmpty())
+            .otherwise(
+                Ensure.that(ContactInformationPage.TEXTBOX_CITY)
+                    .value()
+                    .isEqualTo(crmResponseData.getCityAddress())),
         Ensure.that(ContactInformationPage.TEXTBOX_PHONE)
             .value()
             .isEqualTo(crmResponseData.getPhone()),
@@ -343,9 +346,9 @@ public class UiAssertions {
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_NAME)
             .value()
             .isEqualToIgnoringCase(crmResponseData.getCompanyName()),
-        //        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
-        //            .value()
-        //            .isEqualTo(crmResponseData.getCompanyCity()),
+        Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_CITY)
+            .value()
+            .isEqualTo(crmResponseData.getCompanyCity()),
         Ensure.that(ContactInformationPage.TEXTBOX_COMPANY_PHONE)
             .value()
             .isEqualTo(crmResponseData.getCompanyPhone()),
