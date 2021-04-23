@@ -61,7 +61,7 @@ public class ActorActions {
                 .fundingAccValue(36000000)
                 .build();
         break;
-      case CLIENT_WiTH_OUT_FUNDING_ACC:
+      case CLIENT_WITH_OUT_FUNDING_ACC:
         conditions =
             ClientConditions.builder()
                 .fundingAcc(false)
