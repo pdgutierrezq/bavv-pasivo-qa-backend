@@ -49,6 +49,7 @@ public class Constantes {
   public static final String DATA_OTP_PROP = "validOtp";
   public static final String DATA_REST_LIST_PROP = "restrictiveList";
   public static final String DATA_FUNDING_ACC = "fundingAcc";
+  public static final String DATA_FUNDING_ACC_VALLUE = "fundingAccValue";
   public static final String DATA_BLOCK_PROP = "block";
   public static final String DATA_USERS_PROP = "users";
   public static final String DATA_NUMDOC_PROP = "numDoc";
@@ -77,6 +78,10 @@ public class Constantes {
   public static final String FALSE_VALUE = "falso";
   public static final String CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL =
       "cliente actualizado con cuenta para fondeo no enrolado con renovacion";
+ public static final String CLIENT_FUNDING_ACC =
+      "con cuentas en el banco y saldo de 36'000.000";
+ public static final String CLIENT_WiTH_OUT_FUNDING_ACC =
+      "sin cuentas en el banco";
   public static final String CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL =
       "cliente actualizado con cuenta para fondeo enrolado sin renovacion";
   public static final String CLIENT_UPDATED_REST_LIST_CAT_WITH_CHANNELS =

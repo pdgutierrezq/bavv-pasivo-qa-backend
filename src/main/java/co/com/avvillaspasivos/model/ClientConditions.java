@@ -25,5 +25,6 @@ public class ClientConditions {
     private Boolean restrictiveList;
     private Boolean validOtp;
     private Boolean fundingAcc;
+    private int fundingAccValue;
     private Boolean renewal;
 }

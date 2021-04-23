@@ -21,6 +21,7 @@ public class ServicePaths {
 
   private static final String BASE_ENDPOINT = "api.baseurl";
   private static final String BASE_ENDPOINT_CRM = "api.baseurl.crm";
+  private static final String BASE_ENDPOINT_CUSTOMER_ACCOUNTS = "api.baseurl.ca";
 
   static {
     environment = ConfigFactory.create(Environment.class);
@@ -32,6 +33,10 @@ public class ServicePaths {
 
   public static String getCrmEndPointBase() {
     return EnvironmentProperties.getProperty(BASE_ENDPOINT_CRM);
+  }
+
+  public static String getCustomerAccountsEndPointBase() {
+    return EnvironmentProperties.getProperty(BASE_ENDPOINT_CUSTOMER_ACCOUNTS);
   }
 
   public static String pathIdentificationProject() {
@@ -151,5 +156,9 @@ public class ServicePaths {
 
   public static String pathSst() {
     return environment.sst();
+  }
+
+  public static String pathCustomerAccountsCdt() {
+    return environment.customerAccountsCdt();
   }
 }

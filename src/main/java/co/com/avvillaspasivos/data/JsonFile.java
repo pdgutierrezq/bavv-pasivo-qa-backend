@@ -98,7 +98,16 @@ public class JsonFile {
               i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getFundingAcc())) {
-      x = x.filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_FUNDING_ACC)))
+              .filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
+    }
+    if (Objects.nonNull(conditions.getFundingAccValue())) {
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_FUNDING_ACC_VALLUE)))
+              .filter(
+                  i ->
+                      conditions.getFundingAccValue() == i.get(DATA_FUNDING_ACC_VALLUE).getAsInt());
     }
     return x.filter(i -> !i.get(DATA_BLOCK_PROP).getAsBoolean());
   }

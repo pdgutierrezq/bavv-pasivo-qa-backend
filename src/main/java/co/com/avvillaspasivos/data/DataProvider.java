@@ -10,6 +10,7 @@ package co.com.avvillaspasivos.data;
 
 import co.com.avvillaspasivos.model.*;
 import co.com.avvillaspasivos.util.Constantes;
+import com.github.javafaker.Faker;
 import com.google.common.collect.Streams;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -80,8 +81,8 @@ public class DataProvider {
       } catch (FileNotFoundException e) {
         LOGGER.error("Fail reading json country cities file->".concat(e.getMessage()));
       }
-        daneCode=(daneCode.startsWith("0"))?daneCode.substring(1):daneCode;
-        city = filterCity(cityList, daneCode);
+      daneCode = (daneCode.startsWith("0")) ? daneCode.substring(1) : daneCode;
+      city = filterCity(cityList, daneCode);
     }
 
     return city;
@@ -95,19 +96,40 @@ public class DataProvider {
         .orElseGet(() -> "Ciudad no encontrada");
   }
 
+  private static String fixNull(JsonObject jo, String tag, String ifNull) {
+    return (Objects.isNull(jo.get(tag))) ? ifNull : jo.get(tag).getAsString();
+  }
+  private static boolean fixNull(JsonObject jo, String tag, boolean ifNull) {
+    return (Objects.isNull(jo.get(tag))) ? ifNull : jo.get(tag).getAsBoolean();
+  }
+
   private static ActorData buildActorData(JsonObject jsonObjectUser, JsonObject joMain) {
+    Faker faker = new Faker();
+
+    String docType =fixNull(jsonObjectUser,DATA_TIPODOC_PROP,"CC");
+    String firstName =fixNull(jsonObjectUser,DATA_FIRST_NAME_PROP,faker.name().firstName());
+    String lastName =fixNull(jsonObjectUser,DATA_LAST_NAME_PROP,faker.name().lastName());
+    String phone =fixNull(jsonObjectUser,DATA_PHONE_PROP,faker.phoneNumber().cellPhone());
+    String salary =fixNull(jsonObjectUser,DATA_SALARY_PROP,"2000000");
+    boolean client =fixNull(jsonObjectUser,DATA_CLIENT_PROP,true);
+    boolean updated =fixNull(jsonObjectUser,DATA_UPDATED_PROP,true);
+    boolean channels =fixNull(jsonObjectUser,DATA_CHANNELS_PROP,true);
+    boolean cat =fixNull(jsonObjectUser,DATA_CAT_PROP,true);
+    boolean restList =fixNull(jsonObjectUser,DATA_REST_LIST_PROP,false);
+
+
     return ActorData.builder()
-        .documentType(jsonObjectUser.get(DATA_TIPODOC_PROP).getAsString())
+        .documentType(docType)
         .documentNumber(jsonObjectUser.get(DATA_NUMDOC_PROP).getAsString())
-        .firstName(jsonObjectUser.get(DATA_FIRST_NAME_PROP).getAsString())
-        .lastName(jsonObjectUser.get(DATA_LAST_NAME_PROP).getAsString())
-        .phone(jsonObjectUser.get(DATA_PHONE_PROP).getAsString())
-        .salary(jsonObjectUser.get(DATA_SALARY_PROP).getAsString())
-        .client(jsonObjectUser.get(DATA_CLIENT_PROP).getAsBoolean())
-        .updated(jsonObjectUser.get(DATA_UPDATED_PROP).getAsBoolean())
-        .channels(jsonObjectUser.get(DATA_CHANNELS_PROP).getAsBoolean())
-        .cat(jsonObjectUser.get(DATA_CAT_PROP).getAsBoolean())
-        .restrictiveList(jsonObjectUser.get(DATA_REST_LIST_PROP).getAsBoolean())
+        .firstName(firstName)
+        .lastName(lastName)
+        .phone(phone)
+        .salary(salary)
+        .client(client)
+        .updated(updated)
+        .channels(channels)
+        .cat(cat)
+        .restrictiveList(restList)
         .jsonObjectDataFlow(joMain)
         .jsonObjectUser(jsonObjectUser)
         .build();

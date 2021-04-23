@@ -55,6 +55,19 @@ public class ActorActions {
                 .channels(false)
                 .build();
         break;
+      case CLIENT_FUNDING_ACC:
+        conditions =
+            ClientConditions.builder()
+                .fundingAccValue(36000000)
+                .build();
+        break;
+      case CLIENT_WiTH_OUT_FUNDING_ACC:
+        conditions =
+            ClientConditions.builder()
+                .fundingAcc(false)
+                .fundingAccValue(0)
+                .build();
+        break;
       case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
       case CLIENT_UPDATED_WITH_CHANNELS:
       case CLIENT_WITH_CHANNELS:
