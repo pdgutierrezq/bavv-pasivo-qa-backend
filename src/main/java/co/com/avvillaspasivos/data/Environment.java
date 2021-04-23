@@ -29,6 +29,8 @@ public interface Environment extends Config {
 
   String sst();
 
+  String customerAccountsCdt();
+
   String getPdf();
 
   String getChannelsFalse();
