@@ -55,18 +55,17 @@ public class ActorActions {
                 .channels(false)
                 .build();
         break;
+      case CLIENT_WITH_OUT_INSURANCE:
+        conditions = ClientConditions.builder().insurance(false).build();
+        break;
+      case CLIENT_WITH_INSURANCE:
+        conditions = ClientConditions.builder().insurance(true).build();
+        break;
       case CLIENT_FUNDING_ACC:
-        conditions =
-            ClientConditions.builder()
-                .fundingAccValue(36000000)
-                .build();
+        conditions = ClientConditions.builder().fundingAccValue(36000000).build();
         break;
       case CLIENT_WITH_OUT_FUNDING_ACC:
-        conditions =
-            ClientConditions.builder()
-                .fundingAcc(false)
-                .fundingAccValue(0)
-                .build();
+        conditions = ClientConditions.builder().fundingAcc(false).fundingAccValue(1).build();
         break;
       case CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL:
       case CLIENT_UPDATED_WITH_CHANNELS:
@@ -102,27 +101,23 @@ public class ActorActions {
                 .build();
         break;
       case CLIENT_UPDATED_WITHOUT_CHANNELS:
-          OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
-          conditions =
-              ClientConditions.builder()
-                  .client(true)
-                  .updated(true)
-                  .restrictiveList(false)
-                  .cat(false)
-                  .channels(false)
-                  .build();
-          break;
-      case CLIENT_UPDATED:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
         conditions =
             ClientConditions.builder()
                 .client(true)
                 .updated(true)
+                .restrictiveList(false)
+                .cat(false)
+                .channels(false)
                 .build();
         break;
+      case CLIENT_UPDATED:
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), true);
+        conditions = ClientConditions.builder().client(true).updated(true).build();
+        break;
       case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
-        case CLIENT_WITHOUT_CHANNELS:
-            OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
+      case CLIENT_WITHOUT_CHANNELS:
+        OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
         conditions =
             ClientConditions.builder()
@@ -239,8 +234,6 @@ public class ActorActions {
   }
 
   public static String getTextFromPeriodItemList(Actor actor, Target target) {
-    return getTextFromTarget(actor,target).split("\n")[0];
+    return getTextFromTarget(actor, target).split("\n")[0];
   }
-
-
 }

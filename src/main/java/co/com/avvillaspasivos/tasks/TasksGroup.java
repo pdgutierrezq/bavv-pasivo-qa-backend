@@ -254,11 +254,7 @@ public class TasksGroup {
   public static Performable navigateLaterAutheticationCda() {
     return Task.where(
         "{0} navega hasta superar la autenticacion",
-        navigateToIdentificationForm(),
-        FormIdentification.fillAndContinue(),
-        Waits.loader(),
-        PepSelection.option("no"),
-        AccountSelection.type("Cuenta Digital"),
+        navigateLaterRequiredGmfCda(),
         Check.whether(the(InsuranceOfferPage.RADIO_ACCEPT_INSURANCE), isVisible())
             .andIfSo(
                 InsuranceSelection.choose("acepta"),
@@ -267,6 +263,16 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+  public static Performable navigateLaterRequiredGmfCda() {
+    return Task.where(
+        "{0} navega hasta superar la autenticacion",
+        navigateToIdentificationForm(),
+        FormIdentification.fillAndContinue(),
+        Waits.loader(),
+        PepSelection.option("no"),
+        AccountSelection.type("Cuenta Digital"));
+  }
+
 
   public static Performable navigateLaterForeignInformation() {
     return Task.where(

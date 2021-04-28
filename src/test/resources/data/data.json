@@ -2,6 +2,18 @@
   "users": [
     {
       "tipoDoc": "CC",
+      "numDoc": "1122417742",
+      "insurance": true,
+      "block": false
+    },
+    {
+      "tipoDoc": "CC",
+      "numDoc": "7657656",
+      "insurance": false,
+      "block": false
+    },
+    {
+      "tipoDoc": "CC",
       "numDoc": "1016020757",
       "fundingAcc": true,
       "block": false,
@@ -9,7 +21,7 @@
     },
     {
       "tipoDoc": "CC",
-      "numDoc": "58565656566",
+      "numDoc": "565656566",
       "fundingAcc": false,
       "block": false,
       "fundingAccValue": 0

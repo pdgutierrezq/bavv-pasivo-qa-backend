@@ -102,7 +102,12 @@ public class JsonFile {
           x.filter(e -> Objects.nonNull(e.get(DATA_FUNDING_ACC)))
               .filter(i -> conditions.getFundingAcc() == i.get(DATA_FUNDING_ACC).getAsBoolean());
     }
-    if (Objects.nonNull(conditions.getFundingAccValue())) {
+    if (Objects.nonNull(conditions.getInsurance())) {
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_INSURANCE)))
+              .filter(i -> conditions.getInsurance() == i.get(DATA_INSURANCE).getAsBoolean());
+    }
+    if (conditions.getFundingAccValue()!=0) {
       x =
           x.filter(e -> Objects.nonNull(e.get(DATA_FUNDING_ACC_VALLUE)))
               .filter(

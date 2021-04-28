@@ -30,6 +30,7 @@ public class ActorData {
     private boolean channels;
     private boolean cat;
     private boolean restrictiveList;
+    private boolean insurance;
     private JsonObject jsonObjectDataFlow;
     private JsonObject jsonObjectUser;
 
