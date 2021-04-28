@@ -109,13 +109,14 @@ public class DataProvider {
     String docType =fixNull(jsonObjectUser,DATA_TIPODOC_PROP,"CC");
     String firstName =fixNull(jsonObjectUser,DATA_FIRST_NAME_PROP,faker.name().firstName());
     String lastName =fixNull(jsonObjectUser,DATA_LAST_NAME_PROP,faker.name().lastName());
-    String phone =fixNull(jsonObjectUser,DATA_PHONE_PROP,faker.phoneNumber().cellPhone());
+    String phone =fixNull(jsonObjectUser,DATA_PHONE_PROP,"3256768989");
     String salary =fixNull(jsonObjectUser,DATA_SALARY_PROP,"2000000");
     boolean client =fixNull(jsonObjectUser,DATA_CLIENT_PROP,true);
     boolean updated =fixNull(jsonObjectUser,DATA_UPDATED_PROP,true);
     boolean channels =fixNull(jsonObjectUser,DATA_CHANNELS_PROP,true);
     boolean cat =fixNull(jsonObjectUser,DATA_CAT_PROP,true);
     boolean restList =fixNull(jsonObjectUser,DATA_REST_LIST_PROP,false);
+    boolean insurance =fixNull(jsonObjectUser,DATA_INSURANCE,false);
 
 
     return ActorData.builder()
@@ -129,6 +130,7 @@ public class DataProvider {
         .updated(updated)
         .channels(channels)
         .cat(cat)
+        .insurance(insurance)
         .restrictiveList(restList)
         .jsonObjectDataFlow(joMain)
         .jsonObjectUser(jsonObjectUser)

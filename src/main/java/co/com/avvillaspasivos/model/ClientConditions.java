@@ -27,4 +27,5 @@ public class ClientConditions {
     private Boolean fundingAcc;
     private int fundingAccValue;
     private Boolean renewal;
+    private Boolean insurance;
 }

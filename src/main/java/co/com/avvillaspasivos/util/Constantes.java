@@ -49,6 +49,7 @@ public class Constantes {
   public static final String DATA_OTP_PROP = "validOtp";
   public static final String DATA_REST_LIST_PROP = "restrictiveList";
   public static final String DATA_FUNDING_ACC = "fundingAcc";
+  public static final String DATA_INSURANCE = "insurance";
   public static final String DATA_FUNDING_ACC_VALLUE = "fundingAccValue";
   public static final String DATA_BLOCK_PROP = "block";
   public static final String DATA_USERS_PROP = "users";
@@ -76,11 +77,13 @@ public class Constantes {
   public static final String TAG_NOT_EDIT = "no modifica";
   public static final String TRUE_VALUE = "verdadero";
   public static final String FALSE_VALUE = "falso";
+  public static final String CLIENT_WITH_INSURANCE = "tiene seguro";
+  public static final String CLIENT_WITH_OUT_INSURANCE = "no tiene seguro";
   public static final String CLIENT_UPDATED_FUNDING_ACC_WITHOUT_CHANNELS_RENEWAL =
       "cliente actualizado con cuenta para fondeo no enrolado con renovacion";
  public static final String CLIENT_FUNDING_ACC =
       "con cuentas en el banco y saldo de 36'000.000";
- public static final String CLIENT_WiTH_OUT_FUNDING_ACC =
+ public static final String CLIENT_WITH_OUT_FUNDING_ACC =
       "sin cuentas en el banco";
   public static final String CLIENT_UPDATED_FUNDING_ACC_WITH_CHANNELS_NO_RENEWAL =
       "cliente actualizado con cuenta para fondeo enrolado sin renovacion";
@@ -140,6 +143,8 @@ public class Constantes {
       ImmutableMap.<String, String>builder()
           .put("enrolamiento de canales", "enrolamiento-cliente")
           .put("tips de ahorro", "tips-ahorro")
+          .put("autenticacion", "autenticacion-otp")
+          .put("ofrecimiento seguro", "seguro-cuenta")
           .build();
 
   public static final Map<String, String> pdfCodeExpectedMap =
