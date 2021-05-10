@@ -78,24 +78,36 @@ public class JsonFile {
       Stream<JsonObject> x, ClientConditions conditions) {
 
     if (Objects.nonNull(conditions.getClient())) {
-      x = x.filter(i -> conditions.getClient() == i.get(DATA_CLIENT_PROP).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_CLIENT_PROP)))
+              .filter(i -> conditions.getClient() == i.get(DATA_CLIENT_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getUpdated())) {
-      x = x.filter(i -> conditions.getUpdated() == i.get(DATA_UPDATED_PROP).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_UPDATED_PROP)))
+              .filter(i -> conditions.getUpdated() == i.get(DATA_UPDATED_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getChannels())) {
-      x = x.filter(i -> conditions.getChannels() == i.get(DATA_CHANNELS_PROP).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_CHANNELS_PROP)))
+              .filter(i -> conditions.getChannels() == i.get(DATA_CHANNELS_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getCat())) {
-      x = x.filter(i -> conditions.getCat() == i.get(DATA_CAT_PROP).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_CAT_PROP)))
+              .filter(i -> conditions.getCat() == i.get(DATA_CAT_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getValidOtp())) {
-      x = x.filter(i -> conditions.getValidOtp() == i.get(DATA_OTP_PROP).getAsBoolean());
+      x =
+          x.filter(e -> Objects.nonNull(e.get(DATA_OTP_PROP)))
+              .filter(i -> conditions.getValidOtp() == i.get(DATA_OTP_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getRestrictiveList())) {
       x =
-          x.filter(
-              i -> conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
+          x.filter(e -> Objects.nonNull(e.get(DATA_REST_LIST_PROP)))
+              .filter(
+                  i ->
+                      conditions.getRestrictiveList() == i.get(DATA_REST_LIST_PROP).getAsBoolean());
     }
     if (Objects.nonNull(conditions.getFundingAcc())) {
       x =
@@ -107,7 +119,7 @@ public class JsonFile {
           x.filter(e -> Objects.nonNull(e.get(DATA_INSURANCE)))
               .filter(i -> conditions.getInsurance() == i.get(DATA_INSURANCE).getAsBoolean());
     }
-    if (conditions.getFundingAccValue()!=0) {
+    if (conditions.getFundingAccValue() != 0) {
       x =
           x.filter(e -> Objects.nonNull(e.get(DATA_FUNDING_ACC_VALLUE)))
               .filter(

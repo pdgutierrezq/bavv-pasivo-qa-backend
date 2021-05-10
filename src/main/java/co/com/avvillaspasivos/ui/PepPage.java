@@ -21,9 +21,13 @@ public class PepPage {
   public static final Target VER_MAS_PEP =
       Target.the("Ver mas Pep").located(By.xpath("//button[@class='more-info-pep']"));
   public static final Target RADIO_NO_PEP =
-      Target.the("Radio button no PEP").located(By.xpath("//mat-radio-button[contains(*,'No')]"));
+      Target.the("Radio button no PEP").located(By.xpath("//*[@formcontrolname='firstPepInput']//mat-radio-button[contains(*,'No')]"));
   public static final Target RADIO_SI_PEP =
-      Target.the("Radio button no PEP").located(By.xpath("//mat-radio-button[contains(*,'Si')]"));
+      Target.the("Radio button no PEP").located(By.xpath("//*[@formcontrolname='firstPepInput']//mat-radio-button[contains(*,'Si')]"));
+   public static final Target RADIO_NO_SECOND_QUESTION =
+      Target.the("Radio button no PEP").located(By.xpath("//*[@formcontrolname='secondPepInput']//mat-radio-button[contains(*,'No')]"));
+  public static final Target RADIO_SI_SECOND_QUESTION =
+      Target.the("Radio button no PEP").located(By.xpath("//*[@formcontrolname='secondPepInput']//mat-radio-button[contains(*,'Si')]"));
   public static final Target CONTINUE_BUTTON =
       Target.the("Boton continuar PEP")
           .located(By.xpath("//button[contains(text(),' Continuar')]"));

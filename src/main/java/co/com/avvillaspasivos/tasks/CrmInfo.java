@@ -41,7 +41,7 @@ public class CrmInfo implements Task {
 
     ActorData actorData = OnStage.theActor(uiActor).recall(SessionVariables.DATA_ACTOR.name());
 
-    actor.whoCan(CallAnApi.at(ServicePaths.getCrmEndPointBase()));
+    actor.whoCan(CallAnApi.at(ServicePaths.getAuxEndPointBase()));
 
     CrmBody crmBody =
         CrmBody.builder().documentType("CC").documentNumber(actorData.getDocumentNumber()).build();

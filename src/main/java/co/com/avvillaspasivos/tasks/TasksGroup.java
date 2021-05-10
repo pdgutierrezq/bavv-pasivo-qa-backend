@@ -154,7 +154,7 @@ public class TasksGroup {
         Check.whether(userType.equals(CLIENT_UPDATED))
             .andIfSo(
                 Waits.loader(),
-                AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG))
+                AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, profitAccount))
             .otherwise(
                 fillEconomicActivity(economycActivity),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
@@ -169,15 +169,15 @@ public class TasksGroup {
 
     return Task.where(
         "{0} navega hasta la pagina de datos para envio de tarjeta ",
-        navigateAfterAccountConfigCdt(EMPLOYMENT_VALUE,"PSE", NEW_ACCOUNT_PROFIT_TAG));
+        navigateAfterAccountConfigCdt(EMPLOYMENT_VALUE, "PSE", NEW_ACCOUNT_PROFIT_TAG));
   }
 
-  public static Performable navigateToDocumentLoadCdt(String economicActivity,String declarantOption) {
+  public static Performable navigateToDocumentLoadCdt(
+      String economicActivity, String declarantOption) {
 
     return Task.where(
         "{0} navega hasta la pagina de cargue de documentos en CDT ",
         navigateAfterAccountConfigCdt(economicActivity, ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
-        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(declarantOption));
   }
 
@@ -215,8 +215,11 @@ public class TasksGroup {
             .andIfSo(Click.on(EconomicActivityPage.RADIO_INDEPENDET)),
         Check.whether(INDEPENDENT_BUSINESS_VALUE.equals(economicActivity))
             .andIfSo(Click.on(EconomicActivityPage.RADIO_INDEPENDENT_BUSINESS)),
-        Check.whether(INDEPENDENT_BUSINESS_VALUE.equals(economicActivity)||INDEPENDENT_VALUE.equals(economicActivity))
-            .andIfSo(Enter.theValue("0111").into(EconomicActivityPage.INPUT_CIUU).thenHit(Keys.TAB)),
+        Check.whether(
+                INDEPENDENT_BUSINESS_VALUE.equals(economicActivity)
+                    || INDEPENDENT_VALUE.equals(economicActivity))
+            .andIfSo(
+                Enter.theValue("0111").into(EconomicActivityPage.INPUT_CIUU).thenHit(Keys.TAB)),
         Click.on(EconomicActivityPage.CONTINUE_BUTTON));
   }
 
@@ -263,6 +266,7 @@ public class TasksGroup {
         Waits.loader(),
         Autentication.byOtp());
   }
+
   public static Performable navigateLaterRequiredGmfCda() {
     return Task.where(
         "{0} navega hasta superar la autenticacion",
@@ -272,7 +276,6 @@ public class TasksGroup {
         PepSelection.option("no"),
         AccountSelection.type("Cuenta Digital"));
   }
-
 
   public static Performable navigateLaterForeignInformation() {
     return Task.where(

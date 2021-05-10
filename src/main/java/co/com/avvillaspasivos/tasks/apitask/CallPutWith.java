@@ -15,38 +15,37 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.rest.interactions.Post;
+import net.serenitybdd.screenplay.rest.interactions.Put;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.util.ActorActions.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class CallPostWith implements Task {
+public class CallPutWith implements Task {
 
     private final String path;
-    private final Object body;
 
-    public CallPostWith(String path, Object body) {
+    public CallPutWith(String path) {
         this.path = path;
-        this.body = body;
     }
 
-    public static Performable token(String path, Object body) {
-        return instrumented(CallPostWith.class, path, body);
+    public static Performable token(String path) {
+        return instrumented(CallPutWith.class, path);
     }
 
     @Override
-    @Step("{0} llama servicio Post")
+    @Step("{0} llama servicio Put con token")
     public <T extends Actor> void performAs(T actor) {
-        String mainActor=getMainActorName();
+        String mainActor = getMainActorName();
 
-        ActorData actorData =getActorDataFlow(mainActor);
+        ActorData actorData = getActorDataFlow(mainActor);
 
         String token = getToken();
 
         OnStage.theActorCalled(mainActor).entersTheScene();
+
         actor.attemptsTo(
-            Post.to(path)
+            Put.to(path)
                 .with(
                     requestSpecification ->
                         requestSpecification
@@ -55,7 +54,6 @@ public class CallPostWith implements Task {
                             .header("authorization-token", token)
                             .header("x-adl-channel", "bavv-pasivo-cdt-masivo")
                             .header("x-adl-document-type", actorData.getDocumentType())
-                            .header("x-adl-document-number", actorData.getDocumentNumber())
-                            .body(body)));
+                            .header("x-adl-document-number", actorData.getDocumentNumber())));
     }
 }

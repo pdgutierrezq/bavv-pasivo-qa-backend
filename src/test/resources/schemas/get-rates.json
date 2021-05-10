@@ -15,33 +15,6 @@
               "type": "number"
             },
             "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "number"
-            },
-            "tasaInteres": {
               "type": "number"
             },
             "montoMaximo": {
@@ -177,7 +150,7 @@
               "type": "number"
             },
             "tasaInteres": {
-              "type": "number"
+              "type": "integer"
             },
             "montoMaximo": {
               "type": "number"
@@ -228,196 +201,7 @@
               "type": "integer"
             },
             "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
               "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
             },
             "tasaInteres": {
               "type": "number"
@@ -717,60 +501,6 @@
               "type": "integer"
             },
             "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
               "type": "number"
             },
             "montoMaximo": {
@@ -799,168 +529,6 @@
             },
             "tasaInteres": {
               "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "number"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "integer"
-            },
-            "montoMaximo": {
-              "type": "number"
-            },
-            "plazoMaximo": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "plazoInicial",
-            "montoInicial",
-            "tasaInteres",
-            "montoMaximo",
-            "plazoMaximo"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "plazoInicial": {
-              "type": "integer"
-            },
-            "montoInicial": {
-              "type": "integer"
-            },
-            "tasaInteres": {
-              "type": "integer"
             },
             "montoMaximo": {
               "type": "number"
@@ -1393,6 +961,438 @@
             },
             "tasaInteres": {
               "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "integer"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "integer"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "number"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "integer"
+            },
+            "montoMaximo": {
+              "type": "number"
+            },
+            "plazoMaximo": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "plazoInicial",
+            "montoInicial",
+            "tasaInteres",
+            "montoMaximo",
+            "plazoMaximo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plazoInicial": {
+              "type": "integer"
+            },
+            "montoInicial": {
+              "type": "integer"
+            },
+            "tasaInteres": {
+              "type": "integer"
             },
             "montoMaximo": {
               "type": "number"

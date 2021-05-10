@@ -30,11 +30,13 @@ public class PepSelection implements Task {
 
   @Step("{0} selecciona la opcion #confirmation pep")
   public <T extends Actor> void performAs(T actor) {
+
     if ("si".equalsIgnoreCase(confirmation)) {
       actor.attemptsTo(Click.on(PepPage.RADIO_SI_PEP));
 
     } else if ("no".equalsIgnoreCase(confirmation)) {
       actor.attemptsTo(Click.on(PepPage.RADIO_NO_PEP));
+      actor.attemptsTo(Click.on(PepPage.RADIO_NO_SECOND_QUESTION));
     }
     actor.attemptsTo(Click.on(PepPage.CONTINUE_BUTTON));
   }

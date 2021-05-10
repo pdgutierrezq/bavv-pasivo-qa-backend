@@ -4,7 +4,6 @@
   @PBA-1525
   @regresion
   @CDA
-  @www
 
   Característica: Consumo de servicio seguro y redirecciones - CDA
     Yo como usuario con o sin seguro  en banco
