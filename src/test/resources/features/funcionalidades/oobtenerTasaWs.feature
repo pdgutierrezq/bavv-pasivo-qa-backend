@@ -9,7 +9,6 @@ Característica: Consulta de tasas
   quiero que se me informe las tasas actualizadas
   para iniciar el proceso de apertura CDT
 
-  @qqq
   Escenario:  Consulta de tasas CDT
     Dado que el "usuario" esta habilitado para consultar las tasas
     Cuando realizala consulta de las tasas

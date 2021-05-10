@@ -12,6 +12,9 @@ import co.com.avvillaspasivos.data.Environment;
 import co.com.avvillaspasivos.data.EnvironmentProperties;
 import org.aeonbits.owner.ConfigFactory;
 
+import static co.com.avvillaspasivos.util.Constantes.AUX_ENV;
+import static co.com.avvillaspasivos.util.Constantes.DEV_ENV;
+
 public class ServicePaths {
   private ServicePaths() {
     throw new IllegalStateException("Utility class");
@@ -20,7 +23,9 @@ public class ServicePaths {
   private static Environment environment;
 
   private static final String BASE_ENDPOINT = "api.baseurl";
-  private static final String BASE_ENDPOINT_CRM = "api.baseurl.crm";
+  private static final String BASE_ENDPOINT_DEV = "api.baseurl.dev";
+  private static final String BASE_ENDPOINT_STG = "api.baseurl.stg";
+  private static final String BASE_ENDPOINT_AUX = "api.baseurl.aux";
   private static final String BASE_ENDPOINT_CUSTOMER_ACCOUNTS = "api.baseurl.ca";
 
   static {
@@ -31,8 +36,18 @@ public class ServicePaths {
     return EnvironmentProperties.getProperty(BASE_ENDPOINT);
   }
 
-  public static String getCrmEndPointBase() {
-    return EnvironmentProperties.getProperty(BASE_ENDPOINT_CRM);
+  public static String getEndPointBase(String env) {
+    String endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_STG);
+    if (env.equals(DEV_ENV)) {
+      endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_DEV);
+    }else if (env.equals(AUX_ENV)){
+        endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
+    }
+    return endPointBase;
+  }
+
+  public static String getAuxEndPointBase() {
+    return EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
   }
 
   public static String getCustomerAccountsEndPointBase() {
@@ -122,14 +137,16 @@ public class ServicePaths {
   public static String pathGetPdfSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
-  public static String pathGetChannelsSchema(boolean option) {
-      String path=pathjsonSchemaBaseDir().concat(environment.getChannelsFalse());
 
-      if(option){
-          path=pathjsonSchemaBaseDir().concat(environment.getChannelsTrue());
-      }
+  public static String pathGetChannelsSchema(boolean option) {
+    String path = pathjsonSchemaBaseDir().concat(environment.getChannelsFalse());
+
+    if (option) {
+      path = pathjsonSchemaBaseDir().concat(environment.getChannelsTrue());
+    }
     return path;
   }
+
   public static String pathGetRatesSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getRates());
   }

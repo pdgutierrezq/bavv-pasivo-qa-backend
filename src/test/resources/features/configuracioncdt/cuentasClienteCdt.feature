@@ -13,7 +13,7 @@ Característica: Consulta servicio de cuentas por cliente
 
   Escenario: consulta cuentas cliente CDT sin cuentas disponibles para fondear
     Dado que se obtiene un usuario "con cuentas en el banco y saldo de 36'000.000"
-    Cuando consulta las cuentas del cliente con monto 37000000
+    Cuando consulta las cuentas del cliente con monto 40000000
     Entonces se validara que no hay cuentas con saldo disponibles para fondear
 
   Escenario: consulta cuentas cliente CDT con cuentas disponibles para fondear

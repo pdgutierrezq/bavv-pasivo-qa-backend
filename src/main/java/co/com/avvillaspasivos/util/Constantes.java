@@ -120,6 +120,8 @@ public class Constantes {
   public static final String ACCT_COD_TYPE_GET_PDF = "CUENTA_PRO";
   public static final String NO_SELECTED_ACCOUNT_GET_PDF = "NOT_SELECTED";
   public static final String ACCOUNT_FUNDING_TAG = "Cuenta AV Villas";
+  public static final String DEV_ENV = "DEV";
+  public static final String AUX_ENV = "AUX";
   public static final String ACCOUNT_PROFIT_TAG = "Cuenta AV Villas";
   public static final String NEW_ACCOUNT_PROFIT_TAG = "Nueva Cuenta AV Villas";
   public static final String EXPIRATION_TAG = "al vencimiento";
