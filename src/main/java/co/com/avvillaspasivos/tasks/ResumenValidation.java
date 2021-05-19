@@ -26,7 +26,6 @@ public class ResumenValidation implements Task {
     actor.attemptsTo(
         BdUser.toBlock(false),
         ValidateAccountResume.perform(),
-        ValidateInsuranceResume.perform(),
-        ValidateDebitResume.perform());
+        ValidateInsuranceResume.perform());
   }
 }

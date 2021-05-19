@@ -20,7 +20,7 @@ public class Constantes {
     throw new IllegalStateException("Utility class");
   }
 
-  public static final String EXECUTION_TAGS = "@regresion";
+  public static final String EXECUTION_TAGS = "@sonar";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -107,7 +107,8 @@ public class Constantes {
   public static final String ACCOUNT_NUMBER_CLASS = "account-number";
   public static final String MONEY_CLASS = "money";
   public static final String MONTH_COST_VALUE = "$ 0,00";
-  public static final String WITHDRAWALS_TEXT = "3 retiros gratis al mes";
+  public static final String DESC_ACCOUNT_TEXT =
+      "Sin cuota de manejo y dos retiros gratis si mantienes un saldo promedio de $500.000 al mes, de lo contrario, la cuota de manejo es de $3.490 y un retiro gratis";
   public static final String INSURANCE_COST = "$ 14.800,00";
   public static final String CORRECT_PASS_OPTION = "correcta";
   public static final String CORRECT_PASS = "1636";

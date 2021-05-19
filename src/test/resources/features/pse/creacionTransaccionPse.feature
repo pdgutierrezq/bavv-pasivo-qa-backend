@@ -2,8 +2,8 @@
   @Frontend:creacionTransaccionPseCdt
   @Sprint-62
   @PBA-2349
-  @CDT
-  @regresion
+  @CDTPENDING
+  @regresionPending
   Característica: Redirección a pantalla de PSE
 
     Yo como usuario definiendo desde donde voy a fondear mi CDT

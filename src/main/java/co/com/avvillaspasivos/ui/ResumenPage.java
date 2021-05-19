@@ -28,5 +28,5 @@ public class ResumenPage {
       Target.the("Titulo de resumen").located(By.xpath("//h1"));
   public static final Target INFO_ACCOUNT =
       Target.the("Informacion de cuenta")
-          .located(By.xpath("//h3[contains(.,'3 retiros gratis al mes')]"));
+          .locatedBy("#Account > div > ul > li:nth-child(1) > h3");
 }

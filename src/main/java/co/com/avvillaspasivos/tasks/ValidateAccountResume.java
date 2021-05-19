@@ -54,12 +54,6 @@ public class ValidateAccountResume implements Task {
                     .findElement(By.className(ACCOUNT_NUMBER_CLASS))
                     .isDisplayed())
             .isTrue(),
-        Ensure.that(
-                ResumenPage.ARTICLE_ACCOUNT
-                    .resolveFor(theActorInTheSpotlight())
-                    .findElement(By.className(MONEY_CLASS))
-                    .getText())
-            .isEqualToIgnoringCase(MONTH_COST_VALUE),
-        Ensure.that(ResumenPage.ARTICLE_ACCOUNT).text().contains(WITHDRAWALS_TEXT));
+        Ensure.that(ResumenPage.ARTICLE_ACCOUNT).text().contains(DESC_ACCOUNT_TEXT));
   }
 }

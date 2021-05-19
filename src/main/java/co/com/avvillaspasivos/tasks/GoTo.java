@@ -35,7 +35,7 @@ public class GoTo {
   public static Performable openCdt() {
     return Task.where(
         "{0} ingresa en la opcion abrir Cdt",
-        Enter.theValue("10000").into(CdtHomePage.INPUT_AMOUNT),
+        Enter.theValue("500000").into(CdtHomePage.INPUT_AMOUNT),
         Enter.theValue("99").into(CdtHomePage.INPUT_TERM),
         Waits.loader(),
         Click.on(CdtHomePage.OPEN_CDT_BUTTON));
