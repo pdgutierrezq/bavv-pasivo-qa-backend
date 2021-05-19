@@ -46,7 +46,8 @@ public class ValidateSendingCard implements Task {
           theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
               .recall(SessionVariables.CONTACT_INFORMATION_DATA.name());
     }
-    actor.attemptsTo(
+
+      actor.attemptsTo(
         Ensure.that(SendingCardPage.TEXT_CITY).value().isEqualToIgnoringCase(data.getCityAddress()),
         Ensure.that(SendingCardPage.TEXT_NEIGHBORHOOD).value().isEqualToIgnoringCase(data.getNeighborhood()),
         Ensure.that(SendingCardPage.TEXT_ADDRESS).value().isEqualToIgnoringCase(data.getAddress()));

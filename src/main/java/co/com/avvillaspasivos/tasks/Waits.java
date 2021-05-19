@@ -39,6 +39,7 @@ public class Waits {
   public static Performable infoAccount() {
     return Task.where(
         "{0} espera informacion de la cuenta",
+        loader(),
         WaitUntil.the(ResumenPage.INFO_ACCOUNT, isVisible())
             .forNoMoreThan(Constantes.MAX_WAIT)
             .seconds());
