@@ -8,23 +8,19 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
-import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.model.BodyWs;
-import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.ApiValidations;
-import co.com.avvillaspasivos.tasks.BdUser;
-import co.com.avvillaspasivos.tasks.CallPost;
+import co.com.avvillaspasivos.tasks.GetFlowDataActor;
 import co.com.avvillaspasivos.tasks.Schema;
-import co.com.avvillaspasivos.util.SessionVariables;
+import co.com.avvillaspasivos.tasks.apitask.GetCustomerConditions;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
+import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 import static co.com.avvillaspasivos.paths.ServicePaths.pathCustConditionsSchema;
-import static co.com.avvillaspasivos.paths.ServicePaths.pathCustomerConditions;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class CustomerConditionsSteps {
 
@@ -33,29 +29,20 @@ public class CustomerConditionsSteps {
     OnStage.setTheStage(new OnlineCast());
   }
 
+  @Dado("que se obtiene un usuario para condiciones cliente de tipo {string}")
+  public void queSeObtieneUnUsuarioParaCondicionesClienteDeTipo(String userType) {
+    theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
+  }
+
   @Cuando("consumo el servicio rest de condiciones cliente")
   public void consumoElServicioRestDeCondicionesCliente() {
-    OnStage.theActorInTheSpotlight().whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
-    ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
-
-    BodyWs bodyCustCond =
-        BodyWs.builder()
-            .documentType(actorData.getDocumentType())
-            .documentNumber(actorData.getDocumentNumber())
-            .build();
-
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(CallPost.pathBody(pathCustomerConditions(), bodyCustCond));
+    OnStage.theActorInTheSpotlight().attemptsTo(GetCustomerConditions.post());
   }
 
   @Entonces("el obtengo la informacion de las condiciones del cliente")
   public void elObtengoLaInformacionDeLasCondicionesDelCliente() {
-
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
-            BdUser.toBlock(false),
-            Schema.validation(pathCustConditionsSchema()),
-            ApiValidations.customerConditions());
+            Schema.validation(pathCustConditionsSchema()), ApiValidations.customerConditions());
   }
 }

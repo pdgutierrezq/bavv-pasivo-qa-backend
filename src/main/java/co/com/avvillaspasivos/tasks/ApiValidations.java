@@ -32,21 +32,10 @@ public class ApiValidations {
                 .concat(String.valueOf(actorData.isCat())),
             response -> response.body("hasCAT", Matchers.is(actorData.isCat()))));
   }
+
   public static Performable customerConditions() {
-      ActorData actorData = OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
     return Task.where(
-        "{0} valida que coincida las condiciones del cliente con lo esperado",
-        Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200)),
-        Ensure.that(
-            "Se confirma que el usuario es cliente",
-            response -> response.body("client", Matchers.is(actorData.isClient()))),
-        Ensure.that(
-            "Se confirma que el usuario no es lista restrictiva",
-            response ->
-                response.body("restrictiveList", Matchers.is(actorData.isRestrictiveList()))),
-        Ensure.that(
-            "Se confirma que el usuario es actualizado",
-            response -> response.body("updated", Matchers.is(actorData.isUpdated())))
-        );
+        "{0} valida estado correcto",
+        Ensure.that("status code is 200", response -> response.statusCode(HttpStatus.OK_200)));
   }
 }

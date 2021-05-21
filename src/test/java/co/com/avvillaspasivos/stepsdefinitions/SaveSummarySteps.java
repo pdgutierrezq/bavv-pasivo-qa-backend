@@ -10,7 +10,6 @@ package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.tasks.GetFlowDataActor;
 import co.com.avvillaspasivos.tasks.GetToken;
-import co.com.avvillaspasivos.tasks.Schema;
 import co.com.avvillaspasivos.tasks.apitask.SaveSummaryTransaction;
 import co.com.avvillaspasivos.tasks.apivalidation.SaveSummaryResponse;
 import co.com.avvillaspasivos.util.SessionVariables;
@@ -21,7 +20,6 @@ import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
-import static co.com.avvillaspasivos.paths.ServicePaths.pathSstSchema;
 import static co.com.avvillaspasivos.util.Constantes.AUTHENTICATION_ACTOR;
 import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -48,6 +46,6 @@ public class SaveSummarySteps {
   @Entonces("se confirmará que se actualizó la información")
   public void seConfirmaráQueSeActualizóLaInformación() {
     OnStage.theActorInTheSpotlight()
-        .attemptsTo(Schema.validation(pathSstSchema()), SaveSummaryResponse.validate());
+        .attemptsTo(SaveSummaryResponse.validate());
   }
 }

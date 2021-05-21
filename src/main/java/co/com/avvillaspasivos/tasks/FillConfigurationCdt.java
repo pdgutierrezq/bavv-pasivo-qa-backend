@@ -59,7 +59,7 @@ public class FillConfigurationCdt implements Task {
 
   private ResumeCdtData buildCdtData(String refund) {
     String term = (refund.equals(EXPIRATION_TAG)) ? "100" : "720";
-    return ResumeCdtData.builder().amount("10000000").term(term).build();
+    return ResumeCdtData.builder().amount("500000").term(term).build();
   }
 
   public static Performable selectRamdomPeriodItem() {

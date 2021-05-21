@@ -19,6 +19,7 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.util.ActorActions.*;
+import static co.com.avvillaspasivos.util.Constantes.TRANSACTION_ID_VALUE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class CallPostWith implements Task {
@@ -51,7 +52,7 @@ public class CallPostWith implements Task {
                     requestSpecification ->
                         requestSpecification
                             .header("Content-Type", ContentType.JSON)
-                            .header("transaction-id", "5641016020193")
+                            .header("transaction-id", TRANSACTION_ID_VALUE)
                             .header("authorization-token", token)
                             .header("x-adl-channel", "bavv-pasivo-cdt-masivo")
                             .header("x-adl-document-type", actorData.getDocumentType())

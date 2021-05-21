@@ -20,6 +20,7 @@ import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.Keys;
 
+import static co.com.avvillaspasivos.tasks.SmallTasks.passCdtFeatures;
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
@@ -107,18 +108,11 @@ public class TasksGroup {
         GoTo.homePageCdt(), GoTo.openCdt());
   }
 
-  public static Performable navigateToPseCdtWithLink() {
-    return Task.where(
-        "{0} navega hasta la pagina pse",
-        navigateLaterAutheticationCdt(),
-        Check.whether(the(CommonWebElementsPage.LOADER), isVisible()).andIfSo(Waits.loader()),
-        Click.on(AccountConfigurationPageCdt.PSE_BUTTON));
-  }
-
   public static Performable navigateToPseCdt() {
     return Task.where(
         "{0} navega hasta la pagina pse",
         fundingSelectBy("PSE"),
+        passCdtFeatures(),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(the(EnrollmentPage.CONTINUE_BUTTON), isPresent())
@@ -159,10 +153,13 @@ public class TasksGroup {
                 fillEconomicActivity(economycActivity),
                 Check.whether(the(CommonWebElementsPage.LOADER), isVisible())
                     .andIfSo(Waits.loader()),
-                FillContactInformation.perfom(),
+                FillContactInfo.fixed(),
+                //FillContactInformation.perfom(),
                 FillForeignInformation.perfom(),
                 FillFinancialInformation.perfom(),
                 AccountConfigurationCdt.perform(fundingType, profitAccount)));
+
+
   }
 
   public static Performable navigateToSendingCardCdt() {
@@ -178,6 +175,7 @@ public class TasksGroup {
     return Task.where(
         "{0} navega hasta la pagina de cargue de documentos en CDT ",
         navigateAfterAccountConfigCdt(economicActivity, ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
+        passCdtFeatures(),
         DeclaringSelection.choose(declarantOption));
   }
 

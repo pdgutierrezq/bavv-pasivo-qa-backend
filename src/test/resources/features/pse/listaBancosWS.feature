@@ -1,5 +1,7 @@
 # language: es
 @Backend:Pse-CDT
+@BackendCDT
+
 @Sprint-54
 @PBA-2029
 

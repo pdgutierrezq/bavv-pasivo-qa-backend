@@ -1,14 +1,15 @@
   # language: es
   @Backend:creacionTransaccionPseCdt
+  @BackendCDT
+
   @Sprint-55
   @PBA-2030
   @Sprint-56
   @PBA-2031
   @Sprint-57
   @PBA-2032
-  @CDT
+
   @regresion
-  @www
   Característica: Servicios web para operaciones PSE
 
     Yo como usuario
