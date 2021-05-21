@@ -6,7 +6,6 @@
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
  */
-
 package co.com.avvillaspasivos.stepsdefinitions;
 
 import co.com.avvillaspasivos.tasks.BankList;
@@ -21,17 +20,14 @@ import static co.com.avvillaspasivos.util.Constantes.AUTHENTICATION_ACTOR;
 import static co.com.avvillaspasivos.util.Constantes.BANK_LIST_ACTOR;
 
 public class PseGetBankListSteps {
-    @Cuando("se llama al servicio pse get bank list")
-    public void seLlamaAlServicioPseGetBankList() {
-        OnStage.theActorCalled(AUTHENTICATION_ACTOR).attemptsTo(GetToken.userIdentity());
-        OnStage.theActorCalled(BANK_LIST_ACTOR).attemptsTo(BankList.get());
-    }
+  @Cuando("se llama al servicio pse get bank list")
+  public void seLlamaAlServicioPseGetBankList() {
+    OnStage.theActorCalled(AUTHENTICATION_ACTOR).attemptsTo(GetToken.userIdentity());
+    OnStage.theActorCalled(BANK_LIST_ACTOR).attemptsTo(BankList.get());
+  }
 
-    @Entonces("se validará el esquema de la respuesta")
-    public void seValidaráElEsquemaDeLaRespuesta() {
-        OnStage.theActorInTheSpotlight()
-            .attemptsTo(
-                Schema.validation(pathPseGetBankListSchema())
-                );
-    }
+  @Entonces("se validará el esquema de la respuesta")
+  public void seValidaráElEsquemaDeLaRespuesta() {
+    OnStage.theActorInTheSpotlight().attemptsTo(Schema.validation(pathPseGetBankListSchema()));
+  }
 }

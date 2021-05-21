@@ -21,6 +21,9 @@ public class Constantes {
   }
 
   public static final String EXECUTION_TAGS = "@regresion";
+  public static final String EXECUTION_TAGS_CDT = "@CDT";
+  public static final String EXECUTION_TAGS_CDA = "@CDA";
+  public static final String EXECUTION_TAGS_API = "@BackendCDT";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
@@ -132,6 +135,7 @@ public class Constantes {
   public static final String HOME_VALUE = "hogar";
   public static final String INDEPENDENT_VALUE = "independiente";
   public static final String INDEPENDENT_BUSINESS_VALUE = "independiente con negocio";
+  public static final String TRANSACTION_ID_VALUE = "5641016020193";
 
 
   public static final Map<String, String> UI_URL_PATHS =

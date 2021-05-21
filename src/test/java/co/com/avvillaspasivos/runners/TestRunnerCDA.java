@@ -20,8 +20,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     features = "classpath:features",
     glue = Constantes.RUTA_STEPS_DEFINITIONS,
-    tags = Constantes.EXECUTION_TAGS,
+    tags = Constantes.EXECUTION_TAGS_CDA,
     snippets = SnippetType.CAMELCASE)
-public class TestRunnerConstruccion {
+public class TestRunnerCDA {
 
 }

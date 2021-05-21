@@ -1,5 +1,7 @@
  # language: es
  @Backend:consultaCanales
+ @BackendBooth
+
  @Sprint-19
  @PBA-711
  @regresion

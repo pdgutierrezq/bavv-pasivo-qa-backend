@@ -1,8 +1,10 @@
   # language: es
   @Backend:LogicaGetPdfCdt
+  @BackendCDT
+
   @Sprint-49
   @PBA-1740
-  @CDT
+
   @Sprint-63
   @PBA-2336
   @regresion

@@ -1,5 +1,7 @@
   # language: es
   @Backend:PantallaDeclarante
+  @BackendCDT
+
   @Sprint-51
   @PBA-1814
   @regresion

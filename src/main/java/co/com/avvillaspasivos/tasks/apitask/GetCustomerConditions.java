@@ -9,51 +9,52 @@
 package co.com.avvillaspasivos.tasks.apitask;
 
 import co.com.avvillaspasivos.model.ActorData;
+import co.com.avvillaspasivos.model.BodyWs;
+import co.com.avvillaspasivos.paths.ServicePaths;
+import co.com.avvillaspasivos.util.SessionVariables;
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.rest.interactions.Get;
+import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
+import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.avvillaspasivos.util.ActorActions.*;
 import static co.com.avvillaspasivos.util.Constantes.TRANSACTION_ID_VALUE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class CallGetWith implements Task {
+public class GetCustomerConditions implements Task {
 
-  private final String path;
-
-  public CallGetWith(String path) {
-    this.path = path;
-  }
-
-  public static Performable token(String path) {
-    return instrumented(CallGetWith.class, path);
+  public static Performable post() {
+    return instrumented(GetCustomerConditions.class);
   }
 
   @Override
-  @Step("{0} llama servicio Get con token")
+  @Step("{0} realiza el llamado del servicio condiciones cliente")
   public <T extends Actor> void performAs(T actor) {
-    String mainActor = getMainActorName();
+    ActorData actorData = actor.recall(SessionVariables.DATA_ACTOR.name());
 
-    ActorData actorData = getActorDataFlow(mainActor);
+    actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase()));
 
-    String token = getToken();
-
-    OnStage.theActorCalled(mainActor).entersTheScene();
+    BodyWs bodyWs = buildCustCondBody(actorData);
 
     actor.attemptsTo(
-        Get.resource(path)
+        Post.to(ServicePaths.pathCustomerConditions())
             .with(
                 requestSpecification ->
                     requestSpecification
                         .header("Content-Type", ContentType.JSON)
                         .header("transaction-id", TRANSACTION_ID_VALUE)
-                        .header("authorization-token", token)
                         .header("x-adl-channel", "bavv-pasivo-cdt-masivo")
                         .header("x-adl-document-type", actorData.getDocumentType())
-                        .header("x-adl-document-number", actorData.getDocumentNumber())));
+                        .header("x-adl-document-number", actorData.getDocumentNumber())
+                        .body(bodyWs)));
+  }
+
+  private BodyWs buildCustCondBody(ActorData actorData) {
+    return BodyWs.builder()
+        .documentType(actorData.getDocumentType())
+        .documentNumber(actorData.getDocumentNumber())
+        .build();
   }
 }

@@ -45,12 +45,22 @@ public class FillContactInfo implements Task {
             .into(ContactInformationPage.TEXTBOX_CITY)
             .thenHit(Keys.TAB),
         Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_ADDRESS),
-        Enter.theValue(data.getNeighborhood()).into(ContactInformationPage.TEXTBOX_NEIGHBORHOOD),
+        Enter.theValue(data.getNeighborhood()).into(ContactInformationPage.TEXTBOX_NEIGHBORHOOD));
+
+    if (ContactInformationPage.TEXTBOX_COMPANY_NAME.resolveFor(actor).isPresent()) {
+      fillOutCompanyDataFixed(data);
+    }
+
+    actor.attemptsTo(Click.on(ContactInformationPage.BUTTON_CONTINUE));
+  }
+
+  public static Performable fillOutCompanyDataFixed(CrmResponseData data) {
+    return Task.where(
+        "{0} diligencia la informacion de la compañia",
         Enter.theValue(data.getCompanyName()).into(ContactInformationPage.TEXTBOX_COMPANY_NAME),
         Enter.theValue(data.getCityAddress())
             .into(ContactInformationPage.TEXTBOX_COMPANY_CITY)
             .thenHit(Keys.TAB),
-        Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS),
-        Click.on(ContactInformationPage.BUTTON_CONTINUE));
+        Enter.theValue(data.getAddress()).into(ContactInformationPage.TEXTBOX_COMPANY_ADDRESS));
   }
 }

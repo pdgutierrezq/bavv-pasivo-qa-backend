@@ -18,6 +18,7 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
 import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.TRANSACTION_ID_VALUE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
@@ -48,7 +49,7 @@ public class CallPost implements Task {
                 requestSpecification ->
                     requestSpecification
                         .header("Content-Type", "application/json")
-                        .header("transaction-id", "5641016020193")
+                        .header("transaction-id", TRANSACTION_ID_VALUE)
                         .header("x-adl-channel", "bavv-pasivo-cdt-masivo")
                         .header("x-adl-document-type", actorData.getDocumentType())
                         .header("x-adl-document-number", actorData.getDocumentNumber())

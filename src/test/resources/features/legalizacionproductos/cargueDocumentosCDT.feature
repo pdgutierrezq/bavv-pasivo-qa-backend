@@ -9,6 +9,7 @@ Característica:Dinamismo en pantalla de Cargue de documentos
   Necesito que se me permita cargar los documentos según mi actividad económica
   Para que mi proceso de abrir CDT este mas completo
 
+  @www
   Esquema del escenario: Re dirección a firma por no cargue porque  el servicio no pide cédula, no es declarante y es independiente o estudiante u hogar.
     Dado que se obtiene un usuario tipo "cliente no actualizado"
     Dado que llego a pantalla de cargue de documentos y haya seleccionado que es "<Actividad economica>" no sea declarante no requiere cedula
@@ -16,8 +17,8 @@ Característica:Dinamismo en pantalla de Cargue de documentos
     Ejemplos:
       | Actividad economica |
       | independiente       |
-      | estudiante          |
-      | hogar               |
+#      | estudiante          |
+#      | hogar               |
 #
 #  @developPending
 #  Escenario: Cargue de componente cédula

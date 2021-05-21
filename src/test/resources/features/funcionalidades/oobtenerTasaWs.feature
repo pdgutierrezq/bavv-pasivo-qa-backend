@@ -1,9 +1,11 @@
 # language: es
 @Backend:ObtenerTasas
+@BackendCDT
+
 @PBA-68
 @PBA-2612
 @regresion
-@CDT
+
 Característica: Consulta de tasas
   Yo como cliente abriendo producto
   quiero que se me informe las tasas actualizadas

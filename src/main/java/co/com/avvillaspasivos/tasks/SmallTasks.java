@@ -101,7 +101,7 @@ public class SmallTasks {
 
   public static Performable passCdtFeatures() {
     return Task.where(
-        "{0} avanzaen la pagina de caracteristicas Cdt",
+        "{0} avanza en la pagina de caracteristicas Cdt",
         Click.on(CdtFeaturesPage.CONTINUE_BUTTON));
   }
 

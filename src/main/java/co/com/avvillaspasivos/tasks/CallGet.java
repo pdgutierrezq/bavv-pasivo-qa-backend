@@ -23,6 +23,7 @@ import net.thucydides.core.annotations.Step;
 import java.util.Map;
 
 import static co.com.avvillaspasivos.util.Constantes.AUTHENTICATION_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.TRANSACTION_ID_VALUE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class CallGet implements Task {
@@ -48,7 +49,7 @@ public class CallGet implements Task {
 
     HeaderData headerData =
         HeaderData.builder()
-            .transactionId("5510241587652313827")
+            .transactionId(TRANSACTION_ID_VALUE)
             .documentNumber(actorData.getDocumentNumber())
             .documentType(actorData.getDocumentType())
             .build();

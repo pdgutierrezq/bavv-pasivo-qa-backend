@@ -28,6 +28,6 @@ public class Usuario implements Fact {
     }
 
     public String toString() {
-        return "Los datos del usuario en el fluo son: " + actorData.toString();
+        return "Los datos del usuario en el flujo son: " + actorData.toString();
     }
 }

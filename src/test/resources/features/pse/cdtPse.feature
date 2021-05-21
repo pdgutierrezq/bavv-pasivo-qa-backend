@@ -2,6 +2,7 @@
 @Frontend:Pse-CDT
 @Sprint-57
 @PBA-2083
+@CDT
 
 Característica: Pantalla de PSE en el flujo
   YO COMO  Cliente finalizando el flujo de CDT

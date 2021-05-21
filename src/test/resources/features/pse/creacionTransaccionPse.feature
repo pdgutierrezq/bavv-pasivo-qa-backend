@@ -4,7 +4,7 @@
   @PBA-2349
   @CDTPENDING
   @regresionPending
-  Característica: Redirección a pantalla de PSE
+  Característica: creacion transaccion PSE
 
     Yo como usuario definiendo desde donde voy a fondear mi CDT
     Necesito que se redirija al proceso de PSE
