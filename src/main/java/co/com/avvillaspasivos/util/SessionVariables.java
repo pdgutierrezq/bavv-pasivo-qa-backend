@@ -25,6 +25,7 @@ public enum SessionVariables {
     SST_DATA,
     CONTACT_INFORMATION_DATA,
     CDT_DATA,
+    CDT_RESUME_DATA,
     TOKEN,
     INCOME_ACCOUNT,
     RENEWAL
