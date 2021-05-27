@@ -16,7 +16,7 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.serenitybdd.screenplay.rest.interactions.Ensure;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.avvillaspasivos.util.Constantes.AUX_ENV;
+import static co.com.avvillaspasivos.util.Constantes.DEV_ENV;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class GetPseStatus implements Task {
@@ -29,7 +29,7 @@ public class GetPseStatus implements Task {
   @Step("{0} obtiene obtiene el stado de la transaccion pse")
   public <T extends Actor> void performAs(T actor) {
 
-    actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase(AUX_ENV)));
+    actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase(DEV_ENV)));
 
     actor.attemptsTo(
         CallGetWith.token("pse-services"),
