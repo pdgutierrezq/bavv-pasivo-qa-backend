@@ -4,6 +4,7 @@
 
 @Sprint-54
 @PBA-2029
+@PBA-2029
 
 Característica: Consumo de servicio de Lista banco PSE CDT
   YO COMO  Interfaz grafica de usuario
