@@ -33,6 +33,8 @@ public interface Environment extends Config {
 
   String getPdf();
 
+  String clientAccounts();
+
   String getChannelsFalse();
 
   String getChannelsTrue();

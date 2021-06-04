@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "codRespuesta": {
+      "type": "integer"
+    },
+    "accounts": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "accN": {
+              "type": "string"
+            },
+            "accId": {
+              "type": "string"
+            },
+            "fundingAcc": {
+              "type": "boolean"
+            },
+            "accType": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accN",
+            "accId",
+            "fundingAcc",
+            "accType"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "codRespuesta",
+    "accounts"
+  ]
+}
