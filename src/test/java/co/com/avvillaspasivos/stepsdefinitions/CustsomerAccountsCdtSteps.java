@@ -8,7 +8,9 @@
  */
 package co.com.avvillaspasivos.stepsdefinitions;
 
+import co.com.avvillaspasivos.paths.ServicePaths;
 import co.com.avvillaspasivos.tasks.GetFlowDataActor;
+import co.com.avvillaspasivos.tasks.Schema;
 import co.com.avvillaspasivos.tasks.apitask.ClientAccountsApi;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
@@ -43,6 +45,7 @@ public class CustsomerAccountsCdtSteps {
   public void seValidaraQueNoHayCuentasConSaldoDisponiblesParaFondear() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
+            Schema.validation(ServicePaths.pathClientAccountsSchema()),
             Ensure.that(
                 "Se valida que no hay cuentas para fondear",
                 response -> response.body("accounts.fundingAcc", not(hasItem(true)))));
@@ -52,6 +55,7 @@ public class CustsomerAccountsCdtSteps {
   public void seValidaraQueSiHayCuentasConSaldoDisponiblesParaFondear() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
+            Schema.validation(ServicePaths.pathClientAccountsSchema()),
             Ensure.that(
                 "Se valida que si hay cuentas para fondear",
                 response -> response.body("accounts.fundingAcc", hasItem(true))));
@@ -66,6 +70,7 @@ public class CustsomerAccountsCdtSteps {
   public void seValidaraQueNoTieneCuentasDisponibles() {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(
+            Schema.validation(ServicePaths.pathClientAccountsSchema()),
             Ensure.that(
                 "Se valida que el usuario no tiene cuentas ",
                 response -> response.body("accounts.fundingAcc", hasSize(0))));
