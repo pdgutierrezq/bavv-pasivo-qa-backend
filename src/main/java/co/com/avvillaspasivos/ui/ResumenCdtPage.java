@@ -32,4 +32,7 @@ public class ResumenCdtPage {
 
   public static final Target TEXT_INCOME =
       Target.the("Texto rendimientos").located(By.xpath("(//*[contains(@class,'description-value')])[3]"));
+
+  public static final Target ACCOUNT_SECTION =
+      Target.the("Seccion de cuentas").located(By.xpath("//section[contains(.,'Cuenta Digital')]"));
 }
