@@ -9,9 +9,11 @@
 package co.com.avvillaspasivos.tasks.uivalidation;
 
 import co.com.avvillaspasivos.model.ResumeCdtData;
+import co.com.avvillaspasivos.tasks.Waits;
 import co.com.avvillaspasivos.ui.ResumenCdtPage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
@@ -27,6 +29,15 @@ public class ResumenAssertions {
     return Task.where(
         "{0} Valida que coincida el nombre del usuario en el resumen",
         Ensure.that(ResumenCdtPage.RESUMEN_TITLE).text().containsIgnoringCase(userName));
+  }
+
+  public static Performable newAccountSection() {
+    return Task.where(
+        "{0} Valida que se presente la seccion de cuenta nueva",
+        Waits.resumenPage(),
+        Scroll.to(ResumenCdtPage.ACCOUNT_SECTION),
+        Ensure.that(ResumenCdtPage.ACCOUNT_SECTION).isDisplayed()
+        );
   }
 
   public static Performable validateCdtDetailValues(String uiAmount, ResumeCdtData cdtData) {

@@ -4,6 +4,8 @@
 @PBA-1965
 @Sprint-63
 @PBA-2347
+@Sprint-72
+@PBA-2886
 
 Característica: Creación CDT
   YO COMO  cliente
@@ -29,3 +31,12 @@ Característica: Creación CDT
       | periodo               |
       | al vencimiento        |
       | antes del vencimiento |
+
+  @e2e
+    @CDT
+    @regresion
+    @test
+  Escenario: Creación CDT
+    Dado que se obtiene un usuario tipo "cliente actualizado"
+    Cuando el usuario realiza el flujo abriendo una cuenta AV Villas
+    Entonces se muestra el numero de cuenta que se abrió en pago de rendimientos y en sección de cuenta abierta

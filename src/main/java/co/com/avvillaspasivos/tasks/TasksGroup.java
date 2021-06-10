@@ -70,7 +70,7 @@ public class TasksGroup {
   public static Performable passSendCardScreen() {
     return Task.where(
         "{0} avanza de la pagina envio de tarjeta",
-        navigateToSendCard(), EditAddress.toSendCard(TAG_NOT_EDIT));
+        navigateToSendCard(), EditAddress.toSendCard());
   }
 
   public static Performable navigateToDeclaringScreen(

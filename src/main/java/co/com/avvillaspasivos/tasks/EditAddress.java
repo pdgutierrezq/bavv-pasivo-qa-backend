@@ -23,8 +23,8 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 public class EditAddress implements Task {
   private Faker faker = new Faker();
 
-  public static Performable toSendCard(String option) {
-    return instrumented(EditAddress.class, option);
+  public static Performable toSendCard() {
+    return instrumented(EditAddress.class);
   }
 
   @Step("{0} edita la direccion de envio de la tarjeta")

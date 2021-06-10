@@ -54,7 +54,7 @@ public class PerformFlow implements Task {
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
-        EditAddress.toSendCard(TAG_NOT_EDIT),
+        EditAddress.toSendCard(),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
