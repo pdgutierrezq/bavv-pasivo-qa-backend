@@ -40,8 +40,8 @@ public class ServicePaths {
     String endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_STG);
     if (env.equals(DEV_ENV)) {
       endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_DEV);
-    }else if (env.equals(AUX_ENV)){
-        endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
+    } else if (env.equals(AUX_ENV)) {
+      endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
     }
     return endPointBase;
   }
@@ -137,6 +137,7 @@ public class ServicePaths {
   public static String pathGetPdfSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
+
   public static String pathClientAccountsSchema() {
     return pathjsonSchemaBaseDir().concat(environment.clientAccounts());
   }
@@ -172,6 +173,13 @@ public class ServicePaths {
 
   public static String pathCrmInfo() {
     return environment.crmInfo();
+  }
+
+  public static String pathCpp() {
+    return environment.cpp();
+  }
+  public static String pathUpdateCrm() {
+    return environment.updateCrm();
   }
 
   public static String pathSst() {

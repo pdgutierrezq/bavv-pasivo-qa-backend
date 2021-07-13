@@ -21,7 +21,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import static co.com.avvillaspasivos.util.Constantes.AUTHENTICATION_ACTOR;
-import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.SUPER_ACTOR;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class SaveSummarySteps {
@@ -33,7 +33,7 @@ public class SaveSummarySteps {
 
   @Dado("que el {string} se autentica en el sistema")
   public void queElSeAutenticaEnElSistema(String userType) {
-    theActorCalled(MAIN_ACTOR).remember(SessionVariables.MAIN_ACTOR.name(), userType);
+    theActorCalled(SUPER_ACTOR).remember(SessionVariables.MAIN_ACTOR.name(), userType);
     theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
     theActorCalled(AUTHENTICATION_ACTOR).attemptsTo(GetToken.userIdentity());
   }

@@ -34,7 +34,7 @@ public class ValidateBankList implements Task {
 
     @Step("{0} valida la precarga en pantalla Pse")
     public <T extends Actor> void performAs(T actor) {
-        String uiActor=OnStage.theActor(Constantes.MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+        String uiActor=OnStage.theActor(Constantes.SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
         List<String> bancosWs =
             OnStage.theActorCalled(BANK_LIST_ACTOR).recall(SessionVariables.BANK_LIST.name());

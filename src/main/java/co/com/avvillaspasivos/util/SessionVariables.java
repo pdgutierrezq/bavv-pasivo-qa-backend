@@ -26,6 +26,7 @@ public enum SessionVariables {
     CONTACT_INFORMATION_DATA,
     CDT_DATA,
     CDT_RESUME_DATA,
+    UPDATE_CRM_BODY,
     TOKEN,
     INCOME_ACCOUNT,
     RENEWAL

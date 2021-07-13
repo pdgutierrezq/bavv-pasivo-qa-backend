@@ -46,17 +46,17 @@ public class CallPostWith implements Task {
         String token = getToken();
 
         OnStage.theActorCalled(mainActor).entersTheScene();
-        actor.attemptsTo(
-            Post.to(path)
-                .with(
-                    requestSpecification ->
-                        requestSpecification
-                            .header("Content-Type", ContentType.JSON)
-                            .header("transaction-id", TRANSACTION_ID_VALUE)
-                            .header("authorization-token", token)
-                            .header("x-adl-channel", "bavv-pasivo-cdt-masivo")
-                            .header("x-adl-document-type", actorData.getDocumentType())
-                            .header("x-adl-document-number", actorData.getDocumentNumber())
-                            .body(body)));
+    actor.attemptsTo(
+        Post.to(path)
+            .with(
+                requestSpecification ->
+                    requestSpecification
+                        .header("Content-Type", ContentType.JSON)
+                        .header("transaction-id", TRANSACTION_ID_VALUE)
+                        .header("authorization-token", token)
+                        .header("x-adl-channel", "bavv-pasivo-cdt-pruebas")
+                        .header("x-adl-document-type", actorData.getDocumentType())
+                        .header("x-adl-document-number", actorData.getDocumentNumber())
+                        .body(body)));
     }
 }

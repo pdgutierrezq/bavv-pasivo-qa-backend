@@ -28,13 +28,13 @@ public class PreLoadNotUpdatedSteps {
 
   @Cuando("ingrese a la pantalla de datos de contacto o información financiera.")
   public void ingreseALaPantallaDeDatosDeContactoOInformaciónFinanciera() {
-    theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+    theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
         .attemptsTo(TasksGroup.navigateToContactDataCdt());
   }
 
   @Entonces("se pre cargarán los datos en la pantalla.")
   public void sePreCargaránLosDatosEnLaPantalla() {
-    theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+    theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
         .attemptsTo(ValidateContactPreload.perform());
   }
 

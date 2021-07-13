@@ -35,7 +35,7 @@ public class PreloadNeighBorhoodCdaSteps {
 
     @Entonces("se pre cargará la información de barrio que tenga en CRM")
     public void sePreCargaráLaInformaciónDeBarrioQueTengaEnCRM() {
-        theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+        theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
             .attemptsTo(
                 UiAssertions.validateContactPreload()
             );

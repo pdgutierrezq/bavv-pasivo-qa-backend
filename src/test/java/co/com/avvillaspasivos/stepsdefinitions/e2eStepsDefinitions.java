@@ -19,7 +19,7 @@ import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
-import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.SUPER_ACTOR;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -36,7 +36,7 @@ public class e2eStepsDefinitions {
 
   @Dado("que se obtiene un usuario tipo {string}")
   public void queSeObtieneUnUsuarioTipo(String userType) {
-    theActorCalled(MAIN_ACTOR).remember(SessionVariables.MAIN_ACTOR.name(), userType);
+    theActorCalled(SUPER_ACTOR).remember(SessionVariables.MAIN_ACTOR.name(), userType);
     theActorCalled(userType).attemptsTo(GetFlowDataActor.type(userType));
   }
 

@@ -105,6 +105,8 @@ public class Constantes {
   public static final String CLIENT_UPDATED = "cliente actualizado";
   public static final String NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS =
       "no cliente no actualizado que no tenga canales";
+  public static final String NO_CLIENT =
+      "no cliente";
   public static final String CLIENT_NO_UPDATED = "cliente no actualizado";
   public static final String RESUMEN_TITLE_XPATH = "//h2";
   public static final String ACCOUNT_NUMBER_CLASS = "account-number";
@@ -118,9 +120,11 @@ public class Constantes {
   public static final String PRODUCT_CDT = "CDT";
   public static final String PRODUCT_CDA = "CDA";
   public static final String AUTHENTICATION_ACTOR = "Actor autenticación";
+  public static final String ACTUALIZAR_CRM = "ACTUALIZAR_CRM";
+  public static final String CONSULTAR_CRM = "CONSULTAR_CRM";
   public static final String BANK_LIST_ACTOR = "Actor ws bank list";
   public static final String CRM_ACTOR = "Actor ws crm";
-  public static final String MAIN_ACTOR = "Actor principal";
+  public static final String SUPER_ACTOR = "Actor principal";
   public static final String ACCT_COD_TYPE_GET_PDF = "CUENTA_PRO";
   public static final String NO_SELECTED_ACCOUNT_GET_PDF = "NOT_SELECTED";
   public static final String ACCOUNT_FUNDING_TAG = "Cuenta AV Villas";
@@ -136,6 +140,7 @@ public class Constantes {
   public static final String INDEPENDENT_VALUE = "independiente";
   public static final String INDEPENDENT_BUSINESS_VALUE = "independiente con negocio";
   public static final String TRANSACTION_ID_VALUE = "5641016020193";
+  public static final String UPDATE_CRM_CITY = "11001";
 
 
   public static final Map<String, String> UI_URL_PATHS =

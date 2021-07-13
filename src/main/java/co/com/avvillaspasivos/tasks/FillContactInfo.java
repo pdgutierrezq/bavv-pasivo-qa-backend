@@ -21,7 +21,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
 
-import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.SUPER_ACTOR;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActor;
 
@@ -35,7 +35,7 @@ public class FillContactInfo implements Task {
   public <T extends Actor> void performAs(T actor) {
     CrmResponseData data = Util.buildContactData();
 
-    OnStage.theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+    OnStage.theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
         .remember(SessionVariables.CONTACT_INFORMATION_DATA.name(), data);
 
     actor.attemptsTo(

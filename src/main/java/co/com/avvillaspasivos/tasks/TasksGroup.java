@@ -140,7 +140,7 @@ public class TasksGroup {
 
   public static Performable navigateAfterAccountConfigCdt(
       String economycActivity, String fundingType, String profitAccount) {
-    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String userType = theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     return Task.where(
         "{0} navega hasta superar configuracion de cuentas ",
@@ -180,7 +180,7 @@ public class TasksGroup {
   }
 
   public static Performable navigateToSendingCardCda() {
-    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String userType = theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
     OnStage.theActor(userType).entersTheScene();
 
     return Task.where(
