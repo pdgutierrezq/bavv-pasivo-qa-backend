@@ -117,6 +117,7 @@ public class ActorActions {
         break;
       case NO_CLIENT_NO_UPDATED_WITHOUT_CHANNELS:
       case CLIENT_WITHOUT_CHANNELS:
+      case NO_CLIENT:
         OnStage.theActorInTheSpotlight().remember(SessionVariables.RENEWAL.name(), false);
 
         conditions =
@@ -214,7 +215,7 @@ public class ActorActions {
   }
 
   public static String getMainActorName() {
-    return theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    return theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
   }
 
   public static ActorData getActorDataFlow(String actorName) {

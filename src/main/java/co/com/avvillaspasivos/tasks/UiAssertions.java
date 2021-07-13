@@ -358,7 +358,7 @@ public class UiAssertions {
   }
 
   public static Performable validateFinancialInfPreload() {
-    String uiActorName = theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String uiActorName = theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     CrmResponseData crmResponseData =
         theActorCalled(CRM_ACTOR).recall(SessionVariables.CRM_DATA.name());

@@ -41,7 +41,7 @@ public class CallGet implements Task {
   @Step("{0} llama servicio GET")
   public <T extends Actor> void performAs(T actor) {
     String uiActor =
-        OnStage.theActor(Constantes.MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+        OnStage.theActor(Constantes.SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     ActorData actorData = OnStage.theActor(uiActor).recall(SessionVariables.DATA_ACTOR.name());
 

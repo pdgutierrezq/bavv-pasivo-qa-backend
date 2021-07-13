@@ -31,7 +31,7 @@ public class ValidateSendingCard implements Task {
 
   @Step("{0} valida la precarga en pantalla de envio de tarjeta")
   public <T extends Actor> void performAs(T actor) {
-    String userType = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String userType = theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
     CrmResponseData data = CrmResponseData.builder().build();
 
     if (userType.equals(CLIENT_UPDATED)) {
@@ -43,7 +43,7 @@ public class ValidateSendingCard implements Task {
     } else if (userType.equals(CLIENT_NO_UPDATED)) {
 
       data =
-          theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+          theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
               .recall(SessionVariables.CONTACT_INFORMATION_DATA.name());
     }
 

@@ -33,4 +33,7 @@ public class Util {
           .neighborhood(faker.address().streetName())
           .build();
   }
+  public static String deleteSpecialChar(String text){
+      return text.replaceAll("[^a-zA-Z0-9]"," ");
+  }
 }

@@ -10,6 +10,7 @@
 package co.com.avvillaspasivos.util;
 
 import co.com.avvillaspasivos.model.HeaderData;
+import net.serenitybdd.rest.SerenityRest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,5 +28,9 @@ public class UtilWs {
         mapHeaders.put("x-adl-document-number", headerData.getDocumentNumber());
 
         return mapHeaders;
+    }
+
+    public static String getTagValueFromLastResponse(String tagName){
+        return SerenityRest.lastResponse().jsonPath().getString(tagName);
     }
 }

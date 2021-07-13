@@ -123,7 +123,7 @@ public class FormIdentification {
   }
 
   public static Performable fillAndContinue(String product) {
-      String userType=theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+      String userType=theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
       ActorData actorData =
         OnStage.theActor(userType).recall(String.valueOf(SessionVariables.DATA_ACTOR));

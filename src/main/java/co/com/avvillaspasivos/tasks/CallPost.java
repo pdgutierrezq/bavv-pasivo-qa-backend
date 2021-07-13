@@ -17,7 +17,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.avvillaspasivos.util.Constantes.MAIN_ACTOR;
+import static co.com.avvillaspasivos.util.Constantes.SUPER_ACTOR;
 import static co.com.avvillaspasivos.util.Constantes.TRANSACTION_ID_VALUE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -39,7 +39,7 @@ public class CallPost implements Task {
   @Override
   @Step("{0} llama servicio Post")
   public <T extends Actor> void performAs(T actor) {
-    String mainActor = theActorCalled(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
+    String mainActor = theActorCalled(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name());
 
     ActorData actorData = OnStage.theActor(mainActor).recall(SessionVariables.DATA_ACTOR.name());
 

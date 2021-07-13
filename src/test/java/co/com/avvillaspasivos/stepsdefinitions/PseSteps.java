@@ -43,7 +43,7 @@ public class PseSteps {
   @Entonces(
       "se cargarà el listado de bancos como opciones para la pregunta ¿De qué banco traerás tu plata?")
   public void seCargaràElListadoDeBancosComoOpcionesParaLaPreguntaDeQuéBancoTraerásTuPlata() {
-    theActor(theActor(MAIN_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
+    theActor(theActor(SUPER_ACTOR).recall(SessionVariables.MAIN_ACTOR.name()))
         .attemptsTo(TasksGroup.openBankListPse(), ValidateBankList.front());
   }
 }

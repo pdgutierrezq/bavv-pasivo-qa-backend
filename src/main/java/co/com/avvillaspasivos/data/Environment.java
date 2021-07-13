@@ -27,6 +27,10 @@ public interface Environment extends Config {
 
   String crmInfo();
 
+  String cpp();
+
+  String updateCrm();
+
   String sst();
 
   String customerAccountsCdt();
