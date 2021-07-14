@@ -1,6 +1,6 @@
   # language: es
   @Backend:PantallaDeclarante
-  @BackendCDT
+  @BackendCommon
 
   @Sprint67
   @PBA-2652
