@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "documentType": {
+      "type": "string"
+    },
+    "documentNumber": {
+      "type": "string"
+    },
+    "responseCode": {
+      "type": "integer"
+    },
+    "responseDescription": {
+      "type": "string"
+    },
+    "approvalId": {
+      "type": "string"
+    },
+    "accountNumber": {
+      "type": "string"
+    },
+    "requestCode": {
+      "type": "integer"
+    },
+    "transactionDone": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "documentType",
+    "documentNumber",
+    "responseCode",
+    "responseDescription",
+    "approvalId",
+    "accountNumber",
+    "requestCode",
+    "transactionDone"
+  ]
+}
