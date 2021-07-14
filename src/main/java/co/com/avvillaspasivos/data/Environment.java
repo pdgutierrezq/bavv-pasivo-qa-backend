@@ -37,8 +37,6 @@ public interface Environment extends Config {
 
   String getPdf();
 
-  String cppSchema();
-
   String clientAccounts();
 
   String getChannelsFalse();

@@ -138,10 +138,6 @@ public class ServicePaths {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
   }
 
-  public static String pathCppSchema() {
-    return pathjsonSchemaBaseDir().concat(environment.cppSchema());
-  }
-
   public static String pathClientAccountsSchema() {
     return pathjsonSchemaBaseDir().concat(environment.clientAccounts());
   }

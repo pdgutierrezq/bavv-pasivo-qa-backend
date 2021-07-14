@@ -24,7 +24,6 @@ public class Constantes {
   public static final String EXECUTION_TAGS_CDT = "@CDT";
   public static final String EXECUTION_TAGS_CDA = "@CDA";
   public static final String EXECUTION_TAGS_API = "@BackendCDT";
-  public static final String EXECUTION_TAGS_API_COMMON = "@BackendCommon";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
   public static final String TEXT_MODAL_VER_MAS = "Conoce los beneficios que tenemos para ti";
   public static final String TEXTO_ERROR_PROCESO_PRINCIPAL =
