@@ -22,6 +22,6 @@ import org.junit.runner.RunWith;
     glue = Constantes.RUTA_STEPS_DEFINITIONS,
     tags = Constantes.EXECUTION_TAGS_API,
     snippets = SnippetType.CAMELCASE)
-public class TestRunnerBackend {
+public class TestRunnerBackendCdt {
 
 }
