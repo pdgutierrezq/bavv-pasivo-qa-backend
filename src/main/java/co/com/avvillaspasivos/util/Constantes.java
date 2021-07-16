@@ -22,7 +22,7 @@ public class Constantes {
 
   public static final String EXECUTION_TAGS = "@regresion";
   public static final String EXECUTION_TAGS_CDT = "@CDT";
-  public static final String EXECUTION_TAGS_CDA = "@CDA";
+  public static final String EXECUTION_TAGS_CDA = "@CDAp1";
   public static final String EXECUTION_TAGS_API = "@BackendCDT";
   public static final String EXECUTION_TAGS_API_COMMON = "@BackendCommon";
   public static final String RUTA_STEPS_DEFINITIONS = "co.com.avvillaspasivos.stepsdefinitions";
