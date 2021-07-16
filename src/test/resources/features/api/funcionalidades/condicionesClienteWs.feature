@@ -1,6 +1,6 @@
 # language: es
 @Backend:CondicionesCliente
-@BackendBooth
+@BackendCommon
 @PBA-14
 @Sprint-3
 @Sprint-70
@@ -14,7 +14,6 @@ Característica: condiciones cliente
     Dado que se obtiene un usuario para condiciones cliente de tipo "aleatorio"
     Cuando consumo el servicio rest de condiciones cliente
     Entonces el obtengo la informacion de las condiciones del cliente
-
 
 
 

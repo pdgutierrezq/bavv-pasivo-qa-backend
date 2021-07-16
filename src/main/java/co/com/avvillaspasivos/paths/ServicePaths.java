@@ -106,6 +106,10 @@ public class ServicePaths {
     return environment.accountPackagePath();
   }
 
+  public static String pathInsuranceValidation() {
+    return environment.insuranceValidation();
+  }
+
   public static String pathCustomerConditions() {
     return environment.customerConditions();
   }
@@ -136,6 +140,10 @@ public class ServicePaths {
 
   public static String pathGetPdfSchema() {
     return pathjsonSchemaBaseDir().concat(environment.getPdf());
+  }
+
+  public static String pathInsuranceValidationSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.insuranceValidationSchema());
   }
 
   public static String pathCppSchema() {

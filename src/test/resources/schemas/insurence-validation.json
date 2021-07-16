@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "var1": {
+      "type": "integer"
+    },
+    "var2": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "var1",
+    "var2"
+  ]
+}
