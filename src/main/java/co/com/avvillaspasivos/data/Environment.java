@@ -23,6 +23,8 @@ public interface Environment extends Config {
 
   String customerConditions();
 
+  String insuranceValidationSchema();
+
   String userIdentity();
 
   String crmInfo();
@@ -36,6 +38,8 @@ public interface Environment extends Config {
   String customerAccountsCdt();
 
   String getPdf();
+
+  String insuranceValidation();
 
   String cppSchema();
 
