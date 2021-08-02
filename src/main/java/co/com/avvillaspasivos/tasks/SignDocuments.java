@@ -14,9 +14,12 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class SignDocuments implements Task {
 
@@ -30,6 +33,8 @@ public class SignDocuments implements Task {
       actor.attemptsTo(Waits.loader(), perform());
     } else {
       actor.attemptsTo(
+          Check.whether(the(ElectronicSignaturePage.CHECK_FEATURES_AND_CONDITIONS), isPresent())
+              .andIfSo(Click.on(ElectronicSignaturePage.CHECK_FEATURES_AND_CONDITIONS)),
           Click.on(ElectronicSignaturePage.CHECK_AUTORIZATION),
           Click.on(ElectronicSignaturePage.CHECK_DATA),
           Click.on(ElectronicSignaturePage.CONTINUE_BUTTON),

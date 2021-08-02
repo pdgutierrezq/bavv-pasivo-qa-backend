@@ -25,6 +25,8 @@ public interface Environment extends Config {
 
   String insuranceValidationSchema();
 
+  String readCrmSchema();
+
   String userIdentity();
 
   String crmInfo();

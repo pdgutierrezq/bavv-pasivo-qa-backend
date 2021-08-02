@@ -1,0 +1,548 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "responseCode": {
+      "type": "integer"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "secondName": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "secondLastName": {
+      "type": "string"
+    },
+    "cityBirth": {
+      "type": "integer"
+    },
+    "expDocumentDate": {
+      "type": "string"
+    },
+    "cityExp": {
+      "type": "string"
+    },
+    "housingType": {
+      "type": "string"
+    },
+    "addresessList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "additionalItems": true
+    },
+    "contactCity": {
+      "type": "string"
+    },
+    "contactPhonesList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "phoneNumber": {
+              "type": "string"
+            },
+            "phoneType": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "phoneNumber",
+            "phoneType"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "phoneNumber": {
+              "type": "string"
+            },
+            "phoneType": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "phoneNumber",
+            "phoneType"
+          ]
+        }
+      ],
+      "additionalItems": true
+    },
+    "emailAdressContact": {
+      "type": "string"
+    },
+    "montlyExpenses": {
+      "type": "number"
+    },
+    "assetsnumber": {
+      "type": "number"
+    },
+    "liabilitiesNumber": {
+      "type": "number"
+    },
+    "employmentHistoryList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "occupation": {
+              "type": "string"
+            },
+            "activityCode": {
+              "type": "integer"
+            },
+            "incomeAmount": {
+              "type": "number"
+            },
+            "jobTitle": {
+              "type": "string"
+            },
+            "companyName": {
+              "type": "string"
+            },
+            "companyCityCode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "occupation",
+            "activityCode",
+            "incomeAmount",
+            "jobTitle",
+            "companyName",
+            "companyCityCode"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "occupation": {
+              "type": "string"
+            },
+            "activityCode": {
+              "type": "integer"
+            },
+            "incomeAmount": {
+              "type": "number"
+            },
+            "jobTitle": {
+              "type": "string"
+            },
+            "companyName": {
+              "type": "string"
+            },
+            "companyCityCode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "occupation",
+            "activityCode",
+            "incomeAmount",
+            "jobTitle",
+            "companyName",
+            "companyCityCode"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "occupation": {
+              "type": "string"
+            },
+            "activityCode": {
+              "type": "integer"
+            },
+            "incomeAmount": {
+              "type": "number"
+            },
+            "jobTitle": {
+              "type": "string"
+            },
+            "companyName": {
+              "type": "string"
+            },
+            "companyCityCode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "occupation",
+            "activityCode",
+            "incomeAmount",
+            "jobTitle",
+            "companyName",
+            "companyCityCode"
+          ]
+        }
+      ],
+      "additionalItems": true
+    },
+    "contactInfoList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "contactAddressList": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            },
+            "contactPhoneList": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            }
+          },
+          "required": [
+            "contactAddressList",
+            "contactPhoneList"
+          ]
+        }
+      ],
+      "additionalItems": true
+    },
+    "customerReferenceInfoList": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "referenceType": {
+              "type": "string"
+            },
+            "firstname": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "phones": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            },
+            "nickName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "referenceType",
+            "firstname",
+            "city",
+            "phones",
+            "nickName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "referenceType": {
+              "type": "string"
+            },
+            "firstname": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "phones": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            },
+            "nickName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "referenceType",
+            "firstname",
+            "city",
+            "phones",
+            "nickName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "referenceType": {
+              "type": "string"
+            },
+            "firstname": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "phones": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            },
+            "nickName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "referenceType",
+            "firstname",
+            "city",
+            "phones",
+            "nickName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "referenceType": {
+              "type": "string"
+            },
+            "firstname": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "phones": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ],
+              "additionalItems": true
+            },
+            "nickName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "referenceType",
+            "firstname",
+            "city",
+            "phones",
+            "nickName"
+          ]
+        }
+      ],
+      "additionalItems": true
+    },
+    "customerForeignTransaction": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "transactiontype": {
+              "type": "string"
+            },
+            "transactionName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transactiontype",
+            "transactionName"
+          ]
+        }
+      ],
+      "additionalItems": true
+    },
+    "internacionalTransactionId": {
+      "type": "string"
+    },
+    "acctCurrencyForeignInd": {
+      "type": "string"
+    },
+    "countryCurrencyAcct": {
+      "type": "string"
+    },
+    "nameBankCurrencyAcct": {
+      "type": "string"
+    },
+    "cityBankCurrencyAcct": {
+      "type": "string"
+    },
+    "typeCurrencyAcct": {
+      "type": "string"
+    },
+    "referenceIdCurrencyAcct": {
+      "type": "string"
+    },
+    "balanceAcct": {
+      "type": "number"
+    },
+    "neighborhood": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "responseCode",
+    "firstName",
+    "secondName",
+    "gender",
+    "birthDate",
+    "lastName",
+    "secondLastName",
+    "cityBirth",
+    "expDocumentDate",
+    "cityExp",
+    "housingType",
+    "addresessList",
+    "contactCity",
+    "contactPhonesList",
+    "emailAdressContact",
+    "montlyExpenses",
+    "assetsnumber",
+    "liabilitiesNumber",
+    "employmentHistoryList",
+    "contactInfoList",
+    "customerReferenceInfoList",
+    "customerForeignTransaction",
+    "internacionalTransactionId",
+    "acctCurrencyForeignInd",
+    "countryCurrencyAcct",
+    "nameBankCurrencyAcct",
+    "cityBankCurrencyAcct",
+    "typeCurrencyAcct",
+    "referenceIdCurrencyAcct",
+    "balanceAcct",
+    "neighborhood",
+    "code",
+    "message"
+  ]
+}

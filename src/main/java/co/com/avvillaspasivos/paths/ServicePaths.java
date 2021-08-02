@@ -145,6 +145,9 @@ public class ServicePaths {
   public static String pathInsuranceValidationSchema() {
     return pathjsonSchemaBaseDir().concat(environment.insuranceValidationSchema());
   }
+  public static String pathReadDataCrmSchema() {
+    return pathjsonSchemaBaseDir().concat(environment.readCrmSchema());
+  }
 
   public static String pathCppSchema() {
     return pathjsonSchemaBaseDir().concat(environment.cppSchema());

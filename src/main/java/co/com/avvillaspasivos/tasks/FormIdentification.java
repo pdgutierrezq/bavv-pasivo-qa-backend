@@ -11,7 +11,6 @@ package co.com.avvillaspasivos.tasks;
 import co.com.avvillaspasivos.model.ActorData;
 import co.com.avvillaspasivos.ui.IdentificationPage;
 import co.com.avvillaspasivos.util.SessionVariables;
-import net.serenitybdd.screenplay.AnonymousTask;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -49,60 +48,6 @@ public class FormIdentification {
         Enter.theValue(actorData.getLastName()).into(IdentificationPage.PRIMER_APELLIDO_INPUT),
         Enter.theValue(salary).into(IdentificationPage.SALARY_INPUT),
         Click.on(IdentificationPage.HABEAS_DATA_CHECKBOX));
-  }
-
-  public static Performable fillForm(String salaryType, boolean continueClick) {
-    String salary;
-
-    switch (salaryType) {
-      case TAG_VALID:
-        salary = VALID_SALARY;
-        break;
-      case TAG_INVALID:
-        salary = INVALID_SALARY;
-        break;
-      case TAG_PRO:
-        salary = PRO_SALARY;
-        break;
-      case TAG_SIMPLE:
-        salary = SIMPLE_SALARY;
-        break;
-      case TAG_EXCEED_MAX:
-        salary = EXCEED_SIZE_SALARY_TEXT;
-        break;
-      default:
-        salary = "";
-    }
-
-    AnonymousTask returnTask;
-
-    if (continueClick) {
-      returnTask =
-          Task.where(
-              "{0} inicia a diligenciar formulario",
-              fill(salary), Click.on(IdentificationPage.CONTINUE_BUTTON));
-    } else {
-      returnTask = Task.where("{0} inicia a diligenciar formulario y continua", fill(salary));
-    }
-
-    return returnTask;
-  }
-
-  public static Performable fillWithSalaryAndContinue(String salary) {
-    ActorData actorData =
-        OnStage.theActorInTheSpotlight().recall(String.valueOf(SessionVariables.DATA_ACTOR));
-    return Task.where(
-        "{0} diligencia formulario con salario definido y continua ",
-        Enter.theValue(actorData.getDocumentNumber()).into(IdentificationPage.DNI_INPUT),
-        Enter.theValue(actorData.getPhone())
-            .into(IdentificationPage.CELULAR_INPUT)
-            .thenHit(Keys.TAB),
-        Enter.theValue(actorData.getPhone()).into(IdentificationPage.CELULAR_CONFIRMACION_INPUT),
-        Enter.theValue(actorData.getFirstName()).into(IdentificationPage.PRIMER_NOMBRE_INPUT),
-        Enter.theValue(actorData.getLastName()).into(IdentificationPage.PRIMER_APELLIDO_INPUT),
-        Enter.theValue(salary).into(IdentificationPage.SALARY_INPUT),
-        Click.on(IdentificationPage.HABEAS_DATA_CHECKBOX),
-        Click.on(IdentificationPage.CONTINUE_BUTTON));
   }
 
   public static Performable fillAndContinue() {

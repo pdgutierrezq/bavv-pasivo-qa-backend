@@ -51,4 +51,6 @@ public class IdentificationPage {
       Target.the("Boton cerrar habeas data").located(By.xpath("//*[@class='icon-salir']"));
   public static final Target SALARY_INPUT =
       Target.the("Input Ingresos").located(By.id("MonthlyIncomeInput"));
+  public static final Target POP_UP_BUTTON_NO_RETRY =
+      Target.the("Boton Pop up retoma").located(By.className("avv-btn-secondary"));
 }

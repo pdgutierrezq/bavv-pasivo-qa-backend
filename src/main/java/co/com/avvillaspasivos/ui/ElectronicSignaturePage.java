@@ -36,4 +36,7 @@ public class ElectronicSignaturePage {
     public static final Target CHECK_DATA =
         Target.the("Check consentimiento")
             .located(By.id("CheckUnderConsent"));
+    public static final Target CHECK_FEATURES_AND_CONDITIONS =
+        Target.the("Check caracteristicas y condiciones")
+            .located(By.id("CheckProductConditions"));
 }

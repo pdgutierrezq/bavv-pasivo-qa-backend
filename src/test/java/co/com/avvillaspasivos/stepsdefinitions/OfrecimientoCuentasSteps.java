@@ -14,11 +14,6 @@ import cucumber.api.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 public class OfrecimientoCuentasSteps {
-  @Cuando("el usuario diligencia el formulario con salario {string}")
-  public void elUsuarioDiligenciaElFormularioConSalario(String salary) {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(TasksGroup.navigateToProductOfferingWithSalary(salary));
-  }
 
   @Entonces(
       "se presentaran las dos cuentas pero sugiriendo la cuenta {string} en lado izquierdo de la pantalla y el texto debe decir {string}")
@@ -33,12 +28,6 @@ public class OfrecimientoCuentasSteps {
   public void soloSeMuestraLaCuentaProYElTextoDebeDecir(String text) {
     OnStage.theActorInTheSpotlight()
         .attemptsTo(BdUser.toBlock(false), UiAssertions.validateAccountSelectionWithCat(text));
-  }
-
-  @Cuando("el usuario diligencia el formulario con salario igual o superior a {string}")
-  public void elUsuarioDiligenciaElFormularioConSalarioIgualOSuperiorA(String salary) {
-    OnStage.theActorInTheSpotlight()
-        .attemptsTo(TasksGroup.navigateToProductOfferingWithSalary(salary));
   }
 
   @Cuando("que el cliente esta en pantalla Ofrecimiento de cuentas y seleccionó {string}")

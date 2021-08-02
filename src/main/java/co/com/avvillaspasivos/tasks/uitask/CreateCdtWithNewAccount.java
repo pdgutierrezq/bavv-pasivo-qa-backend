@@ -9,15 +9,14 @@
 package co.com.avvillaspasivos.tasks.uitask;
 
 import co.com.avvillaspasivos.tasks.*;
-import co.com.avvillaspasivos.ui.CdtFeaturesPage;
 import co.com.avvillaspasivos.ui.SavingTipsPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
+import static co.com.avvillaspasivos.tasks.TasksGroup.avoidRetryPopUp;
 import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationFormCdt;
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -37,14 +36,13 @@ public class CreateCdtWithNewAccount implements Task {
         navigateToIdentificationFormCdt(),
         FormIdentification.fillAndContinue(PRODUCT_CDT),
         Waits.loader(),
-        PepSelection.option("no"),
+        avoidRetryPopUp(),
         FillConfigurationCdt.type("ANY"),
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
         AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, NEW_ACCOUNT_PROFIT_TAG),
         EditAddress.toSendCard(),
-        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(the(SavingTipsPage.CONTINUE_BUTTON), isPresent())

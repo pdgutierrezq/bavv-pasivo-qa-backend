@@ -9,28 +9,27 @@
 package co.com.avvillaspasivos.tasks;
 
 import co.com.avvillaspasivos.model.ActorData;
-import co.com.avvillaspasivos.ui.CdtFeaturesPage;
 import co.com.avvillaspasivos.util.SessionVariables;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.thucydides.core.annotations.Step;
 
+import static co.com.avvillaspasivos.tasks.TasksGroup.avoidRetryPopUp;
 import static co.com.avvillaspasivos.tasks.TasksGroup.navigateToIdentificationFormCdt;
 import static co.com.avvillaspasivos.util.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PerformFlowCdt implements Task {
-    private final String period;
+  private final String period;
 
-    public PerformFlowCdt(String period) {
-        this.period = period;
-    }
+  public PerformFlowCdt(String period) {
+    this.period = period;
+  }
 
   public static Performable type(String period) {
-    return instrumented(PerformFlowCdt.class,period);
+    return instrumented(PerformFlowCdt.class, period);
   }
 
   @Step("{0} realiza el flujo de CDT")
@@ -42,13 +41,12 @@ public class PerformFlowCdt implements Task {
         navigateToIdentificationFormCdt(),
         FormIdentification.fillAndContinue(PRODUCT_CDT),
         Waits.loader(),
-        PepSelection.option("no"),
+        avoidRetryPopUp(),
         FillConfigurationCdt.type(period),
         Waits.loader(),
         Autentication.byOtp(),
         Waits.loader(120),
         AccountConfigurationCdt.perform(ACCOUNT_FUNDING_TAG, ACCOUNT_PROFIT_TAG),
-        Click.on(CdtFeaturesPage.CONTINUE_BUTTON),
         DeclaringSelection.choose(TAG_CONFIRM),
         SignDocuments.perform(),
         Check.whether(actorData.isChannels())
