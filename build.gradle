@@ -3,7 +3,9 @@ repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
-
+    maven {
+        url 'https://gitlab.com/api/v4/projects/28985927/packages/maven'
+    }
 }
 
 ext {
@@ -31,9 +33,16 @@ ext {
                     aeonbits     : "org.aeonbits.owner:owner-java8:${aeonBitsVersion}",
                     jsonvalidator: "io.rest-assured:json-schema-validator:${jsonvalidatorrestassured}",
                     gherkin      : "io.cucumber:jgherkin:${jsonvalidatorrestassured}",
-                    faker        : "com.github.javafaker:javafaker:${fakerVersion}"
+                    faker        : "com.github.javafaker:javafaker:${fakerVersion}",
+                    testrail     : "com.peterland:cucumber-with-testrail:${peterlandTestrailVersion}"
 
             ]
+    ]
+    runner = [
+            projectRootPath: new File("").absolutePath,
+            buildProfile   : System.getProperty('environment'),
+            cucumberOptions: '',
+            reportName     : 'Reporte de Pruebas'
     ]
 }
 dependencies {
@@ -57,15 +66,48 @@ dependencies {
             libs.test.lombok,
             libs.test.aeonbits,
             libs.test.jsonvalidator
+    implementation("com.peterland:cucumber-with-testrail:${peterlandTestrailVersion}", {
+        exclude group: 'net.serenity-bdd', module: 'serenity-core'
+        exclude group: 'net.serenity-bdd', module: 'serenity-screenplay'
+        exclude group: 'net.serenity-bdd', module: 'serenity-screenplay-rest'
+    })
+}
 
-
+tasks.withType(Test) {
+    systemProperties System.getProperties()
+    systemProperties['user.dir'] = workingDir
+    systemProperties['testrail.enable'] = "${testrailEnable}"
+    systemProperties['testrail.url'] = "${testrailUrl}"
+    systemProperties['testrail.user'] = "${testrailUser}"
+    systemProperties['testrail.password'] = "${testrailPassword}"
+    systemProperties['testrail.testRunId'] = "${testrailTestRunId}"
+    systemProperties['testrail.attachments'] = "${testrailAttachments}"
 }
 
 processTestResources {
-    ext.buildProfile = System.getenv('environment')
-    if (ext.buildProfile == null) buildProfile = 'stg'
-    println "Info: RUNNING ON ENVIRONMENT $buildProfile "
-    from("$rootDir/profiles/$buildProfile") {
+    if (String.valueOf(runner.projectRootPath).contains('bavv-pasivoavvillas-qa-front')) {
+        if (runner.buildProfile == 'stg')
+            runner.buildProfile = "${uiEnvironment}"
+        runner.cucumberOptions = "${uiCucumberOptions}"
+    } else {
+        if (runner.buildProfile == 'stg')
+            runner.buildProfile = "${apiEnvironment}"
+        runner.cucumberOptions = "${apiCucumberOptions}"
+    }
+    if (runner.buildProfile == 'pro')
+        runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
+    println "               ╔══╗ \n" +
+            "               ║██║ \n" +
+            "               ║(O)║♫ ♪ ♫ ♪\n" +
+            "               ╚══╝\n" +
+            "               ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █\n" +
+            "               Min- - - - - - - - - - - -●Max\n"
+    println "[INFO:PBA] RUNNING 🇦​​​​​🇩​​​​​🇳​​​​​ 🇦​​​​​🇺​​​​​🇹​​​​​🇴​​​​​🇲​​​​​🇦​​​​​🇹​​​​​🇮​​​​​🇴​​​​​🇳​​​​​ 🇵​​​​​🇷​​​​​🇴​​​​​🇯​​​​​🇪​​​​​🇨​​​​​🇹​​​​​"
+    println "[INFO:PBA] PROJECT PATH: $runner.projectRootPath"
+    println "[INFO:PBA] ENVIRONMENT: $runner.buildProfile"
+    println "[INFO:PBA] TESTRAIL: " + System.getProperty("testrail.enable")
+    println "[INFO:PBA] CUCUMBER OPTIONS: $runner.cucumberOptions"
+    from("$rootDir/profiles/$runner.buildProfile") {
         include '*.properties'
     }
     from("$rootDir/src/test/java") {
@@ -73,14 +115,15 @@ processTestResources {
     }
 }
 test {
-
     testLogging {
         events "failed", "passed", "skipped"
         exceptionFormat = 'full'
     }
-    systemProperty "environment", System.getProperty("environment")
+    filter {
+        includeTestsMatching "co.com.avvillaspasivos.common.AcceptanceTestSuite"
+    }
+    systemProperty "environment", runner.buildProfile
+    environment("cucumber.options", runner.cucumberOptions)
     test.outputs.upToDateWhen { false }
     gradle.startParameter.continueOnFailure = true
-
-
 }
