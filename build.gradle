@@ -81,6 +81,8 @@ tasks.withType(Test) {
     systemProperties['testrail.user'] = "${testrailUser}"
     systemProperties['testrail.password'] = "${testrailPassword}"
     systemProperties['testrail.testRunId'] = "${testrailTestRunId}"
+    systemProperties['testrail.projectId'] = "${testrailProjectId}"
+    systemProperties['testrail.suiteId'] = "${testrailSuiteId}"
     systemProperties['testrail.attachments'] = "${testrailAttachments}"
 }
 
