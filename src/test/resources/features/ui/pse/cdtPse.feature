@@ -1,24 +1,28 @@
 # language: es
-@Frontend:Pse-CDT
-@Sprint-57
-@PBA-2083
-@CDT
-
+#@run
+@sprint:57
+@issue:PBA-2083
+@app:CDT
+@feature:Pantalla_de_PSE
+@screen:PSE
+@layer:frontend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
 Característica: Pantalla de PSE en el flujo
   YO COMO  Cliente finalizando el flujo de CDT
   NECESITO que se me muestre la pantalla de PSE
   PARA fondear mi CDT
 
-  @pse
-  @regresion
+  @testrail-id:510260
   Escenario: Precarga de información en pantalla de PSE
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
     Y que llegúe a la pantalla de PSE
     Cuando cargue la pantalla
     Entonces se mostrará precargada la información del número del CDT y el monto a invertir
 
-  @pse
-  @regresion
+  @testrail-id:510261
   Escenario: Lista desplegable de bancos
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
     Y que llegúe a la pantalla de PSE

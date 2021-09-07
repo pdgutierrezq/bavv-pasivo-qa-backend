@@ -1,15 +1,20 @@
 # language: es
-@Backend:ValidarSeguro
-@BackendCommon
-@PBA-1432
-@Sprint-38
-
-
+@sprint:38
+@issue:PBA-1432
+@app:COMMONS
+@feature:Validar_seguro
+@screen:seguro_de_cuenta
+@layer:backend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
 Característica: Validacion de seguro
   YO COMO sistema
   NECESITO determinar si el cliente tiene o no seguro
   PARA ofrecerle el producto o no
 
+  @testrail-id:510205
   Escenario: Consumir servicio de insurance-validation
     Dado que se obtiene un usuario tipo "no cliente" para validar seguro
     Cuando se consulta si el usuario tiene seguro

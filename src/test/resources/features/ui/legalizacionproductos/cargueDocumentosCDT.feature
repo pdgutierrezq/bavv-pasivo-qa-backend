@@ -1,9 +1,14 @@
 # language: es
-@Frontend:CargueDocumentos
-@Sprint-46
-@PBA-1654
-@regresion
-
+#@run
+@sprint:46
+@issue:PBA-1654
+@app:CDT
+@feature:Cargue_de_documentos
+@layer:frontend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
 Característica:Dinamismo en pantalla de Cargue de documentos
   Yo como cliente des-actualizado
   Necesito que se me permita cargar los documentos según mi actividad económica

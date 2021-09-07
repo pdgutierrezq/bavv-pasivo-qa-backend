@@ -1,16 +1,14 @@
 # language: es
-@Frontend:CDA-precarga
-@Sprint-22
-@PBA-55
-@Sprint-59
-@PBA-1153
-
-@Back-CRM-Barrio
-@PBA-2326
-
-@CDA
-@regresion
-
+@sprint:59
+@issue:PBA-2326
+@app:CDA
+@feature:datos_personales
+@screen:datos_personales
+@layer:frontend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
 Característica: Pre carga de información para datos básicos CDA
   YO COMO Cliente no actualizado
   NECESITO que me muestre la información que tiene CRM del banco

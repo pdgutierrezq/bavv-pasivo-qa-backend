@@ -1,22 +1,20 @@
 # language: es
-@Frontend:CDT-precarga
-@Sprint-57
-@Sprint-58
-@Sprint-59
-@Sprint-60
-@PBA-2288
-@PBA-2182
-
-@Back-CRM-Barrio
-@PBA-2326
-
+@sprint:60
+@issue:PBA-2182
+@app:CDT
+@feature:datos_personales
+@screen:datos_de_contacto
+@layer:frontend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
 Característica: Implementar Precarga de info a cliente des actualizado CDT
   YO COMO Cliente
   NECESITO que me muestre la información que tiene CRM del banco
   PARA mejorar mi experiencia
 
-  @CDT
-  @regresion
+  @testrail-id:510248
   Escenario: Pre carga de datos para pantalla de datos de contacto
     Dado que se obtiene un usuario tipo "cliente no actualizado"
     Y que hay información del usuario en el banco

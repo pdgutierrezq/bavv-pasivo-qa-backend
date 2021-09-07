@@ -1,17 +1,23 @@
-  # language: es
-  @Frontend:creacionTransaccionPseCdt
-  @Sprint-62
-  @PBA-2349
-  @CDTPENDING
-  @regresionPending
-  Característica: creacion transaccion PSE
+# language: es
+#@run
+@sprint:62
+@issue:PBA-2349
+@app:CDT
+@feature:Creacion_de_Transaccion_PSE
+@screen:PSE
+@layer:frontend
+@priority:high
+@regression:yes
+@execution:automatic
+@automation:complete
+Característica: Creacion transaccion PSE
+  YO como usuario definiendo desde donde voy a fondear mi CDT
+  QUIERO que se redirija al proceso de PSE
+  PARA fondear mi CDT
 
-    Yo como usuario definiendo desde donde voy a fondear mi CDT
-    Necesito que se redirija al proceso de PSE
-    Para fondear mi CDT
-
-    Escenario: Llamar crear transacción de PSE exitosamente
-      Dado que se obtiene un usuario tipo "cliente actualizado"
-      Cuando se crea la transacción PSE de forma exitosa
-      Entonces se envía al cliente a la URL de "PSE externa"
+  @testrail-id:510262
+  Escenario: Crear transacción de PSE exitosamente
+    Dado que se obtiene un usuario tipo "cliente actualizado"
+    Cuando se crea la transacción PSE de forma exitosa
+    Entonces se envía al cliente a la URL de "PSE externa"
 

@@ -2,10 +2,10 @@
 @sprint:87
 @issue:PBA-3251
 @app:CDT
-@feature:PSE
+@feature:pse.devolucion_de_dinero
 @layer:backend
 @priority:low
-@regression:yes
+@regression:no
 @execution:manual
 @automation:pending
 Característica: Logica de devolución del dinero
@@ -17,7 +17,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:408231
+  @testrail-id:510590
   Escenario: Sección de devolución
     Dado que me encuentro en el flujo de cargué documentos
     Cuando llegue a la pantalla de PSE
@@ -27,7 +27,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508558
+  @testrail-id:510591
   Escenario: No aparece sección de devolución
     Dado que me encuentro en el flujo de cargué documentos
     Cuando llegue a la pantalla de PSE
@@ -37,7 +37,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508548
+  @testrail-id:510592
   Escenario: Campo Banco
     Dado que me encuentro en el flujo de cargué documentos
     Cuando seleccione el banco de donde es mi cuenta
@@ -47,7 +47,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508549
+  @testrail-id:510593
   Escenario: Validación de campo banco obligatorio
     Dado que estoy en la pantalla de PSE y desplegué las opciones del listado de bancos de PSE
     Cuando no seleccione una opción
@@ -57,7 +57,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508550
+  @testrail-id:510594
   Escenario: Campo numero de cuenta
     Dado que llegué a la pantalla de PSE y estoy en el campo de número de cuenta
     Cuando ingrese información
@@ -67,7 +67,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508551
+  @testrail-id:510595
   Escenario: Campo numero de cuenta max
     Dado que llegué a la pantalla de PSE y estoy en el campo  de número de cuenta
     Cuando ingrese mas de 17 números
@@ -77,7 +77,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508552
+  @testrail-id:510596
   Escenario: Campo numero de cuenta min
     Dado que llegué a la pantalla de PSE y estoy en el campo  de numero de cuenta
     Cuando ingrese menos de 5 números
@@ -87,7 +87,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508553
+  @testrail-id:510597
   Escenario: Campo numero de cuenta obligatoria
     Dado que llegué a la pantalla de PSE y estoy en el campo  de numero de cuenta
     Cuando no ingrese información y deje el campo
@@ -97,7 +97,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508554
+  @testrail-id:510598
   Escenario: Campo tipo de identificación
     Dado que llegué a la pantalla de PSE
     Cuando ingrese al campo  de tipo de identificación
@@ -107,7 +107,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508555
+  @testrail-id:510599
   Escenario: Campo tipo de identificación  obligatorio
     Dado que llegué a la pantalla de PSE y estoy en el campo tipo de identificación
     Cuando no seleccione información y deje el campo
@@ -117,7 +117,7 @@ Característica: Logica de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-87
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3251)
-  @testrail-id:508556
+  @testrail-id:510600
   Escenario: Activación del botón continuar
     Dado que llegué a la pantalla de PSE
     Cuando haya ingresado toda la información de manera correcta y completa
