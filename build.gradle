@@ -77,6 +77,8 @@ tasks.withType(Test) {
     systemProperties System.getProperties()
     systemProperties['user.dir'] = workingDir
     systemProperties['testrail.enable'] = "${testrailEnable}"
+    systemProperties['testrail.evidences.enable'] = "${testrailEvidencesEnable}"
+    systemProperties['testrail.results.enable'] = "${testrailResultsEnable}"
     systemProperties['testrail.url'] = "${testrailUrl}"
     systemProperties['testrail.user'] = "${testrailUser}"
     systemProperties['testrail.password'] = "${testrailPassword}"
