@@ -2,7 +2,7 @@
 @sprint:51
 @issue:PBA-1814
 @app:CDT
-@feature:Resumen_de_transaccion
+@functionality:Resumen_de_transaccion
 @screen:declarante
 @layer:backend
 @priority:high

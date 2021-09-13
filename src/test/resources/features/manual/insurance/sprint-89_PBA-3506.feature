@@ -2,7 +2,7 @@
 @sprint:89
 @issue:PBA-3506
 @app:CDA
-@feature:insurance
+@functionality:insurance
 @layer:backend
 @priority:low
 @regression:yes

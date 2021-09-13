@@ -2,7 +2,7 @@
 @sprint:76
 @issue:PBA-3055
 @app:CDT
-@feature:consulta_de_cuentas_por_cliente
+@functionality:consulta_de_cuentas_por_cliente
 @screen:OTP
 @layer:backend
 @priority:high

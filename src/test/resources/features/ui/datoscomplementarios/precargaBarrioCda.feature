@@ -2,7 +2,7 @@
 @sprint:59
 @issue:PBA-2326
 @app:CDA
-@feature:datos_personales
+@functionality:datos_personales
 @screen:datos_personales
 @layer:frontend
 @priority:high

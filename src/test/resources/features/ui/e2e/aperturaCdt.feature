@@ -3,7 +3,7 @@
 @sprint:72
 @issue:PBA-2886
 @app:CDT
-@feature:Creacion_de_CDT
+@functionality:Creacion_de_CDT
 @layer:frontend
 @priority:high
 @regression:yes

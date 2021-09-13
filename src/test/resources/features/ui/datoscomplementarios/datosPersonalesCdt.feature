@@ -2,7 +2,7 @@
 @sprint:58
 @issue:PBA-1291
 @app:CDT
-@feature:datos_personales
+@functionality:datos_personales
 @screen:datos_personales
 @layer:frontend
 @priority:high

@@ -3,7 +3,7 @@
 @sprint:73
 @issue:PBA-2825
 @app:CDT
-@feature:pse.Operaciones_Resumen_CDT
+@functionality:pse.Operaciones_Resumen_CDT
 @screen:fondeo_pse
 @layer:backend
 @priority:high

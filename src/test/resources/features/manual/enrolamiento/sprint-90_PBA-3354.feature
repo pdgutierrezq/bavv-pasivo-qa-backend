@@ -2,7 +2,7 @@
 @sprint:90
 @issue:PBA-3354
 @app:CDA
-@feature:insurance
+@functionality:insurance
 @layer:frontend
 @priority:low
 @regression:no
@@ -16,8 +16,8 @@ Característica: Funcionalidad icono de password
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:informes/Sprint_90/HU3354/enrollamiento/Escenario1
-  @testrail-id:510875
+  @testrail-evidence:3475/E1
+  @testrail-id:511069
   Escenario: Contraseña visible
     Dado que estoy en la pantalla de enrolamiento
     Cuando quiera ver la contraseña
@@ -26,8 +26,9 @@ Característica: Funcionalidad icono de password
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:informes/Sprint_90/HU3354/enrollamiento/Escenario2
-  Escenario: Contraseña No visible
+  @testrail-evidence:3475/E2
+  @testrail-id:511070
+  Escenario: Contraseña NO visible
     Dado que estoy en la pantalla de enrolamiento
     Cuando quiera dejar oculta la contraseña
     Entonces  el valor de la contraseña no se podrá ver

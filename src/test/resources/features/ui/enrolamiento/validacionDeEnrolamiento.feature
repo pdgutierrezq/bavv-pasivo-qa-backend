@@ -3,7 +3,7 @@
 @sprint:63
 @issue:PBA-510
 @app:CDT
-@feature:Validacion_de_enrolamiento
+@functionality:Validacion_de_enrolamiento
 @layer:frontend
 @priority:high
 @regression:yes

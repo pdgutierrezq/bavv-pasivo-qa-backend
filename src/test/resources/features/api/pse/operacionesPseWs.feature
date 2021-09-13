@@ -2,7 +2,7 @@
 @sprint:57
 @issue:PBA-2032
 @app:CDT
-@feature:pse.creacion_transaccion_PSE_CDT
+@functionality:pse.creacion_transaccion_PSE_CDT
 @screen:fondeo_pse
 @layer:backend
 @priority:high

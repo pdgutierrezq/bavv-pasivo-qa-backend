@@ -3,7 +3,7 @@
 @sprint:62
 @issue:PBA-2346
 @app:CDT
-@feature:Redireccion_PSE
+@functionality:Redireccion_PSE
 @screen:PSE
 @layer:frontend
 @priority:high

@@ -3,7 +3,7 @@
 @sprint:46
 @issue:PBA-1654
 @app:CDT
-@feature:Cargue_de_documentos
+@functionality:Cargue_de_documentos
 @layer:frontend
 @priority:high
 @regression:yes

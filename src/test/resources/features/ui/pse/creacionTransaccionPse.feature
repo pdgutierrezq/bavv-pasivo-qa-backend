@@ -3,7 +3,7 @@
 @sprint:62
 @issue:PBA-2349
 @app:CDT
-@feature:Creacion_de_Transaccion_PSE
+@functionality:Creacion_de_Transaccion_PSE
 @screen:PSE
 @layer:frontend
 @priority:high

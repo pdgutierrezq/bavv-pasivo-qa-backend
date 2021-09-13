@@ -2,7 +2,7 @@
 @sprint:68
 @issue:PBA-2612
 @app:CDT
-@feature:Consulta_de_tasas
+@functionality:Consulta_de_tasas
 @screen:landing
 @layer:backend
 @priority:high

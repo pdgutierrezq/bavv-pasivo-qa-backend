@@ -2,7 +2,7 @@
 @sprint:61
 @issue:PBA-2295
 @app:CDT
-@feature:Direccion_de_envio_tarjeta
+@functionality:Direccion_de_envio_tarjeta
 @layer:frontend
 @priority:high
 @regression:yes

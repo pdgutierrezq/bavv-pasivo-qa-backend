@@ -2,7 +2,7 @@
 @sprint:23
 @issue:PBA-470
 @app:CDA
-@feature:Creacion_de_CDA_cliente_enrolado
+@functionality:Creacion_de_CDA_cliente_enrolado
 @layer:frontend
 @execution:automatic
 @automation:complete

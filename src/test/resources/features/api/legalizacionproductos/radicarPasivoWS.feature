@@ -2,7 +2,7 @@
 @sprint:7
 @issue:PBA-177
 @app:COMMONS
-@feature:radicar_pasivo
+@functionality:radicar_pasivo
 @screen:declarante
 @layer:backend
 @priority:high

@@ -3,7 +3,7 @@
 @sprint:57
 @issue:PBA-2083
 @app:CDT
-@feature:Pantalla_de_PSE
+@functionality:Pantalla_de_PSE
 @screen:PSE
 @layer:frontend
 @priority:high
