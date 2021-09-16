@@ -2,8 +2,8 @@
 @sprint:89
 @issue:PBA-3506
 @app:CDA
-@functionality:insurance
-@layer:backend
+@functionality:Banco.Seguros
+@layer:frontend
 @priority:low
 @regression:yes
 @execution:manual

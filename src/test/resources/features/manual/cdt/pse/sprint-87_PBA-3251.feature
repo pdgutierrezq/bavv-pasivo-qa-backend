@@ -2,7 +2,7 @@
 @sprint:87
 @issue:PBA-3251
 @app:CDT
-@functionality:pse.devolucion_de_dinero
+@functionality:PSE.Transaccion.Devolución
 @layer:backend
 @priority:low
 @regression:no

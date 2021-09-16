@@ -2,7 +2,7 @@
 @sprint:89
 @issue:PBA-3475
 @app:CDT
-@functionality:informacion_de_contacto
+@functionality:Cliente.Info.Personal
 @screen:datos_personales
 @layer:frontend
 @priority:low

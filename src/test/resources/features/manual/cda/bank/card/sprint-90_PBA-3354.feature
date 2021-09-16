@@ -2,7 +2,7 @@
 @sprint:90
 @issue:PBA-3354
 @app:CDA
-@feature:envío_de_tarjeta
+@functionality:Banco.Tarjeta
 @layer:frontend
 @priority:low
 @regression:no

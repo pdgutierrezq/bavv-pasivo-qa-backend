@@ -2,7 +2,7 @@
 @sprint:90
 @issue:PBA-3354
 @app:CDA
-@functionality:insurance
+@functionality:Banco.Enrolamiento
 @layer:frontend
 @priority:low
 @regression:no
