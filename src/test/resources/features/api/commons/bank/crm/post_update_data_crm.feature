@@ -2,7 +2,7 @@
 @sprint:67
 @issue:PBA-2652
 @app:COMMONS
-@functionality:CRM.Actualización
+@functionality:Banco.CRM.Actualización
 @screen:declarate
 @layer:backend
 @priority:high

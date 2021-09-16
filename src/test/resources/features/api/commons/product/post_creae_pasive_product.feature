@@ -2,7 +2,7 @@
 @sprint:7
 @issue:PBA-177
 @app:COMMONS
-@functionality:radicar_pasivo
+@functionality:Producto.Crear
 @screen:declarante
 @layer:backend
 @priority:high

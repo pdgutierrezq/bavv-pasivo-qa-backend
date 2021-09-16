@@ -2,7 +2,7 @@
 @sprint:54
 @issue:PBA-2029
 @app:CDT
-@functionality:pse.lista_de_bancos
+@functionality:PSE.Bancos
 @screen:fondeo_pse
 @layer:backend
 @priority:high

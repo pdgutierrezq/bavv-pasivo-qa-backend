@@ -2,7 +2,7 @@
 @sprint:38
 @issue:PBA-1432
 @app:COMMONS
-@functionality:Validar_seguro
+@functionality:Banco.Seguros
 @screen:seguro_de_cuenta
 @layer:backend
 @priority:high

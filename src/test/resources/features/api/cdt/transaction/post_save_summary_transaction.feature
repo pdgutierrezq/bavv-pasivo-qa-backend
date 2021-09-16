@@ -2,7 +2,7 @@
 @sprint:51
 @issue:PBA-1814
 @app:CDT
-@functionality:Resumen_de_transaccion
+@functionality:Transaction.Guardar
 @screen:declarante
 @layer:backend
 @priority:high

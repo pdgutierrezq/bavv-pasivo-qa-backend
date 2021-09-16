@@ -2,7 +2,7 @@
 @sprint:63
 @issue:PBA-2336
 @app:CDT
-@functionality:PDF_de_documentos
+@functionality:Banco.PDF
 @screen:firma_electronica
 @layer:backend
 @priority:high

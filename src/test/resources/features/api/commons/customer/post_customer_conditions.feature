@@ -2,7 +2,7 @@
 @sprint:3
 @issue:PBA-14
 @app:COMMONS
-@functionality:Condiciones_cliente
+@functionality:Cliente.Condiciones
 @screen:Formulario_de_identificacion_de_usuario
 @layer:backend
 @priority:high

@@ -3,7 +3,7 @@
 @sprint:73
 @issue:PBA-2825
 @app:CDT
-@functionality:pse.Operaciones_Resumen_CDT
+@functionality:PSE.Transacción.Estado
 @screen:fondeo_pse
 @layer:backend
 @priority:high

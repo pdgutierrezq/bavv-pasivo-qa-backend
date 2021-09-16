@@ -2,7 +2,7 @@
 @sprint:76
 @issue:PBA-3055
 @app:CDT
-@functionality:consulta_de_cuentas_por_cliente
+@functionality:Cliente.Cuentas
 @screen:OTP
 @layer:backend
 @priority:high
@@ -11,7 +11,7 @@
 @automation:complete
 Característica: Consulta servicio de cuentas por cliente
   YO COMO Cliente
-  NECESITO consultar mis cuentas en el bancoc
+  NECESITO consultar mis cuentas en el banco
   PARA abrir mi CDT
 
   @testrail-id:510601

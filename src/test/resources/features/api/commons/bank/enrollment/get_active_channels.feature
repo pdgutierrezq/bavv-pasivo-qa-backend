@@ -2,7 +2,7 @@
 @sprint:19
 @issue:PBA-711
 @app:COMMONS
-@functionality:Canales
+@functionality:Banco.Enrolamiento.Canales
 @screen:Firma_electronica
 @layer:backend
 @priority:high
