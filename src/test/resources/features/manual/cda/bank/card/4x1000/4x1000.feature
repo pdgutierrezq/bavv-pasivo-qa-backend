@@ -2,7 +2,7 @@
 @sprint:91
 @issue:PBA-3106
 @app:CDA
-@functionality:Banco.Tarjeta.4x1000
+@functionality:Cliente.Info.Tarjeta.4x1000
 @layer:frontend
 @priority:low
 @regression:no

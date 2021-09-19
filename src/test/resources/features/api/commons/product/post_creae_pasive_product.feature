@@ -14,7 +14,6 @@ Característica: Radicar pasivo
   NECESITO Radicar pasivo
   PARA crear el producto pasivo
 
-  @testrail-id:510215
   Escenario: Radicar pasivo
     Dado que el "no cliente" se autenticó
     Cuando el usuario radica el producto pasivo

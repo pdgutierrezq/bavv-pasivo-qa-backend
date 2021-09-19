@@ -14,7 +14,6 @@ Característica: Validacion de seguro
   NECESITO determinar si el cliente tiene o no seguro
   PARA ofrecerle el producto o no
 
-  @testrail-id:510205
   Escenario: Consumir servicio de insurance-validation
     Dado que se obtiene un usuario tipo "no cliente" para validar seguro
     Cuando se consulta si el usuario tiene seguro

@@ -14,7 +14,6 @@ Característica: Consumo de servicio para saber si un usuario esta enrolado
   NECESITO que se consuma el servicio de clientes en canales
   PARA que saber si tengo o no canales
 
-  @testrail-id:511077
   Esquema del escenario: consulta cliente enrolado, <cliente>
     Dado que se obtiene un usuario tipo "<cliente>"
     Cuando el usuario consulta si tiene canales

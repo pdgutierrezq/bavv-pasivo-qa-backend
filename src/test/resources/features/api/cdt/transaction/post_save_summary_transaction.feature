@@ -14,7 +14,6 @@ Característica: Modificar el servicio de save summary transation CDT
   NECESITO almacenar datos
   PARA presentar posteriormente un resumen
 
-  @testrail-id:510216
   Escenario: Actualizar datos para resumen
     Dado que el "usuario" se autentica en el sistema
     Cuando el "usuario" actualiza la informaicon de resumen de forma exitosa

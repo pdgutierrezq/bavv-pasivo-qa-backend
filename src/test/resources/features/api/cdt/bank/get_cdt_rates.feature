@@ -10,11 +10,10 @@
 @execution:automatic
 @automation:complete
 Característica: Consulta de tasas
-  Yo como cliente abriendo producto
-  quiero que se me informe las tasas actualizadas
-  para iniciar el proceso de apertura CDT
+  YO como cliente abriendo producto
+  QUIERO que se me informe las tasas actualizadas
+  PARA iniciar el proceso de apertura CDT
 
-  @testrail-id:510247
   Escenario: Consulta de tasas CDT
     Dado que el "usuario" esta habilitado para consultar las tasas
     Cuando realizala consulta de las tasas

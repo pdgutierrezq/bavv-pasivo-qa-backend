@@ -2,7 +2,7 @@
 @sprint:90
 @issue:PBA-3354
 @app:CDA
-@functionality:Banco.Tarjeta
+@functionality:Cliente.Info.Tarjeta.Pantalla
 @layer:frontend
 @priority:low
 @regression:no

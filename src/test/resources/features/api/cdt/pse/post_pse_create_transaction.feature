@@ -10,12 +10,10 @@
 @execution:automatic
 @automation:complete
 Característica: Servicios web para operaciones PSE
+  YO como usuario
+  QUIERO consultar los servicios PSE
+  PARA fondear mi CDT
 
-  Yo como usuario
-  Necesito consultar los servicios PSE
-  Para fondear mi CDT
-
-  @testrail-id:510218
   Escenario: Validar operaciones PSE , Crear transacccion, validar estado y finalizar
     Dado que se obtiene un usuario tipo "aleatorio"
     Y crea un transaccion correctamente

@@ -17,7 +17,6 @@ Característica: Seguro de cuenta
   @manual-result:passed
   @manual-last-tested:sprint-89
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3506)
-  @testrail-id:510058
   Escenario: Valor del seguro
     Dado que me encuentro en el la pantalla de seguro
     Cuando revise el detelle del seguro
