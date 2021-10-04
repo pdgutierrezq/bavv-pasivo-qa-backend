@@ -16,7 +16,6 @@ Característica: Textos pantalla de envío de tarjeta
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:informes/Sprint_90/HU3354/envio_de_tarjeta
   Escenario: Actualización de texto
     Dado que estoy en la pantalla de envío de tarjeta debito
     Cuando lea la información del tiempo de entrega de la tarjeta

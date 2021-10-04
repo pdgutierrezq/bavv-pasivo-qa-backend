@@ -16,7 +16,6 @@ Característica: Validación Otp
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:informes/Sprint_90/HU3354/otp
   Escenario: No Reinicio del contador para ingreso del código otp
     Dado que estoy en la pantalla validación Otp
     Cuando ingrese la un Codigo otp no valido
@@ -26,7 +25,6 @@ Característica: Validación Otp
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:informes/Sprint_90/HU3354/otp
   Escenario: Reinicio del contador para nueva solicitud del código otp
     Dado que estoy en la pantalla validación Otp
     Cuando ingrese quiera un nuevo Codigo otp

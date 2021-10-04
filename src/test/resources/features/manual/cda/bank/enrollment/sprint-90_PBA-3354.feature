@@ -16,7 +16,6 @@ Característica: Funcionalidad icono de password
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:3475/E1
   Escenario: Contraseña visible
     Dado que estoy en la pantalla de enrolamiento
     Cuando quiera ver la contraseña
@@ -25,7 +24,6 @@ Característica: Funcionalidad icono de password
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-90
-  @testrail-evidence:3475/E2
   Escenario: Contraseña NO visible
     Dado que estoy en la pantalla de enrolamiento
     Cuando quiera dejar oculta la contraseña
