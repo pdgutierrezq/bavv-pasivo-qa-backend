@@ -41,7 +41,8 @@ public class AccountSelection implements Task {
             .otherwise(
                 Waits.loader(),
                 Click.on(ProductOfferingPage.RADIO_PRO),
-                Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS),
-                RequiredGmf.selection(TAG_ACCEPT)));
+                Click.on(ProductOfferingPage.BOTON_CONTINUAR_PRODUCTOS)
+//                ,RequiredGmf.selection(TAG_ACCEPT)
+            ));
   }
 }
