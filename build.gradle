@@ -89,15 +89,8 @@ tasks.withType(Test) {
 }
 
 processTestResources {
-    if (String.valueOf(runner.projectRootPath).contains('bavv-pasivoavvillas-qa-front')) {
-        if (runner.buildProfile == 'stg')
-            runner.buildProfile = "${uiEnvironment}"
-        runner.cucumberOptions = "${uiCucumberOptions}"
-    } else {
-        if (runner.buildProfile == 'stg')
-            runner.buildProfile = "${apiEnvironment}"
-        runner.cucumberOptions = "${apiCucumberOptions}"
-    }
+    runner.buildProfile = "${apiEnvironment}"
+    runner.cucumberOptions = "${apiCucumberOptions}"
     if (runner.buildProfile == 'pro')
         runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
     println "               ╔══╗ \n" +
@@ -109,7 +102,7 @@ processTestResources {
     println "[INFO:PBA] RUNNING 🇦​​​​​🇩​​​​​🇳​​​​​ 🇦​​​​​🇺​​​​​🇹​​​​​🇴​​​​​🇲​​​​​🇦​​​​​🇹​​​​​🇮​​​​​🇴​​​​​🇳​​​​​ 🇵​​​​​🇷​​​​​🇴​​​​​🇯​​​​​🇪​​​​​🇨​​​​​🇹​​​​​"
     println "[INFO:PBA] PROJECT PATH: $runner.projectRootPath"
     println "[INFO:PBA] ENVIRONMENT: $runner.buildProfile"
-    println "[INFO:PBA] TESTRAIL: " + System.getProperty("testrail.enable")
+    println "[INFO:PBA] TESTRAIL:  ${testrailEnable}"
     println "[INFO:PBA] CUCUMBER OPTIONS: $runner.cucumberOptions"
     from("$rootDir/profiles/$runner.buildProfile") {
         include '*.properties'
