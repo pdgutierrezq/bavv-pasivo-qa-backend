@@ -13,7 +13,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
-  Escenario:Ofrecimiento de deposito de bajo monto y cuenta digital sugiriendo deposito.
+  Escenario: Ofrecimiento de deposito de bajo monto y cuenta digital sugiriendo deposito.
     Dado que el usuario esta en la pantalla de ofrecimiento de cuentas
     Y los ingresos digitados son menores a <1.500.000  y no tiene cuenta CAT
     Cuando  cargue la pantalla de ofrecimiento de cuenta
@@ -36,7 +36,6 @@ Característica: Deposito digital
     Cuando  se carga la pantalla de ofrecimiento de cuenta
     Entonces  debe mostrar Deposito de bajo monto y Cuenta Digital pero recomendando la cuenta Digital en lado izquierdo de la pantalla y inhabilitando el deposito de bajo monto según mock.
 
-
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
@@ -56,7 +55,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
-  Escenario: .6 actualización pantalla de oferta de productos
+  Escenario: Actualización pantalla de oferta de productos
     Dado que el cliente esta en pantalla “PEP”, No es PEP y seleccionó la opción para continuar
     Cuando  llegué a pantalla de ofrecimiento de cuentas
     Entonces  cargará la pantalla con la siguiente información
