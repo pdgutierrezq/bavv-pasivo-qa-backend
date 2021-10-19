@@ -16,6 +16,7 @@ Característica: Pantalla de tarjeta debito
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515695
   Escenario: Subtitulo
     Dado que llegué a la pantalla de tarjeta debito
     Cuando cargue la pantalla

@@ -16,6 +16,7 @@ Característica: Pantalla de datos basicos del cliente
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515694
   Escenario: Alerta de operadores
     Dado que llegué a la pantalla de datos basicos del cliente
     Cuando cargue la pantalla

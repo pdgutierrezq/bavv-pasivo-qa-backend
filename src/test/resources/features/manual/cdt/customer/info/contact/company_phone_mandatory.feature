@@ -17,6 +17,7 @@ Característica: Validaciones en datos de contacto-teléfono de la empresa
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-89
+  @testrail-id:515696
   Escenario: Campo obligatorio teléfono de la empresa para empleado
     Dado que estoy en la pantalla de datos de contacto y soy empleado
     Cuando este en el campo teléfono de la empresa , no lo diligencie y pase a otro campo
@@ -25,6 +26,7 @@ Característica: Validaciones en datos de contacto-teléfono de la empresa
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-89
+  @testrail-id:515697
   Escenario: Activación del botón continuar
     Dado que estoy en la pantalla de datos de contacto y soy empleado
     Y diligencie todos los campos completos y correctamente (incluyendo el teléfono de la empresa).

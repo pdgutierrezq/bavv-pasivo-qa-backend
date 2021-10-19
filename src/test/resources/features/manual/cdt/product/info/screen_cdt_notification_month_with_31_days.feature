@@ -16,6 +16,7 @@ Característica: Nota de creación de CDT fin de mes
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-94
+  @testrail-id:515700
   Escenario: Nota de creacion de CDT en dia 31 del mes
     Dado que el usuario está en la pantalla de configuración de CDT
     Cuando sea 31 de cualquier mes
@@ -24,6 +25,7 @@ Característica: Nota de creación de CDT fin de mes
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-94
+  @testrail-id:515701
   Escenario: Nota de creacion de CDT en dia NO 31 del mes
     Dado que el usuario está en la pantalla de configuración de CDT
     Cuando sea un día diferente a 31

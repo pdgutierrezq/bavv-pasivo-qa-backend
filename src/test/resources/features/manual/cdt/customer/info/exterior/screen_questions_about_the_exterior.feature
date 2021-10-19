@@ -16,6 +16,7 @@ Característica: Pantalla de preguntas sobre el extranjero
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515698
   Escenario: Imagen en pantalla de preguntas sobre el extranjeto
     Dado que llegué a la pantalla de preguntas sobre el extranjero
     Cuando cargue la pantalla

@@ -14,6 +14,7 @@ Característica: Implementar Precarga de info a cliente des actualizado CDT
   NECESITO que me muestre la información que tiene CRM del banco
   PARA mejorar mi experiencia
 
+  @testrail-id:515731
   Escenario: Pre carga de datos para pantalla de datos de contacto
     Dado que se obtiene un usuario tipo "cliente no actualizado"
     Y que hay información del usuario en el banco

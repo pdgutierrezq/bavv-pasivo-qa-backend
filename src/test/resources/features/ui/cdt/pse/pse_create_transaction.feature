@@ -14,6 +14,7 @@ Característica: Creacion transaccion PSE
   QUIERO que se redirija al proceso de PSE
   PARA fondear mi CDT
 
+  @testrail-id:515744
   Escenario: Crear transacción de PSE exitosamente
     Dado que se obtiene un usuario tipo "cliente actualizado"
     Cuando se crea la transacción PSE de forma exitosa

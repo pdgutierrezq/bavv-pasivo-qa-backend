@@ -15,11 +15,13 @@ Característica: Servicios web para operaciones sobre resumen CDT
   QUIERO consultar los servicios resumen CDT
   PARA guardar,obtener y eliminar informacion
 
+  @testrail-id:515645
   Escenario: Validar metodo guardar informacion
     Dado que se obtiene un usuario tipo "aleatorio"
     Cuando se guarda informacion en base de datos
     Entonces se lee la informacion del resumen para validar la coincidencia de datos
 
+  @testrail-id:515646
   Escenario: Validar metodo eliminar informacion
     Dado que se obtiene un usuario tipo "aleatorio"
     Cuando se guarda y eliminan datos del resumen CDT

@@ -14,6 +14,7 @@ Característica: Consulta de tasas
   QUIERO que se me informe las tasas actualizadas
   PARA iniciar el proceso de apertura CDT
 
+  @testrail-id:515634
   Escenario: Consulta de tasas CDT
     Dado que el "usuario" esta habilitado para consultar las tasas
     Cuando realizala consulta de las tasas

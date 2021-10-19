@@ -13,6 +13,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515684
   Escenario: Ofrecimiento de deposito de bajo monto y cuenta digital sugiriendo deposito.
     Dado que el usuario esta en la pantalla de ofrecimiento de cuentas
     Y los ingresos digitados son menores a <1.500.000  y no tiene cuenta CAT
@@ -22,6 +23,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515685
   Escenario: Ofrecimiento de deposito de bajo monto y cuenta digital sugiriendo cuenta digital
     Dado que el usuario esta en la pantalla de ofrecimiento de cuentas
   Y los ingresos digitados son ma  YO res o iguales a >=1.500.000  y no tiene cuenta CAT
@@ -31,6 +33,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515686
   Escenario: Ofrecimiento de solo cuenta digital por que el usuario tiene una cat
     Dado que el usuario esta la pantalla de ofrecimiento de cuentas y ya tiene una cuenta CAT en el banco
     Cuando  se carga la pantalla de ofrecimiento de cuenta
@@ -39,6 +42,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515687
   Escenario: Redirección a pantalla de otp
     Dado que el cliente está en pantalla “Ofrecimiento de cuentas”, seleccionó cuenta Digital o Deposito de bajo monto y tiene seguro
     Cuando  de click para continuar
@@ -47,6 +51,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515688
   Escenario: Redirección a pantalla de oferta de seguro
     Dado que el cliente esta en pantalla “Ofrecimiento de cuentas”, seleccionó Cuenta digital o deposito de bajo monto y no tiene seguro
     Cuando  de click en continuar
@@ -55,6 +60,7 @@ Característica: Deposito digital
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-95
+  @testrail-id:515689
   Escenario: Actualización pantalla de oferta de productos
     Dado que el cliente esta en pantalla “PEP”, No es PEP y seleccionó la opción para continuar
     Cuando  llegué a pantalla de ofrecimiento de cuentas

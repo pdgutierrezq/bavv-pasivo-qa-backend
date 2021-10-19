@@ -17,6 +17,7 @@ Característica: Consulta del servicio de devolución del dinero
   @manual-result:passed
   @manual-last-tested:sprint-88
   @manual-test-evidence:[JIRA](https://avaldigitallabs.atlassian.net/browse/PBA-3371)
+  @testrail-id:515702
   Escenario: Consulta del servicio de devolucion de dinero
     Dado que estoy en la pantalla de PSE flujo
     Cuando seleccione la opción para continuar

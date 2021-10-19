@@ -16,6 +16,7 @@ Característica: Pantalla de datos basicos del CDT
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515699
   Escenario: Alerta cuenta disponible con dinero visible
     Dado que llegué a la pantalla de configuración CDT
     Cuando cargue la pantalla

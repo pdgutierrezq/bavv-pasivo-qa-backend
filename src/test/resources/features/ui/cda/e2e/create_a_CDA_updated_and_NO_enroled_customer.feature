@@ -13,6 +13,7 @@ Característica: Creación cuenta de ahorros cliente actualizado NO enrolado
 
   @priority:high
   @regression:yes
+  @testrail-id:515717
   Escenario: Creación cuenta de ahorros pro con cliente actualizado NO enrolado con seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
     Cuando el usuario realiza el flujo con "Cuenta Digital" y "acepta" el seguro
@@ -20,6 +21,7 @@ Característica: Creación cuenta de ahorros cliente actualizado NO enrolado
 
   @priority:high
   @regression:yes
+  @testrail-id:515718
   Escenario: Creación cuenta de ahorros pro con cliente actualizado NO enrolado sin seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
     Cuando el usuario realiza el flujo con "Cuenta Digital" y "no acepta" el seguro
@@ -27,6 +29,7 @@ Característica: Creación cuenta de ahorros cliente actualizado NO enrolado
 
   @priority:low
   @regression:no
+  @testrail-id:515719
   Escenario: Creación cuenta de ahorros simple con cliente actualizado NO enrolado con seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
     Cuando el usuario realiza el flujo con "cuenta simple" y "acepta" el seguro
@@ -34,6 +37,7 @@ Característica: Creación cuenta de ahorros cliente actualizado NO enrolado
 
   @priority:low
   @regression:no
+  @testrail-id:515720
   Escenario: Creación cuenta de ahorros simple con cliente actualizado NO enrolado sin seguro
     Dado que se obtiene un usuario tipo "cliente actualizado que no tenga canales"
     Cuando el usuario realiza el flujo con "cuenta simple" y "no acepta" el seguro

@@ -16,6 +16,7 @@ Característica: Cliente PEP
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-93
+  @testrail-id:515661
   Escenario: Cliente PEP
     Dado que el usuario está en la pantalla de identificación de usuario y se llamó el servicio de costumer conditions
     Cuando el servicio responda con código 8888 (En Var 1)
@@ -24,6 +25,7 @@ Característica: Cliente PEP
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-93
+  @testrail-id:515662
   Escenario: Cliente NO PEP
     Dado que el usuario está en la pantalla de identificación de usuario y se llamó el servicio de costumer conditions
     Cuando el servicio responda con código diferente a 8888

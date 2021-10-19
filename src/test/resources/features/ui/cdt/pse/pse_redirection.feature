@@ -14,18 +14,21 @@ Característica: Redirección a pantalla de PSE
   NECESITO llegar a la pantalla de PSE
   PARA iniciar el proceso de PSE o ir a resumen
 
+  @testrail-id:515745
   Escenario: Cliente enrolado redirección a tips
     Dado que se obtiene un usuario tipo "cliente actualizado con canales activos"
     Cuando el usuario selecciona fondeó por "Cuenta AV Villas"
     Y obtiene informacion de si esta enrolado
     Entonces se redirecciona al cliente a pantalla de "tips CDT"
 
+  @testrail-id:515746
   Escenario: Cliente enrolado redirección a PSE flujo
     Dado que se obtiene un usuario tipo "cliente actualizado con canales activos"
     Cuando el usuario selecciona fondeó por "Pse"
     Y obtiene informacion de si esta enrolado
     Entonces se redirecciona al cliente a pantalla de "PSE en el flujo"
 
+  @testrail-id:515747
   Escenario: Cliente no enrolado fallido redirección a resumen
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
     Cuando el usuario selecciona fondeó por "Cuenta AV Villas"

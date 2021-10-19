@@ -14,6 +14,7 @@ Característica: Actualizar CRM
   NECESITO actualizar mi informacion de crm
   PARA crear el producto pasivo
 
+  @testrail-id:515649
   Escenario: Actualizar y validar CRM
     Dado que el "no cliente" se autenticó, radicó pasivo y consultó crm
     Cuando el usuario actualiza la información en crm

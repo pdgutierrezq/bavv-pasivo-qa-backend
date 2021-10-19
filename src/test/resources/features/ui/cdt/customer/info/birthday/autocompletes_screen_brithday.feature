@@ -14,13 +14,15 @@ Característica: CDT Pantalla de Fecha de Nacimiento y Genero
   NECESITO diligenciar un formulario
   PARA determinar mis datos personales
 
+  @testrail-id:515727
   Escenario: Autocomplete y dropdown de ciudad de nacimiento
     Dado que se obtiene un usuario tipo "no cliente no actualizado que no tenga canales"
     Y que estoy en pantalla donde ingreso mis datos personales.
     Cuando de click en el campo de Ciudad de nacimiento.
     Entonces se desplegará el listado de las ciudades o municipios de Colombia que coincida con el listado
 
-  Escenario:Autocomplete y dropdown de ciudad de expedición
+  @testrail-id:515728
+  Escenario: Autocomplete y dropdown de ciudad de expedición
     Dado que se obtiene un usuario tipo "no cliente no actualizado que no tenga canales"
     Y que estoy en pantalla donde ingreso mis datos personales.
     Cuando de click en el campo de Ciudad de la expedición de la cédula

@@ -14,12 +14,14 @@ Característica: Pantalla de PSE en el flujo
   NECESITO que se me muestre la pantalla de PSE
   PARA fondear mi CDT
 
+  @testrail-id:515748
   Escenario: Precarga de información en pantalla de PSE
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
     Y que llegúe a la pantalla de PSE
     Cuando cargue la pantalla
     Entonces se mostrará precargada la información del número del CDT y el monto a invertir
 
+  @testrail-id:515749
   Escenario: Lista desplegable de bancos
     Dado que se obtiene un usuario tipo "cliente actualizado con cuenta para fondeo no enrolado con renovacion"
     Y que llegúe a la pantalla de PSE

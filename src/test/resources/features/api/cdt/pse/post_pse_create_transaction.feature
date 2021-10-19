@@ -14,6 +14,7 @@ Característica: Servicios web para operaciones PSE
   QUIERO consultar los servicios PSE
   PARA fondear mi CDT
 
+  @testrail-id:515647
   Escenario: Validar operaciones PSE , Crear transacccion, validar estado y finalizar
     Dado que se obtiene un usuario tipo "aleatorio"
     Y crea un transaccion correctamente

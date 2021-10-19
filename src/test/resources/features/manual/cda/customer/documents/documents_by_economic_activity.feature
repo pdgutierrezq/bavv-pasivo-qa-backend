@@ -16,7 +16,19 @@ Característica: Documentos segun actividad economica e ingresos
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-94
-  Esquema del escenario:Cliente que haya seleccionado cuenta Digital con Actividad:<Actividad>, <Declarante> es declarante y con ingresos <Ingresos>
+  @testrail-id:515663
+  @testrail-id:515664
+  @testrail-id:515665
+  @testrail-id:515666
+  @testrail-id:515667
+  @testrail-id:515668
+  @testrail-id:515669
+  @testrail-id:515670
+  @testrail-id:515671
+  @testrail-id:515672
+  @testrail-id:515673
+  @testrail-id:515674
+  Esquema del escenario: Cliente que haya seleccionado cuenta Digital con Actividad:<Actividad>, <Declarante> es declarante y con ingresos <Ingresos>
     Dado que llegué a la pantalla de cargue de documentos
     Cuando haya seleccionado una cuenta Digital, soy <Actividad>, <Declarante> declarante y tengo ingresos <Ingresos>
     Entonces se muestra componente de Cargue soporte ingresos que incluye las siguientes opciones:<Documentos>
@@ -39,7 +51,11 @@ Característica: Documentos segun actividad economica e ingresos
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-94
-  Esquema del escenario:Cliente que haya seleccionado cuenta Digital con Actividad:<Actividad>, <Declarante> es declarante y con <Ingresos>
+  @testrail-id:515675
+  @testrail-id:515676
+  @testrail-id:515677
+  @testrail-id:515678
+  Esquema del escenario: Cliente que haya seleccionado cuenta Digital con Actividad:<Actividad>, <Declarante> es declarante y con <Ingresos>
     Dado que llegué a la pantalla de cargue de documentos
     Cuando haya seleccionado una cuenta Digital, soy <Actividad>, <Declarante> declarante y tengo ingresos <Ingresos>
     Entonces NO se muestra componente de Cargue soporte ingresos

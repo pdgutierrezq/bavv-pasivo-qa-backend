@@ -14,6 +14,7 @@ Característica: Condiciones cliente
   NECESITO obtener informacion de las condicion es del cliente
   PARA direccionarlo al flujo correspondiente
 
+  @testrail-id:515653
   Escenario: Consumir servicio de condiciones cliente
     Dado que se obtiene un usuario para condiciones cliente de tipo "aleatorio"
     Cuando consumo el servicio rest de condiciones cliente

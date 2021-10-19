@@ -16,6 +16,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515679
   Escenario: Check de 4 x Mil en pantalla de tarjeta debito
     Dado que llegué a la pantalla de tarjeta debito
     Cuando cargue la pantalla
@@ -24,6 +25,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515680
   Escenario: Popup de 4 x Mil en pantalla de tarjeta debito
     Dado que Estoy en la pantalla de tarjeta debito
     Cuando seleccione la opción para saber que es el 4 x mil
@@ -32,6 +34,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515681
   Escenario: Cierre de Pop up de 4 x Mil
     Dado que Estoy en el POP up de 4 x mil
     Cuando seleccione la opción para cerrar o entendido del POP Up 4 x mil
@@ -40,6 +43,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515682
   Escenario: envío de flag cuando elegí 4 x Mil
     Dado que Estoy en la pantalla de firma y elegí 4 x mil
     Cuando se llame al websocket 2
@@ -48,6 +52,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-91
+  @testrail-id:515683
   Escenario: envío de flag cuando no elegí 4 x Mil
     Dado que Estoy en la pantalla de firma y no elegí 4 x mil
     Cuando se llame al websocket 2
