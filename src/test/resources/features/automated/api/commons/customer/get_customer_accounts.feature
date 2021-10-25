@@ -1,7 +1,7 @@
 # language: es
 @sprint:76
 @issue:PBA-3055
-@app:CDT
+@app:COMMONS
 @functionality:Cliente.Cuentas
 @screen:OTP
 @layer:backend
