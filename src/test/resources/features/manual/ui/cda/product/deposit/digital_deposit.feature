@@ -4,8 +4,8 @@
 @app:CDA
 @functionality:Producto.Deposito_Digital
 @layer:frontend
-@priority:low
-@regression:no
+@priority:high
+@regression:yes
 @execution:manual
 @automation:pending
 Característica: Deposito digital

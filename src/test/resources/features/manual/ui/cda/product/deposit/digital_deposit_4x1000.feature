@@ -4,8 +4,8 @@
 @app:CDA
 @functionality:Producto.Deposito_Digital.4x1000
 @layer:frontend
-@priority:low
-@regression:no
+@priority:high
+@regression:yes
 @execution:manual
 @automation:pending
 Característica: Deposito digital execta de 4 x mil

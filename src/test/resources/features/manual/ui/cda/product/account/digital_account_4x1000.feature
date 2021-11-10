@@ -38,7 +38,7 @@ Característica: Cuenta de ahorros exenta del de 4 x 1000
   Escenario: Cierre de Pop up de 4 x Mil
     Dado que Estoy en el POP up de 4 x mil
     Cuando seleccione la opción para cerrar o entendido del POP Up 4 x mil
-    Entonces se deja al usuario en la pantalla de tarjeta debito
+    Entonces se deja al usuario en la pantalla de tarjeta debito (con la tarjeta negra)
 
   @manual
   @manual-result:passed
