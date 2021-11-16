@@ -1,4 +1,4 @@
-apply from: "https://gradle.avaldigitallabs.com/resources/java-serenity-project.gradle"
+apply from: "gradle/resources/java-serenity-project.gradle"
 repositories {
     mavenLocal()
     mavenCentral()
