@@ -1,15 +1,21 @@
 apply from: "gradle/resources/java-serenity-project.gradle"
 repositories {
     mavenLocal()
-    mavenCentral()
     jcenter()
     maven {
         url 'https://gitlab.com/api/v4/projects/28985927/packages/maven'
     }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/11962617/packages/maven'
+    }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/15875075/packages/maven'
+    }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/19767391/packages/maven'
+    }
 }
-
 ext {
-
     libs = [
             test: [
                     serenity     : [
@@ -19,11 +25,11 @@ ext {
                             screenplay         : "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
                             screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
                             cucumber4          : "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
-                            restAssured        : "net.serenity-bdd:serenity-rest-assured:${serenityVersion}",
+                            restAssured        : "net.serenity-bdd:serenity-rest-assured:${serenityRestAssured}",
                             rest               : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
                     ],
                     cucumber     : [
-                            core : "io.cucumber:cucumber-java:${cucumberVersion}",
+                            core : "io.cucumber:cucumber-core:${cucumberVersion}",
                             junit: "io.cucumber:cucumber-junit:${cucumberVersion}"
                     ],
                     junit        : "junit:junit:${junitVersion}",
@@ -34,6 +40,8 @@ ext {
                     jsonvalidator: "io.rest-assured:json-schema-validator:${jsonvalidatorrestassured}",
                     gherkin      : "io.cucumber:jgherkin:${jsonvalidatorrestassured}",
                     faker        : "com.github.javafaker:javafaker:${fakerVersion}",
+                    karate       : "com.peterland:karate-screenplay-rest:${karateScreenplayVersion}",
+                    dataDriven   : "com.peterland:cucumber-data-driven:${dataDrivenVersion}",
                     testrail     : "com.peterland:cucumber-with-testrail:${peterlandTestrailVersion}"
 
             ]
@@ -57,15 +65,20 @@ dependencies {
     implementation libs.test.serenity.core,
             libs.test.serenity.screenplay,
             libs.test.serenity.junit,
+            libs.test.serenity.screenplayWebdriver,
             libs.test.serenity.ensure,
             libs.test.serenity.cucumber4,
             libs.test.serenity.rest,
+            libs.test.serenity.restAssured,
             libs.test.junit,
             libs.test.cucumber.core,
             libs.test.cucumber.junit,
+            libs.test.assertj,
+            libs.test.hamcrest,
             libs.test.lombok,
             libs.test.aeonbits,
             libs.test.jsonvalidator
+    testCompile libs.test.dataDriven
     implementation("com.peterland:cucumber-with-testrail:${peterlandTestrailVersion}", {
         exclude group: 'net.serenity-bdd', module: 'serenity-core'
         exclude group: 'net.serenity-bdd', module: 'serenity-screenplay'
@@ -86,6 +99,10 @@ tasks.withType(Test) {
     systemProperties['testrail.projectId'] = "${testrailProjectId}"
     systemProperties['testrail.suiteId'] = "${testrailSuiteId}"
     systemProperties['testrail.attachments'] = "${testrailAttachments}"
+}
+
+task printenv(type: Exec) {
+    commandLine 'env'
 }
 
 processTestResources {
@@ -124,3 +141,17 @@ test {
     test.outputs.upToDateWhen { false }
     gradle.startParameter.continueOnFailure = true
 }
+aggregate.doLast {
+    copy {
+        from "$runner.projectRootPath" + "/src/test/resources/img/logo.svg"
+        into "$runner.projectRootPath" + "/target/site/serenity/images"
+    }
+    File myFile = new File("$runner.projectRootPath" + "/target/site/serenity/index.html")
+    String newText = '<span class="projecttitle" style="font-family: cursive;top: 50px;left: 9%;font-weight: bolder;color: black;font-size: 2.2em;">' + runner.reportName + '</span>\n' + '<img alt="Logo" src="images/logo.svg" style="/* background: #006bff; */"><span class="projectname" style="margin-top: 20px;border-top-width: 2px;margin-right: 20px;">' + '<span class="projectsubtitle" style="font-family: auto;">Ambiente: ' + runner.buildProfile.toUpperCase() + '</span>'
+    String fileText = myFile.text
+    fileText = (fileText =~ /<span class="projectname">/).replaceFirst(newText)
+    fileText = (fileText =~ /<span class="projectname">.*<\/span>/).replaceFirst('')
+    myFile.write(fileText)
+//    System.print(rootProject.file("$runner.projectRootPath" + "/target/site/serenity/index.html").text + "\n")
+}
+
