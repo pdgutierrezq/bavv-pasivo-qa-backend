@@ -5,23 +5,21 @@
  *
  * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
  * part of this source code package.
- *
  */
+package com.bavv.pasivo.common;
 
-package co.com.avvillaspasivos.runners;
-
-import co.com.avvillaspasivos.util.Constantes;
+import com.bavv.pasivo.integration.KarateIntegrationTest;
 import cucumber.api.CucumberOptions;
-import cucumber.api.SnippetType;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
+    plugin = {"pretty", "json:target/cucumber-json-report.json"},
     features = "classpath:features",
-    glue = Constantes.RUTA_STEPS_DEFINITIONS,
-    tags = Constantes.EXECUTION_TAGS_API,
-    snippets = SnippetType.CAMELCASE)
-public class TestRunnerBackendCdt {
+    glue = {"classpath:co"},
+    tags = "not @sample"
+)
+public class AcceptanceTestSuite extends KarateIntegrationTest {
 
 }
