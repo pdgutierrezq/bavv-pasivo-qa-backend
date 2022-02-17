@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     plugin = {"pretty", "json:target/cucumber-json-report.json"},
     features = "classpath:features",
-    glue = {"classpath:co"},
+    glue = {"classpath:co","classpath:com"},
     tags = "not @sample"
 )
 public class AcceptanceTestSuite extends KarateIntegrationTest {

@@ -1,4 +1,4 @@
-package com.bavv.pasivo.api.data.model;
+package com.bavv.pasivo.api.model.data;
 
 import com.peterland.cucumber.datadriven.model.data.BaseDataBean;
 import com.peterland.cucumber.datadriven.model.data.DataProvider;
