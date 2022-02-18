@@ -135,7 +135,7 @@ test {
         exceptionFormat = 'full'
     }
     filter {
-        includeTestsMatching "com.bavv.pasivo.common.AcceptanceTestSuite"
+        includeTestsMatching "co.com.bavv.pasivo.common.AcceptanceTestSuite"
     }
     systemProperty "environment", runner.buildProfile
     environment("cucumber.options", runner.cucumberOptions)
