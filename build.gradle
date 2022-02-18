@@ -109,8 +109,9 @@ task printenv(type: Exec) {
 }
 
 processTestResources {
-    runner.buildProfile = "${apiEnvironment}"
-    runner.cucumberOptions = "${apiCucumberOptions}"
+    if (runner.buildProfile == 'stg')
+        runner.buildProfile = "${environment}"
+    runner.cucumberOptions = "${cucumberOptions}"
     if (runner.buildProfile == 'pro')
         runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
     println "               ╔══╗ \n" +
