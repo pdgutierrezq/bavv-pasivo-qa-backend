@@ -1,0 +1,14 @@
+{
+  "documentType": "CC",
+  "documentNumber": "1016020757",
+  "accountType": "CUENTA_PRO",
+  "requiredGMF": true,
+  "authInd": true,
+  "officeWithdrawalsNumber": 2,
+  "atmWithdrawalsNumber": 3,
+  "requestCode": 1000013256,
+  "documentSignature": true,
+  "artCode": 1,
+  "cdtFundingAcctType": "SDA",
+  "cdtProfitsAcctType": ""
+}
