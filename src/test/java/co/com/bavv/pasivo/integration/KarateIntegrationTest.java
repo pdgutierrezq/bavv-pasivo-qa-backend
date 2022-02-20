@@ -9,6 +9,9 @@
 package co.com.bavv.pasivo.integration;
 
 
+import static co.com.bavv.pasivo.utils.Start.actor;
+
+import co.com.bavv.pasivo.api.cucumber.steps.user.identity.PostUserIdentitySteps;
 import co.com.bavv.pasivo.utils.Settings;
 import com.intuit.karate.KarateOptions;
 import com.intuit.karate.junit4.Karate;
@@ -23,7 +26,9 @@ public abstract class KarateIntegrationTest {
     public static void configureEnvironment() {
         Settings settings = Settings.getInstance();
         settings.setProperties();
+        actor();
         KarateRunner.setServiceBaseURL(Settings.getInstance().getApiBaseUrl());
+        PostUserIdentitySteps.getToken();
     }
 
     @BeforeClass

@@ -12,9 +12,8 @@ import static com.peterland.karate.api.screenplay.model.EnumUtils.lookupMap;
 import com.peterland.karate.api.screenplay.tasks.Resource;
 
 public enum KarateStaticResource implements Resource {
-    USER_IDENTITY("/bavv-identification/user-identity", "classpath:schemas/pasivo/user-identity/requests/validate-otp.json"),
-    CREATE_PASSIVE_PRODUCT("/create-passive-product", "classpath:schemas/pasivo/create-passive-product/requests/cda.json"),
-    COGNITO("/v1/cognito", ""),
+    USER_IDENTITY("bavv-identification/user-identity", "classpath:schemas/pasivo/user-identity/requests/validate-otp.json"),
+    CREATE_PASSIVE_PRODUCT("create-passive-product", "classpath:schemas/pasivo/create-passive-product/requests/cda.json"),
     NONE("", "");
 
     private final String text;
