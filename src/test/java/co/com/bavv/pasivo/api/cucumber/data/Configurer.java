@@ -10,6 +10,7 @@ package co.com.bavv.pasivo.api.cucumber.data;
 
 import co.com.bavv.pasivo.api.karate.def.KarateStaticResource;
 import co.com.bavv.pasivo.api.screenplay.data.AnInfo;
+import com.peterland.karate.api.screenplay.tasks.KarateRunner;
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
 import io.cucumber.cucumberexpressions.ParameterByTypeTransformer;
@@ -50,6 +51,7 @@ public class Configurer implements TypeRegistryConfigurer {
                     Map<String, String> map = dataTable.asLists().stream()
                         .collect(Collectors.toMap(m -> m.get(0), m -> m.get(1)));
                     AnInfo.loaded().setInfo(map);
+                    KarateRunner.setRequestBody(AnInfo.loaded().toString());
                     return AnInfo.loaded();
                 }
             }));
@@ -87,14 +89,5 @@ public class Configurer implements TypeRegistryConfigurer {
             return objectMapper.convertValue(value, cellType);
         }
     }
-//
-//    public static AnGraphQLInfo toGetCustomerCoincidencesInfo(Map<String, Object> map) {
-//        GetCustomerCoincidencesVariables getCustomerCoincidencesVariables = jacksonTableTransformer.objectMapper.convertValue(
-//            map, GetCustomerCoincidencesVariables.class);
-//        GraphQL graphQL = new GraphQL();
-//        graphQL.setVariables(getCustomerCoincidencesVariables);
-//        AnGraphQLInfo.loaded().setGraphQL(graphQL);
-//        return AnGraphQLInfo.loaded();
-//    }
 
 }

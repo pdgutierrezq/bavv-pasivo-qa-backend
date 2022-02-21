@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.facts.Fact;
+import org.json.JSONObject;
 
 
 public class AnInfo implements Fact {
@@ -43,8 +44,8 @@ public class AnInfo implements Fact {
             case USER_IDENTITY:
                 break;
             case CREATE_PASSIVE_PRODUCT:
-                break;
-            case COGNITO:
+//                anGraphQLInfo = loaded().toJson();
+//                anGraphQLInfo.configured(resource.request());
                 break;
             case NONE:
                 break;
@@ -74,6 +75,14 @@ public class AnInfo implements Fact {
 
     public Map info() {
         return info;
+    }
+
+    public JSONObject toJson() {
+        return new JSONObject(info);
+    }
+
+    public String toString() {
+        return toJson().toString();
     }
 
 }
