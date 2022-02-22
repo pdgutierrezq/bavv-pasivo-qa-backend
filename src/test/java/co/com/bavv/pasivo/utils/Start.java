@@ -8,6 +8,11 @@
  */
 package co.com.bavv.pasivo.utils;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+
+import com.peterland.karate.api.screenplay.facts.AnExpectedResponse;
+import com.peterland.karate.api.screenplay.model.HTTPResponse;
+import com.peterland.karate.api.screenplay.questions.Response;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
@@ -23,6 +28,11 @@ public class Start {
 
     public static void actor() {
         actor = actor(DEFAULT_NAME);
+    }
+
+    public void validateResponse(HTTPResponse httpResponse){
+        actor.has(AnExpectedResponse.equalsTo(httpResponse));
+        actor.should(seeThat(Response.isEqualsToTheExpectedResponse()));
     }
 
 }
