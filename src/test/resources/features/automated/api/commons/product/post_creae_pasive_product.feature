@@ -15,8 +15,10 @@ Característica: Radicar pasivo
   PARA crear el producto pasivo
 
   @testrail-id:515654
-  Escenario: Radicar pasivo
-    Dado que el "no cliente" se autenticó
-    Cuando el usuario radica el producto pasivo
-    Entonces se validará que la estructura de la respuesta es correcta
+  Escenario: Peter crea un producto pasivo
+    Dado Peter es un usuario con las siguientes caracteristicas
+      | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |
+      | documentNumber | @{USUARIO.CLIENTE.IDENTIFICACION}    |
+    Cuando el crea un producto pasivo en el banco
+    Entonces el obtinene una respuesta exitosa
 
