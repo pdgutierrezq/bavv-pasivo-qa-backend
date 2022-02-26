@@ -10,7 +10,7 @@
 @screen:identificacion_de_usuario
 @layer:backend
 @service:customer-conditions
-@repository:user-identification-lambdas
+@repository:bavv-pasivo-backend-user-identification-lambdas
 Característica: Condiciones cliente
   YO COMO sistema
   NECESITO obtener informacion de las condicion es del cliente

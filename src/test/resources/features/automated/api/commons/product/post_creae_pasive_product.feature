@@ -10,7 +10,7 @@
 @screen:declarante
 @layer:backend
 @service:create-passive-product
-@repository:user-identification-lambdas
+@repository:bavv-pasivo-backend-user-identification-lambdas
 Característica: Radicar pasivo
   YO COMO Usuario
   NECESITO Radicar pasivo

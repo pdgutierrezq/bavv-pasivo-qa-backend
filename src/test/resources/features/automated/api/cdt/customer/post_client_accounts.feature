@@ -1,16 +1,16 @@
 # language: es
 @sprint:76
 @issue:PBA-3055
-@app:COMMONS
+@app:CDT
 @priority:high
 @regression:yes
 @execution:automatic
 @automation:complete
 @functionality:Cliente.Cuentas
-@screen:identificacion_de_usuario
+@screen:OTP
 @layer:backend
-@service:customer-accounts
-@repository:user-identification-lambdas
+@service:client-accounts
+@repository:bavv-pasivo-backend-product-validations-lambdas
 Característica: Consulta servicio de cuentas por cliente
   YO COMO Cliente
   NECESITO consultar mis cuentas en el banco
