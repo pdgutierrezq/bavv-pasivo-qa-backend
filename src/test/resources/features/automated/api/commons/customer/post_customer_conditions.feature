@@ -2,13 +2,15 @@
 @sprint:3
 @issue:PBA-14
 @app:COMMONS
-@functionality:Cliente.Condiciones
-@screen:Formulario_de_identificacion_de_usuario
-@layer:backend
 @priority:high
 @regression:yes
 @execution:automatic
 @automation:complete
+@functionality:Cliente.Condiciones
+@screen:identificacion_de_usuario
+@layer:backend
+@service:customer-conditions
+@repository:user-identification-lambdas
 Característica: Condiciones cliente
   YO COMO sistema
   NECESITO obtener informacion de las condicion es del cliente

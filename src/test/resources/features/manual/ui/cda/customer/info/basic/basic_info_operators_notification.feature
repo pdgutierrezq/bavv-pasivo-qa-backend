@@ -3,7 +3,7 @@
 @issue:PBA-3511
 @app:CDA
 @functionality:Cliente.Info.Basica.Notificaciones
-@screen:datos_basicos
+@screen:identificacion_de_usuario
 @layer:frontend
 @priority:high
 @regression:yes
