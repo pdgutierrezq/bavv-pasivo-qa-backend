@@ -2,13 +2,15 @@
 @sprint:7
 @issue:PBA-177
 @app:COMMONS
-@functionality:Producto.Crear
-@screen:declarante
-@layer:backend
 @priority:high
 @regression:yes
 @execution:automatic
 @automation:complete
+@screen:declarante
+@functionality:Producto.Crear
+@layer:backend
+@service:create-passive-product
+@repository:user-identification-lambdas
 Característica: Radicar pasivo
   YO COMO Usuario
   NECESITO Radicar pasivo
