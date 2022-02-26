@@ -6,8 +6,8 @@
 @regression:yes
 @execution:automatic
 @automation:complete
-@screen:declarante
 @functionality:Producto.Crear
+@screen:declarante
 @layer:backend
 @service:create-passive-product
 @repository:user-identification-lambdas
