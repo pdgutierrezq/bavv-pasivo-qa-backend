@@ -47,7 +47,7 @@ public class AnInfo implements Fact {
 //                anGraphQLInfo = loaded().toJson();
 //                anGraphQLInfo.configured(resource.request());
                 break;
-            case NONE:
+            case EMPTY:
                 break;
             default:
 //                anGraphQLInfo = Configurer.toGraphQLInfo(loaded().info);

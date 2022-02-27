@@ -16,12 +16,12 @@ import com.peterland.karate.api.screenplay.tasks.Script;
 import static com.peterland.karate.api.screenplay.tasks.BaseOperation.POST;
 
 public enum KarateScript implements Script {
-    PASSIVE_API(POST, KarateStaticResource.CREATE_PASSIVE_PRODUCT, "classpath:co/com/bavv/pasivo/api/karate/templates/send_api_request.feature", true),
+    PASSIVE_API(POST, KarateStaticResource.EMPTY, "classpath:co/com/bavv/pasivo/api/karate/templates/send_api_request.feature", true),
     UPDATE_HEADERS(POST, KarateStaticResource.USER_IDENTITY, "classpath:co/com/bavv/pasivo/api/karate/templates/update_headers.feature", true);
 
     private final String path;
     private final Operation operation;
-    private final Resource resource;
+    private Resource resource;
     private final Boolean print;
 
     KarateScript(Operation operation, Resource resource, String path, Boolean print) {
@@ -45,5 +45,10 @@ public enum KarateScript implements Script {
 
     public Boolean print() {
         return print;
+    }
+
+    @Override
+    public void setResource(Resource resource) {
+        this.resource = resource;
     }
 }

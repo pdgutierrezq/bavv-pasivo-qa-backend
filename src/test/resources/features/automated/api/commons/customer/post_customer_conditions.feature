@@ -11,16 +11,15 @@
 @layer:backend
 @service:customer-conditions
 @repository:bavv-pasivo-backend-user-identification-lambdas
-Característica: Condiciones cliente
+Característica: Consultar el estado de un usuario
   YO COMO sistema
   NECESITO obtener informacion de las condicion es del cliente
   PARA direccionarlo al flujo correspondiente
 
-  @testrail-id:515653
-  Escenario: Consumir servicio de condiciones cliente
-    Dado que se obtiene un usuario para condiciones cliente de tipo "aleatorio"
-    Cuando consumo el servicio rest de condiciones cliente
-    Entonces el obtengo la informacion de las condiciones del cliente
-
-
+  Escenario: Usuario consulta su estado en el banco
+    Dado Peter es un usuario con las siguientes caracteristicas
+      | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |
+      | documentNumber | @{USUARIO.CLIENTE.IDENTIFICACION}    |
+    Cuando el consulta su estado en el banco
+    Entonces el obtinene una respuesta exitosa
 

@@ -6,7 +6,7 @@ import com.peterland.karate.api.screenplay.tasks.Response;
 import com.peterland.karate.api.screenplay.model.HTTPResponse;
 
 public enum PostCustomerAccountsResponses implements Response {
-    SUCCESS("exitosa", SC_OK, "classpath:schemas/pasivo/customet-accounts/responses/ok.json");
+    SUCCESS("exitosa", SC_OK, "classpath:schemas/pasivo/customer-accounts/responses/ok.json");
 
     private HTTPResponse HTTPResponse;
     private final String identifier;
