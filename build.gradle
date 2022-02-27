@@ -52,7 +52,7 @@ ext {
             projectRootPath: new File("").absolutePath,
             buildProfile   : System.getProperty('environment'),
             cucumberOptions: '',
-            reportName     : 'Reporte de Pruebas'
+            reportName     : ''
     ]
 }
 dependencies {

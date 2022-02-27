@@ -13,7 +13,7 @@ public class InfoSteps extends Start {
         actor(name).has(anInfo);
     }
 
-    @Entonces("el obtinene una respuesta (.*)")
+    @Entonces("el recibe una respuesta (.*)")
     public void elObtineneUnaRespuestaExitosa(HTTPResponse httpResponse) {
         validateResponse(httpResponse);
     }

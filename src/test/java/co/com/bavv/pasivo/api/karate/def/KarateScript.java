@@ -17,7 +17,7 @@ import static com.peterland.karate.api.screenplay.tasks.BaseOperation.POST;
 
 public enum KarateScript implements Script {
     PASSIVE_API(POST, KarateStaticResource.EMPTY, "classpath:co/com/bavv/pasivo/api/karate/templates/send_api_request.feature", true),
-    UPDATE_HEADERS(POST, KarateStaticResource.USER_IDENTITY, "classpath:co/com/bavv/pasivo/api/karate/templates/update_headers.feature", true);
+    UPDATE_HEADERS(POST, KarateStaticResource.USER_IDENTITY_VALIDATE, "classpath:co/com/bavv/pasivo/api/karate/templates/update_headers.feature", true);
 
     private final String path;
     private final Operation operation;

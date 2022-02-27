@@ -28,7 +28,7 @@ public abstract class KarateIntegrationTest {
         settings.setProperties();
         actor();
         KarateRunner.setServiceBaseURL(Settings.getInstance().getApiBaseUrl());
-        PostUserIdentitySteps.getToken();
+        PostUserIdentitySteps.validateOtp();
     }
 
     @BeforeClass

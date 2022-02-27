@@ -1,7 +1,0 @@
-{
-  "lastName" : "{{apellido}}",
-  "firstName": "{{nombre}}",
-  "monthlyIncome": "2000000",
-  "phone" : "{{telefono}}",
-  "voiceOtp": true
-}

@@ -21,5 +21,5 @@ Característica: Consultar el estado de un usuario
       | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |
       | documentNumber | @{USUARIO.CLIENTE.IDENTIFICACION}    |
     Cuando el consulta su estado en el banco
-    Entonces el obtinene una respuesta exitosa
+    Entonces el recibe una respuesta exitosa
 

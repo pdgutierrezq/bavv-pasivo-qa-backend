@@ -1,0 +1,12 @@
+{
+  "OtpInfo": {
+    "Desc": "#string",
+    "Validity": {
+      "ValidityPeriod": "Segundo",
+      "ValidityTime": 180
+    }
+  },
+  "statusResponse": 201,
+  "isOtpVoiceActive": true,
+  "sentVoiceOtp": false
+}

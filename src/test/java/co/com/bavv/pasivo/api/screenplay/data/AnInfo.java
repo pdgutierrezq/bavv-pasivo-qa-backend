@@ -41,7 +41,7 @@ public class AnInfo implements Fact {
         KarateVars.reset();
         AnGraphQLInfo anGraphQLInfo = null;
         switch (resource) {
-            case USER_IDENTITY:
+            case USER_IDENTITY_VALIDATE:
                 break;
             case CREATE_PASSIVE_PRODUCT:
 //                anGraphQLInfo = loaded().toJson();

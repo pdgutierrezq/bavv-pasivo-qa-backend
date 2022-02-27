@@ -22,5 +22,5 @@ Característica: Radicar pasivo
       | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |
       | documentNumber | @{USUARIO.CLIENTE.IDENTIFICACION}    |
     Cuando el crea un producto pasivo en el banco
-    Entonces el obtinene una respuesta exitosa
+    Entonces el recibe una respuesta exitosa
 

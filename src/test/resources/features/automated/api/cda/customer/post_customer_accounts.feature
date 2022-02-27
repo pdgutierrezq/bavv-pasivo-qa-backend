@@ -21,5 +21,5 @@ Característica: Consultar las cuentas CAT de un usuario
       | documentType   | @{USUARIO.CAT.TIPO_DE_DOCUMENTO} |
       | documentNumber | @{USUARIO.CAT.IDENTIFICACION}    |
     Cuando el consulta si tiene cuentas CAT
-    Entonces el obtinene una respuesta exitosa
+    Entonces el recibe una respuesta exitosa
 

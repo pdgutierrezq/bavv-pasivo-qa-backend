@@ -2,13 +2,15 @@
 @sprint:38
 @issue:PBA-1432
 @app:COMMONS
-@functionality:Banco.Seguros
-@screen:seguro_de_cuenta
-@layer:backend
 @priority:high
 @regression:yes
 @execution:automatic
 @automation:complete
+@functionality:Banco.Seguros
+@screen:PEP
+@layer:backend
+@service:insurance-validation
+@repository:bavv-pasivo-backend-user-identification-lambdas
 Característica: Validacion de seguro
   YO COMO sistema
   NECESITO determinar si el cliente tiene o no seguro

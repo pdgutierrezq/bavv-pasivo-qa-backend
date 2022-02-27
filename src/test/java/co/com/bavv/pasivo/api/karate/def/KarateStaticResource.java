@@ -11,6 +11,7 @@ package co.com.bavv.pasivo.api.karate.def;
 import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerAccountsResponses;
 import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerConditionsResponses;
 import co.com.bavv.pasivo.api.screenplay.data.responses.product.PostCreatePassiveProductResponses;
+import co.com.bavv.pasivo.api.screenplay.data.responses.user.PostUserIdentityResponses;
 import com.peterland.karate.api.screenplay.tasks.Resource;
 
 public enum KarateStaticResource implements Resource {
@@ -20,9 +21,12 @@ public enum KarateStaticResource implements Resource {
     CUSTOMER_CONDITIONS("bavv-identification/customer-conditions",
         "classpath:schemas/pasivo/customer-conditions/requests/ok.json",
         PostCustomerConditionsResponses.class),
-    USER_IDENTITY("bavv-identification/user-identity",
-        "classpath:schemas/pasivo/user-identity/requests/validate-otp.json",
-        null),
+    USER_IDENTITY_GENERATE("bavv-identification/user-identity",
+        "classpath:schemas/pasivo/user-identity/requests/generate.json",
+        PostUserIdentityResponses.class),
+    USER_IDENTITY_VALIDATE("bavv-identification/user-identity",
+        "classpath:schemas/pasivo/user-identity/requests/validate.json",
+        PostUserIdentityResponses.class),
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
         PostCreatePassiveProductResponses.class),
