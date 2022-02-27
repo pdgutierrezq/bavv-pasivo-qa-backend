@@ -1,4 +1,4 @@
-package co.com.bavv.pasivo.api.cucumber.steps.product.create;
+package co.com.bavv.pasivo.api.cucumber.steps.product;
 
 import static co.com.bavv.pasivo.api.karate.def.KarateScript.PASSIVE_API;
 import static co.com.bavv.pasivo.api.karate.def.KarateStaticResource.CREATE_PASSIVE_PRODUCT;

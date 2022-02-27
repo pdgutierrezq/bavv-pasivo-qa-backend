@@ -10,8 +10,9 @@ package co.com.bavv.pasivo.api.cucumber.data;
 
 import co.com.bavv.pasivo.api.karate.def.KarateStaticResource;
 import co.com.bavv.pasivo.api.screenplay.data.AnInfo;
-import co.com.bavv.pasivo.api.screenplay.data.responses.AResponse;
 import com.peterland.karate.api.screenplay.model.HTTPResponse;
+import com.peterland.karate.api.screenplay.tasks.AResource;
+import com.peterland.karate.api.screenplay.tasks.AResponse;
 import com.peterland.karate.api.screenplay.tasks.KarateRunner;
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
@@ -73,7 +74,7 @@ public class Configurer implements TypeRegistryConfigurer {
         public Object transform(String s, Type type) {
             Object object;
             if (type == KarateStaticResource.class) {
-                object = KarateStaticResource.identifiedBy(s);
+                object = AResource.identifiedBy(s,KarateStaticResource.class);
             }
             else if (type == HTTPResponse.class)
                 object = AResponse.identifiedBy(s);

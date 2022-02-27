@@ -11,7 +11,7 @@ package co.com.bavv.pasivo.integration;
 
 import static co.com.bavv.pasivo.utils.Start.actor;
 
-import co.com.bavv.pasivo.api.cucumber.steps.user.identity.PostUserIdentitySteps;
+import co.com.bavv.pasivo.api.cucumber.steps.user.PostUserIdentitySteps;
 import co.com.bavv.pasivo.utils.Settings;
 import com.intuit.karate.KarateOptions;
 import com.intuit.karate.junit4.Karate;

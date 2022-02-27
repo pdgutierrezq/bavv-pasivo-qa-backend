@@ -18,4 +18,11 @@ public class GeneralParametersBean extends BaseDataBean {
         key = "EXP"
     )
     public static HashMap<String, HashMap> expressionsList;
+
+    @DataProvider(
+        dataFile = "src/test/resources/data/general/default.csv",
+        separator = ';',
+        key = "DEFAULT"
+    )
+    public static HashMap<String, HashMap> defaultVarsList;
 }

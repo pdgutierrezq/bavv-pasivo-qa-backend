@@ -1,4 +1,4 @@
-package co.com.bavv.pasivo.api.cucumber.steps.user.identity;
+package co.com.bavv.pasivo.api.cucumber.steps.user;
 
 import static co.com.bavv.pasivo.api.karate.def.KarateScript.UPDATE_HEADERS;
 import static co.com.bavv.pasivo.api.karate.def.KarateStaticResource.USER_IDENTITY;
