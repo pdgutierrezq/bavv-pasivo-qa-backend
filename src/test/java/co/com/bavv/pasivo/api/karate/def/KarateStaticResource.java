@@ -8,6 +8,7 @@
  */
 package co.com.bavv.pasivo.api.karate.def;
 
+import co.com.bavv.pasivo.api.screenplay.data.responses.bank.PostUpdateDataCrmResponses;
 import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerAccountsResponses;
 import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerConditionsResponses;
 import co.com.bavv.pasivo.api.screenplay.data.responses.product.PostCreatePassiveProductResponses;
@@ -27,6 +28,9 @@ public enum KarateStaticResource implements Resource {
     USER_IDENTITY_VALIDATE("bavv-identification/user-identity",
         "classpath:schemas/pasivo/user-identity/requests/validate.json",
         PostUserIdentityResponses.class),
+    UPDATE_DATA_CRM("update-data-crm",
+        "classpath:schemas/pasivo/update-data-crm/requests/cdt.json",
+        PostUpdateDataCrmResponses.class),
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
         PostCreatePassiveProductResponses.class),
