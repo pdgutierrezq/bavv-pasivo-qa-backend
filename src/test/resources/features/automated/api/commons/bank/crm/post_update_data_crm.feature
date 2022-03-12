@@ -16,21 +16,21 @@ Característica: Actualizar CRM
   NECESITO actualizar mi informacion de crm
   PARA crear el producto pasivo
 
-  @testrail-id:515649
-  Escenario: Actualizar y validar CRM
-    Dado que el "no cliente" se autenticó, radicó pasivo y consultó crm
-    Cuando el usuario actualiza la información en crm
-    Entonces se validará que la información se actualizó
+#  @testrail-id:515649
+#  Escenario: Actualizar y validar CRM
+#    Dado que el "no cliente" se autenticó, radicó pasivo y consultó crm
+#    Cuando el usuario actualiza la información en crm
+#    Entonces se validará que la información se actualizó
 
-  Esquema del escenario: : Peter actualiza sus datos en el flujo de <APLICACION>
+  Esquema del escenario: Peter actualiza sus datos en el flujo de <APLICACION>
     Dado Peter es un usuario con las siguientes caracteristicas
       | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |
       | documentNumber | @{USUARIO.CLIENTE.IDENTIFICACION}    |
-    Cuando el actualiza la informacion en el CRM del banco
+    Cuando el actualiza la informacion en el CRM del banco en la app de <APLICACION>
     Entonces el recibe una respuesta exitosa
 
     Ejemplos:
       | APLICACION |
       | CDT        |
-#     TODO | CDA        |
+      | CDA        |
 

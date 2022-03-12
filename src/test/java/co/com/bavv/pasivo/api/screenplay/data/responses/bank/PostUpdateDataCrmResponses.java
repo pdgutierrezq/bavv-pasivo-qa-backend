@@ -8,7 +8,7 @@ import com.peterland.karate.api.screenplay.tasks.Response;
 public enum PostUpdateDataCrmResponses implements Response {
     SUCCESS("exitosa", SC_OK, "classpath:schemas/pasivo/update-data-crm/responses/ok.json");
 
-    private com.peterland.karate.api.screenplay.model.HTTPResponse HTTPResponse;
+    private HTTPResponse HTTPResponse;
     private final String identifier;
 
     PostUpdateDataCrmResponses(String identification, int statusCode, String body) {

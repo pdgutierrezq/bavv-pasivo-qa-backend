@@ -8,7 +8,7 @@ import com.peterland.karate.api.screenplay.tasks.Response;
 public enum PostCustomerConditionsResponses implements Response {
     SUCCESS("exitosa", SC_OK, "classpath:schemas/pasivo/customer-conditions/responses/ok.json");
 
-    private com.peterland.karate.api.screenplay.model.HTTPResponse HTTPResponse;
+    private HTTPResponse HTTPResponse;
     private final String identifier;
 
     PostCustomerConditionsResponses(String identification, int statusCode, String body) {

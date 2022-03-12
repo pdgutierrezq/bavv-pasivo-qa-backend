@@ -28,8 +28,14 @@ public enum KarateStaticResource implements Resource {
     USER_IDENTITY_VALIDATE("bavv-identification/user-identity",
         "classpath:schemas/pasivo/user-identity/requests/validate.json",
         PostUserIdentityResponses.class),
+//        UPDATE_DATA_CRM("update-data-crm",
+//            "classpath:schemas/pasivo/update-data-crm/requests/cdt.json",
+//        PostUpdateDataCrmResponses.class),
+//    UPDATE_DATA_CRM("update-data-crm",
+//        "classpath:schemas/pasivo/update-data-crm/requests.json",
+//        PostUpdateDataCrmResponses.class),
     UPDATE_DATA_CRM("update-data-crm",
-        "classpath:schemas/pasivo/update-data-crm/requests/cdt.json",
+        "classpath:schemas/pasivo/update-data-crm/requests.csv",
         PostUpdateDataCrmResponses.class),
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
@@ -37,12 +43,19 @@ public enum KarateStaticResource implements Resource {
     EMPTY("", "classpath:schemas/pasivo/empty.json", null);
 
     private final String id;
-    private final String requestFilePath;
+    private String requestFilePath;
     private final Class<?> responsesClass;
+    private Class<?> requestsClass;
 
     KarateStaticResource(String id, String requestFilePath, Class<?> responsesClass) {
         this.id = id;
         this.requestFilePath = requestFilePath;
+        this.responsesClass = responsesClass;
+    }
+
+    KarateStaticResource(String id, Class<?> requestsClass, Class<?> responsesClass) {
+        this.id = id;
+        this.requestsClass = requestsClass;
         this.responsesClass = responsesClass;
     }
 
@@ -53,6 +66,14 @@ public enum KarateStaticResource implements Resource {
     public String requestFilePath() {
         return requestFilePath;
     }
+
+//    public String requestFilePath(String key) {
+//        String filePath=requestFilePath;
+//        if (this.requestsClass != null) {
+//           filePath = ARequest.identifiedBy(key).body();
+//        }
+//        return filePath;
+//    }
 
     public Class<?> responsesClass() {
         return responsesClass;

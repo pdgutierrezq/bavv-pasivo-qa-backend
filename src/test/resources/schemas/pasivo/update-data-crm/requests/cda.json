@@ -12,12 +12,12 @@
   "secondName": "Benjamin",
   "neighborhood": "colina",
   "secondLastName": "Spiderman",
-  "codeCIIU": null,
+  "codeCIIU": "null",
   "assets": 2000000,
   "liabilities": 2000000,
   "monthExpenses": 2000000,
   "internationalTrnInd": "S",
-  "foreignTrnType": null,
+  "foreignTrnType": "null",
   "foreignTrnCurrency": "N",
   "income": 2000000
 }
