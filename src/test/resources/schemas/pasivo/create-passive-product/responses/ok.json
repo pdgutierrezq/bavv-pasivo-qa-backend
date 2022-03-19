@@ -1,10 +1,13 @@
 {
-  "documentType": "CC",
-  "documentNumber": "#regex .+[0-9]+",
-  "responseCode": 513,
-  "responseDescription": "TRANSACCION CORRECTA",
-  "approvalId": "#regex .+[0-9]+",
-  "accountNumber": "#regex .+[0-9]+",
-  "requestCode": "#number",
-  "transactionDone": true
+  "status": 201,
+  "body": {
+    "documentType": "CC",
+    "documentNumber": "#regex .+[0-9]+",
+    "responseCode": "#number",
+    "responseDescription": "TRANSACCION CORRECTA",
+    "approvalId": "#regex .+[0-9]+",
+    "accountNumber": "#regex .+[0-9]+",
+    "requestCode": "#number",
+    "transactionDone": true
+  }
 }

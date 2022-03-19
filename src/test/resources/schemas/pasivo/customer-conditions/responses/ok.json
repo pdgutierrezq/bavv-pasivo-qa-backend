@@ -1,7 +1,10 @@
 {
-  "var1": "#number",
-  "var2": "#boolean",
-  "var3": "#boolean",
-  "var4": "#boolean",
-  "var5": "#boolean"
+  "status": 200,
+  "body": {
+    "var1": "#number",
+    "var2": "#boolean",
+    "var3": "#boolean",
+    "var4": "#boolean",
+    "var5": "#boolean"
+  }
 }

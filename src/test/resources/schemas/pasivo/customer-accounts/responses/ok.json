@@ -1,6 +1,9 @@
 {
+  "status": 200,
+  "body": {
     "var1": 0,
     "var2": "TRANSACCION CORRECTA",
     "var3": "#number",
     "var4": false
+  }
 }

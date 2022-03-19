@@ -8,32 +8,27 @@
  */
 package co.com.bavv.pasivo.api.karate.def;
 
-import co.com.bavv.pasivo.api.screenplay.data.responses.bank.PostUpdateDataCrmResponses;
-import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerAccountsResponses;
-import co.com.bavv.pasivo.api.screenplay.data.responses.customer.PostCustomerConditionsResponses;
-import co.com.bavv.pasivo.api.screenplay.data.responses.product.PostCreatePassiveProductResponses;
-import co.com.bavv.pasivo.api.screenplay.data.responses.user.PostUserIdentityResponses;
 import com.peterland.karate.api.screenplay.tasks.Resource;
 
 public enum KarateStaticResource implements Resource {
     CUSTOMER_ACCOUNTS("customer-accounts",
         "classpath:schemas/pasivo/customer-accounts/requests/ok.json",
-        PostCustomerAccountsResponses.class),
+        "classpath:schemas/pasivo/customer-accounts/responses/ok.json"),
     CUSTOMER_CONDITIONS("bavv-identification/customer-conditions",
         "classpath:schemas/pasivo/customer-conditions/requests/ok.json",
-        PostCustomerConditionsResponses.class),
+        "classpath:schemas/pasivo/customer-conditions/responses/ok.json"),
     USER_IDENTITY_GENERATE("bavv-identification/user-identity",
         "classpath:schemas/pasivo/user-identity/requests/generate.json",
-        PostUserIdentityResponses.class),
+        "classpath:schemas/pasivo/user-identity/responses/generate.json"),
     USER_IDENTITY_VALIDATE("bavv-identification/user-identity",
         "classpath:schemas/pasivo/user-identity/requests/validate.json",
-        PostUserIdentityResponses.class),
+        "classpath:schemas/pasivo/user-identity/responses/validate.json"),
     UPDATE_DATA_CRM("update-data-crm",
         "classpath:schemas/pasivo/update-data-crm/requests.csv",
         "classpath:schemas/pasivo/update-data-crm/responses.csv"),
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
-        PostCreatePassiveProductResponses.class),
+        "classpath:schemas/pasivo/create-passive-product/responses/ok.json"),
     EMPTY("", "classpath:schemas/pasivo/empty.json", "");
 
     private final String id;
@@ -61,6 +56,7 @@ public enum KarateStaticResource implements Resource {
     public String requestFilePath() {
         return requestFilePath;
     }
+
     public String responseFilePath() {
         return responseFilePath;
     }
