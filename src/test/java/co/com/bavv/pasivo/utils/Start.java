@@ -18,6 +18,7 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 
 public class Start {
+
     public static Actor actor;
     public static String DEFAULT_NAME = "Peter";
 
@@ -30,8 +31,12 @@ public class Start {
         actor = actor(DEFAULT_NAME);
     }
 
-    public void validateResponse(HTTPResponse httpResponse){
+    public void validateResponse(HTTPResponse httpResponse) {
         actor.has(AnExpectedResponse.equalsTo(httpResponse));
+        actor.should(seeThat(Response.isEqualsToTheExpectedResponse()));
+    }
+
+    public void validateResponse() {
         actor.should(seeThat(Response.isEqualsToTheExpectedResponse()));
     }
 

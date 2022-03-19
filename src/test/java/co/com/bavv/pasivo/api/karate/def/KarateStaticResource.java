@@ -28,24 +28,18 @@ public enum KarateStaticResource implements Resource {
     USER_IDENTITY_VALIDATE("bavv-identification/user-identity",
         "classpath:schemas/pasivo/user-identity/requests/validate.json",
         PostUserIdentityResponses.class),
-//        UPDATE_DATA_CRM("update-data-crm",
-//            "classpath:schemas/pasivo/update-data-crm/requests/cdt.json",
-//        PostUpdateDataCrmResponses.class),
-//    UPDATE_DATA_CRM("update-data-crm",
-//        "classpath:schemas/pasivo/update-data-crm/requests.json",
-//        PostUpdateDataCrmResponses.class),
     UPDATE_DATA_CRM("update-data-crm",
         "classpath:schemas/pasivo/update-data-crm/requests.csv",
-        PostUpdateDataCrmResponses.class),
+        "classpath:schemas/pasivo/update-data-crm/responses.csv"),
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
         PostCreatePassiveProductResponses.class),
-    EMPTY("", "classpath:schemas/pasivo/empty.json", null);
+    EMPTY("", "classpath:schemas/pasivo/empty.json", "");
 
     private final String id;
     private String requestFilePath;
-    private final Class<?> responsesClass;
-    private Class<?> requestsClass;
+    private String responseFilePath;
+    private Class<?> responsesClass;
 
     KarateStaticResource(String id, String requestFilePath, Class<?> responsesClass) {
         this.id = id;
@@ -53,10 +47,11 @@ public enum KarateStaticResource implements Resource {
         this.responsesClass = responsesClass;
     }
 
-    KarateStaticResource(String id, Class<?> requestsClass, Class<?> responsesClass) {
+    KarateStaticResource(String id, String requestFilePath, String responseFilePath) {
         this.id = id;
-        this.requestsClass = requestsClass;
-        this.responsesClass = responsesClass;
+        this.requestFilePath = requestFilePath;
+        this.responseFilePath = responseFilePath;
+
     }
 
     public String id() {
@@ -66,14 +61,9 @@ public enum KarateStaticResource implements Resource {
     public String requestFilePath() {
         return requestFilePath;
     }
-
-//    public String requestFilePath(String key) {
-//        String filePath=requestFilePath;
-//        if (this.requestsClass != null) {
-//           filePath = ARequest.identifiedBy(key).body();
-//        }
-//        return filePath;
-//    }
+    public String responseFilePath() {
+        return responseFilePath;
+    }
 
     public Class<?> responsesClass() {
         return responsesClass;

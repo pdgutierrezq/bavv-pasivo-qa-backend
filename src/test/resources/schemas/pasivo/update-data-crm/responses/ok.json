@@ -1,4 +1,7 @@
 {
-  "success": true,
-  "responseCode": 0
+  "status": 200,
+  "body": {
+    "success": true,
+    "responseCode": 0
+  }
 }
