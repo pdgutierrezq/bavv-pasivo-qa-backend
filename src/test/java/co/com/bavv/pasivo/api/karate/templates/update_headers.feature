@@ -6,7 +6,7 @@ Feature: Update Headers
     * def x_adl_channel = currentHeaders["x-adl-channel"]
     * def x_adl_document_type = currentHeaders["x-adl-document-type"]
     * def x_adl_document_number = currentHeaders["x-adl-document-number"]
-    * call read('classpath:com/peterland/karate/api/model/templates/post/post_path/post_with_files.feature') { path: '#(path)', bodyTemplatePath: '#(bodyTemplatePath)', headersPath: '#(headersPath)'}
+    * call read(SCRIPT.REST.POST.FROM.JSON) { path: '#(path)', bodyTemplatePath: '#(bodyTemplatePath)', headersPath: '#(headersPath)'}
     * eval currentHeaders["authorization-token"] = response.userAccessToken.accessToken
     Then karate.write(currentHeaders,filePath)
 
