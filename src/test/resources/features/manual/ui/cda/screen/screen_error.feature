@@ -15,7 +15,7 @@ Característica: Pantalla error cuenta nomina
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-117
-  @regression:si
+  @regression:yes
   Escenario: Error para Cuenta de Nómina con Convenio
     Dado que el cliente ingresó por el flujo de cuenta de nómina con convenio
     Cuando se genere la pantalla de error de cliente
@@ -24,7 +24,7 @@ Característica: Pantalla error cuenta nomina
   @manual
   @manual-result:passed
   @manual-last-tested:sprint-117
-  @regression:si
+  @regression:yes
   Escenario: Error para Cuenta Digital o Depósito
     Dado que el cliente ingresó por el flujo de cuenta digital / depósito
     Cuando se genere la pantalla de error de cliente
