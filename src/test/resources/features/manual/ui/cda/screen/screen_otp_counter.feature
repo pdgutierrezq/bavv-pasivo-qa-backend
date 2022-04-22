@@ -5,7 +5,7 @@
 @functionality:Pantalla.Otp
 @layer:frontend
 @priority:low
-@regression:yes
+@regression:no
 @execution:manual
 @automation:pending
 Característica: Habilitar generación de OTP después de 40 segundos-CDA

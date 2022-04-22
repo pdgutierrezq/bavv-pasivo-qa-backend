@@ -29,7 +29,10 @@ public enum KarateStaticResource implements Resource {
     CREATE_PASSIVE_PRODUCT("create-passive-product",
         "classpath:schemas/pasivo/create-passive-product/requests/cda.json",
         "classpath:schemas/pasivo/create-passive-product/responses/ok.json"),
-    EMPTY("", "classpath:schemas/pasivo/empty.json", "");
+    EMPTY("", "classpath:schemas/pasivo/empty.json", ""),
+    GET_PRODUCT_CONFIGURATION("get-product-configuration",
+        "classpath:schemas/pasivo/empty.json",
+        "classpath:schemas/pasivo/get-initial-parameters/responses/ok.json");
 
     private final String id;
     private String requestFilePath;

@@ -6,7 +6,7 @@
 @screen:DatosPeronales
 @layer:frontend
 @priority:low
-@regression:yes
+@regression:no
 @execution:manual
 @automation:pending
 Característica: Modificaciones de Calendario CDA
