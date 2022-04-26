@@ -10,7 +10,7 @@
 @screen:Landing
 @layer:backend
 @service:get-product-configuration
-@repository:product-configuration
+@repository:bavv-pasivo-backend-product-configuration-lambdas
 Característica: Validar parametros iniciales del producto
   Yo como negocio
   Quiero que se realice una consulta a los parámetros de la aplicación

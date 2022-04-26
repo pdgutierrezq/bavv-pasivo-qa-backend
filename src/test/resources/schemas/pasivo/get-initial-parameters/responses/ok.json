@@ -5,8 +5,8 @@
     "parameters": [
       {
         "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-exoneration",
-        "Type": "SecureString",
-        "Value": "#string",
+        "Type": "#string",
+        "Value": "2.470.260",
         "Version": "#number",
         "LastModifiedDate": "#string",
         "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-exoneration",
@@ -14,8 +14,8 @@
       },
       {
         "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-exoneration-uvt",
-        "Type": "SecureString",
-        "Value": "#string",
+        "Type": "#string",
+        "Value": "65 UVT",
         "Version": "#number",
         "LastModifiedDate": "#string",
         "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-exoneration-uvt",
@@ -23,8 +23,8 @@
       },
       {
         "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-limit",
-        "Type": "String",
-        "Value": "#string",
+        "Type": "#string",
+        "Value": "8.000.000",
         "Version": "#number",
         "LastModifiedDate": "#string",
         "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-limit",
@@ -32,7 +32,7 @@
       },
       {
         "Name": "/rb-pasivo-dev/product-configuration/pse-off",
-        "Type": "String",
+        "Type": "#string",
         "Value": "#string",
         "Version": "#number",
         "LastModifiedDate": "#string",
@@ -41,7 +41,7 @@
       },
       {
         "Name": "/rb-pasivo-dev/product-configuration/pse-retake",
-        "Type": "String",
+        "Type": "#string",
         "Value": "#string",
         "Version": "#number",
         "LastModifiedDate": "#string",
@@ -50,8 +50,8 @@
       },
       {
         "Name": "/rb-pasivo-dev/product-configuration/smmlv",
-        "Type": "String",
-        "Value": "#string",
+        "Type": "#string",
+        "Value": "1.000.000",
         "Version": "#number",
         "LastModifiedDate": "#string",
         "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/smmlv",
