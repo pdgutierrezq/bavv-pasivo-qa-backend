@@ -16,7 +16,6 @@ Característica: Validacion de firma de documentos
   NECESITO determinar si se realizo la firma electronica de documentos
   PARA saber si la transaccion es exitosa
 
-  @run
   Escenario: Peter hace la firma electronica
     Dado Peter es un usuario con las siguientes caracteristicas
       | documentType   | @{USUARIO.CLIENTE.TIPO_DE_DOCUMENTO} |

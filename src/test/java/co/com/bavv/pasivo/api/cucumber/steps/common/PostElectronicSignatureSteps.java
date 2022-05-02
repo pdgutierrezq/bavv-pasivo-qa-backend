@@ -7,7 +7,7 @@ import io.cucumber.java.es.Cuando;
 import static co.com.bavv.pasivo.api.karate.def.KarateScript.PASSIVE_API;
 import static co.com.bavv.pasivo.api.karate.def.KarateStaticResource.ELECTRONIC_SIGNATURE;
 
-public class PostElectronicSignature extends Start {
+public class PostElectronicSignatureSteps extends Start {
     @Cuando("el realiza la firma electronica de documentos")
     public void elRealizaLaFirmaElectronicaDeDocumentos() {
         actor.attemptsTo(KarateRunner.run(PASSIVE_API, ELECTRONIC_SIGNATURE));
