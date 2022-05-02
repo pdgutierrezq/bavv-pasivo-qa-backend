@@ -38,7 +38,10 @@ public enum KarateStaticResource implements Resource {
         "classpath:schemas/pasivo/electronic-signature/responses/ok_cdt.json"),
     PUBLIC_KEY("enrollment/get-public-key",
         "classpath:schemas/pasivo/empty.json",
-        "classpath:schemas/pasivo/get-public-key/responses/ok.json");
+        "classpath:schemas/pasivo/get-public-key/responses/ok.json"),
+    CREATE_INSURANCE("create-insurance",
+        "classpath:schemas/pasivo/create-insurance/requests/cda.json",
+        "classpath:schemas/pasivo/create-insurance/responses/ok.json");
 
     private final String id;
     private String requestFilePath;
