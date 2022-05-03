@@ -1,0 +1,19 @@
+{
+  "documentTypeCode": "C",
+  "economicActivityCode": 3,
+  "originProductNumber": "",
+  "filingOfficeCode": 640,
+  "originProductCode": 1,
+  "subProductType": 1,
+  "files": [
+    {
+      "documentaryCode": 254,
+      "filename": "CC-11860812.pdf"
+    },
+    {
+      "documentaryCode": 631,
+      "filename": "CI-11860812-0.pdf"
+    }
+  ],
+  "product": "CDA"
+}

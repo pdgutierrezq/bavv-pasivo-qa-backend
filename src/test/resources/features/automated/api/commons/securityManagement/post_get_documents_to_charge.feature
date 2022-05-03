@@ -11,11 +11,11 @@
 @layer:backend
 @service:get-documents-to-charge
 @repository:bavv-pasivo-backend-documents-lambdas
-Característica: Validacion cargue de documentos
+Característica: Validacion peticion de documentos
   YO COMO sistema
-  NECESITO determinar si se realizo el cargue de documentos del cliente
-  PARA saber si el cargue de documentos es exitoso
+  NECESITO determinar si puedo obtener los documentos
+  PARA saber si los documentos se obtivieron de manera exitosa
 
-  Escenario: Peter hace el cargue de documentos
-    Cuando el realiza el cargue de documentos
+  Escenario: Peter consulta el cargue de documentos
+    Cuando el realiza la peticion de los documentos cargados
     Entonces el recibe una respuesta exitosa
