@@ -47,7 +47,10 @@ public enum KarateStaticResource implements Resource {
         "classpath:schemas/pasivo/get-documents-to-charge/responses/ok.json"),
     UPLOAD_BANK_DOCUMENTS("upload-bank-documents",
         "classpath:schemas/pasivo/upload-bank-documents/requests/cda.json",
-        "classpath:schemas/pasivo/upload-bank-documents/responses/ok.json");
+        "classpath:schemas/pasivo/upload-bank-documents/responses/ok.json"),
+    SAVE_DOCUMENT("save-document",
+        "classpath:schemas/pasivo/save-document/requests/ok.json",
+        "classpath:schemas/pasivo/save-document/responses/ok.json");
 
     private final String id;
     private String requestFilePath;
