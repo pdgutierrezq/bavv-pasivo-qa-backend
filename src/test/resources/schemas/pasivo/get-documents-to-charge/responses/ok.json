@@ -1,0 +1,22 @@
+{
+  "status":200,
+  "body": {
+    "idSession": "#string",
+    "allowedDocumentExtensions": [
+      "#string",
+      "#string",
+      "#string"
+    ],
+    "clientDocuments": [
+      {
+        "documentaryCode": "#number",
+        "documentDescription": "Documento Identificacion (CC,CE,T)",
+        "requiredIndicator": "#boolean",
+        "filesDocumentNumber": "#number",
+        "fileSize": "#number"
+      }
+    ],
+    "responseCode": 0,
+    "product": "#string"
+  }
+}

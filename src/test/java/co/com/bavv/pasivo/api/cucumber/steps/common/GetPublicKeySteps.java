@@ -5,7 +5,6 @@ import com.peterland.karate.api.screenplay.tasks.KarateRunner;
 import io.cucumber.java.es.Cuando;
 
 import static co.com.bavv.pasivo.api.karate.def.KarateScript.PASSIVE_GET;
-import static co.com.bavv.pasivo.api.karate.def.KarateScript.UPDATE_HEADERS;
 import static co.com.bavv.pasivo.api.karate.def.KarateStaticResource.PUBLIC_KEY;
 
 public class GetPublicKeySteps extends Start {
