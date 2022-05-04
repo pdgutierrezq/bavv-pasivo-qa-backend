@@ -7,7 +7,7 @@ import io.cucumber.java.es.Cuando;
 import static co.com.bavv.pasivo.api.karate.def.KarateScript.PASSIVE_GET;
 import static co.com.bavv.pasivo.api.karate.def.KarateStaticResource.READ_SUMMARY_TRANSACTION;
 
-public class ReadSummaryTransaction extends Start {
+public class ReadSummaryTransactionSteps extends Start {
     @Cuando("el solicita la consulta al resumen de la transaccion")
     public void elSolicitaLaConsultaAlResumenDeLaTransaccion() {
         actor.attemptsTo(KarateRunner.run(PASSIVE_GET, READ_SUMMARY_TRANSACTION));
