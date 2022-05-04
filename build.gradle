@@ -1,13 +1,21 @@
-apply from: "https://gradle.avaldigitallabs.com/resources/java-serenity-project.gradle"
+apply from: "gradle/resources/java-serenity-project.gradle"
 repositories {
     mavenLocal()
-    mavenCentral()
     jcenter()
-
+    maven {
+        url 'https://gitlab.com/api/v4/projects/28985927/packages/maven'
+    }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/11962617/packages/maven'
+    }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/15875075/packages/maven'
+    }
+    maven {
+        url 'https://gitlab.com/api/v4/projects/19767391/packages/maven'
+    }
 }
-
 ext {
-
     libs = [
             test: [
                     serenity     : [
@@ -17,11 +25,11 @@ ext {
                             screenplay         : "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
                             screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
                             cucumber4          : "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
-                            restAssured        : "net.serenity-bdd:serenity-rest-assured:${serenityVersion}",
+                            restAssured        : "net.serenity-bdd:serenity-rest-assured:${serenityRestAssured}",
                             rest               : "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
                     ],
                     cucumber     : [
-                            core : "io.cucumber:cucumber-java:${cucumberVersion}",
+                            core : "io.cucumber:cucumber-core:${cucumberVersion}",
                             junit: "io.cucumber:cucumber-junit:${cucumberVersion}"
                     ],
                     junit        : "junit:junit:${junitVersion}",
@@ -31,41 +39,94 @@ ext {
                     aeonbits     : "org.aeonbits.owner:owner-java8:${aeonBitsVersion}",
                     jsonvalidator: "io.rest-assured:json-schema-validator:${jsonvalidatorrestassured}",
                     gherkin      : "io.cucumber:jgherkin:${jsonvalidatorrestassured}",
-                    faker        : "com.github.javafaker:javafaker:${fakerVersion}"
+                    faker        : "com.github.javafaker:javafaker:${fakerVersion}",
+                    gson         : "com.google.code.gson:gson:${gsonVersion}",
+                    ojdbc        : "libs/ojdbc8.jar",
+                    karate       : "com.peterland:karate-screenplay-rest:${karateScreenplayVersion}",
+                    dataDriven   : "com.peterland:cucumber-data-driven:${dataDrivenVersion}",
+                    testrail     : "com.peterland:cucumber-with-testrail:${peterlandTestrailVersion}"
 
             ]
     ]
+    runner = [
+            projectRootPath: new File("").absolutePath,
+            buildProfile   : System.getProperty('environment'),
+            cucumberOptions: '',
+            reportName     : ''
+    ]
 }
 dependencies {
-    compile files('libs/ojdbc8.jar')
-
-    annotationProcessor libs.test.lombok
-    compile group: 'com.github.javafaker', name: 'javafaker', version: '0.16'
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-
-    implementation libs.test.serenity.core,
+    testCompile files(libs.test.ojdbc),
+            libs.test.serenity.core,
             libs.test.serenity.screenplay,
             libs.test.serenity.junit,
+            libs.test.serenity.screenplayWebdriver,
             libs.test.serenity.ensure,
             libs.test.serenity.cucumber4,
             libs.test.serenity.rest,
+            libs.test.serenity.restAssured,
             libs.test.junit,
             libs.test.cucumber.core,
             libs.test.cucumber.junit,
+            libs.test.assertj,
+            libs.test.hamcrest,
             libs.test.lombok,
             libs.test.aeonbits,
-            libs.test.jsonvalidator
+            libs.test.jsonvalidator,
+            libs.test.gson,
+            libs.test.dataDriven,
+            libs.test.karate
 
+    testAnnotationProcessor libs.test.lombok
 
+    testCompile(libs.test.faker, {
+        exclude group: 'org.yaml', module: 'snakeyaml'
+    })
+    testCompile(libs.test.testrail, {
+        exclude group: 'net.serenity-bdd', module: 'serenity-core'
+        exclude group: 'net.serenity-bdd', module: 'serenity-screenplay'
+        exclude group: 'net.serenity-bdd', module: 'serenity-screenplay-rest'
+    })
+}
+
+tasks.withType(Test) {
+    systemProperties System.getProperties()
+    systemProperties['user.dir'] = workingDir
+    systemProperties['testrail.enable'] = "${testrailEnable}"
+    systemProperties['testrail.evidences.enable'] = "${testrailEvidencesEnable}"
+    systemProperties['testrail.results.enable'] = "${testrailResultsEnable}"
+    systemProperties['testrail.url'] = "${testrailUrl}"
+    systemProperties['testrail.user'] = "${testrailUser}"
+    systemProperties['testrail.password'] = "${testrailPassword}"
+    systemProperties['testrail.testRunId'] = "${testrailTestRunId}"
+    systemProperties['testrail.milestoneId'] = "${testrailMilestoneId}"
+    systemProperties['testrail.projectId'] = "${testrailProjectId}"
+    systemProperties['testrail.suiteId'] = "${testrailSuiteId}"
+    systemProperties['testrail.attachments'] = "${testrailAttachments}"
+}
+
+task printenv(type: Exec) {
+    commandLine 'env'
 }
 
 processTestResources {
-    ext.buildProfile = System.getenv('environment')
-    if (ext.buildProfile == null) buildProfile = 'stg'
-    println "Info: RUNNING ON ENVIRONMENT $buildProfile "
-    from("$rootDir/profiles/$buildProfile") {
+    if (runner.buildProfile == 'stg')
+        runner.buildProfile = "${environment}"
+    runner.cucumberOptions = "${cucumberOptions}"
+    if (runner.buildProfile == 'pro')
+        runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
+    println "               ╔══╗ \n" +
+            "               ║██║ \n" +
+            "               ║(O)║♫ ♪ ♫ ♪\n" +
+            "               ╚══╝\n" +
+            "               ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █\n" +
+            "               Min- - - - - - - - - - - -●Max\n"
+    println "[INFO:PBA] RUNNING 🇦​​​​​🇩​​​​​🇳​​​​​ 🇦​​​​​🇺​​​​​🇹​​​​​🇴​​​​​🇲​​​​​🇦​​​​​🇹​​​​​🇮​​​​​🇴​​​​​🇳​​​​​ 🇵​​​​​🇷​​​​​🇴​​​​​🇯​​​​​🇪​​​​​🇨​​​​​🇹​​​​​"
+    println "[INFO:PBA] PROJECT PATH: $runner.projectRootPath"
+    println "[INFO:PBA] ENVIRONMENT: $runner.buildProfile"
+    println "[INFO:PBA] TESTRAIL:  ${testrailEnable}"
+    println "[INFO:PBA] CUCUMBER OPTIONS: $runner.cucumberOptions"
+    from("$rootDir/profiles/$runner.buildProfile") {
         include '*.properties'
     }
     from("$rootDir/src/test/java") {
@@ -73,14 +134,29 @@ processTestResources {
     }
 }
 test {
-
     testLogging {
         events "failed", "passed", "skipped"
         exceptionFormat = 'full'
     }
-    systemProperty "environment", System.getProperty("environment")
+    filter {
+        includeTestsMatching "co.com.bavv.pasivo.common.AcceptanceTestSuite"
+    }
+    systemProperty "environment", runner.buildProfile
+    environment("cucumber.options", runner.cucumberOptions)
     test.outputs.upToDateWhen { false }
     gradle.startParameter.continueOnFailure = true
-
-
 }
+aggregate.doLast {
+    copy {
+        from "$runner.projectRootPath" + "/src/test/resources/img/logo.svg"
+        into "$runner.projectRootPath" + "/target/site/serenity/images"
+    }
+    File myFile = new File("$runner.projectRootPath" + "/target/site/serenity/index.html")
+    String newText = '<span class="projecttitle" style="font-family: cursive;top: 50px;left: 9%;font-weight: bolder;color: black;font-size: 2.2em;">' + runner.reportName + '</span>\n' + '<img alt="Logo" src="images/logo.svg" style="/* background: #006bff; */"><span class="projectname" style="margin-top: 20px;border-top-width: 2px;margin-right: 20px;">' + '<span class="projectsubtitle" style="font-family: auto;">Ambiente: ' + runner.buildProfile.toUpperCase() + '</span>'
+    String fileText = myFile.text
+    fileText = (fileText =~ /<span class="projectname">/).replaceFirst(newText)
+    fileText = (fileText =~ /<span class="projectname">.*<\/span>/).replaceFirst('')
+    myFile.write(fileText)
+//    System.print(rootProject.file("$runner.projectRootPath" + "/target/site/serenity/index.html").text + "\n")
+}
+

@@ -1,0 +1,40 @@
+/**
+ * Grupo Aval Acciones y Valores S.A. CONFIDENTIAL
+ *
+ * <p>Copyright (c) 2018 . All Rights Reserved.
+ *
+ * <p>NOTICE: This file is subject to the terms and conditions defined in file 'LICENSE', which is
+ * part of this source code package.
+ */
+package co.com.bavv.old.tasks;
+
+import co.com.bavv.old.ui.SendingCardPage;
+import co.com.bavv.old.util.Constantes;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Performable;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import net.thucydides.core.annotations.Step;
+
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+
+public class PopUpAddressOptions implements Task {
+  private final String confirmation;
+
+  public PopUpAddressOptions(String confirmation) {
+    this.confirmation = confirmation;
+  }
+
+  public static Performable choose(String confirmation) {
+    return instrumented(PopUpAddressOptions.class, confirmation);
+  }
+
+  @Step("{0} selecciona la opcion #confirmation del pop up de direccion")
+  public <T extends Actor> void performAs(T actor) {
+    if (Constantes.TAG_ACCEPT.equalsIgnoreCase(confirmation)) {
+      actor.attemptsTo(Click.on(SendingCardPage.POP_UP_ACCEPT));
+    } else {
+      actor.attemptsTo(Click.on(SendingCardPage.POP_UP_REJECT));
+    }
+  }
+}

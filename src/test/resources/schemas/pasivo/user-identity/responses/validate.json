@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "body": {
+    "statusResponse": 204,
+    "userAccessToken": {
+      "accessToken": "#string"
+    },
+    "isOtpVoiceActive": true,
+    "sentVoiceOtp": false
+  }
+}

@@ -1,0 +1,62 @@
+/*************************************************************************************************
+ ******************************* ADL DevOps Gradle Script ****************************************
+ * -----------------------------------------------------------------------------------------------
+ * ############################  Java Plugin Configuration #######################################
+ *
+ *  This file config Java plugin
+ *
+ * AUTHORS :
+ * ---------------------------------------------------
+ *   "Juan Sebastian Sanchez <juan.sanchez@avaldigitallabs.com>"
+ ************************************************************************************************/
+
+apply plugin: 'java'
+
+if (!project.findProperty("javaVersion")) {
+    throw new GradleException("Expected Java version, please verify your properties")
+}
+
+sourceCompatibility = targetCompatibility = "$javaVersion"
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+artifacts {
+    archives jar
+//    archives war
+}
+
+/**
+* https://guides.gradle.org/performance/
+*/
+tasks.withType(JavaCompile) {
+    options.incremental = true
+    options.fork = true
+}
+
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': "ADL - ${project.name}",
+            'Implementation-Version': "${version}",
+            'Created-By': 'ADL',
+            'Built-By': 'ADL CI/CD',
+            'Built-Date': new Date().format('yyyy-MM-dd HH:mm:ss'),
+            'Description': "${description}",
+            //'Git-Commit-Id': 'git rev-parse HEAD'.execute().text.trim(),
+            //'Git-Branch': 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+        )
+    }
+}
+
+//war {
+//    manifest {
+//        attributes(
+//            'Implementation-Title': "ADL - ${project.name}",
+//            'Implementation-Version': "${version}",
+//            'Created-By': 'ADL',
+//            'Built-By': 'ADL CI/CD',
+//            'Built-Date': new Date().format('yyyy-MM-dd HH:mm:ss'),
+//            'Description': "${description}"
+//        )
+//    }
+//}

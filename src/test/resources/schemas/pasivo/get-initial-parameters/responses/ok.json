@@ -1,0 +1,62 @@
+{
+  "status": 200,
+  "body": {
+    "invalidParameters": [],
+    "parameters": [
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-exoneration",
+        "Type": "#string",
+        "Value": "2.470.260",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-exoneration",
+        "DataType": "text"
+      },
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-exoneration-uvt",
+        "Type": "#string",
+        "Value": "65 UVT",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-exoneration-uvt",
+        "DataType": "text"
+      },
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/digital-deposit-limit",
+        "Type": "#string",
+        "Value": "8.000.000",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/digital-deposit-limit",
+        "DataType": "text"
+      },
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/pse-off",
+        "Type": "#string",
+        "Value": "#string",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/pse-off",
+        "DataType": "text"
+      },
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/pse-retake",
+        "Type": "#string",
+        "Value": "#string",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/pse-retake",
+        "DataType": "text"
+      },
+      {
+        "Name": "/rb-pasivo-dev/product-configuration/smmlv",
+        "Type": "#string",
+        "Value": "1.000.000",
+        "Version": "#number",
+        "LastModifiedDate": "#string",
+        "ARN": "arn:aws:ssm:us-east-2:983903018317:parameter/rb-pasivo-dev/product-configuration/smmlv",
+        "DataType": "text"
+      }
+    ]
+  }
+}

@@ -23,14 +23,13 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:2.1.0"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.3.7"
     }
 }
 
 apply plugin: net.serenitybdd.plugins.gradle.SerenityPlugin
 
-
-defaultTasks 'clean', 'test', 'aggregate'
+defaultTasks 'clean','test','aggregate'
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)

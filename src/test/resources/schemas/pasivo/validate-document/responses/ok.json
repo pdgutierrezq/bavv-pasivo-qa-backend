@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "body": {
+    "isValid": true,
+    "score": 8,
+    "imageDisposition": "F",
+    "documentNumber": "1016020757",
+    "message": "Document is valid",
+    "analyticsMessage": "DR48299 VALIDACION EXITOSA"
+  }
+}

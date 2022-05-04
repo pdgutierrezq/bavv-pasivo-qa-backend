@@ -1,0 +1,23 @@
+{
+  "documentType": "CC",
+  "documentNumber": "1016020757",
+  "transactionId": "2171016020540",
+  "totalSave": "T",
+  "declarant": true,
+  "address": "cll 159 # 24 -36",
+  "city": "11001",
+  "phoneNumber": "3132858735",
+  "firstName": "Peter",
+  "lastName": "Parker",
+  "secondName": "Benjamin",
+  "neighborhood": "colina",
+  "secondLastName": "Spiderman",
+  "codeCIIU": null,
+  "assets": 0,
+  "liabilities": 0,
+  "monthExpenses": 0,
+  "internationalTrnInd": "",
+  "foreignTrnType": null,
+  "foreignTrnCurrency": "",
+  "income": 2000000
+}
