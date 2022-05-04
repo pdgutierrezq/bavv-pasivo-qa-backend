@@ -11,6 +11,7 @@ package co.com.bavv.old.paths;
 import co.com.bavv.old.data.Environment;
 import co.com.bavv.old.data.EnvironmentProperties;
 import co.com.bavv.old.util.Constantes;
+import co.com.bavv.pasivo.utils.Settings;
 import org.aeonbits.owner.ConfigFactory;
 
 public class ServicePaths {
@@ -35,13 +36,7 @@ public class ServicePaths {
   }
 
   public static String getEndPointBase(String env) {
-    String endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_STG);
-    if (env.equals(Constantes.DEV_ENV)) {
-      endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_DEV);
-    } else if (env.equals(Constantes.AUX_ENV)) {
-      endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
-    }
-    return endPointBase;
+    return Settings.getInstance().getApiBaseUrl();
   }
 
   public static String getAuxEndPointBase() {
