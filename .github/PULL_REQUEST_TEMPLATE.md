@@ -1,51 +1,60 @@
+## Lista de Chequeo
+<!-- Sección requerida --> 
+
+Certifico que mi solicitud satisface cada uno de los siguientes requerimientos:
+- [ ] Ya agregué pruebas para los cambios aquí presentados (aplica para fixes / features)
+- [ ] Ya revisé y actualicé la documentación relacionada (aplica para bug fixes / features)
+- [ ] Compilé localmente antes de subir mis cambios
+- [ ] Ejecuté los formateadores (linters) de código localmente éxitosamente
 
 
-## Pull request checklist
+## Tipo de Solicitud de Cambios
+<!-- Sección requerida -->
+<!-- Limite sus PRs a un solo tipo, envíe multiples PRs de ser necesario --> 
 
-Please check if your PR fulfills the following requirements:
-- [ ] Tests for the changes have been added (for bug fixes / features)
-- [ ] Docs have been reviewed and added / updated if needed (for bug fixes / features)
-- [ ] Build was run locally and any changes were pushed
-- [ ] Lint has passed locally and any fixes were made for failures
-
-
-## Pull request type
-
-<!-- Please do not submit updates to dependencies unless it fixes an issue. --> 
-
-<!-- Please try to limit your pull request to one type, submit multiple pull requests if needed. --> 
-
-Please check the type of change your PR introduces:
+Esta solicitud de cambios contiene:
 - [ ] :bug: Bugfix
 - [ ] :sparkles: Feature
-- [ ] :lipstick: :art: Code style update (formatting, renaming)
-- [ ] :recycle: Refactoring (no functional changes, no api changes)
-- [ ] :zap: Performance
-- [ ] :pencil: Documentation content changes
-- [ ] :wrench: Other (please describe): 
+- [ ] :lipstick: :art: Actualización de estilo (formatting, renaming)
+- [ ] :recycle: Refactor (cambios no funcionales)
+- [ ] :zap: Mejoras de Rendimiento
+- [ ] :pencil: Cambios a nivel de documentación
+- [ ] :wrench: Otro (por favor describa): 
 
 
-## What is the current behavior?
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
+## Cuál es la funcionalidad actual ?
+<!-- Describa por favor el comportamiento actual que está modificando, o proporcione el ticket de Jira -->
 
-Jira Number: ADL-
+- 
+- 
+
+## Cuál es el nuevo comportamiento?
+<!-- Describa el comportamiento o los cambios que van a ser añadidos como parte de este PR. -->
+
+- 
+- 
+- 
 
 
-## What is the new behavior?
-<!-- Please describe the behavior or changes that are being added by this PR. -->
-
--
--
--
-
-## Does this introduce a breaking change?
-
-- [ ] Yes
+## Es esta solicitud incompatible con la versión actual?
+<!-- Sección requerida. No borrar -->
+- [ ] Si
 - [ ] No
 
-<!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
+> _Describa la incompatibilidad aquí_
+<!-- En caso de responder afirmativamente, describa el impacto y cuál es la incompatibilidad -->
 
+## Información Adicional 
+<!-- Cualquier información que sea importante para este PR tal como imagenes de como se ve el component antes y despues del cambio -->
 
-## Other information
+## Responsabilidad
+<!-- Sección requerida. No borrar. -->
+Como **Autor** de este Pull Request **declaro** que: 
+> - He leído y entiendo las buenas prácticas para la elaboración de una Solicitud de Cambios, consignadas en [la Guía del Autor de Cambios de ADL](https://avaldigitallabs.atlassian.net/wiki/spaces/AR/pages/1551040517/La+Gu+a+del+Autor+de+Cambios)
+> - Soy responsable de cualquier código malicioso (puerta trasera, bomba de tiempo, virus) que esta solicitud de cambios pudiera contener
+> - Soy responsable de cualquier función o rutina de código que con o sin intención perjudique, dañe, interfiera o afecte de manera adversa los archivos, datos, software o hardware de cualquier cliente de ADL y/o de sus usuarios sin su debido consentimiento
 
-<!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
+Cómo **Revisor** de este Pull Request, **al aprobar** este Pull Request **declaro** que:
+> - Realicé una revisión de código adecuada de acuerdo a [la Guía del Revisor de Cambios de ADL](https://avaldigitallabs.atlassian.net/wiki/spaces/AR/pages/1535607202/C+mo+Hacer+Una+Buena+Revisi+n+de+C+digo)
+> - **Comparto responsabilidad** con el autor por cualquier código malicioso o malintencionado que pudiera contener.
+
