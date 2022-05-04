@@ -1,0 +1,20 @@
+{
+  "documentNumber": "1016020757",
+  "documentTypeCode": "C",
+  "product": "CDT",
+  "filingOfficeCode": 640,
+  "economicActivityCode": 3,
+  "originProductNumber": "1000057355",
+  "originProductCode": 1,
+  "subProductType": 1,
+  "files": [
+    {
+      "documentaryCode": 254,
+      "filename": "CC-1016020757.pdf"
+    },
+    {
+      "documentaryCode": 260,
+      "filename": "DR-1016020757-0.pdf"
+    }
+  ]
+}

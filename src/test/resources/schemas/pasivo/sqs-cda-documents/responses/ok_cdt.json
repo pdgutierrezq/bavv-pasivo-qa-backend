@@ -1,0 +1,17 @@
+{
+  "status": 200,
+  "body": {
+    "SendMessageResponse": {
+      "ResponseMetadata": {
+        "RequestId": "#string"
+      },
+      "SendMessageResult": {
+        "MD5OfMessageAttributes": null,
+        "MD5OfMessageBody": "#string",
+        "MD5OfMessageSystemAttributes": null,
+        "MessageId": "#string",
+        "SequenceNumber": null
+      }
+    }
+  }
+}

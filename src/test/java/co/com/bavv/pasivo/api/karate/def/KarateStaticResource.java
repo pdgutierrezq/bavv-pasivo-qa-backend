@@ -56,7 +56,10 @@ public enum KarateStaticResource implements Resource {
         "classpath:schemas/pasivo/validate-document/responses/ok.json"),
     READ_SUMMARY_TRANSACTION("read-summary-transaction",
         "classpath:schemas/pasivo/empty.json",
-        "classpath:schemas/pasivo/read-summary-transaction/responses/ok.json");
+        "classpath:schemas/pasivo/read-summary-transaction/responses/ok.json"),
+    SQS_CDA_DOCUMENTS("sqs-cda-documents",
+        "classpath:schemas/pasivo/sqs-cda-documents/requests/cdt.json",
+        "classpath:schemas/pasivo/sqs-cda-documents/responses/ok_cdt.json");
 
     private final String id;
     private String requestFilePath;
