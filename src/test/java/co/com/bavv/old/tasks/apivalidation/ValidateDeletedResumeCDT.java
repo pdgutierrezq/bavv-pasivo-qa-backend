@@ -29,6 +29,6 @@ public class ValidateDeletedResumeCDT implements Task {
     actor.attemptsTo(
         Ensure.that(
             "Se valida que no hay informacion en base de datos",
-            response -> response.body("errorMessage", Matchers.is("DATABASE_ERROR"))));
+            response -> response.body("errorMessage", Matchers.is("No existen registros de este documentNumber para CDT en la base de datos"))));
   }
 }
