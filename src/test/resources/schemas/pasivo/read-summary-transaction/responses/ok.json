@@ -1,0 +1,15 @@
+{
+  "status": 200,
+  "body": {
+    "atmWithdrawalsNumber": 3,
+    "hasInsurance": false,
+    "discountPerInsurance": 0,
+    "accountType": "CUENTA_PRO",
+    "documentNumber": "1016020757",
+    "officeWithdrawalsNumber": 0,
+    "accountNumber": "1000013256",
+    "feePerAccount": 0,
+    "transactionId": "2191016020538",
+    "feePerInsurance": 14800
+  }
+}
