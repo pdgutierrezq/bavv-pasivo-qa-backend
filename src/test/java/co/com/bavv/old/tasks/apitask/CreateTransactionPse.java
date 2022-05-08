@@ -52,6 +52,7 @@ public class CreateTransactionPse implements Task {
         .fee(140779710)
         .tax(0)
         .userType("0")
+        .cdtNumber("6492113110157")
         .build();
   }
 }

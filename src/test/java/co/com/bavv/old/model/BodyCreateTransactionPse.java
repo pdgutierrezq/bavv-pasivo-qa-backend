@@ -21,5 +21,6 @@ public class BodyCreateTransactionPse {
     private int fee;
     private int tax;
     private String userType;
+    private String cdtNumber;
 
 }

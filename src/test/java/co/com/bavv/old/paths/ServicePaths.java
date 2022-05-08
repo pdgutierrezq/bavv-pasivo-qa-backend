@@ -36,7 +36,11 @@ public class ServicePaths {
   }
 
   public static String getEndPointBase(String env) {
-    return Settings.getInstance().getApiBaseUrl();
+      String endPointBase = Settings.getInstance().getApiBaseUrl();
+      if (env.equals(Constantes.AUX_ENV)) {
+          endPointBase = EnvironmentProperties.getProperty(BASE_ENDPOINT_AUX);
+      }
+    return endPointBase;
   }
 
   public static String getAuxEndPointBase() {

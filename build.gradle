@@ -1,3 +1,4 @@
+apply from: "gradle/resources/project.gradle"
 apply from: "gradle/resources/java-serenity-project.gradle"
 repositories {
     mavenLocal()
@@ -50,8 +51,10 @@ ext {
     ]
     runner = [
             projectRootPath: new File("").absolutePath,
+            projectName    : new File("").getAbsolutePath().split('/').last(),
+            remoteExecution: System.getProperty('local') == null,
             buildProfile   : System.getProperty('environment'),
-            cucumberOptions: '',
+            cucumberOptions: "${cucumberOptions}",
             reportName     : ''
     ]
 }
@@ -105,27 +108,8 @@ tasks.withType(Test) {
     systemProperties['testrail.attachments'] = "${testrailAttachments}"
 }
 
-task printenv(type: Exec) {
-    commandLine 'env'
-}
-
-processTestResources {
-    if (runner.buildProfile == 'stg')
-        runner.buildProfile = "${environment}"
-    runner.cucumberOptions = "${cucumberOptions}"
-    if (runner.buildProfile == 'pro')
-        runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
-    println "               ╔══╗ \n" +
-            "               ║██║ \n" +
-            "               ║(O)║♫ ♪ ♫ ♪\n" +
-            "               ╚══╝\n" +
-            "               ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █\n" +
-            "               Min- - - - - - - - - - - -●Max\n"
-    println "[INFO:PBA] RUNNING 🇦​​​​​🇩​​​​​🇳​​​​​ 🇦​​​​​🇺​​​​​🇹​​​​​🇴​​​​​🇲​​​​​🇦​​​​​🇹​​​​​🇮​​​​​🇴​​​​​🇳​​​​​ 🇵​​​​​🇷​​​​​🇴​​​​​🇯​​​​​🇪​​​​​🇨​​​​​🇹​​​​​"
-    println "[INFO:PBA] PROJECT PATH: $runner.projectRootPath"
-    println "[INFO:PBA] ENVIRONMENT: $runner.buildProfile"
-    println "[INFO:PBA] TESTRAIL:  ${testrailEnable}"
-    println "[INFO:PBA] CUCUMBER OPTIONS: $runner.cucumberOptions"
+processTestResources { dependsOn printenv
+    setup()
     from("$rootDir/profiles/$runner.buildProfile") {
         include '*.properties'
     }
@@ -147,16 +131,9 @@ test {
     gradle.startParameter.continueOnFailure = true
 }
 aggregate.doLast {
-    copy {
-        from "$runner.projectRootPath" + "/src/test/resources/img/logo.svg"
-        into "$runner.projectRootPath" + "/target/site/serenity/images"
-    }
-    File myFile = new File("$runner.projectRootPath" + "/target/site/serenity/index.html")
-    String newText = '<span class="projecttitle" style="font-family: cursive;top: 50px;left: 9%;font-weight: bolder;color: black;font-size: 2.2em;">' + runner.reportName + '</span>\n' + '<img alt="Logo" src="images/logo.svg" style="/* background: #006bff; */"><span class="projectname" style="margin-top: 20px;border-top-width: 2px;margin-right: 20px;">' + '<span class="projectsubtitle" style="font-family: auto;">Ambiente: ' + runner.buildProfile.toUpperCase() + '</span>'
-    String fileText = myFile.text
-    fileText = (fileText =~ /<span class="projectname">/).replaceFirst(newText)
-    fileText = (fileText =~ /<span class="projectname">.*<\/span>/).replaceFirst('')
-    myFile.write(fileText)
-//    System.print(rootProject.file("$runner.projectRootPath" + "/target/site/serenity/index.html").text + "\n")
+    custmizeSerenityReport()
 }
-
+//
+//task getConfig {
+//    setup()
+//}

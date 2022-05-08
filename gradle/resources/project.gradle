@@ -1,0 +1,70 @@
+import groovy.json.JsonSlurper
+
+ext.custmizeSerenityReport = {
+    copy {
+        from "$runner.projectRootPath" + "/src/test/resources/img/logo.svg"
+        into "$runner.projectRootPath" + "/target/site/serenity/images"
+    }
+    File myFile = new File("$runner.projectRootPath" + "/target/site/serenity/index.html")
+    String newText = '<span class="projecttitle" style="font-family: cursive;top: 50px;left: 9%;font-weight: bolder;color: black;font-size: 2.2em;">' + runner.reportName + '</span>\n' + '<img alt="Logo" src="images/logo.svg" style="/* background: #006bff; */"><span class="projectname" style="margin-top: 20px;border-top-width: 2px;margin-right: 20px;">' + '<span class="projectsubtitle" style="font-family: auto;">Ambiente: ' + runner.buildProfile.toUpperCase() + '</span>'
+    String fileText = myFile.text
+    fileText = (fileText =~ /<span class="projectname">/).replaceFirst(newText)
+    fileText = (fileText =~ /<span class="projectname">.*<\/span>/).replaceFirst('')
+    myFile.write(fileText)
+//    System.print(rootProject.file("$runner.projectRootPath" + "/target/site/serenity/index.html").text + "\n")
+}
+
+ext.setup = {
+    if (runner.buildProfile != 'pro') {
+        if (runner.remoteExecution) {
+            def config = curl('http://rb-dev-alb-ecs-ext-525169194.us-east-2.elb.amazonaws.com/castlemock/mock/rest/project/FuQbLm/application/gIoXnd/config', 'project:' + runner.projectName + ',' + 'environmet:' + runner.buildProfile)
+            runner.config = config
+            runner.buildProfile = config.environment
+            runner.cucumberOptions = config.cucumber.options
+        }
+    } else {
+        runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
+    }
+    println "               ╔══╗ \n" +
+            "               ║██║ \n" +
+            "               ║(O)║♫ ♪ ♫ ♪\n" +
+            "               ╚══╝\n" +
+            "               ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █\n" +
+            "               Min- - - - - - - - - - - -●Max\n"
+    println "[INFO:PBA] RUNNING 🇦​🇺​🇹​🇴​🇲​🇦​🇹🇮​🇴🇳 🇵​🇷​🇴🇯​🇪​🇨🇹"
+    println "[INFO:PBA] PROJECT PATH: $runner.projectRootPath"
+    println "[INFO:PBA] PROJECT NAME: $runner.projectName"
+    println "[INFO:PBA] REMOTE EXECUTION: $runner.remoteExecution"
+    println "[INFO:PBA] REMOTE CONFIGURATION: $runner.config"
+    println "[INFO:PBA] ENVIRONMENT: $runner.buildProfile"
+    println "[INFO:PBA] CUCUMBER OPTIONS: $runner.cucumberOptions"
+    println "[INFO:PBA] TESTRAIL ENABLED:  ${testrailEnable}"
+}
+
+ext.curl = { url, headers ->
+    def cmd = ['curl', url.toURL()]
+    def headersArray = headers.split(',')
+    for (String header in headersArray) {
+        cmd.add('--header')
+        cmd.add(header)
+    }
+    def exec = execute(cmd)
+    def json = new JsonSlurper().parseText(exec.text)
+    return json
+}
+
+ext.printEnv = {
+    def exec = execute('env')
+    System.print(exec.text)
+}
+
+ext.execute = { cmd ->
+    def exec = cmd.execute()
+    Thread.start { System.err << exec.err }
+    exec.waitFor()
+    return exec
+}
+
+task printenv(type: Exec) {
+    commandLine 'env'
+}

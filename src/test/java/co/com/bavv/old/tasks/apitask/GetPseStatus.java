@@ -29,13 +29,13 @@ public class GetPseStatus implements Task {
   @Step("{0} obtiene obtiene el stado de la transaccion pse")
   public <T extends Actor> void performAs(T actor) {
 
-    actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase(Constantes.AUX_ENV)));
+    actor.whoCan(CallAnApi.at(ServicePaths.getEndPointBase("")));
 
     actor.attemptsTo(
-        CallGetWith.token("pse-services"));
+        CallGetWith.token("pse-transaction-status"));
     actor.attemptsTo(
         Ensure.that(
             "Se valida el estado de la validacion de estado pse",
-            validatableResponse -> validatableResponse.statusCode(200)));
+            validatableResponse -> validatableResponse.statusCode(202)));
   }
 }
