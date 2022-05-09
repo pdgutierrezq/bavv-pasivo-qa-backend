@@ -106,8 +106,7 @@ tasks.withType(Test) {
     systemProperties['testrail.suiteId'] = "${testrailSuiteId}"
     systemProperties['testrail.attachments'] = "${testrailAttachments}"
 }
-
-processTestResources { dependsOn printenv
+processTestResources {
     setup()
     from("$rootDir/profiles/$runner.buildProfile") {
         include '*.properties'
