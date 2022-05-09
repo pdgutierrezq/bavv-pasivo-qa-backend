@@ -15,15 +15,10 @@ ext.custmizeSerenityReport = {
 }
 
 ext.setup = {
-    if (runner.buildProfile != 'pro') {
-        if (runner.remoteExecution) {
-//            def config = curl('http://rb-dev-alb-ecs-ext-525169194.us-east-2.elb.amazonaws.com/castlemock/mock/rest/project/FuQbLm/application/gIoXnd/config', 'project:' + runner.projectName + ',' + 'environmet:' + runner.buildProfile)
-//            runner.config = config
-//            runner.buildProfile = config.environment
-            System.out.println("Cucumber Options:"+System.getenv("cucumberOptions"))
-            runner.cucumberOptions = System.getenv("cucumberOptions")
-        }
-    } else {
+    if (runner.remoteExecution) {
+        runner.cucumberOptions = System.getenv("cucumberOptions")
+    }
+    if (System.getProperty('environment') == 'pro') {
         runner.cucumberOptions = "--tags '@layer:backend and @smoke-test and @execution:automatic and not @bug-type:known-issue and not @ignore'"
     }
     println "               ╔══╗ \n" +
