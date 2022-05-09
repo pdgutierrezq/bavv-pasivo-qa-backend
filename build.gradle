@@ -52,9 +52,8 @@ ext {
     runner = [
             projectRootPath: new File("").absolutePath,
             projectName    : new File("").getAbsolutePath().split('/').last(),
-            remoteExecution: System.getProperty('local') == null,
             buildProfile   : System.getProperty('environment'),
-            cucumberOptions: "${cucumberOptions}",
+            cucumberOptions: System.getenv("cucumberOptions") != null ? System.getenv("cucumberOptions"):"${cucumberOptions}",
             reportName     : ''
     ]
 }
@@ -133,7 +132,3 @@ test {
 aggregate.doLast {
     custmizeSerenityReport()
 }
-//
-//task getConfig {
-//    setup()
-//}
